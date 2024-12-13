@@ -1,5 +1,5 @@
 let handler = async (m, { conn, args, usedPrefix, command }) => {
-this.sendMessage(m.chat, { text: 'holaa', 
+conn.sendMessage(m.chat, { text: 'holaa', 
 contextInfo:{
 forwardingScore: 9999999,
 isForwarded: true, 

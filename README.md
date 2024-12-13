@@ -1,4 +1,4 @@
-> <b>🚀 Versión actual: 1.9.5</b>
+> <b>🚩 Versión actual: 1.9.5</b>
  
 <p align="center"> 
 <a href="https://github.com/gudo1234"><img src="http://readme-typing-svg.herokuapp.com?font=mono&size=17&duration=4000&color=F7B11B&center=falso&vCenter=falso&lines=IZUMI-BOT++%F0%9F%90%88;Gracias+por+visitar+este+repositorio.+%F0%9F%92%96" height="90px"></a> 
@@ -44,13 +44,13 @@
 <a href="http://wa.me/50492280729?text=p" target="blank"><img src="https://img.shields.io/badge/Bot oficial-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
 </a>
 
-### ❇️ 𝙂𝙍𝙐𝙋𝙊𝙎 𝙊𝙁𝙄𝘾𝙄𝘼𝙇𝙀𝙎
+### 🚩 𝙂𝙍𝙐𝙋𝙊𝙎 𝙊𝙁𝙄𝘾𝙄𝘼𝙇𝙀𝙎
 
-<a href="https://chat.whatsapp.com/HNDVUxHphPzG3cJHIwCaX5" target="blank"><img src="https://img.shields.io/badge/Grupo LoliBot ofc 1-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" /> 
-<a href="https://chat.whatsapp.com/H4hxytyGvucIF1k0UAR7es" target="blank"><img src="https://img.shields.io/badge/Grupo LoliBot ofc 2-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
-<a href="https://chat.whatsapp.com/IO5k0UOF7hOJHE1eH3Fcxh" target="blank"><img src="https://img.shields.io/badge/🐈 𝐆𝐚𝐭𝐚𝐁𝐨𝐭 & 𝐋𝐨𝐥𝐢𝐁𝐨𝐭 🥳-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
-<a href="https://chat.whatsapp.com/IstOAq2RnBx687WhQpOYK8" target="blank"><img src="https://img.shields.io/badge/𝐄𝐧𝐥𝐚𝐜𝐞 𝐋𝐨𝐥𝐢𝐁𝐨𝐭 -25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
-<a href="https://chat.whatsapp.com/Jpshmvl9Ey4K30zKHoK20q" target="blank"><img src="https://img.shields.io/badge/💫 𝘾𝙤𝙢𝙪𝙣𝙞𝙙𝙖𝙙 𝙇𝙤𝙡𝙞𝘽𝙤𝙩 🥳-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
+<a href="https://chat.whatsapp.com/KlFxtwHtqIWIWOTjnjqnu3" target="blank"><img src="https://img.shields.io/badge/Grupo Izumu-Bot-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" /> 
+<a href="https://chat.whatsapp.com/IHfuRa9zPsg4ZEWkfhxTs1" target="blank"><img src="https://img.shields.io/badge/Grupo Link-Izumi-Bot-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
+<a href="https://chat.whatsapp.com/DrhDlBWkWaV5sLOeS9kOBb" target="blank"><img src="https://img.shields.io/badge/Union-Diversión-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
+<a href="https://chat.whatsapp.com/GdHF1HbvUKJ82FHrfV8vWQ" target="blank"><img src="https://img.shields.io/badge/Asistente-Bot-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
+<a href="https://whatsapp.com/channel/0029VaXHNMZL7UVTeseuqw3H" target="blank"><img src="https://img.shields.io/badge/Channel-Izumi-Bot-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
 </a>
 
 <a href="https://chat.whatsapp.com/FRkr7jJHSJA5OjVtE64dDs" target="blank"><img src="https://img.shields.io/badge/Grupo ayuda sobre el bot-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />

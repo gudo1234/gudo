@@ -6,7 +6,6 @@ import cheerio from 'cheerio'
 import fetch from 'node-fetch'
 import axios from 'axios' 
 import moment from 'moment-timezone'
-import { en, es, id, ar, pt } from './lib/idiomas/total-idiomas.js'
 
 //---------[ Añada los numeros a ser Propietario/a ]---------
 

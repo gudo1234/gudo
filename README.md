@@ -1,11 +1,11 @@
 > <b>🚀 Versión actual: 1.9.5</b>
  
 <p align="center"> 
-<a href="https://github.com/elrebelde21"><img src="http://readme-typing-svg.herokuapp.com?font=mono&size=17&duration=4000&color=F7B11B&center=falso&vCenter=falso&lines=LoliBot-MD++%F0%9F%90%88;Gracias+por+visitar+este+repositorio.+%F0%9F%92%96" height="90px"></a> 
+<a href="https://github.com/elrebelde21"><img src="http://readme-typing-svg.herokuapp.com?font=mono&size=17&duration=4000&color=F7B11B&center=falso&vCenter=falso&lines=IZUMU-BOT++%F0%9F%90%88;Gracias+por+visitar+este+repositorio.+%F0%9F%92%96" height="90px"></a> 
 </p>
 
 <p align="center">
-<img src="https://telegra.ph/file/c3396a8d9b8ba43aed33e.jpg" alt="LoliBot-MD" width="900"/>
+<img src="https://qu.ax/nYgoY.jpg" alt="IZUMI-BOT" width="900"/>
 </p>
 
 <p align="center">

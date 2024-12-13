@@ -38,7 +38,7 @@ rows: [{ header: `🎉 BIENVENIDA ${m.isGroup ? chat.welcome ? '✅' : '❌' : `
 { header: `✅ LECTURA AUTOMÁTICA ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}`, title: "", id: `${usedPrefix + command} autoread`, description: `Dejar los mensajes o chats como Leídos.\n` }, 
 { header: `🌐 MODO PÚBLICO ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}`, title: "", id: `${usedPrefix + command} public`, description: `Habilitar función para que todos puedan usar LoliBot.\n` }]
 });
-let textoo = `*\`⧼⧼⧼ ＣＯＮＦＩＧＵＲＡＣＩＯ́Ｎ ⧽⧽⧽\`*
+let textoo = `*\`OPCIONES PARA ACTIVAR/DESACTIVAR\`*
 
 > *Seleccione una opción de la lista*
 > *Para empezar a Configurar*
@@ -46,10 +46,7 @@ let textoo = `*\`⧼⧼⧼ ＣＯＮＦＩＧＵＲＡＣＩＯ́Ｎ ⧽⧽⧽\`
 ● *Avisos de la Configuracion:*
 ✅ ⇢ *Función Activada*
 ❌ ⇢ *Función Desactivada*
-⚠️ ⇢ *Este Chat no es un Grupo*
-
-*\`『 FUNCIÓN PARA ADMINS 』\`*
-
+⚠️ ⇢ *Este Chat no es un grupo*
 🎉 BIENVENIDA ${m.isGroup ? chat.welcome ? '✅' : '❌' : `⚠️`}
 • Mensaje de Bienvenida para nuevos Miembros en Grupos
 • ${usedPrefix + command} welcome 
@@ -588,7 +585,7 @@ await m.reply(`🗂️ ʟᴀ ᴏᴘᴄɪᴏɴ ${type} ᴘᴀʀᴀ ${isAll ? 'ᴇ
 handler.help = ['en', 'dis'].map(v => v + 'able <option>')
 handler.tags = ['nable']
 handler.command = /^((en|dis)able|(tru|fals)e|(turn)?o(n|ff)|[01])$/i
-handler.register = true
+handler.group = true;
 export default handler;
 
 const more = String.fromCharCode(8206)

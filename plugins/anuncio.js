@@ -5,7 +5,7 @@ contextInfo: { externalAdReply :{ mediaUrl: null, mediaType: 1, showAdAttributio
 title: wm,
 body: author,
 previewType: 0, thumbnail: img,
-sourceUrl: canal }}});
+sourceUrl: social }}});
 }
 
 handler.command = /^(ve)$/i;

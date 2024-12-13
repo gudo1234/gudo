@@ -1,5 +1,5 @@
 {
-"name": "gudo",
+"name": "LoliBot-MD",
 "version": "1.9.5", 
 "description": "Super Bot WhatsApp",
 "main": "index.js",
@@ -17,16 +17,16 @@
 "test": "node test.js",
 "test2": "nodemon index.js" },
     
-"homepage": "https://github.com/gudo1234/gudo",
+"homepage": "https://github.com/elrebelde21/LoliBot-MD",
 "author": {
-"name": "gudo1234" },
+"name": "elrebelde21" },
     
 "repository": {
 "type": "git",
-"url": "git+https://github.com/gudo1234/gudo" },
+"url": "git+https://github.com/elrebelde21/LoliBot-MD.git" },
 
 "bugs": {
-"url": "https://github.com/gudo1234/gudo/issues" },
+"url": "https://github.com/elrebelde21/LoliBot-MD/issues" },
 "license": "GPL-3.0-or-later",
 "dependencies": {
 "@whiskeysockets/baileys": "github:nstar-y/Bail",
@@ -99,11 +99,11 @@
 "mime-types": "^2.1.35",
 "api-dylux": "^1.7.2",
 "yargs": "^17.6.0",
-
-"github:DIEGO-OFC/dv-aptoide-scraper",
+    
+"ruhend-scraper": "^7.0.4",
+"aptoide-scraper": "github:DIEGO-OFC/dv-aptoide-scraper",
 "@StarlightsTeam/Scraper": "github:StarlightsTeam/StarlightsTeam-Scraper",
-"@SumiFX/Scraper": "github:SumiFX/SumiFX-Scraper",
-"ruhend-scraper": "^7.0.4"
+"@SumiFX/Scraper": "github:SumiFX/SumiFX-Scraper"
 },
 "optionalDependencies": {
 "wa-sticker-formatter": "^4.3.2",

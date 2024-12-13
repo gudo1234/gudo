@@ -9,7 +9,7 @@ const handler = async (m, {conn, command, args, text, usedPrefix}) => {
 
 if (command == 'play' || command == 'mp3') {
 if (!text) return conn.reply(m.chat, `🧧 Ejemplo, ${usedPrefix + command} diles`, m); 
-await m.react('🔵');
+await m.react('🕒');
 const yt_play = await search(args.join(' '));
 const ytplay2 = await yts(text);
 let name = await conn.getName(m.sender)

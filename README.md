@@ -1,11 +1,11 @@
 > <b>🚀 Versión actual: 1.9.5</b>
  
 <p align="center"> 
-<a href="https://github.com/gudo1234"><img src="http://readme-typing-svg.herokuapp.com?font=mono&size=17&duration=4000&color=F7B11B&center=falso&vCenter=falso&lines=꙳🧧𓆩ίʑ᭘ɱί-ⲃⲟτ𓆪🧧꙳++%F0%9F%90%88;Gracias+por+visitar+este+repositorio.+%F0%9F%92%96" height="90px"></a> 
+<a href="https://github.com/gudo1234"><img src="http://readme-typing-svg.herokuapp.com?font=mono&size=17&duration=4000&color=F7B11B&center=falso&vCenter=falso&lines=IZUMI-BOT++%F0%9F%90%88;Gracias+por+visitar+este+repositorio.+%F0%9F%92%96" height="90px"></a> 
 </p>
 
 <p align="center">
-<img src="https://qu.ax/nYgoY.jpg" alt="꙳🧧𓆩ίʑ᭘ɱί-ⲃⲟτ𓆪🧧꙳" width="900"/>
+<img src="https://qu.ax/nYgoY.jpg" alt="IZUMI-BOT" width="900"/>
 </p>
 
 <p align="center">
@@ -14,13 +14,13 @@
 </p>  
 
 <p align="center">
-<a href="#"><img title="The-LoliBot-MD" src="https://img.shields.io/badge/LEA TODO EL README-red?colorA=%F77F48FF&colorB=%F77F48FF&style=for-the-badge"></a> 
-<a href="#"><img title="LoliBot-MD" src="https://img.shields.io/badge/COMPATIBLE CON LA VERSIÓN MULTI DISPOSITIVOS DE WHATSAPP-red?colorA=%F77F48FF&colorB=%F77F48FF&style=for-the-badge">
+<a href="#"><img title="IZUMU-BOT" src="https://img.shields.io/badge/LEA TODO EL README-red?colorA=%F77F48FF&colorB=%F77F48FF&style=for-the-badge"></a> 
+<a href="#"><img title="IZUMU-BOT" src="https://img.shields.io/badge/COMPATIBLE CON LA VERSIÓN MULTI DISPOSITIVOS DE WHATSAPP-red?colorA=%F77F48FF&colorB=%F77F48FF&style=for-the-badge">
 
 <p align="center">   
-<a href="https://github.com/elrebelde21/LoliBot-MD/network/members"><img title="Forks" src="https://img.shields.io/github/forks/elrebelde21/LoliBot-MD?label=Forks&color=blue&style=flat-square"></a>
-<a href="https://github.com/elrebelde21/LoliBot-MD/watchers"><img title="Watchers" src="https://img.shields.io/github/watchers/elrebelde21/LoliBot-MD?label=Watchers&color=green&style=flat-square"></a>
-<a href="https://github.com/elrebelde21/The-LoliBot-MD/stargazers"><img title="Stars" src="https://img.shields.io/github/stars/elrebelde21/LoliBot-MD?label=Stars&color=yellow&style=flat-square"></a>
+<a href="https://github.com/gudo1234/gudo/network/members"><img title="Forks" src="https://img.shields.io/github/forks/gudo1234/gudo?label=Forks&color=blue&style=flat-square"></a>
+<a href="https://github.com/gudo1234/gudo/watchers"><img title="Watchers" src="https://img.shields.io/github/watchers/gudo1234/gudo?label=Watchers&color=green&style=flat-square"></a>
+<a href="https://github.com/gudo1234/gudo/stargazers"><img title="Stars" src="https://img.shields.io/github/stars/gudo1234/gudo?label=Stars&color=yellow&style=flat-square"></a>
 </p> 
 
 <div align="center">

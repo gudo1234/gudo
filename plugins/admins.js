@@ -5,7 +5,7 @@ const handler = async (m, {conn, participants, groupMetadata, args}) => {
   const owner = groupMetadata.owner || groupAdmins.find((p) => p.admin === 'superadmin')?.id || m.chat.split`-`[0] + '@s.whatsapp.net';
   const pesan = args.join` `;
   const oi = `Mensaje: ${pesan}`;
-  const text = `> invocando Admins del Grupo.
+  const text = `> invocando Admins del Grupo...
 ${oi}\n━━━✦✗✦━━━
 ${listAdmin}\n━━━✦✗✦━━━
 > Use este comando cuando se trate de una emergencia. ¡Sea activo y pronto estará en esta lista!`.trim();

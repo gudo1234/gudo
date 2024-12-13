@@ -85,12 +85,12 @@
 termux-setup-storage
 ```
 ```bash
-apt update -y && yes | apt upgrade && pkg install -y bash wget mpv && wget -O - https://raw.githubusercontent.com/elrebelde21/LoliBot-MD/master/install.sh | bash
+apt update -y && yes | apt upgrade && pkg install -y bash wget mpv && wget -O - https://raw.githubusercontent.com/gudo1234/gudo/master/install.sh | bash
 ```
 -----
 ### 📁 (OPCIÓN 2) 𝐀𝐂𝐓𝐈𝐕𝐀 𝐄𝐋 𝐓𝐄𝐑𝐌𝐔𝐗 - 𝘼𝙍𝘾𝙃𝙄𝙑𝙊𝙎 
 > **Note** Descargué y Descomprime
-### [`LoliBot-MD ~ Archivos`](https://github.com/elrebelde21/LoliBot-MD/archive/refs/heads/master.zip)
+### [`IZUMI-BOT ~ Archivos`](https://github.com/gudo1234/gudo/archive/refs/heads/master.zip)
 [![blog](https://img.shields.io/badge/Termux-LoliBotMD-FF0000?style=for-the-badge&logo=youtube&logoColor=white)
 ](https://youtu.be/i1xjB4bmYCc?si=JBYC22-3mBkLpB8c)
 ```bash
@@ -100,7 +100,7 @@ termux-setup-storage
 apt update && apt upgrade && pkg install -y git nodejs ffmpeg imagemagick yarn
 ```
 ```bash
-cd storage/downloads/LoliBot-MD-master/LoliBot-MD-master 
+cd storage/downloads/gudo-master/gudo-master 
 ```
 ```bash
 yarn install
@@ -116,15 +116,15 @@ npm start
 ```bash
 𝐄𝐒𝐂𝐑𝐈𝐁𝐄 𝐋𝐎𝐒 𝐒𝐈𝐆𝐔𝐈𝐄𝐍𝐓𝐄𝐒 𝐂𝐎𝐌𝐀𝐍𝐃𝐎𝐒 𝐔𝐍𝐎 𝐏𝐎𝐑 𝐔𝐍𝐎:
 > cd 
-> cd LoliBot-MD
+> cd gudo
 > npm start
 ```
 ### `𝐎𝐁𝐓𝐄𝐍𝐄𝐑 𝐎𝐓𝐑𝐎 𝐂𝐎𝐃𝐈𝐆𝐎 𝐐𝐑 
 ```bash
 𝐄𝐒𝐂𝐑𝐈𝐁𝐄 𝐋𝐎𝐒 𝐒𝐈𝐆𝐔𝐈𝐄𝐍𝐓𝐄𝐒 𝐂𝐎𝐌𝐀𝐍𝐃𝐎𝐒 𝐔𝐍𝐎 𝐏𝐎𝐑 𝐔𝐍𝐎:
 > cd 
-> cd LoliBot-MD
-> rm -rf BotSession
+> cd gudo
+> rm -rf Sesion Principal
 > npm start
 ```          
 -----
@@ -132,23 +132,23 @@ npm start
 [![blog](https://img.shields.io/badge/Lolibot-YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)
 ](https://youtu.be/SMjCcfuyWQE)
 <a target="_blank" href="https://replit.com/github/elrebelde21/LoliBot-MD"><img alt="Run on Replit" src="https://binbashbanana.github.io/deploy-buttons/buttons/remade/replit.svg"></a>
-<a href="https://replit.com/github/elrebelde21/LoliBot-MD"> <img src="https://media0.giphy.com/media/lMwu8EJAnv9kmn51KQ/giphy.gif" height="29px"></a>
+<a href="https://replit.com/github/gudo1234/gudo"> <img src="https://media0.giphy.com/media/lMwu8EJAnv9kmn51KQ/giphy.gif" height="29px"></a>
 ------------------
-- [x] Resultado <details><summary>Importar Repositorio - The-LoliBot-MD</summary><img src="https://i.imgur.com/GQyRnMf.jpg"></details>
+- [x] Resultado <details><summary>Importar Repositorio - gudo</summary><img src="https://i.imgur.com/GQyRnMf.jpg"></details>
 ----  
 ### `📝 NOTA 📝`
 ```bash
-🔸ESTE REPOSITORIO SE PUBLICA LA VERSIÓN ACTUAL|OFICIAL DE LOLIBOT-MD
+🔸ESTE REPOSITORIO SE PUBLICA LA VERSIÓN ACTUAL|OFICIAL DE IZUMU-BOT
 🔸ES POSIBLE QUE EL BOT TENGA ALGUNAS FALLAS, SE IRAN SOLUCIONANDO CONFORME SE VAYAN DETECTANDO
 🔸SI VAS A EDITAR POR COMPLETO DEJA LOS CRÉDITOS DEL BOT
 🔸ATENTO A LAS NUEVAS ACTUALIZACIÓNES QUE SE HAGAN EN ESTE REPOSITORIO
 🔸EL ADD/KICK PUEDEN OCASIONAR QUE EL NÚMERO SE VAYA A SOPORTE POR ELLO SE ACTIVA CON #enable restrict
-🔸 LOLIBOT-MD, NO SE HACE RESPONSABLE DEL USO, NÚMERO, PRIVACIDAD Y CONTENIDO MANDADO, O USADO O GESTIONADO POR USTEDES O EL BOT (usarlo bajo tu responsabilidad). 
+🔸 IZUMU-BOT, NO SE HACE RESPONSABLE DEL USO, NÚMERO, PRIVACIDAD Y CONTENIDO MANDADO, O USADO O GESTIONADO POR USTEDES O EL BOT (usarlo bajo tu responsabilidad). 
 ```
 ----
 
 ### 🌟 EDITOR Y PROPIETARIO DEL BOT
-<a href="https://github.com/elrebelde21"><img src="https://github.com/elrebelde21.png" width="300" height="300" alt="elrebelde21"/></a>
+<a href="https://github.com/gudo1234"><img src="https://github.com/elrebelde21.png" width="300" height="300" alt="gudo1234"/></a>
 
 ### 🌟 COLABORADORES
 [![GataNina-Li](https://github.com/GataNina-Li.png?size=100)](https://github.com/GataNina-Li) 

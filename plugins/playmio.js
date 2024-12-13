@@ -91,7 +91,7 @@ let dp = await d2.json();
 const audiop = await getBuffer(dp.result.media.mp3);
 const fileSize = await getFileSize(dp.result.media.mp3);
 await conn.sendMessage(m.chat, { audio: { url: audiop }, mimetype: 'audio/mpeg' }, { quoted: m });
-await m.react('🔵');
+await m.react('🕒');
 if (fileSize > LimitAud) return await conn.sendMessage(m.chat, { document: { url: audiop }, mimetype: 'audio.mp3', fileName: `${yt_play[0].title}.mp3` }, { quoted: m });
 await m.react('🕒');
 } catch (e) {    
@@ -101,7 +101,7 @@ console.log(e);
 
 if (command == 'play2' || command == 'mp4') {
 if (!text) return conn.reply(m.chat, `🧧${usedPrefix + command} diles`, m);
-await m.react('🔵');
+await m.react('🕒');
 
 const yt_play = await search(args.join(' '));
 const ytplay2 = await yts(text);
@@ -244,7 +244,7 @@ const texto1 = `\`🦖Título:\` ${yt_play[0].title}
 
 await conn.sendFile(m.chat, yt_play[0].thumbnail, 'error.jpg', texto1, m, null, rcanal);
 try {
-await m.react('🔵');
+await m.react('🕒');
 const apiUrl = `https://deliriussapi-oficial.vercel.app/download/ytmp4?url=${encodeURIComponent(yt_play[0].url)}`;
 const apiResponse = await fetch(apiUrl);
 const delius = await apiResponse.json();
@@ -262,7 +262,7 @@ const dl_url = await yt.audio[q].download()
 const ttl = await yt.title
 const size = await yt.audio[q].fileSizeH
 await conn.sendMessage(m.chat, { document: { url: dl_url }, mimetype: 'audio/mpeg', fileName: `${ttl}.mp3` }, { quoted: m });
-await m.react('🔵');
+await m.react('🕒');
 } catch (e2) {
 try { 
 await m.react('🕒');  

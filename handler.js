@@ -1558,7 +1558,7 @@ global.dfail = (type, m, conn, usedPrefix) => {
         unreg: '「NO ESTAS REGISTRADO」\n\nNO APARECE EN MI BASE DE DATOS🤖\n\nPara poder usarme escribe el siguente comando\n\nComando: #reg nombre.edad\nEjemplo: #reg edar.17',
         restrict: '[ 🔐 ] _Este comando esta desactivado por mi jefe_'
     }[type]
-    if (msg) return conn.sendMessage(m.chat, {text: msg, contextInfo: { mentionedJid: null, forwardingScore: 1, isForwarded: true, forwardedNewsletterMessageInfo: { newsletterJid: '120363285614743024@newsletter', serverMessageId: '', newsletterName: '꙳🧧𓆩ίʑ᭘ɱί-ⲃⲟτ𓆪🧧꙳' }, externalAdReply : {mediaUrl: null, mediaType: 1, description: null, "title": `🔥รน℘εг-๖σt🔥`, body: wm, previewType: 0, "thumbnail": img.getRandom(), sourceUrl: fb}}}, { quoted: m })
+    if (msg) return conn.sendMessage(m.chat, {text: msg, contextInfo: { mentionedJid: null, forwardingScore: 1, isForwarded: true, forwardedNewsletterMessageInfo: { newsletterJid: '120363285614743024@newsletter', serverMessageId: '', newsletterName: '꙳🧧𓆩ίʑ᭘ɱί-ⲃⲟτ𓆪🧧꙳' }, externalAdReply : {mediaUrl: null, mediaType: 1, description: null, "title": `🔥รน℘εг-๖σt🔥`, body: 'Acceso denegado', previewType: 0, "thumbnail": img.getRandom(), sourceUrl: fb}}}, { quoted: m })
 }
 
 const file = global.__filename(import.meta.url, true);

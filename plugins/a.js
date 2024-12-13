@@ -28,9 +28,9 @@ await conn.reply(m.chat, errorMessage, m);
 } catch (error) {
 console.error(error);
 if (error.message) {
-const errorMessage2 = `\n${fg}` + error.message;
+const errorMessage2 = `error` + error.message;
 }
-await m.reply(`${fg}`) 
+await m.reply(`error`) 
 }}};
 handler.help = ['update']
 handler.tags = ['owner']

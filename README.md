@@ -1,15 +1,15 @@
 > <b>🚀 Versión actual: 1.9.5</b>
  
 <p align="center"> 
-<a href="https://github.com/elrebelde21"><img src="http://readme-typing-svg.herokuapp.com?font=mono&size=17&duration=4000&color=F7B11B&center=falso&vCenter=falso&lines=IZUMU-BOT++%F0%9F%90%88;Gracias+por+visitar+este+repositorio.+%F0%9F%92%96" height="90px"></a> 
+<a href="https://github.com/gudo1234"><img src="http://readme-typing-svg.herokuapp.com?font=mono&size=17&duration=4000&color=F7B11B&center=falso&vCenter=falso&lines=꙳🧧𓆩ίʑ᭘ɱί-ⲃⲟτ𓆪🧧꙳++%F0%9F%90%88;Gracias+por+visitar+este+repositorio.+%F0%9F%92%96" height="90px"></a> 
 </p>
 
 <p align="center">
-<img src="https://qu.ax/nYgoY.jpg" alt="IZUMI-BOT" width="900"/>
+<img src="https://qu.ax/nYgoY.jpg" alt="꙳🧧𓆩ίʑ᭘ɱί-ⲃⲟτ𓆪🧧꙳" width="900"/>
 </p>
 
 <p align="center">
-<a href="#"><img title="LoliBot-MD" src="https://img.shields.io/badge/SI TE AGRADA EL REPOSITORIO APOYAME CON UNA 🌟 ¡GRACIAS! -red?colorA=%255ff0000&colorB=%23017e40&style=for-the-badge"></a> 
+<a href="#"><img title="" src="https://img.shields.io/badge/SI TE AGRADA EL REPOSITORIO APOYAME CON UNA 🌟 ¡GRACIAS! -red?colorA=%255ff0000&colorB=%23017e40&style=for-the-badge"></a> 
 <img src="https://i.pinimg.com/originals/d4/3c/90/d43c902873d4db8c85974dfd0798030b.gif" height="28px">
 </p>  
 

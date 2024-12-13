@@ -4,7 +4,7 @@ conn.reply(m.chat, 'Hola', m, {
 contextInfo: { externalAdReply :{ mediaUrl: null, mediaType: 1, showAdAttribution: true,
 title: wm,
 body: author,
-previewType: 0, thumbnail: img,
+previewType: 0, thumbnail: imagen7,
 sourceUrl: social }}});
 }
 

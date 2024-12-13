@@ -18,12 +18,6 @@ global.prems = [50492280729]
 global.botNumberCode = "" //Ejemplo: +59309090909
 global.confirmCode = "" 
 
-//---------[ IDIOMA : LENGUAJE ]---------
-//es = Español         id = Bahasa Indonesia
-//en = English         pt = Português
-//ar = عرب 
-global.lenguajeGB = es  
-
 //---------[ APIS GLOBAL ]---------
 
 global.openai_key = 'sk-...OzYy' /* Consigue tu ApiKey en este enlace: https://platform.openai.com/account/api-keys */

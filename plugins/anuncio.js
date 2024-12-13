@@ -1,11 +1,17 @@
 let handler = async (m, { conn, args, usedPrefix, command }) => {
-let img = await (await fetch(`https://qu.ax/casQP.jpg`)).buffer()
-conn.reply(m.chat, 'Hola', m, {
-contextInfo: { externalAdReply :{ mediaUrl: null, mediaType: 1, showAdAttribution: true,
-title: wm,
-body: author,
-previewType: 0, thumbnail: imagen7,
-sourceUrl: social }}});
+this.sendMessage(m.chat, { text: 'holaa', 
+contextInfo:{
+forwardingScore: 9999999,
+isForwarded: true, 
+mentionedJid:[],
+"externalAdReply": {
+"showAdAttribution": true,
+"renderLargerThumbnail": true,
+"thumbnail": imagen4, 
+"title": 'qur',
+"containsAutoReply": true,
+"mediaType": 1, 
+sourceUrl: [md, nna, yt, nnn, nn, tiktok].getRandom()}}}, { quoted: m})
 }
 
 handler.command = /^(ve)$/i;

@@ -1,6 +1,6 @@
 let handler = async (m, { conn, args, usedPrefix, command }) => {
 let img = await (await fetch(`https://qu.ax/casQP.jpg`)).buffer()
-this.sendMessage(m.chat, 'Hola', m, {
+conn.sendMessage(m.chat, 'Hola', m, {
 contextInfo: { externalAdReply :{ mediaUrl: null, mediaType: 1, showAdAttribution: true,
 title: wm,
 body: 'test',

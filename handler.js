@@ -1545,23 +1545,20 @@ this.copyNForward(msg.chat, msg).catch(e => console.log(e, msg))
 console.error(e)
 }}
 
-global.dfail = (type, m, conn) => {
-let msg = {
-rowner: lenguajeGB['smsRowner'](),
-owner: lenguajeGB['smsOwner'](),
-mods: lenguajeGB['smsMods'](),
-premium: lenguajeGB['smsPremium'](),
-group: lenguajeGB['smsGroup'](),
-private: lenguajeGB['smsPrivate'](),
-admin: lenguajeGB['smsAdmin'](),
-botAdmin: lenguajeGB['smsBotAdmin'](),
-unreg: lenguajeGB['smsUnreg'](),
-restrict: lenguajeGB['smsRestrict'](),
-}[type]
-//if (msg) return m.reply(msg)
-let tg = { quoted: m, userJid: conn.user.jid }
-let prep = generateWAMessageFromContent(m.chat, { extendedTextMessage: { text: msg, contextInfo: { externalAdReply: { title: lenguajeGB.smsAvisoAG().slice(0,-2), body: [wm, ' ' + wm + ' 😊', '🌟'].getRandom(), thumbnail: img.getRandom(), sourceUrl: [md, nna, yt, nn, tiktok].getRandom() }}}}, tg)
-if (msg) return conn.relayMessage(m.chat, prep.message, { messageId: prep.key.id })
+global.dfail = (type, m, conn, usedPrefix) => {
+    let msg = {
+        rowner: '🧧 _Este comando es solo para mi propietario._',
+        owner: '🧧 _Este comando es solo para mi propietario._',
+        mods: '🧧 _Este comando solo lo puedo usar yo._',
+        premium: '🧧 _Este comando es solo para usuarios Premium (VIP)._',
+        group: '🧧 _Este comando es solo para grupos._\n\nhttps://chat.whatsapp.com/DrhDlBWkWaV5sLOeS9kOBb',
+        private: '🧧 _Este comando solo funciona en el privado del bot._',
+        admin: '🧧 _Solo los admins pueden usar este comando._',
+        botAdmin: '🧧 _Haz admin al Bot "YO" para poder usar este comando._',
+        unreg: '「NO ESTAS REGISTRADO」\n\nNO APARECE EN MI BASE DE DATOS🤖\n\nPara poder usarme escribe el siguente comando\n\nComando: #reg nombre.edad\nEjemplo: #reg edar.17',
+        restrict: '[ 🔐 ] _Este comando esta desactivado por mi jefe_'
+    }[type]
+    if (msg) return conn.sendMessage(m.chat, {text: msg, contextInfo: { mentionedJid: null, forwardingScore: 1, isForwarded: true, forwardedNewsletterMessageInfo: { newsletterJid: '120363285614743024@newsletter', serverMessageId: '', newsletterName: '꙳🧧𓆩ίʑ᭘ɱί-ⲃⲟτ𓆪🧧꙳' }, externalAdReply : {mediaUrl: null, mediaType: 1, description: null, "title": `🔥รน℘εг-๖σt🔥`, body: wm, previewType: 0, "thumbnail": img.getRandom(), sourceUrl: fb}}}, { quoted: m })
 }
 
 const file = global.__filename(import.meta.url, true);

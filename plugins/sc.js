@@ -19,7 +19,7 @@ let handler = async function (m, { conn, __dirname }) {
 👤 *Owner:* ${author}
 🚩 *Numero:* +504 9228-0729
 🌐 *Chanel:* ${canal}
-☁️ *Script:* Aun no subo nada bro😔`.trim()
+☁️ *Script:* https://github.com/edar123/Baileys`.trim()
 
       // Send the formatted information as a message
       await conn.relayMessage(

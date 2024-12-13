@@ -34,12 +34,11 @@ thumbnail: imagen4,
       //renderLargerThumbnail: true
     }
   }},{quoted: fkontak})
-const texto1 = `\`🦖Título:\`
-° ${yt_play[0].title}
-\`📆Publicado\` 
-° ${yt_play[0].ago}
-\`🕑Duración\`
-° ${secondString(yt_play[0].duration.seconds)}
+const texto1 = `\`🦖Título:\` ${yt_play[0].title}
+
+\`📆Publicado:\` ${yt_play[0].ago}
+
+\`🕑Duración:\` ${secondString(yt_play[0].duration.seconds)}
 
 > _Descargado el audio 🔊, aguarde un momento...._`.trim();
 
@@ -128,12 +127,11 @@ thumbnail: imagen4,
       //renderLargerThumbnail: true
     }
   }},{quoted: fkontak})
-const texto1 = `\`🦖Título:\`
-° ${yt_play[0].title}
-\`📆Publicado\` 
-° ${yt_play[0].ago}
-\`🕑Duración\`
-° ${secondString(yt_play[0].duration.seconds)}
+const texto1 = `\`🦖Título:\` ${yt_play[0].title}
+
+\`📆Publicado:\` ${yt_play[0].ago}
+
+\`🕑Duración:\` ${secondString(yt_play[0].duration.seconds)}
 
 > _Descargado su video 📽, aguarde un momento...._`.trim();
 
@@ -236,12 +234,11 @@ thumbnail: imagen4,
       //renderLargerThumbnail: true
     }
   }},{quoted: fkontak})
-const texto1 = `\`🦖Título:\`
-° ${yt_play[0].title}
-\`📆Publicado\` 
-° ${yt_play[0].ago}
-\`🕑Duración\`
-° ${secondString(yt_play[0].duration.seconds)}
+const texto1 = `\`🦖Título:\` ${yt_play[0].title}
+
+\`📆Publicado:\` ${yt_play[0].ago}
+
+\`🕑Duración:\` ${secondString(yt_play[0].duration.seconds)}
 
 > _Descargado el audio 🔊 en documento, aguarde un momento por favor...._`.trim();
 
@@ -327,12 +324,11 @@ thumbnail: imagen4,
       //renderLargerThumbnail: true
     }
   }},{quoted: fkontak})
-const texto1 = `\`🦖Título:\`
-° ${yt_play[0].title}
-\`📆Publicado\` 
-° ${yt_play[0].ago}
-\`🕑Duración\`
-° ${secondString(yt_play[0].duration.seconds)}
+const texto1 = `\`🦖Título:\` ${yt_play[0].title}
+
+\`📆Publicado:\` ${yt_play[0].ago}
+
+\`🕑Duración:\` ${secondString(yt_play[0].duration.seconds)}
 
 > _Descargado su video en documento, aguarde un momento por favor...._`.trim();
 

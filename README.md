@@ -75,7 +75,7 @@
 - **Contacto(s):** [`Gata Dios`](https://wa.me/message/B3KTM5XN2JMRD1) / [`Russell`](https://api.whatsapp.com/send/?phone=15167096032&text&type=phone_number&app_absent=0) / [`elrebelde21`](https://facebook.com/elrebelde21)
 - **Discord:** [`aqui`](https://discord.gg/Ph4eWsZ8)
 
-- [x] **Configuración** <details><summary>**Ajustes del Servidor - IZUMU-BOT**</summary><img src="https://telegra.ph/file/7ddd30dd7d77354fb01fe.jpg"></details>
+- [x] **Configuración** <details><summary>**BEST🗿 - IZUMU-BOT**</summary><img src="https://qu.ax/Delvf.jpg"></details>
 ----
 
 ### 𝐀𝐂𝐓𝐈𝐕𝐀 𝐄𝐋 𝐓𝐄𝐑𝐌𝐔𝐗 - 𝙂𝙄𝙏𝙃𝙐𝘽
@@ -91,7 +91,7 @@ apt update -y && yes | apt upgrade && pkg install -y bash wget mpv && wget -O - 
 ### 📁 (OPCIÓN 2) 𝐀𝐂𝐓𝐈𝐕𝐀 𝐄𝐋 𝐓𝐄𝐑𝐌𝐔𝐗 - 𝘼𝙍𝘾𝙃𝙄𝙑𝙊𝙎 
 > **Note** Descargué y Descomprime
 ### [`IZUMI-BOT ~ Archivos`](https://github.com/gudo1234/gudo/archive/refs/heads/master.zip)
-[![blog](https://img.shields.io/badge/Termux-LoliBotMD-FF0000?style=for-the-badge&logo=youtube&logoColor=white)
+[![blog](https://img.shields.io/badge/Termux-IZUMI-BOT-FF0000?style=for-the-badge&logo=youtube&logoColor=white)
 ](https://youtu.be/i1xjB4bmYCc?si=JBYC22-3mBkLpB8c)
 ```bash
 termux-setup-storage
@@ -148,7 +148,7 @@ npm start
 ----
 
 ### 🌟 EDITOR Y PROPIETARIO DEL BOT
-<a href="https://github.com/gudo1234"><img src="https://github.com/elrebelde21.png" width="300" height="300" alt="gudo1234"/></a>
+<a href="https://github.com/gudo1234"><img src="https://github.com/gudo1234.png" width="300" height="300" alt="gudo1234"/></a>
 
 ### 🌟 COLABORADORES
 [![GataNina-Li](https://github.com/GataNina-Li.png?size=100)](https://github.com/GataNina-Li) 

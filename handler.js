@@ -1507,17 +1507,29 @@ if (nk.status == "offer") {
  const ocupado = './media/ocupado.mp3'
 let img = await (await fetch(`https://i.ibb.co/W3hmLwX/file.jpg`)).buffer()
 let txt = `\`🔐SISTEMA de BlOCK📱\`\n\n> Hola *@${nk.from.split('@')[0]}* las llamadas no están permitidas para este usuario...\n\n*Si está interesado en mis servicios contacte a mi desarrollador.*\n• Para más información contáctanos..`
-
+this.sendMessage(m.chat, { text: txt, contextInfo: {
+    mentionedJid: null,
+    groupMentions: [],
+    isForwarded: true,
+    forwardedNewsletterMessageInfo: {
+      newsletterJid: '120363285614743024@newsletter',
+      newsletterName: `꙳🧧𓆩ίʑ᭘ɱί-ⲃⲟτ𓆪🧧꙳`,
+      serverMessageId: 0
+    },
+    businessMessageForwardInfo: { businessOwnerJid: '50492280729@s.whatsapp.net' },
+    forwardingScore: 9999,
+    externalAdReply: {
+      title: `${await conn.getName(m.chat)}`,
+      body: '©️ Powered By 𓆩᮫࣭݊͜?☃️࣭݊ျ֘▹ⲉ꯭𝖽α꯭૨‹࣭݊⸸࣭݊͜𓆪',
+      thumbnailUrl: imagen1,
+thumbnail: imagen4,
+      sourceUrl: 'https://www.atom.bio/edar_',
+      //mediaType: 1,
+      //renderLargerThumbnail: true
+    }
+  }},{quoted: null})
 let callmsg = await this.sendMessage(nk.from, { audio: { url: ocupado }, fileName: 'error.mp3', mimetype: 'audio/mp4', ptt: true }, { quoted: null })
-await this.sendButtonMessages(nk.from, [[txt, 'https://www.atom.bio/edar_', img || logo, [
-['owner', `edar`]
-], null, [
-['Contactar', edar]
-],
-[['𝗉𝗈𝗐𝖾𝗋𝖾𝖽 ⓒ 𝖨𝗓𝗎𝗆𝗂-𝖻𝗈𝗍', `/ig`]]
-]], null)
-//let data = global.owner.filter(([id, isCreator]) => id && isCreator)
-//await this.sendContact(nk.from, data.map(([id, name]) => [id, name]), false, { quoted: callmsg })
+
 await this.updateBlockStatus(nk.from, 'block')
 }}}}
 

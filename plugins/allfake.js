@@ -4,7 +4,6 @@ import fetch from 'node-fetch'
 import axios from 'axios'
 import moment from 'moment-timezone'
 const { generateWAMessageFromContent, prepareWAMessageMedia, proto } = pkg
-let handler = async (m, { conn, args, text, usedPrefix, command }) => {
 var handler = m => m
 handler.all = async function (m) {
 let gatanina = 'xd'
@@ -110,9 +109,6 @@ global.tiempo = d.toLocaleString('en-US', {hour: 'numeric', minute: 'numeric', s
 
 global.nombre = await conn.getName(m.sender)
 global.taguser = '@' + m.sender.split("@s.whatsapp.net")
-
-global.www = await conn.sendMessage(m.chat, { text: `Espere un momento...`, contextInfo: { externalAdReply: {title: '꙳🧧𓆩ίʑ᭘ɱί-ⲃⲟτ𓆪🧧꙳', thumbnailUrl: imagen4, thumbnail: imagen4, showAdAttribution: true, sourceUrl: canal}}} , { quoted: fkontak })
-}
 
 global.fake = {
 contextInfo: {

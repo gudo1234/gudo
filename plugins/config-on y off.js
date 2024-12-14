@@ -40,13 +40,8 @@ rows: [{ header: `🎉 BIENVENIDA ${m.isGroup ? chat.welcome ? '✅' : '❌' : `
 });
 let textoo = `*\`OPCIONES PARA ACTIVAR/DESACTIVAR\`*
 
-> *Seleccione una opción de la lista*
-> *Para empezar a Configurar*
+> *Seleccione una opción de la lista para empezar a Configurar*
 
-● *Avisos de la Configuracion:*
-✅ ⇢ *Función Activada*
-❌ ⇢ *Función Desactivada*
-⚠️ ⇢ *Este Chat no es un grupo*
 🎉 BIENVENIDA ${m.isGroup ? chat.welcome ? '✅' : '❌' : `⚠️`}
 • Mensaje de Bienvenida para nuevos Miembros en Grupos
 • ${usedPrefix + command} welcome 
@@ -54,46 +49,6 @@ let textoo = `*\`OPCIONES PARA ACTIVAR/DESACTIVAR\`*
 🔗 ANTI ENLACES ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}
 • Eliminar Personas que envíen enlaces de Grupos de WhatsApp
 • ${usedPrefix + command} antilink
-
-🔗 ANTI ENLACES 2 ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}
-• Eliminar Personas que envíen enlaces que contengan https
-• ${usedPrefix + command} antilink2
-
-🔗 ANTI TRABA ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}
-• El Bot detecta textos largos que podrían ser virus y causar lag en el chat y elimina al usuario.
-• ${usedPrefix + command} antitraba
-
-🔗 ANTI TIKTOK ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}
-• Eliminar Personas que envíen enlaces de TikTok
-• ${usedPrefix + command} antitiktok
-
-🔗 ANTI YOUTUBE ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}
-• Eliminar Personas que envíen enlaces de YouTube
-• ${usedPrefix + command} antiyoutube
-
-🔗 ANTI TELEGRAM ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}
-• Eliminar Personas que envíen enlaces de Telegram
-• ${usedPrefix + command} antitelegram
-
-🔗 ANTI FACEBOOK ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}
-• Eliminar Personas que envíen enlaces de Facebook
-• ${usedPrefix + command} antifacebook
-
-🔗 ANTI INSTAGRAM ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}
-• Eliminar Personas que envíen enlaces de Instagram
-• ${usedPrefix + command} antiinstagram
-
-🔗 ANTI TWITTER ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}
-• Eliminar Personas que envíen enlaces de Twitter
-• ${usedPrefix + command} antitwitter
-
-🔗 ANTI DISCORD ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}
-• Eliminar Personas que envíen enlaces de Discord
-• ${usedPrefix + command} antidiscord
-
-🔗 ANTI THREADS ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}
-• Eliminar Personas que envíen enlaces de Threads
-• ${usedPrefix + command} antithreads
 
 🟢 ANTIFAKE ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}
 • Ingreso de número fake (virtuales), serán expulsados automáticamente del Grupo.
@@ -111,58 +66,14 @@ let textoo = `*\`OPCIONES PARA ACTIVAR/DESACTIVAR\`*
 • Todo mensaje eliminado será reenviado al Chat o Grupo.
 • ${usedPrefix + command} antidelete
 
-🔞 MODO CALIENTE ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}
+🔞 MODOHORNY ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}
 • Mostrar contenido para Adultos en los Chats.
 • ${usedPrefix + command} modohorny
 
-🔊 AUDIOS ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}
-• Habilitar el envío automático de Audios a todos.
-• ${usedPrefix + command} audios
-
-🆙 NIVEL AUTOMÁTICO ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}
-• Sube de nivel a todos de manera automática; (Aplica recompensas por subir de nivel).
-• ${usedPrefix + command} autolevelup
-
-🙃 CHATBOT ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}
-• El bot comenzará a hablar con todos en el grupo.
-• ${usedPrefix + command} chatbot
 
 🛂 MODO ADMIN ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}
 • Solo los Admins podrán usar el Bot en Grupos.
-• ${usedPrefix + command} modoadmin
-
-
-*\`『 FUNCIÓN SOLO PARA OWNER 』\`"
-
-🔰 ANTI PRIVADO ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}
-• Bloquea a las personas que usen el bot en privado.
-• ${usedPrefix + command} antiprivado
-
-🚫 ANTI LLAMADAS ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}
-• Bloquea a personas que hagan llamadas.
-• ${usedPrefix + command} anticall
-
-⛔ RESTRINGIR ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}
-• Habilitar función para agregar o eliminar personas en Grupos.
-• ${usedPrefix + command} restrict
-
-⚜️ SOLO PRIVADOS ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}
-• Permitir que solo se use en Chats Privados.
-• ${usedPrefix + command} pconly
-
-⚜️ SOLO GRUPOS ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}
-• Permitir que solo se use en Chats Grupales.
-• ${usedPrefix + command} gconly
-
-✅ LECTURA AUTOMÁTICA ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}
-• Dejar los mensajes o chats como Leídos.
-• ${usedPrefix + command} autoread
-
-🌐 MODO PÚBLICO ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}
-• Habilitar función para que todos puedan usar el bot.
-• ${usedPrefix + command} public
-
-> ${wm}`        
+• ${usedPrefix + command} modoadmin`        
 let isEnable = /true|enable|(turn)?on|1/i.test(command)
 let type = (args[0] || '').toLowerCase()
 let isAll = false, isUser = false
@@ -584,7 +495,7 @@ await m.reply(`🗂️ ʟᴀ ᴏᴘᴄɪᴏɴ ${type} ᴘᴀʀᴀ ${isAll ? 'ᴇ
 }; 
 handler.help = ['en', 'dis'].map(v => v + 'able <option>')
 handler.tags = ['nable']
-handler.command = /^((en|dis)able|(tru|fals)e|(turn)?o(n|ff)|[01])$/i
+handler.command = /^((en|dis)able|(turn)?o(n|ff)|[01])$/i
 handler.group = true;
 export default handler;
 

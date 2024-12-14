@@ -27,8 +27,7 @@ conn.sendEvent(m.chat, `${rpt}`,`*🧧Prefijo* (${usedPrefix})
 •🛒 OWNER-CREADOR.li
 ╭───╯
 ☯️]▸ reglas
-☯️]▸ true
-☯️]▸ false
+☯️]▸ true/false
 ☯️]▸ owner
 ☯️]▸ fetch
 ☯️]▸ grupos

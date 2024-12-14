@@ -32,6 +32,9 @@ thumbnail: imagen4,
     }
   }},{quoted: fkontak})
 conn.sendFile(m.chat, link, 'error.jpg', `${text}`, m, null, rcanal)}
+catch (error) {
+    console.error(error);
+    throw `error`;}
 handler.help = ['gimage <query>', 'imagen <query>']
 handler.tags = ['internet', 'tools']
 handler.command = /^(imagen)$/i

@@ -1421,27 +1421,7 @@ let vn = './media/a.mp3'
 let or = ['texto', 'audio'];
 let media = or[Math.floor(Math.random() * 2)]
 if (media === 'texto')
-this.sendMessage(id, { text: text,contextInfo: {
-    mentionedJid: [user],
-    groupMentions: [],
-    isForwarded: true,
-    forwardedNewsletterMessageInfo: {
-      newsletterJid: '120363285614743024@newsletter',
-      newsletterName: `꙳🧧𓆩ίʑ᭘ɱί-ⲃⲟτ𓆪🧧꙳`,
-      serverMessageId: 0
-    },
-    businessMessageForwardInfo: { businessOwnerJid: '50492280729@s.whatsapp.net' },
-    forwardingScore: 9999,
-    externalAdReply: {
-      title: `🍒ᴡᴇʟᴄᴏᴍᴇ🍒`,
-      body: 'Izumi te da la bienvenida',
-      thumbnailUrl: apii.data,
-      thumbnail: apii.data,
-      sourceUrl: 'https://www.atom.bio/edar_',
-      //mediaType: 1,
-      //renderLargerThumbnail: true
-    }
-  }},{quoted: fkontak2})
+await this.sendMessage(m.chat, { text: text, contextInfo: { externalAdReply: {title: '🍒ᴡᴇʟᴄᴏᴍᴇ🍒', body: `+${user.split("@")[0]}`, thumbnailUrl: apii data, thumbnail: apii.data, showAdAttribution: true, sourceUrl: canal}}} , { quoted: fkontak })
 
 if (media === 'audio')
 this.sendMessage(id, { audio: { url: vn }, 

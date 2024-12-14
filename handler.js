@@ -1307,7 +1307,7 @@ for (let [jid] of global.owner.filter(([number, _, isDeveloper]) => isDeveloper 
 let data = (await conn.onWhatsApp(jid))[0] || {}
 if (data.exists)
 delay(3 * 3000)
-m.reply(`${lenguajeGB['smsCont1']()}\n\n${lenguajeGB['smsCont2']()}\n*_${name}_*\n\n${lenguajeGB['smsCont3']()}\n*_${m.sender}_*\n\n${lenguajeGB['smsCont4']()}\n*_${m.text}_*\n\n${lenguajeGB['smsCont5']()}\n\`\`\`${format(e)}\`\`\`\n\n${lenguajeGB['smsCont6']()}`.trim(), data.jid)
+m.reply(`🚩 *Reporte de comando con falla*\n\n> Plugin\n*_${name}_*\n\n> Usuario\n*_${m.sender}_*\n\n> Comando\n*_${m.text}_*\n\n> Error\n\`\`\`${format(e)}\`\`\`\n\n_Reporte al creador del bot usando .reporte_`.trim(), data.jid)
 }
 m.reply(text)
 }} finally {
@@ -1319,10 +1319,10 @@ await plugin.after.call(this, m, extra)
 console.error(e)
 }}
 if (m.limit)
-m.reply(+m.limit + lenguajeGB.smsCont8())
+m.reply(+m.limit + 'Diamante 💎 usado.')
 }
 if (m.money)
-m.reply(+m.money + ' 𝙇𝙤𝙡𝙞𝘾𝙤𝙞𝙣𝙨 𝙪𝙨𝙖𝙙𝙤𝙨') 
+m.reply(+m.money + 'Izucoin usados') 
 break
 }}} catch (e) {
 console.error(e)

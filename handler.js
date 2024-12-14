@@ -1421,7 +1421,7 @@ let vn = './media/a.mp3'
 let or = ['texto', 'audio'];
 let media = or[Math.floor(Math.random() * 2)]
 if (media === 'texto')
-await this.sendMessage(m.chat, { text: text, contextInfo: { externalAdReply: {title: `🍒ᴡᴇʟᴄᴏᴍᴇ🍒`, body: `+${user.split("@")[0]}`, thumbnailUrl: apii.data, thumbnail: apii.data, showAdAttribution: true, sourceUrl: canal}}} , { quoted: fkontak })
+await this.sendMessage(id, { text: text, contextInfo: { externalAdReply: {title: `🍒ᴡᴇʟᴄᴏᴍᴇ🍒`, body: `+${user.split("@")[0]}`, thumbnailUrl: apii.data, thumbnail: apii.data, showAdAttribution: true, sourceUrl: canal}}} , { quoted: fkontak })
 
 if (media === 'audio')
 this.sendMessage(id, { audio: { url: vn }, 

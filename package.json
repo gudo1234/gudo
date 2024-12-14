@@ -1,5 +1,5 @@
 {
-"name": "LoliBot-MD",
+"name": "Izumi-Bot",
 "version": "1.9.5", 
 "description": "Super Bot WhatsApp",
 "main": "index.js",
@@ -17,19 +17,19 @@
 "test": "node test.js",
 "test2": "nodemon index.js" },
     
-"homepage": "https://github.com/elrebelde21/LoliBot-MD",
+"homepage": "https://github.com/gudo1234/gudo",
 "author": {
-"name": "elrebelde21" },
+"name": "gudo1234" },
     
 "repository": {
 "type": "git",
-"url": "git+https://github.com/elrebelde21/LoliBot-MD.git" },
+"url": "git+https://github.com/gudo1234/gudo.git" },
 
 "bugs": {
-"url": "https://github.com/elrebelde21/LoliBot-MD/issues" },
+"url": "https://github.com/gudo1234/gudo/issues" },
 "license": "GPL-3.0-or-later",
 "dependencies": {
-"@whiskeysockets/baileys": "github:nstar-y/Bail",
+"@whiskeysockets/baileys": "npm:@whiskeysockets/baileys@6.7.7",
 "@adiwajshing/keyed-db": "^0.2.4",
 "@bochilteam/scraper": "^4.2.4",
 "@brandond/findthelyrics": "^2.0.5",

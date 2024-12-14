@@ -40,34 +40,34 @@ rows: [{ header: `🎉 BIENVENIDA ${m.isGroup ? chat.welcome ? '✅' : '❌' : `
 });
 let textoo = `*\`OPCIONES PARA ACTIVAR/DESACTIVAR\`*
 
-> *Seleccione una opción de la lista para empezar a Configurar*
+_*Seleccione una opción de la lista para empezar a Configurar*_
 
 🎉 BIENVENIDA ${m.isGroup ? chat.welcome ? '✅' : '❌' : `⚠️`}
-• Mensaje de Bienvenida para nuevos Miembros en Grupos
+> Mensaje de Bienvenida para nuevos Miembros en Grupos
 • ${usedPrefix + command} welcome 
 
 🔗 ANTI ENLACES ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}
-• Eliminar Personas que envíen enlaces de Grupos de WhatsApp
+> Eliminar Personas que envíen enlaces de Grupos de WhatsApp
 • ${usedPrefix + command} antilink
 
 🟢 ANTIFAKE ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}
-• Ingreso de número fake (virtuales), serán expulsados automáticamente del Grupo.
+> Ingreso de número fake (virtuales), serán expulsados automáticamente del Grupo.
 • ${usedPrefix + command} antifake
 
 🔔 AVISOS ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}
-• Avisos de acciones dentro del Grupo
+> Avisos de acciones dentro del Grupo
 • ${usedPrefix + command} detect
 
 🪄 STICKERS AUTOMÁTICOS ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}
-• Los vídeos, GIF, imágenes, enlaces jpg o jpeg; se convertirán en Stickers automáticamente.
+> Los vídeos, GIF, imágenes, enlaces jpg o jpeg; se convertirán en Stickers automáticamente.
 • ${usedPrefix + command} autosticker
 
 🗑️ ANTI ELIMINAR ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}
-• Todo mensaje eliminado será reenviado al Chat o Grupo.
+> Todo mensaje eliminado será reenviado al Chat o Grupo.
 • ${usedPrefix + command} antidelete
 
 🔞 MODOHORNY ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}
-• Mostrar contenido para Adultos en los Chats.
+> Mostrar contenido para Adultos en los Chats.
 • ${usedPrefix + command} modohorny
 
 

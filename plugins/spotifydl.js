@@ -86,7 +86,7 @@ for (let i = 0; i < tracks.length; i++) {
 }  
   } catch (error) {
     console.error(error);
-    throw error;
+    throw `error`;
   }
 };
 handler.command = /^(spotifydl|spotifypro|spotifidl)$/i;

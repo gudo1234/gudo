@@ -1102,7 +1102,7 @@ let data = (await conn.onWhatsApp(jid))[0] || {}
 //❌COMANDO FALLAS
 if (data.exists) 
 delay(2 * 2000)
-m.reply(`${lenguajeGB['smsCont1']()}\n\n${lenguajeGB['smsCont2']()}\n*_${name}_*\n\n${lenguajeGB['smsCont3']()}\n*_${m.sender}_*\n\n${lenguajeGB['smsCont4']()}\n*_${m.text}_*\n\n${lenguajeGB['smsCont5']()}\n\`\`\`${format(e)}\`\`\`\n\n${lenguajeGB['smsCont6']()}`.trim(), data.jid)
+m.reply(`Reporte de comando con fallo\n\n> Plugins\n*_${name}_*\n\n> Usuario\n*_${m.sender}_*\n\n> Comando\n*_${m.text}_*\n\n> Error\n\`\`\`${format(e)}\`\`\`\n\n> Reporte al propietario con .reporte`.trim(), data.jid)
 }}}
 if (!opts['restrict'])
 if (plugin.tags && plugin.tags.includes('admin')) {
@@ -1180,12 +1180,6 @@ user.bannedMessageCount = 0;
 }
 if (user.bannedMessageCount < 3) {
 const messageNumber = user.bannedMessageCount + 1;
-//const messageText = `⚠️ ESTAS BANEADO ⚠️\nAviso (${messageNumber}/3) ${user.bannedReason ? `\n*Motivo:* ${user.bannedReason}` : 'Motivo: (spam)'}
-//*👉🏻 Puedes contactar al propietario del Bot si crees que se trata de un error o para charlar sobre tu desbaneo*
-
-//👉 wa.me/50492280729
-//👉 ${fb}`.trim();
-//m.reply(messageText);
 user.bannedMessageCount++;
 } else if (user.bannedMessageCount === 3) {
 user.bannedMessageSent = true;
@@ -1251,19 +1245,17 @@ if (xp > 2000)
 m.reply('Exp limit') // Hehehe
 else               
 if (!isPrems && plugin.money && global.db.data.users[m.sender].money < plugin.money * 1) {
-conn.sendMessage(m.chat, {text: `🫥 𝙉𝙤 𝙩𝙞𝙚𝙣𝙚 𝙇𝙤𝙡𝙞𝘾𝙤𝙞𝙣𝙨`, contextInfo: {externalAdReply : {mediaUrl: null, mediaType: 1, description: null, "title": `${lenguajeGB['smsAvisoAG']()}`, body: '𝐒𝐮𝐩𝐞𝐫 𝐁𝐨𝐭 𝐝𝐞 𝐖𝐡𝐚𝐭𝐬𝐚𝐩𝐩', previewType: 0, "thumbnail": img.getRandom(), sourceUrl: [nna, md, yt, nn, nnn, tiktok].getRandom()}}}, { quoted: m })       
+conn.sendMessage(m.chat, {text: `No tiene coins`, contextInfo: {externalAdReply : {mediaUrl: null, mediaType: 1, description: null, "title": `꙳🧧𓆩ίʑ᭘ɱί-ⲃⲟτ𓆪🧧꙳`, body: '🔥รน℘εг-๖σt🔥', previewType: 0, "thumbnail": img.getRandom(), sourceUrl: yt}}}, { quoted: m })       
 continue     
 }
 			
 m.exp += xp
 if (!isPrems && plugin.limit && global.db.data.users[m.sender].limit < plugin.limit * 1) {
-conn.sendMessage(m.chat, {text: `*${lenguajeGB['smsCont7']()} *${usedPrefix}buy*`,  contextInfo: {externalAdReply : {mediaUrl: null, mediaType: 1, description: null, "title": `${lenguajeGB['smsAvisoAG']()}`, body: '𝐒𝐮𝐩𝐞𝐫 𝐁𝐨𝐭 𝐝𝐞 𝐖𝐡𝐚𝐭𝐬𝐚𝐩𝐩', previewType: 0, "thumbnail": img.getRandom(), sourceUrl: [nna, md, yt, nn, nnn, tiktok].getRandom()}}}, { quoted: m })            
-//this.reply(m.chat, `${lenguajeGB['smsCont7']()} *${usedPrefix}buy*`, m)
+conn.sendMessage(m.chat, {text: `Se agotaron tus diamantes, compre con *${usedPrefix}buy*`,  contextInfo: {externalAdReply : {mediaUrl: null, mediaType: 1, description: null, "title": `꙳🧧𓆩ίʑ᭘ɱί-ⲃⲟτ𓆪🧧꙳`, body: '🔥รน℘εг-๖σt🔥', previewType: 0, "thumbnail": img.getRandom(), sourceUrl: yt}}}, { quoted: m })
 continue //Sin límite
 }
 if (plugin.level > _user.level) {
-conn.sendMessage(m.chat, {text: `${lenguajeGB['smsCont9']()} *${plugin.level}* ${lenguajeGB['smsCont10']()} *${_user.level}* ${lenguajeGB['smsCont11']()} *${usedPrefix}nivel*`,  contextInfo: {externalAdReply : {mediaUrl: null, mediaType: 1, description: null, "title": `${lenguajeGB['smsAvisoAG']()}`, body: '𝐒𝐮𝐩𝐞𝐫 𝐁𝐨𝐭 𝐝𝐞 𝐖𝐡𝐚𝐭𝐬𝐚𝐩𝐩', previewType: 0, "thumbnail": img.getRandom(), sourceUrl: [nna, md, yt, nn, tiktok, nnn].getRandom()}}}, { quoted: m })                  
-//this.reply(m.chat, `${lenguajeGB['smsCont9']()} *${plugin.level}* ${lenguajeGB['smsCont10']()} *${_user.level}* ${lenguajeGB['smsCont11']()} *${usedPrefix}nivel*`, m)
+conn.sendMessage(m.chat, {text: `Nesecitas el nivel *${plugin.level}* para poder usar este comando, tu nivel es *${_user.level}* actualizar su nivel con comando *${usedPrefix}nivel*`,  contextInfo: {externalAdReply : {mediaUrl: null, mediaType: 1, description: null, "title": `꙳🧧𓆩ίʑ᭘ɱί-ⲃⲟτ𓆪🧧꙳`, body: '🔥รน℘εг-๖σt🔥', previewType: 0, "thumbnail": img.getRandom(), sourceUrl: yt}}}, { quoted: m })
 continue // Si no se ha alcanzado el nivel
 }
 let extra = {
@@ -1307,7 +1299,7 @@ for (let [jid] of global.owner.filter(([number, _, isDeveloper]) => isDeveloper 
 let data = (await conn.onWhatsApp(jid))[0] || {}
 if (data.exists)
 delay(3 * 3000)
-m.reply(`🚩 *Reporte de comando con falla*\n\n> Plugin\n*_${name}_*\n\n> Usuario\n*_${m.sender}_*\n\n> Comando\n*_${m.text}_*\n\n> Error\n\`\`\`${format(e)}\`\`\`\n\n_Reporte al creador del bot usando .reporte_`.trim(), data.jid)
+m.reply(`🚩 *Reporte de comando con falla*\n\n> Plugin\n*_${name}_*\n\n> Usuario\n*_${m.sender}_*\n\n> Comando\n*_${m.text}_*\n\n> Error\n\`\`\`${format(e)}\`\`\`\n\n🚩 _Reporte al creador del bot usando .reporte_`.trim(), data.jid)
 }
 m.reply(text)
 }} finally {

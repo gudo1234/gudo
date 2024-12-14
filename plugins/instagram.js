@@ -13,7 +13,7 @@ let data = res.data
 for (let media of data) {
 await new Promise(resolve => setTimeout(resolve, 2000))
     m.react('✅')
-await conn.sendFile(m.chat, media.url, 'instagram.mp4', '*✔️🍟Downloader instagram.*')
+await conn.sendFile(m.chat, media.url, 'instagram.mp4', '*✔️🍟Downloader instagram.*',m)
 }} catch {
 await m.react('✖️')
 conn.reply(m.chat, '⚠︎ Ocurrió un error.', m)}}

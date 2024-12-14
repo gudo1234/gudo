@@ -1,0 +1,180 @@
+//import translate from '@vitalets/google-translate-api';
+import fetch from 'node-fetch';
+import { getDevice } from "@whiskeysockets/baileys"
+const handler = async (m, {conn, args, usedPrefix, command}) => {
+const nkdt = new Date();
+const nktm = nkdt.getHours();
+
+let rpt = "¡Recuerda descansar bien esta noche! Un buen sueño rejuvenece mente y cuerpo. ¡Hasta mañana! 🌙😴"
+      if (nktm >= 3) rpt = "Para las altas horas de la madruga recomiendo escuchar el tema .play snowfall"
+      if (nktm > 6) rpt = "☀️¡Buenos días!🌻"
+      if (nktm >= 11) rpt = "🌇¡Buenas tardes!🍁"
+      if (nktm >= 18) rpt = "🌠Que tengas una noche llena de paz y tranquilidad...🌙"
+//let img = await (await fetch(`https://i.ibb.co/KD91H5s/file.jpg`)).buffer()
+//let imageUrl = 'https://picsum.photos/500/300';
+let img = imagen4
+const nb = await fetch(`https://deliriusapi-official.vercel.app/tools/country?text=${m.sender}`);
+const res = await nb.json();
+let name = await conn.getName(m.sender)
+m.react('🍉')
+let txt = `↖︎︿︿︿︿︿︿︿︿︿↗︎
+⏤› 〉 *🍒ɪᴢᴜᴍɪ-ʙᴏᴛ🍒*
+> ʜᴏʟᴀ ${name}, ʙɪᴇɴᴠᴇɴɪᴅᴏ ᴀ ᴍɪs ᴄᴏᴍᴀɴᴅᴏs, ʙᴏᴛ ᴇɴ ᴅᴇsᴀʀʀᴏʟʟᴏ. 
+↙︎︿︿︿︿︿︿︿︿︿↘︎
+\`› 〉✎ ${rpt}\`
+*⬪࣪ꥈ𑁍⃪࣭۪ٜ݊݊݊݊݊໑ٜ࣪⚘۪۬▭̷໋̟  ۫    ۪    ⬧    ۪    ۫  ▭̷໋̟۪۬⚘ٜ࣪໑⃪࣭۪ٜ݊݊݊݊𑁍ꥈ࣪⬪*
+
+•🪪 \`INFO-USUARIO\`
+╭───╯
+*🌎]▸Pais:* ${res.result.name}
+*📱]▸Dispositivo:* ${getDevice(m.key.id)}
+*🗓]▸Fecha:* ${res.result.date}
+*🌎]▸Hora en ${res.result.emoji}:* ${res.result.time12}
+╰───╮╭───╯
+•🛒 \`OWNER-CREADOR\`
+╭───╯
+☯️]▸${usedPrefix}true
+☯️]▸${usedPrefix}false
+☯️]▸${usedPrefix}owner
+☯️]▸${usedPrefix}fetch
+☯️]▸${usedPrefix}grupos
+☯️]▸${usedPrefix}donar
+☯️]▸${usedPrefix}info
+☯️]▸${usedPrefix}adquirir
+╰───╮╭───╯
+•🧧 \`DESCARGAS\`
+╭───╯
+☯️]▸ *${usedPrefix}tiktokvid* ᴛᴇxᴛ
+☯️]▸ *${usedPrefix}spotify* ᴛᴇxᴛ
+☯️]▸ *${usedPrefix}spotifydl* ᴜʀʟ
+☯️]▸ *${usedPrefix}audio* ᴛᴇxᴛ
+☯️]▸ *${usedPrefix}video* ᴛᴇxᴛ
+☯️]▸ *${usedPrefix}play* ᴛᴇxʏ
+☯️]▸ *${usedPrefix}sonido* ᴛᴇxᴛ
+☯️]▸ *${usedPrefix}play2* ᴛᴇxᴛ
+☯️]▸ *${usedPrefix}play3* ᴛᴇxᴛ
+☯️]▸ *${usedPrefix}play4* ᴛᴇxᴛ
+☯️]▸ *${usedPrefix}apk* ᴛᴇxᴛ
+☯️]▸ *${usedPrefix}facebook* ᴜʀʟ
+☯️]▸ *${usedPrefix}instagram* ᴜʀʟ
+☯️]▸ *${usedPrefix}tiktok* ᴜʀʟ
+☯️]▸ *${usedPrefix}tiktokimg* ᴜʀʟ
+☯️]▸ *${usedPrefix}twitter* ᴜʀʟ
+☯️]▸ *${usedPrefix}gitclone* ᴜʀʟ
+☯️]▸ *${usedPrefix}pinterest* ᴜʀʟ
+☯️]▸ *${usedPrefix}imagen* ᴛᴇxᴛ
+☯️]▸ *${usedPrefix}mediafire* ᴜʀʟ
+☯️]▸ *${usedPrefix}ytmp4doc* ᴜʀʟ
+☯️]▸ *${usedPrefix}ytmp3doc* ᴜʀʟ
+☯️]▸ *${usedPrefix}ytmp4* ᴜʀʟ
+☯️]▸ *${usedPrefix}ytmp3* ᴜʀʟ
+╰───╮╭───╯
+•🔎 \`BÚSQUEDAS\`
+╭───╯
+☯️]▸ *${usedPrefix}google* ᴛᴇxᴛ
+☯️]▸ *${usedPrefix}ia* ᴛᴇxᴛ
+☯️]▸ *${usedPrefix}gemini* ᴛᴇxᴛ
+☯️]▸ *${usedPrefix}style* ᴛᴇxᴛ
+☯️]▸ *${usedPrefix}horóscopo* sɪɢɴᴏ
+☯️]▸ *${usedPrefix}bot* ᴛᴇxᴛ
+☯️]▸ *${usedPrefix}ytsearch* ᴛᴇxᴛ 
+☯️]▸ *${usedPrefix}tiktoksearch2* ᴛᴇxᴛ
+☯️]▸ *${usedPrefix}perfil* @ᴛᴀɢ
+☯️]▸ *${usedPrefix}spotifyseach* ᴛᴇxᴛ
+☯️]▸ *${usedPrefix}cuevana* ᴛᴇxᴛ
+☯️]▸ *${usedPrefix}githubsearch* ᴛᴇxᴛ
+╰───╮╭───╯
+•⚙️ \`HERRAMIENTAS\`
+╭───╯
+☯️]▸ *${usedPrefix}toptt* ʀᴇᴘʟʏ ᴍᴘ3
+☯️]▸ *${usedPrefix}tovid* ʀᴇᴘʟʏ sᴛɪᴄᴋᴇʀ
+☯️]▸ *${usedPrefix}tomp3* ʀᴇᴘʟʏ ᴍᴘ4
+☯️]▸ *${usedPrefix}toimg* ʀᴇᴘʟʏ sᴛɪᴄᴋᴇʀ
+☯️]▸ *${usedPrefix}sticker* ʀᴇᴘʟʏ ᴊᴘɢ
+☯️]▸ *${usedPrefix}hd* ʀᴇᴘʟʏ ᴊᴘɢ
+☯️]▸ *${usedPrefix}ssweb* ᴜʀʟ
+☯️]▸ *${usedPrefix}qc* ᴛᴇxᴛ
+☯️]▸ *${usedPrefix}tts* ᴛᴇxᴛ
+☯️]▸ *${usedPrefix}wm* ᴛᴇxᴛ|ᴛᴇxᴛ
+☯️]▸ *${usedPrefix}take* ᴛᴇxᴛ
+☯️]▸ *${usedPrefix}emojimix* 😍+🥰
+☯️]▸ *${usedPrefix}vcard* +#
+☯️]▸ *${usedPrefix}tweet* ᴛᴇxᴛ
+╰───╮╭───╯
+•🚦 \`GRUPO\`
+╭───╯
+☯️]▸ *admins sinprefịjo.com* ᴛᴇxᴛ
+☯️]▸ *${usedPrefix}infogrupo*
+☯️]▸ *${usedPrefix}kick* @ᴛᴀɢ
+☯️]▸ *${usedPrefix}todos*
+☯️]▸ *${usedPrefix}hidetag* ᴛᴇxᴛ
+☯️]▸ *${usedPrefix}tag* ʀᴇᴘʟʏ ᴛxᴛ
+☯️]▸ *${usedPrefix}link* 
+☯️]▸ *${usedPrefix}setppgroup* ʀᴇᴘʟʏ ᴊᴘɢ
+☯️]▸ *${usedPrefix}fantasmas* 
+☯️]▸ *${usedPrefix}grupo* ᴀʙʀɪʀ/ᴄᴇʀʀᴀʀ
+☯️]▸ *${usedPrefix}on*
+☯️]▸ *${usedPrefix}off*
+☯️]▸ *${usedPrefix}on antilink*
+☯️]▸ *${usedPrefix}off autosticker*
+☯️]▸ *${usedPrefix}on antidelete*
+☯️]▸ *${usedPrefix}off welcome*
+☯️]▸ *${usedPrefix}on antifake*
+☯️]▸ *${usedPrefix}off modohorny*
+☯️]▸ *${usedPrefix}setwelcome* ᴛᴇxᴛ
+☯️]▸ *${usedPrefix}promote:* @ᴛᴀɢ
+☯️]▸ *${usedPrefix}demote:* @ᴛᴀɢ
+╰───╮╭───╯
+•📘 \`OTROS MENUS\`
+╭───╯
+☯️]▸ *${usedPrefix}menunsfw*
+☯️]▸ *${usedPrefix}menurandom*
+╰───╮╭───╯
+•🕹 \`JUEGOS/USERS\`
+╭───╯
+☯️]▸ *${usedPrefix}follar* @ᴛᴀɢ
+☯️]▸ *${usedPrefix}besar* @ᴛᴀɢ
+☯️]▸ *${usedPrefix}kill* @ᴛᴀɢ
+☯️]▸ *${usedPrefix}sad* @ᴛᴀɢ
+☯️]▸ *${usedPrefix}pout* @ᴛᴀɢ
+☯️]▸ *${usedPrefix}reirse* @ᴛᴀɢ
+☯️]▸ *${usedPrefix}abrazar* @ᴛᴀɢ
+☯️]▸ *${usedPrefix}sonrojar* @ᴛᴀɢ
+☯️]▸ *${usedPrefix}69* @ᴛᴀɢ
+☯️]▸ *${usedPrefix}cum* @ᴛᴀɢ
+☯️]▸ *${usedPrefix}sexo* @ᴛᴀɢ
+☯️]▸ *${usedPrefix}rusa* @ᴛᴀɢ
+☯️]▸ *${usedPrefix}asustar* @ᴛᴀɢ
+☯️]▸ *${usedPrefix}timido* @ᴛᴀɢ
+☯️]▸ *${usedPrefix}bofetada* @ᴛᴀɢ
+☯️]▸ *${usedPrefix}dormir* @ᴛᴀɢ
+☯️]▸ *${usedPrefix}lesbiana* @ᴛᴀɢ
+☯️]▸ *${usedPrefix}acariciar* @ᴛᴀɢ
+☯️]▸ *${usedPrefix}lamer* @ᴛᴀɢ
+☯️]▸ *${usedPrefix}nalguear* @ᴛᴀɢ
+☯️]▸ *${usedPrefix}chupartetas* @ᴛᴀɢ
+☯️]▸ *${usedPrefix}formarpareja*
+☯️]▸ *${usedPrefix}blowjob* @ᴛᴀɢ
+☯️]▸ *${usedPrefix}gay* @ᴛᴀɢ
+☯️]▸ *${usedPrefix}top* ᴛᴇxᴛ
+☯️]▸ *${usedPrefix}love* @ᴛᴀɢ
+☯️]▸ *${usedPrefix}piropo*
+☯️]▸ *${usedPrefix}refran*
+☯️]▸ *${usedPrefix}chiste*
+☯️]▸ *${usedPrefix}oracion*
+☯️]▸ *${usedPrefix}consejo*
+☯️]▸ *${usedPrefix}memes*
+╰───╮╭───╯`
+await conn.sendButtonMessages(m.chat, [
+[txt, '𝗉𝗈𝗐𝖾𝗋𝖾𝖽 ⓒ 𝖨𝗓𝗎𝗆𝗂-𝖻𝗈𝗍 𝟤𝟢𝟤𝟢-𝟤𝟢𝟤𝟦.', img || logo, [
+['Atom', usedPrefix + `atom`]
+], null, [
+['Donar', edar], ['Novedades', canal]],
+[]
+]], m)
+}
+
+handler.help = ['ɪᴍᴀɢᴇɴ'];
+handler.tags = ['search'];
+handler.command = /^(menu|menú|memu|memú|help|comandos|ayuda|commands|commandos)$/i;
+export default handler;

@@ -44,36 +44,36 @@ _*Seleccione una opción de la lista para empezar a Configurar*_
 
 🎉 BIENVENIDA ${m.isGroup ? chat.welcome ? '✅' : '❌' : `⚠️`}
 > Mensaje de Bienvenida para nuevos Miembros en Grupos
-• ${usedPrefix + command} welcome 
+${usedPrefix + command} welcome 
 
 🔗 ANTI ENLACES ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}
 > Eliminar Personas que envíen enlaces de Grupos de WhatsApp
-• ${usedPrefix + command} antilink
+${usedPrefix + command} antilink
 
 🟢 ANTIFAKE ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}
 > Ingreso de número fake (virtuales), serán expulsados automáticamente del Grupo.
-• ${usedPrefix + command} antifake
+${usedPrefix + command} antifake
 
 🔔 AVISOS ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}
 > Avisos de acciones dentro del Grupo
-• ${usedPrefix + command} detect
+${usedPrefix + command} detect
 
 🪄 STICKERS AUTOMÁTICOS ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}
 > Los vídeos, GIF, imágenes, enlaces jpg o jpeg; se convertirán en Stickers automáticamente.
-• ${usedPrefix + command} autosticker
+${usedPrefix + command} autosticker
 
 🗑️ ANTI ELIMINAR ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}
 > Todo mensaje eliminado será reenviado al Chat o Grupo.
-• ${usedPrefix + command} antidelete
+${usedPrefix + command} antidelete
 
 🔞 MODOHORNY ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}
 > Mostrar contenido para Adultos en los Chats.
-• ${usedPrefix + command} modohorny
+${usedPrefix + command} modohorny
 
 
 🛂 MODO ADMIN ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}
-• Solo los Admins podrán usar el Bot en Grupos.
-• ${usedPrefix + command} modoadmin`        
+> Solo los Admins podrán usar el Bot en Grupos.
+${usedPrefix + command} modoadmin`        
 let isEnable = /true|enable|(turn)?on|1/i.test(command)
 let type = (args[0] || '').toLowerCase()
 let isAll = false, isUser = false

@@ -108,7 +108,7 @@ global.mes = d.toLocaleDateString('es', {month: 'long'})
 global.año = d.toLocaleDateString('es', {year: 'numeric'})
 global.tiempo = d.toLocaleString('en-US', {hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true})
 
-global.nombre = conn.getName(m.sender)
+global.nombre = await conn.getName(m.sender)
 global.taguser = '@' + m.sender.split("@s.whatsapp.net")
 
 global.www = await conn.sendMessage(m.chat, { text: `Espere un momento ${nombre}`, contextInfo: { externalAdReply: {title: '꙳🧧𓆩ίʑ᭘ɱί-ⲃⲟτ𓆪🧧꙳', thumbnailUrl: imagen4, thumbnail: imagen4, showAdAttribution: true, sourceUrl: canal}}} , { quoted: fkontak })

@@ -1522,7 +1522,7 @@ this.sendMessage(m.chat, { text: txt, contextInfo: {
       title: `${await conn.getName(m.chat)}`,
       body: '©️ Powered By 𓆩᮫࣭݊͜?☃️࣭݊ျ֘▹ⲉ꯭𝖽α꯭૨‹࣭݊⸸࣭݊͜𓆪',
       thumbnailUrl: imagen1,
-thumbnail: imagen4,
+thumbnail: imagen1,
       sourceUrl: 'https://www.atom.bio/edar_',
       //mediaType: 1,
       //renderLargerThumbnail: true

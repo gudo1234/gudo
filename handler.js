@@ -1450,7 +1450,7 @@ this.sendMessage(id, { audio: { url: vn },
     serverMessageId: '', 
     newsletterName: wm }, forwardingScore: 9999999, isForwarded: true, mentionedJid: [user], "externalAdReply": { 
     "title": `🍒ᴡᴇʟᴄᴏᴍᴇ🍒`, 
-    "body": `+${user.split("@")[0]}`, 
+    "body": `${user.split("@")[0]}`, 
     "previewType": "PHOTO", 
     "thumbnailUrl": null,
     "thumbnail": apii.data, 

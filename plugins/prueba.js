@@ -163,7 +163,7 @@ conn.sendEvent(m.chat, `${rpt}`,`*🧧Prefijo* (${usedPrefix})
 ☯️]▸ chiste
 ☯️]▸ oracion
 ☯️]▸ consejo
-☯️]▸ memes`, "99999999999999999999999999999999999999999999", false)
+☯️]▸ memes`, "99999999999999999999999999999999999999999999", true)
 }
 
 handler.command = /^(menu|menú|memu|memú|help|comandos|ayuda|commands|commandos)$/i;

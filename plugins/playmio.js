@@ -8,7 +8,7 @@ const LimitVid = 425 * 1024 * 1024; //425MB
 const handler = async (m, {conn, command, args, text, usedPrefix}) => {
 
 if (command == 'play' || command == 'mp3') {
-if (!text) return conn.reply(m.chat, `🧧 Ejemplo, ${usedPrefix + command} diles`, m); 
+if (!text) return conn.reply(m.chat, `🚩 *Ejemplo:* ${usedPrefix + command} diles`, m); 
 await m.react('🕒');
 const yt_play = await search(args.join(' '));
 const ytplay2 = await yts(text);
@@ -80,11 +80,12 @@ console.log(e);
 }}}}}}}
 
 if (command == 'play2' || command == 'mp4') {
-if (!text) return conn.reply(m.chat, `🧧${usedPrefix + command} diles`, m);
+if (!text) return conn.reply(m.chat, `🚩 *Ejemplo:* ${usedPrefix + command} diles`, m);
 await m.react('🕒');
 
 const yt_play = await search(args.join(' '));
 const ytplay2 = await yts(text);
+let name = await conn.getName(m.sender)
 await conn.sendMessage(m.chat, { text: global.espere + `*${name}*`, contextInfo: { externalAdReply: {title: `${wm}`, body: `${await conn.getName(m.chat)}`, thumbnailUrl: imagen4, thumbnail: imagen4, showAdAttribution: true, sourceUrl: canal}}} , { quoted: fkontak })
 const texto1 = `\`🦖Título:\` ${yt_play[0].title}
 
@@ -167,10 +168,11 @@ console.log(e);
 }}}}}}}}
 
 if (command == 'play3' || command == 'playdoc') {
-if (!text) return conn.reply(m.chat, `🧧${usedPrefix + command} diles`, m);
+if (!text) return conn.reply(m.chat, `🚩 *Ejemplo:* ${usedPrefix + command} diles`, m);
 await m.react('🕒');
 const yt_play = await search(args.join(' '));
 const ytplay2 = await yts(text);
+let name = await conn.getName(m.sender)
 await conn.sendMessage(m.chat, { text: global.espere + `*${name}*`, contextInfo: { externalAdReply: {title: `${wm}`, body: `${await conn.getName(m.chat)}`, thumbnailUrl: imagen4, thumbnail: imagen4, showAdAttribution: true, sourceUrl: canal}}} , { quoted: fkontak })
 const texto1 = `\`🦖Título:\` ${yt_play[0].title}
 
@@ -236,10 +238,11 @@ console.log(e);
 }}}}}}}
 
 if (command == 'play4' || command == 'playdoc2') {
-if (!text) return conn.reply(m.chat, `🧧${usedPrefix + command} diles`, m);
+if (!text) return conn.reply(m.chat, `🚩 *Ejemplo:* ${usedPrefix + command} diles`, m);
 await m.react('🕒');
 const yt_play = await search(args.join(' '));
 const ytplay2 = await yts(text);
+let name = await conn.getName(m.sender)
 await conn.sendMessage(m.chat, { text: global.espere + `*${name}*`, contextInfo: { externalAdReply: {title: `${wm}`, body: `${await conn.getName(m.chat)}`, thumbnailUrl: imagen4, thumbnail: imagen4, showAdAttribution: true, sourceUrl: canal}}} , { quoted: fkontak })
 const texto1 = `\`🦖Título:\` ${yt_play[0].title}
 

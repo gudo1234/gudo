@@ -215,13 +215,13 @@ const downloadUrl = delius.data.download.url;
 //const fileSize = await getFileSize(downloadUrl);
 await conn.sendMessage(m.chat, { document: { url: downloadUrl }, fileName: `${yt_play[0].title}.mp4`, caption: `${wm}`, thumbnail: yt_play[0].thumbnail, mimetype: 'video/mp4' }, { quoted: m })
 } catch (e1) {
+await m.reply(`error`);
 try {
 let d2 = await fetch(`https://exonity.tech/api/ytdlp2-faster?apikey=adminsepuh&url=${yt_play[0].url}`);
 let dp = await d2.json();
 const audiop = await getBuffer(dp.result.media.mp4);
 await conn.sendMessage(m.chat, { document: { url: audiop }, fileName: `${yt_play[0].title}.mp4`, caption: null, thumbnail: yt_play[0].thumbnail, mimetype: 'video/mp4' }, { quoted: m })
 } catch (e2) {
-await m.reply(`error`);
 console.log(e2);
 }}}
 

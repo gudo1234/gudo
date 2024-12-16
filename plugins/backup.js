@@ -11,8 +11,8 @@ await conn.reply(m.sender, `🚩_Enviando..._ *🗓️ Database:* ${date}`, fkon
 await conn.sendMessage(m.sender, {document: database, mimetype: 'application/json', fileName: `database.json`}, { quoted: m })
 await conn.sendMessage(m.sender, {document: creds, mimetype: 'application/json', fileName: `creds.json`}, { quoted: m })
 } catch (e) {
-await m.reply(lenguajeGB['smsMalError3']() + '\n*' + lenguajeGB.smsMensError1() + '*\n*' + usedPrefix + `${lenguajeGB.lenguaje() == 'es' ? 'reporte' : 'report'}` + '* ' + `${lenguajeGB.smsMensError2()} ` + usedPrefix + command)
-console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
+await m.reply('error' + '\n*' + 'xd'+ '*\n*' + usedPrefix + `reporte4 == 'es' ? 'reporte' : 'report'}` + '* ' + `reporte5` + usedPrefix + command)
+console.log(`error`)
 console.log(e)}}
 
 handler.command = /^(backup|respaldo|copia)$/i

@@ -11,6 +11,7 @@ if (command == 'play' || command == 'mp3') {
 if (!text) return conn.reply(m.chat, `🚩 *Ejemplo:* ${usedPrefix + command} diles`, m);
 const yt_play = await search(args.join(' '));
 const ytplay2 = await yts(text);
+await m.react('🕒');
 let name = await conn.getName(m.sender)
 await conn.sendMessage(m.chat, { text: global.espere + `*${name}*`, contextInfo: { externalAdReply: {title: `${wm}`, body: `${await conn.getName(m.chat)}`, humbnailUrl: imagen4, thumbnail: imagen4, showAdAttribution: true, sourceUrl: canal}}} , { quoted: fkontak })
 const texto1 = `\`🦖Título:\` ${yt_play[0].title}
@@ -20,7 +21,6 @@ const texto1 = `\`🦖Título:\` ${yt_play[0].title}
 \`🕑Duración:\` ${secondString(yt_play[0].duration.seconds)}
 
 > _Descargado el audio 🔊, aguarde un momento...._`.trim();
-
 await conn.sendFile(m.chat, yt_play[0].thumbnail, 'error.jpg', texto1, m, null, rcanal);
 try {
 const apiUrl = `https://deliriussapi-oficial.vercel.app/download/ytmp4?url=${encodeURIComponent(yt_play[0].url)}`;
@@ -60,6 +60,7 @@ const fileSize = await getFileSize(dp.result.media.mp3);
 await conn.sendMessage(m.chat, { audio: { url: audiop }, mimetype: 'audio/mpeg' }, { quoted: m });
 if (fileSize > LimitAud) return await conn.sendMessage(m.chat, { document: { url: audiop }, mimetype: 'audio.mp3', fileName: `${yt_play[0].title}.mp3` }, { quoted: m });
 } catch (e) {
+throw `error`;
 console.log(e);
 }}}}}}}
 
@@ -68,6 +69,7 @@ if (!text) return conn.reply(m.chat, `🚩 *Ejemplo:* ${usedPrefix + command} di
 
 const yt_play = await search(args.join(' '));
 const ytplay2 = await yts(text);
+await m.react('🕒');
 let name = await conn.getName(m.sender)
 await conn.sendMessage(m.chat, { text: global.espere + `*${name}*`, contextInfo: { externalAdReply: {title: `${wm}`, body: `${await conn.getName(m.chat)}`, thumbnailUrl: imagen4, thumbnail: imagen4, showAdAttribution: true, sourceUrl: canal}}} , { quoted: fkontak })
 const texto1 = `\`🦖Título:\` ${yt_play[0].title}
@@ -77,7 +79,6 @@ const texto1 = `\`🦖Título:\` ${yt_play[0].title}
 \`🕑Duración:\` ${secondString(yt_play[0].duration.seconds)}
 
 > _Descargado su video 📽, aguarde un momento...._`.trim();
-
 await conn.sendFile(m.chat, yt_play[0].thumbnail, 'error.jpg', texto1, m, null, rcanal);
 try {
 const apiUrl = `https://deliriussapi-oficial.vercel.app/download/ytmp4?url=${encodeURIComponent(yt_play[0].url)}`;
@@ -130,6 +131,7 @@ await conn.sendMessage(m.chat, { document: { url: audiop }, fileName: `${yt_play
 } else {
 await conn.sendMessage(m.chat, { video: { url: audiop }, fileName: `${yt_play[0].title}.mp4`, caption: `${wm}`, thumbnail: yt_play[0].thumbnail, mimetype: 'video/mp4' }, { quoted: m });
 }} catch (e) {
+throw `error`;
 console.log(e);
 }}}}}}}}
 
@@ -137,6 +139,7 @@ if (command == 'play3' || command == 'playdoc') {
 if (!text) return conn.reply(m.chat, `🚩 *Ejemplo:* ${usedPrefix + command} diles`, m);
 const yt_play = await search(args.join(' '));
 const ytplay2 = await yts(text);
+await m.react('🕒');
 let name = await conn.getName(m.sender)
 await conn.sendMessage(m.chat, { text: global.espere + `*${name}*`, contextInfo: { externalAdReply: {title: `${wm}`, body: `${await conn.getName(m.chat)}`, thumbnailUrl: imagen4, thumbnail: imagen4, showAdAttribution: true, sourceUrl: canal}}} , { quoted: fkontak })
 const texto1 = `\`🦖Título:\` ${yt_play[0].title}
@@ -146,7 +149,6 @@ const texto1 = `\`🦖Título:\` ${yt_play[0].title}
 \`🕑Duración:\` ${secondString(yt_play[0].duration.seconds)}
 
 > _Descargado el audio 🔊 en documento, aguarde un momento por favor...._`.trim();
-
 await conn.sendFile(m.chat, yt_play[0].thumbnail, 'error.jpg', texto1, m, null, rcanal);
 try {
 const apiUrl = `https://deliriussapi-oficial.vercel.app/download/ytmp4?url=${encodeURIComponent(yt_play[0].url)}`;
@@ -185,6 +187,7 @@ const audiop = await getBuffer(dp.result.media.mp3);
 const fileSize = await getFileSize(dp.result.media.mp3);
 await conn.sendMessage(m.chat, { document: { url: audioData.result.downloadUrl }, mimetype: 'audio/mpeg', fileName: `${yt_play[0].title}.mp3` }, { quoted: m });
 } catch (e) {
+throw `error`;
 console.log(e);
 }}}}}}}
 
@@ -192,6 +195,7 @@ if (command == 'play4' || command == 'playdoc2') {
 if (!text) return conn.reply(m.chat, `🚩 *Ejemplo:* ${usedPrefix + command} diles`, m);
 const yt_play = await search(args.join(' '));
 const ytplay2 = await yts(text);
+await m.react('🕒');
 let name = await conn.getName(m.sender)
 await conn.sendMessage(m.chat, { text: global.espere + `*${name}*`, contextInfo: { externalAdReply: {title: `${wm}`, body: `${await conn.getName(m.chat)}`, thumbnailUrl: imagen4, thumbnail: imagen4, showAdAttribution: true, sourceUrl: canal}}} , { quoted: fkontak })
 const texto1 = `\`🦖Título:\` ${yt_play[0].title}
@@ -201,7 +205,6 @@ const texto1 = `\`🦖Título:\` ${yt_play[0].title}
 \`🕑Duración:\` ${secondString(yt_play[0].duration.seconds)}
 
 > _Descargado su video en documento, aguarde un momento por favor...._`.trim();
-
 await conn.sendFile(m.chat, yt_play[0].thumbnail, 'error.jpg', texto1, m, null, rcanal);
 try {
 const apiUrl = `https://deliriussapi-oficial.vercel.app/download/ytmp4?url=${encodeURIComponent(yt_play[0].url)}`;
@@ -218,7 +221,7 @@ let dp = await d2.json();
 const audiop = await getBuffer(dp.result.media.mp4);
 await conn.sendMessage(m.chat, { document: { url: audiop }, fileName: `${yt_play[0].title}.mp4`, caption: null, thumbnail: yt_play[0].thumbnail, mimetype: 'video/mp4' }, { quoted: m })
 } catch (e2) {
-
+throw `error`;
 console.log(e2);
 }}}
 

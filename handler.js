@@ -1507,7 +1507,7 @@ if (nk.status == "offer") {
 //let callmsg = await this.reply(nk.from, `${lenguajeGB['smsCont15']()} *@${nk.from.split('@')[0]}*, ${nk.isVideo ? lenguajeGB.smsCont16() : lenguajeGB.smsCont17()} ${lenguajeGB['smsCont18']()}`, false, { mentions: [nk.from] })
  const ocupado = './media/ocupado.mp3'
 let img = await (await fetch(`https://i.ibb.co/W3hmLwX/file.jpg`)).buffer()
-let txt = `\`🔐SISTEMA de BlOCK📱\`\n\nHola *@${nk.from.split('@')[0]}*\n\n🚩 _las llamadas no están permitidas para este usuario..._\n\n*Si está interesado en mis servicios contacte a mi desarrollador. wa.me/50492280729*\n> Síguenos en nuestro canal para futuras actualizaciones...`
+let txt = `\`🔐SISTEMA de BlOCK📱\`\n\nHola *@${nk.from.split('@')[0]}*\n\n🚩 _las llamadas no están permitidas para este usuario..._\n\n*Si está interesado en mis servicios contacte a mi desarrollador*\nwa.me/50492280729\n> Síguenos en nuestro canal para futuras actualizaciones...`
 this.sendMessage(nk.from, { text: txt, contextInfo: {
     mentionedJid: null,
     groupMentions: [],

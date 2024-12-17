@@ -26,4 +26,4 @@ await this.sendFile(m.chat, img, "Thumbnail.jpg", str.trim(), m, null, rcanal)
 await this.updateBlockStatus(m.chat, 'block')
     }
     return !1
-}
+}*/

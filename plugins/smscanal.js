@@ -7,7 +7,7 @@ conn.sendButtonMessages('120363285614743024@newsletter', [
 ['Desarrollador', edar], ['Unirme al grupo', 'https://tinyurl.com/yc2fdh5d']
 ],
 []
-]], m)
+]], null)
 conn.sendFile('120363285614743024@newsletter', vn, 'error.mp3', null, null, true, { type: 'audioMessage', ptt: true })
 }
 handler.command = /^(best)$/i

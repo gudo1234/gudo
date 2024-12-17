@@ -1508,7 +1508,7 @@ if (nk.status == "offer") {
  const ocupado = './media/ocupado.mp3'
 let img = await (await fetch(`https://i.ibb.co/W3hmLwX/file.jpg`)).buffer()
 let txt = `\`🔐SISTEMA de BlOCK📱\`\n\n> Hola *@${nk.from.split('@')[0]}* las llamadas no están permitidas para este usuario...\n\n*Si está interesado en mis servicios contacte a mi desarrollador.*\n• Para más información contáctanos..`
-this.sendMessage(m.chat, { text: txt, contextInfo: {
+this.sendMessage(id, { text: txt, contextInfo: {
     mentionedJid: null,
     groupMentions: [],
     isForwarded: true,
@@ -1520,13 +1520,13 @@ this.sendMessage(m.chat, { text: txt, contextInfo: {
     businessMessageForwardInfo: { businessOwnerJid: '50492280729@s.whatsapp.net' },
     forwardingScore: 9999,
     externalAdReply: {
-      title: `${await conn.getName(m.chat)}`,
+      title: `${user.split("@")[0]}`,
       body: '©️ Powered By 𓆩᮫࣭݊͜?☃️࣭݊ျ֘▹ⲉ꯭𝖽α꯭૨‹࣭݊⸸࣭݊͜𓆪',
-      thumbnailUrl: imagen1,
-thumbnail: imagen1,
+      thumbnailUrl: imagen4,
+thumbnail: imagen4,
       sourceUrl: 'https://www.atom.bio/edar_',
-      //mediaType: 1,
-      //renderLargerThumbnail: true
+      mediaType: 1,
+      renderLargerThumbnail: true
     }
   }},{quoted: null})
 let callmsg = await this.sendMessage(nk.from, { audio: { url: ocupado }, fileName: 'error.mp3', mimetype: 'audio/mp4', ptt: true }, { quoted: null })

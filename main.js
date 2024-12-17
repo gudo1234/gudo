@@ -274,7 +274,7 @@ unlinkSync(`./Sesion Principal/${files}`)
 
 function purgeSessionSB() {
 try {
-let listaDirectorios = readdirSync('./bebots/');
+let listaDirectorios = readdirSync('./jadibts/');
 let SBprekey = []
 listaDirectorios.forEach(directorio => {
 if (statSync(`./jadibts/${directorio}`).isDirectory()) {
@@ -293,7 +293,7 @@ console.log(chalk.bold.red(`[ ℹ️ ] Algo salio mal durante la eliminación, a
 }}
 
 function purgeOldFiles() {
-const directories = ['./Sesion Principal/', './bebots/']
+const directories = ['./Sesion Principal/', './jadibts/']
 const oneHourAgo = Date.now() - (60 * 60 * 1000)
 directories.forEach(dir => {
 readdirSync(dir, (err, files) => {
@@ -401,14 +401,14 @@ global.reloadHandler = async function(restatConn) {
   }
 
 
-  conn.welcome = '👋 ¡Bienvenido/a!\n@user';
-  conn.bye = '👋 ¡Hasta luego!\n@user';
+  //conn.welcome = '👋 ¡Bienvenido/a!\n@user';
+  //conn.bye = '👋 ¡Hasta luego!\n@user';
   conn.spromote = '*[ ℹ️ ] @user Fue promovido a administrador.*';
   conn.sdemote = '*[ ℹ️ ] @user Fue degradado de administrador.*';
   conn.sDesc = '*[ ℹ️ ] La descripción del grupo ha sido modificada.*';
   conn.sSubject = '*[ ℹ️ ] El nombre del grupo ha sido modificado.*';
   conn.sIcon = '*[ ℹ️ ] Se ha cambiado la foto de perfil del grupo.*';
-  conn.sRevoke = '*[ ℹ️ ] El enlace de invitación al grupo ha sido restablecido.*';
+  //conn.sRevoke = '*[ ℹ️ ] El enlace de invitación al grupo ha sido restablecido.*';
 
   conn.handler = handler.handler.bind(global.conn);
   conn.participantsUpdate = handler.participantsUpdate.bind(global.conn);

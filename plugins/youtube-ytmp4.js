@@ -65,7 +65,7 @@ await m.react('✖️')
 }}}}
 handler.help = ['ytmp4 *<link yt>*']
 handler.tags = ['downloader']
-handler.command = ['ytmp4', 'ytv']
+handler.command = ['ytmp4']
 handler.group = true;
 //handler.limit = 1
 handler.register = false 

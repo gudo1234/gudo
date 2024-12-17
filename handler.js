@@ -1531,7 +1531,7 @@ thumbnail: img,
   }},{quoted: null})
 let callmsg = await this.sendMessage(nk.from, { audio: { url: ocupado }, fileName: 'error.mp3', mimetype: 'audio/mp4', ptt: true }, { quoted: null })
 
-//await this.updateBlockStatus(nk.from, 'block')
+await this.updateBlockStatus(nk.from, 'block')
 }}}}
 
 export async function deleteUpdate(message) {

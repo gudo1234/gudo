@@ -1,4 +1,4 @@
-/*import yts from 'yt-search'
+import yts from 'yt-search'
 
 var handler = async (m, { text, conn, args, command, usedPrefix }) => {
 
@@ -32,4 +32,4 @@ handler.tags = ['buscador']
 handler.command = ['playlist', 'ytbuscar', 'yts', 'ytsearch']
 handler.group = true;
 
-export default handler*/
+export default handler

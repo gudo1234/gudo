@@ -22,7 +22,7 @@ ${vid.title}
     ['video', `${usedPrefix}ytv ${url}`],
     ['Doc.MP3', `${usedPrefix}ytadoc ${url}`],
     ['Doc.MP4', `${usedPrefix}ytdoc ${url}`]
-  ], null, [['Canal', `${edar}`]], m)
+  ], null, [['Canal', `${canal}`]], m)
 }
 handler.help = ['play']
 handler.tags = ['dl']

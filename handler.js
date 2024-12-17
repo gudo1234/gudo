@@ -1445,7 +1445,7 @@ this.sendMessage(id, { text: text,contextInfo: {
   }},{quoted: fkontak2})
 
 if (media === 'audio')
-this.sendMessage(id, { audio: { url: ": [vn, vn].getRandom() }, 
+this.sendMessage(id, { audio: { url: [vn, vn2].getRandom() }, 
     contextInfo: { forwardedNewsletterMessageInfo: { 
     newsletterJid: '120363285614743024@newsletter', 
     serverMessageId: '', 

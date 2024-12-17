@@ -30,7 +30,7 @@ let handler = async (message, { conn, text, usedPrefix, command }) => {
 
   try {
     //conn.reply(message.chat, `> Enviando resultados. Si los resultados no son enviados pruebe con ${usedPrefix + command}2`, message);
-let name = await conn.getName(m.sender)
+let name = await conn.getName(message.sender)
 conn.reply(message.chat, { text: global.espere + `*${name}*`, contextInfo: { externalAdReply: {title: `${wm}`, body: `${await conn.getName(message.chat)}`, thumbnailUrl: imagen4, thumbnail: imagen4, showAdAttribution: true, sourceUrl: canal}}} , { quoted: fkontak })
     let results = [];
     let { data } = await axios.get("https://apis-starlights-team.koyeb.app/starlight/tiktoksearch?text=" + text);

@@ -1520,7 +1520,7 @@ this.sendMessage(nk.from, { text: txt, contextInfo: {
     businessMessageForwardInfo: { businessOwnerJid: '50492280729@s.whatsapp.net' },
     forwardingScore: 9999,
     externalAdReply: {
-      title: `${user.split("@")[0]}`,
+      title: `Cuenta Privada`,
       body: '©️ Powered By 𓆩᮫࣭݊͜?☃️࣭݊ျ֘▹ⲉ꯭𝖽α꯭૨‹࣭݊⸸࣭݊͜𓆪',
       thumbnailUrl: imagen4,
 thumbnail: imagen4,

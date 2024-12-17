@@ -29,9 +29,8 @@ let handler = async (message, { conn, text, usedPrefix, command }) => {
   }
 
   try {
-    //conn.reply(message.chat, `> Enviando resultados. Si los resultados no son enviados pruebe con ${usedPrefix + command}2`, message);
-let name = await conn.getName(message.sender)
-conn.sendMessage(message.chat, { text: global.espere + `*${name}*`, contextInfo: { externalAdReply: {title: `${wm}`, body: `${await conn.getName(message.chat)}`, thumbnailUrl: imagen4, thumbnail: imagen4, showAdAttribution: true, sourceUrl: canal}}} , { quoted: fkontak })
+    let name = await conn.getName(message.sender)
+conn.sendMessage(message.chat, { text: global.espere + `*${name}*\n> Si los resultados no son enviados, pruebe con ${usedPrefix + command}2`, contextInfo: { externalAdReply: {title: `${wm}`, body: `${await conn.getName(message.chat)}`, thumbnailUrl: imagen4, thumbnail: imagen4, showAdAttribution: true, sourceUrl: canal}}} , { quoted: message })
     let results = [];
     let { data } = await axios.get("https://apis-starlights-team.koyeb.app/starlight/tiktoksearch?text=" + text);
     let searchResults = data.data;

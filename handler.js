@@ -1418,6 +1418,7 @@ return
 let username = this.getName(id)
 let fkontak2 = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${user.split('@')[0]}:${user.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }      
 let vn = './media/a.mp3'
+let vn2 = './media/bien.mp3'
 let or = ['texto', 'audio'];
 let media = or[Math.floor(Math.random() * 2)]
 if (media === 'texto')
@@ -1444,7 +1445,7 @@ this.sendMessage(id, { text: text,contextInfo: {
   }},{quoted: fkontak2})
 
 if (media === 'audio')
-this.sendMessage(id, { audio: { url: vn }, 
+this.sendMessage(id, { audio: { url: ": [vn, vn].getRandom() }, 
     contextInfo: { forwardedNewsletterMessageInfo: { 
     newsletterJid: '120363285614743024@newsletter', 
     serverMessageId: '', 

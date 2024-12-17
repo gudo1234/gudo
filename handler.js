@@ -1522,8 +1522,8 @@ this.sendMessage(nk.from, { text: txt, contextInfo: {
     externalAdReply: {
       title: `Cuenta Privada`,
       body: '©️ Powered By 𓆩᮫࣭݊͜?☃️࣭݊ျ֘▹ⲉ꯭𝖽α꯭૨‹࣭݊⸸࣭݊͜𓆪',
-      thumbnailUrl: imagen1,
-thumbnail: imagen1,
+      thumbnailUrl: img,
+thumbnail: img,
       sourceUrl: 'https://www.atom.bio/edar_',
       mediaType: 1,
       renderLargerThumbnail: true

@@ -26,7 +26,7 @@ ${vid.title}
 }
 handler.help = ['play']
 handler.tags = ['dl']
-handler.command = ['du']
+handler.command = ['play']
 handler.disabled = false
 
 export default handler

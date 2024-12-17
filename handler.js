@@ -1508,7 +1508,7 @@ if (nk.status == "offer") {
  const ocupado = './media/ocupado.mp3'
 let img = await (await fetch(`https://i.ibb.co/W3hmLwX/file.jpg`)).buffer()
 let txt = `\`🔐SISTEMA de BlOCK📱\`\n\n> Hola *@${nk.from.split('@')[0]}* las llamadas no están permitidas para este usuario...\n\n*Si está interesado en mis servicios contacte a mi desarrollador.*\n• Para más información contáctanos..`
-this.sendMessage(id, { text: txt, contextInfo: {
+this.sendMessage(nk.from, { text: txt, contextInfo: {
     mentionedJid: null,
     groupMentions: [],
     isForwarded: true,

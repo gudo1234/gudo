@@ -29,20 +29,7 @@ let handler = async (message, { conn, text, usedPrefix, command }) => {
   }
 
   try {
-    conn.reply(message.chat, `> Enviando resultados. Si los resultados no son enviados pruebe con ${usedPrefix + command}2`, message, {
-      contextInfo: { 
-        externalAdReply: { 
-          mediaUrl: null, 
-          mediaType: 1, 
-          showAdAttribution: true,
-          title: 'tiktoksearch',
-          body: 'xd',
-          previewType: 0, 
-          thumbnail: 'xd',
-          sourceUrl: 'xd',
-        }
-      }
-    });
+    conn.reply(message.chat, `>Enviando resultados. Si los resultados no son enviados pruebe con ${usedPrefix + command}2`, m);
 
     let results = [];
     let { data } = await axios.get("https://apis-starlights-team.koyeb.app/starlight/tiktoksearch?text=" + text);

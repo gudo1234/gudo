@@ -43,6 +43,8 @@ if (size.split('MB')[0] >= limit) return star.reply(m.chat, `El archivo pesa mas
        txt += `	✩   *Tamaño* : ${size}\n\n`
        txt += `> *- ↻ El audio se esta enviando espera un momento, soy lenta. . .*`
 /**await star.sendFile(m.chat, img, 'thumbnail.jpg', txt, m, null, rcanal)**/
+let name = await conn.getName(m.sender)
+await conn.sendMessage(m.chat, { text: global.espere + `*${name}*`, contextInfo: { externalAdReply: {title: `${wm}`, body: `${await conn.getName(m.chat)}`, thumbnailUrl: imagen4, thumbnail: imagen4, showAdAttribution: true, sourceUrl: canal}}} , { quoted: fkontak })
 await star.sendMessage(m.chat, { document: { url: dl_url }, caption: '', mimetype: 'audio/mpeg', fileName: `${title}.mp3`}, { quoted: m })
 await m.react('✅')
 } catch {
@@ -58,6 +60,8 @@ if (size.split('MB')[0] >= limit) return star.reply(m.chat, `El Archivo pesa má
        txt += `	✩   *Tamaño* : ${size}\n\n`
        txt += `> *- ↻ El audio se esta enviando espera un momento, soy lenta. . .*`
 /**await star.sendFile(m.chat, img, 'thumbnail.jpg', txt, m, null, rcanal)**/
+let name = await conn.getName(m.sender)
+await conn.sendMessage(m.chat, { text: global.espere + `*${name}*`, contextInfo: { externalAdReply: {title: `${wm}`, body: `${await conn.getName(m.chat)}`, thumbnailUrl: imagen4, thumbnail: imagen4, showAdAttribution: true, sourceUrl: canal}}} , { quoted: fkontak })
 await star.sendMessage(m.chat, { document: { url: dl_url }, caption: '', mimetype: 'audio/mpeg', fileName: `${title}.mp3`}, { quoted: m })
 await m.react('✅')
 } catch {

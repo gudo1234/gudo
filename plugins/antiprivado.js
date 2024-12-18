@@ -1,4 +1,4 @@
-/*export async function before(m, { isAdmin, isBotAdmin, isOwner }) {
+export async function before(m, { isAdmin, isBotAdmin, isOwner }) {
     if (m.isBaileys && m.fromMe)
         return !0
     if (m.isGroup)
@@ -26,4 +26,4 @@ await this.sendFile(m.chat, img, "Thumbnail.jpg", str.trim(), m, null, rcanal)
 await this.updateBlockStatus(m.chat, 'block')
     }
     return !1
-}*/
+}

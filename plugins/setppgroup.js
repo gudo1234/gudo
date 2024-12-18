@@ -4,9 +4,9 @@ let q = m.quoted ? m.quoted : m
 let mime = (q.msg || q).mimetype || q.mediaType || ''
 if (/image/.test(mime)) {
 let img = await q.download()
-if (!img) return conn.reply(m.chat, '🎌 *Debera etiquetar una imagen*', m, fake, )
-await conn.updateProfilePicture(m.chat, img).then(_ => conn.reply(m.chat, '✅ *Imagen actualizada con éxito*', m, fake, ))
-} else return conn.reply(m.chat, '🎌 *Debera etiquetar una imagen*', m, fake, )
+if (!img) return conn.reply(m.chat, '🎌 *Debera etiquetar una imagen*', m)
+await conn.updateProfilePicture(m.chat, img).then(_ => conn.reply(m.chat, '✅ *Imagen actualizada con éxito*', m))
+} else return conn.reply(m.chat, '🎌 *Debera etiquetar una imagen*', m)
 
 }
 handler.help = ['setpp', 'setppgc', 'setppgroup']

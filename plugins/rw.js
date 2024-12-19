@@ -14,7 +14,7 @@ let txt = `*Nombre:* Desconocido\n*Precio:* Gratis\n*Reclamado por:* ${user(a)}`
 //conn.sendFile(m.chat, json.url, 'error.jpg', `*Nombre:* Desconocido\n*Precio:* Gratis\n*Reclamado por:* ${user(a)}`, m, {contextInfo: { externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: wm, body: 'waifu', previewType: 0, thumbnail: imagen4, sourceUrl: canal}}})
 //conn.sendButton(m.chat, `🥺`, wm, json.url, [['siguiente', `/${command}`]], m)
 
-conn.sendMessage(m.chat, { text: txt, contextInfo: {
+conn.sendMessage(m.chat, json.url, { text: txt, contextInfo: {
     mentionedJid: [m.sender],
     groupMentions: [],
     isForwarded: true,

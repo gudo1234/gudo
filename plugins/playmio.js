@@ -15,8 +15,7 @@ const yt_play = await search(args.join(' '));
 const ytplay2 = await yts(text);
 const texto1 = `🌟 *Título:* ${yt_play[0].title}\n🗓️ *Publicado:* ${yt_play[0].ago}\n⏳ *Duración:* ${secondString(yt_play[0].duration.seconds)}\n*Vistas:* ${MilesNumber(yt_play[0].views)}\n👤 *Author:* ${yt_play[0].author.name}\n🔗 *Url:* ${yt_play[0].url}\n> Se está enviando el Audio, espere...`.trim();
 
-await conn.sendMessage(m.chat, {
-image: { url: yt_play[0].thumbnail }, caption: texto1, contextInfo: { externalAdReply: { title: wm, body: 'Enviando...', sourceUrl: canal, thumbnail: imagen4 }}, quoted: m});
+await conn.sendFile(m.chat, yt_play[0].thumbnail, 'error.jpg', texto1, m, null, rcanal);
 try {
 const apiUrl = `https://deliriussapi-oficial.vercel.app/download/ytmp4?url=${encodeURIComponent(yt_play[0].url)}`;
 const apiResponse = await fetch(apiUrl);
@@ -67,8 +66,7 @@ const yt_play = await search(args.join(' '));
 const ytplay2 = await yts(text);
 const texto1 = `🌟 *Título:* ${yt_play[0].title}\n🗓️ *Publicado:* ${yt_play[0].ago}\n⏳ *Duración:* ${secondString(yt_play[0].duration.seconds)}\n*Vistas:* ${MilesNumber(yt_play[0].views)}\n👤 *Author:* ${yt_play[0].author.name}\n🔗 *Url:* ${yt_play[0].url}\n> Se está enviando el Video, espere...`.trim();
 
-await conn.sendMessage(m.chat, {
-image: { url: yt_play[0].thumbnail }, caption: texto1, contextInfo: { externalAdReply: { title: wm, body: 'Enviando...', sourceUrl: canal, thumbnail: imagen4 }}, quoted: m});
+await conn.sendFile(m.chat, yt_play[0].thumbnail, 'error.jpg', texto1, m, null, rcanal);
 try {
 const apiUrl = `https://deliriussapi-oficial.vercel.app/download/ytmp4?url=${encodeURIComponent(yt_play[0].url)}`;
 const apiResponse = await fetch(apiUrl);
@@ -130,8 +128,7 @@ const yt_play = await search(args.join(' '));
 const ytplay2 = await yts(text);
 const texto1 = `🌟 *Título:* ${yt_play[0].title}\n🗓️ *Publicado:* ${yt_play[0].ago}\n⏳ *Duración:* ${secondString(yt_play[0].duration.seconds)}\n*Vistas:* ${MilesNumber(yt_play[0].views)}\n👤 *Author:* ${yt_play[0].author.name}\n🔗 *Url:* ${yt_play[0].url}\n> Se está enviando el Documento, espere...`.trim();
 
-await conn.sendMessage(m.chat, {
-image: { url: yt_play[0].thumbnail }, caption: texto1, contextInfo: { externalAdReply: { title: wm, body: 'Enviando...', sourceUrl: canal, thumbnail: imagen4 }}, quoted: m});
+await conn.sendFile(m.chat, yt_play[0].thumbnail, 'error.jpg', texto1, m, null, rcanal);
 try {
 const apiUrl = `https://deliriussapi-oficial.vercel.app/download/ytmp4?url=${encodeURIComponent(yt_play[0].url)}`;
 const apiResponse = await fetch(apiUrl);
@@ -180,8 +177,7 @@ const yt_play = await search(args.join(' '));
 const ytplay2 = await yts(text);
 const texto1 = `🌟 *Título:* ${yt_play[0].title}\n🗓️ *Publicado:* ${yt_play[0].ago}\n⏳ *Duración:* ${secondString(yt_play[0].duration.seconds)}\n*Vistas:* ${MilesNumber(yt_play[0].views)}\n👤 *Author:* ${yt_play[0].author.name}\n🔗 *Url:* ${yt_play[0].url}\n> Se está enviando el Documento, espere...`.trim();
 
-await conn.sendMessage(m.chat, {
-image: { url: yt_play[0].thumbnail }, caption: texto1, contextInfo: { externalAdReply: { title: wm, body: 'Enviando...', sourceUrl: canal, thumbnail: imagen4 }}, quoted: m});
+await conn.sendFile(m.chat, yt_play[0].thumbnail, 'error.jpg', texto1, m, null, rcanal);
 try {
 const apiUrl = `https://deliriussapi-oficial.vercel.app/download/ytmp4?url=${encodeURIComponent(yt_play[0].url)}`;
 const apiResponse = await fetch(apiUrl);
@@ -297,4 +293,5 @@ if (data.status === 'ok') {
   } else {
     throw new Error("No se pudo obtener la descarga desde 9Convert");
   }
-    }
+}
+  

@@ -16,7 +16,7 @@ let pp = await conn.profilePictureUrl(m.messageStubParameters[0], 'image').catch
   let who = m.messageStubParameters[0] + '@s.whatsapp.net';
   let user = global.db.data.users[who];
   let userName = user ? user.name : await conn.getName(who);
-  let or = ['stiker', 'audio', 'texto'];
+  let or = ['stiker', 'audio'];
   let media = or[Math.floor(Math.random() * 3)]
   let stiker = await sticker(imagen7, false, global.packname, global.author)
   if (chat.welcome && (m.messageStubType === 28 || m.messageStubType === 32)) {
@@ -37,8 +37,5 @@ this.sendMessage(m.chat, { audio: { url: vn2 },
     "sourceUrl": 'https://www.atom.bio/edar_', 
     "showAdAttribution": true}}, 
      seconds: '4556', ptt: true, mimetype: 'audio/mpeg', fileName: `error.mp3` }, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
-
-if (media === 'texto')
-  m.reply (`@${userId.split`@`[0]}`)
   }
 }

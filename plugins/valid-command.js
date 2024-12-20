@@ -26,8 +26,8 @@ export async function before(m) {
    // await conn.sendPresenceUpdate('composing', m.chat);
   } else {
    const comando = m.text.trim().split(' ')[0];
-   await m.reply(`⚡︎ El comando *${comando}* no existe.
+await conn.sendMessage(m.chat, { text: `⚡︎ El comando *${comando}* no existe.
 Para ver la lista de comandos usa:
-» *${usedPrefix}menu*`);
+» *${usedPrefix}menu*`, contextInfo: { externalAdReply: {title: `${wm}`, body: `${await conn.getName(m.chat)}`, thumbnailUrl: imagen4, thumbnail: imagen4, showAdAttribution: true, sourceUrl: canal}}} , { quoted: m })
   }
 }

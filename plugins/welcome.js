@@ -68,8 +68,8 @@ export async function before(m, { conn, participants, groupMetadata }) {
     if (chat.welcome && m.messageStubType === 27) {
         let wel = `┌─★🌸SUMI BOT-MD🌸\n│「 𝐁𝐈𝐄𝐍𝐕𝐄𝐍𝐈𝐃𝐎 」\n└┬★ 「 @${userId.split`@`[0]} 」\n   │  ✨𝐁𝐈𝐄𝐍𝐕𝐄𝐍𝐈𝐃𝐎✨/𝐀\n   │ ${groupMetadata.subject}\n   └───────────────┈ ⳹`;
         try {
-            //await conn.sendMini(m.chat, packname, dev, wel, img, img, channel, fkontak);
-await conn.sendFile(m.chat, img, "Thumbnail.jpg", wel, null)
+            await conn.sendFile(m.chat, packname, 'hola', wel, img, img, canal, fkontak);
+//await conn.sendFile(m.chat, img, "Thumbnail.jpg", wel, null)
         } catch (sendError) {
             console.error('Error al enviar mensaje de bienvenida:', sendError);
         }
@@ -81,8 +81,8 @@ await conn.sendFile(m.chat, img, "Thumbnail.jpg", wel, null)
         let img2;
         try {
             img2 = await (await fetch(goodbyeImage)).buffer(); 
-            //await conn.sendMini(m.chat, packname, dev, bye, img2, img2, channel, fkontak);
-await conn.sendFile(m.chat, img2, "Thumbnail.jpg", bye, null)
+            await conn.sendFile(m.chat, packname, 'xd', bye, img2, img2, canal, fkontak);
+//await conn.sendFile(m.chat, img2, "Thumbnail.jpg", bye, null)
         } catch (sendError) {
             console.error('Error al enviar mensaje de despedida:', sendError);
         }
@@ -94,8 +94,8 @@ await conn.sendFile(m.chat, img2, "Thumbnail.jpg", bye, null)
         let img3;
         try {
             img3 = await (await fetch(goodbyeImage)).buffer();
-            //await conn.sendMini(m.chat, packname, dev, kick, img3, img3, channel, fkontak);
-await conn.sendFile(m.chat, img3, "Thumbnail.jpg", kick, null)
+            await conn.sendFile(m.chat, packname, 'wtf', kick, img3, img3, canal, fkontak);
+//await conn.sendFile(m.chat, img3, "Thumbnail.jpg", kick, null)
         } catch (sendError) {
             console.error('Error al enviar mensaje de expulsión:', sendError);
         }

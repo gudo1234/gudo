@@ -1,4 +1,4 @@
-/*import { WAMessageStubType } from '@whiskeysockets/baileys';
+import { WAMessageStubType } from '@whiskeysockets/baileys';
 import { sticker } from '../lib/sticker.js'
 import fetch from 'node-fetch';
 export async function before(m, { conn, participants, groupMetadata }) {
@@ -16,8 +16,8 @@ let pp = await conn.profilePictureUrl(m.messageStubParameters[0], 'image').catch
   let who = m.messageStubParameters[0] + '@s.whatsapp.net';
   let user = global.db.data.users[who];
   let userName = user ? user.name : await conn.getName(who);
-  let or = ['stiker', 'audio'];
-  let media = or[Math.floor(Math.random() * 2)]
+  let or = ['stiker', 'audio', 'texto'];
+  let media = or[Math.floor(Math.random() * 3)]
   let stiker = await sticker(imagen7, false, global.packname, global.author)
   if (chat.welcome && (m.messageStubType === 28 || m.messageStubType === 32)) {
 if (media === 'stiker')
@@ -37,64 +37,8 @@ this.sendMessage(m.chat, { audio: { url: vn2 },
     "sourceUrl": 'https://www.atom.bio/edar_', 
     "showAdAttribution": true}}, 
      seconds: '4556', ptt: true, mimetype: 'audio/mpeg', fileName: `error.mp3` }, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
+
+if (media === 'texto')
+  m.reply (`@${userId.split`@`[0]}`)
   }
-}*/
-export async function before(m, { conn, participants, groupMetadata }) {
-    const fkontak = { key: { fromMe: false, participant: '0@s.whatsapp.net' }, message: { conversation: '¡Hola!' } };
-    
-    if (!m.messageStubType || !m.isGroup) return true;
-
-    let userId = m.messageStubParameters[0];
-
-    const welcomeImage = 'https://qu.ax/JKgtT.jpg'; // Imagen de bienvenida
-    const goodbyeImage = 'https://qu.ax/JKgtT.jpg'; // Imagen de despedida
-
-    let pp;
-    try {
-        pp = await conn.profilePictureUrl(userId, 'image');
-    } catch (error) {
-        pp = null;
-    }
-
-    let img;
-    try {
-        img = await (await fetch(pp || welcomeImage)).buffer();
-    } catch (fetchError) {
-        img = await (await fetch(welcomeImage)).buffer();
-    }
-
-    let chat = global.db.data.chats[m.chat];
-
-    if (chat.welcome && m.messageStubType === 27) {
-        let wel = `┌─★${packname}\n│「 𝐁𝐈𝐄𝐍𝐕𝐄𝐍𝐈𝐃𝐎 」\n└┬★ 「 @${userId.split`@`[0]} 」\n   │  ✨𝐁𝐈𝐄𝐍𝐕𝐄𝐍𝐈𝐃𝐎✨/𝐀\n   │ ${groupMetadata.subject}\n   └───────────────┈ ⳹`;
-        try {
-            await conn.sendFile(m.chat, packname, 'xd', wel, img, img, canal, fkontak);
-        } catch (sendError) {
-            console.error('Error al enviar mensaje de bienvenida:', sendError);
-        }
-    }
-
-    // Mensaje de despedida (cuando se sale)
-    if (chat.welcome && m.messageStubType === 28) {
-        let bye = `┌─★${packname}\n│「 𝐀𝐃𝐈Ó𝐒 🗣️‼️ 」\n└┬★ 「 @${userId.split`@`[0]} 」\n   │SE SALIO UNA GONORREA😂\n   │📌𝐍𝐮𝐧𝐜𝐚 𝐓𝐞 𝐐𝐮𝐢𝐬𝐢𝐦𝐨𝐬 𝐀𝐪𝐮í\n   └───────────────┈ ⳹`;
-        let img2;
-        try {
-            img2 = await (await fetch(goodbyeImage)).buffer(); 
-            await conn.sendFile(m.chat, packname, 'xdd', bye, img2, img2, canal, fkontak);
-        } catch (sendError) {
-            console.error('Error al enviar mensaje de despedida:', sendError);
-        }
-    }
-
-    // Mensaje de expulsión (cuando se echa a alguien)
-    if (chat.welcome && m.messageStubType === 32) {
-        let kick = `┌─★${packname} \n│「 𝐀𝐃𝐈Ó𝐒 🗣️‼️ 」\n└┬★ 「 @${userId.split`@`[0]} 」\n   │SE SALIO UNA GONORREA 😂\n   │📌𝐍𝐮𝐧𝐜𝐚 𝐓𝐞 𝐐𝐮𝐢𝐬𝐢𝐦𝐨𝐬 𝐀𝐪𝐮í\n   └───────────────┈ ⳹`;
-        let img3;
-        try {
-            img3 = await (await fetch(goodbyeImage)).buffer();
-            await conn.sendFile(m.chat, packname, 'xddd', kick, img3, img3, canal, fkontak);
-        } catch (sendError) {
-            console.error('Error al enviar mensaje de expulsión:', sendError);
-        }
-    }
 }

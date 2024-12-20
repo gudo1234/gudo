@@ -104,6 +104,7 @@ global.imagen4 = fs.readFileSync('./media/Menu4.jpg')
 global.imagen5 = 'https://qu.ax/rULv.jpg'
 global.imagen6 = 'https://qu.ax/CySs.jpg'
 global.imagen7 = fs.readFileSync('./media/ad.png')
+global.imagen8 = fs.readFileSync('./media/byenavidad.jpg')
 global.menu18 = 'https://qu.ax/MOgO.jpg'
 global.vid1 = 'https://qu.ax/dcAc.mp4'
 global.img = [imagen, imagen1, imagen2, imagen3, imagen4]

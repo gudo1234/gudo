@@ -67,6 +67,7 @@ conn.sendEvent(m.chat, `${rpt}`,`*🧧Prefijo* (${usedPrefix})
 •🔎 BÚSQUEDAS.li
 ╭───╯
 ☯️]▸ google txt
+☯️]▸ dalle
 ☯️]▸ ia
 ☯️]▸ gemini
 ☯️]▸ style

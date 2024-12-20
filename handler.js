@@ -1402,7 +1402,7 @@ pp = await this.profilePictureUrl(user, 'image')
 let apii = await this.getFile(pp)
 const botTt2 = groupMetadata.participants.find(u => this.decodeJid(u.id) == this.user.jid) || {} 
 const isBotAdminNn = botTt2?.admin === "admin" || false
-text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || `.    /)🎩/)
+text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || `     /)🎩/)
     (｡•ㅅ•｡)𖹭︩︪𝚆꯭᪶۫۫͝𝙴꯭᪶͡𝙻᪶۫۫͝𝙲꯭᪶֟፟፝͡𝙾᪶۫۫͝𝙼꯭᪶͡𝙴᪶𖹭︩︪*
     ╭∪─∪─────────❤︎₊᪲
 ¡Hola!🍷 *@user* buenos días/tardes/noches.\n🗿¡Bienvenido a *@subject*!\n\n> Disfruta del grupo, diviértete, no olvides en leer las reglas...

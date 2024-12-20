@@ -1,5 +1,5 @@
-/*import { WAMessageStubType } from '@whiskeysockets/baileys';
-import { sticker } from '../lib/sticker.js'
+import { WAMessageStubType } from '@whiskeysockets/baileys';
+import { sticker } from './lib/sticker.js'
 import fetch from 'node-fetch';
 export async function before(m, { conn, participants, groupMetadata }) {
 
@@ -38,4 +38,4 @@ this.sendMessage(m.chat, { audio: { url: vn2 },
     "showAdAttribution": true}}, 
      seconds: '4556', ptt: true, mimetype: 'audio/mpeg', fileName: `error.mp3` }, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
   }
-}*/
+}

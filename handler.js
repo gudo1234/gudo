@@ -1419,8 +1419,13 @@ let username = this.getName(id)
 let fkontak2 = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${user.split('@')[0]}:${user.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }      
 let vn = './media/a.mp3'
 let vn2 = './media/bien.mp3'
-let or = ['texto', 'audio'];
-let media = or[Math.floor(Math.random() * 2)]
+let stiker = await sticker(imagen8, false, global.packname, global.author)
+let or = ['stiker', 'texto', 'audio'];
+let media = or[Math.floor(Math.random() * 3)]
+
+if (media === 'stiker')
+this.sendFile(id, stiker, 'sticker.webp', '',null, true, { contextInfo: { 'forwardingScore': 200, 'isForwarded': false, externalAdReply:{ showAdAttribution: false, title: `❄️Welcome +${user.split("@")[0]}`, body: `${await conn.getName(id)}`, mediaType: 2, sourceUrl: canal, thumbnail: apii.data}}}, { quoted: null })
+
 if (media === 'texto')
 this.sendMessage(id, { text: text,contextInfo: {
     mentionedJid: [user],

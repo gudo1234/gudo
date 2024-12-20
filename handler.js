@@ -1425,7 +1425,7 @@ let or = ['stiker', 'texto', 'audio'];
 let media = or[Math.floor(Math.random() * 3)]
 
 if (media === 'stiker')
-this.sendFile(id, stiker, 'sticker.webp', '',null, true, { contextInfo: { 'forwardingScore': 200, 'isForwarded': false, externalAdReply:{ showAdAttribution: false, title: `❄️Welcome +${user.split("@")[0]}`, body: `${await conn.getName(id)}`, mediaType: 2, sourceUrl: canal, thumbnail: apii.data}}}, { quoted: null })
+this.sendFile(id, stiker, 'sticker.webp', '',null, true, { contextInfo: { 'forwardingScore': 200, 'isForwarded': false, externalAdReply:{ showAdAttribution: false, title: `+${user.split("@")[0]}`, body: `Izumi te da la bienvenida a ${await conn.getName(id)}`, mediaType: 2, sourceUrl: canal, thumbnail: apii.data}}}, { quoted: null })
 
 if (media === 'texto')
 this.sendMessage(id, { text: text,contextInfo: {

@@ -1,5 +1,6 @@
 import {generateWAMessageFromContent} from '@whiskeysockets/baileys';
 import { smsg } from './lib/simple.js'
+import { sticker } from '../lib/sticker.js'
 import { format } from 'util'
 import { fileURLToPath } from 'url'
 import path, { join } from 'path'

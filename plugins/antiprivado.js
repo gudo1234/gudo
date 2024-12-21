@@ -21,7 +21,7 @@ let str = `,    /)🎩/)
     ╭∪─∪─────────❤︎₊᪲
 Hola *${name}*\n\nNo está permitido usar el bot en chat privado.\n\n🚩Si está interesado en mis servicios contacte a mi desarrollador.\n wa.me/50492280729.\n\n> Puedes seguir el canal para mantenerte informado de las actualizaciones.
     ╰────────────❤︎₊᪲`.trim()
-await this.sendFile(m.chat, img, "Thumbnail.jpg", str.trim(), m, null, rcanal)
+await this.sendFile(m.chat, img, "Thumbnail.jpg", str.trim(), null, null, rcanal)
  await this.sendFile(m.chat, vn, 'error.mp3', null,null, true, { type: 'audioMessage', ptt: true })
 await this.updateBlockStatus(m.chat, 'block')
     }

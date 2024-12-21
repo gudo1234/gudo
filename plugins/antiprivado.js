@@ -8,7 +8,7 @@ export async function before(m, { isAdmin, isBotAdmin, isOwner }) {
     if (m.text.includes('PIEDRA') || m.text.includes('PAPEL') || m.text.includes('TIJERA'))
        return !0
     let chat = global.db.data.chats[m.chat]
-    let bot = global.db.data.settings[this.user.jid] || {}
+    //let bot = global.db.data.settings[this.user.jid] || {}
     
     if (bot.antiPrivate && !isOwner) {
 let vn = './media/ocupado.mp3'

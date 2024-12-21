@@ -95,11 +95,11 @@ await conn.sendMessage(m.chat, { text: src,contextInfo: {
     externalAdReply: {
       title: 'INFO-BOT',
       body: '©️ Powered By 𓆩᮫࣭݊͜🍁࣭݊ျ֘▹ⲉ꯭𝖽α꯭૨‹࣭݊⸸࣭݊͜𓆪',
-      thumbnailUrl: img,
-      thumbnail: img,
+      thumbnailUrl: imagen4,
+      thumbnail: imagen4,
       sourceUrl: 'https://www.atom.bio/edar_',
-      //mediaType: 1
-      //renderLargerThumbnail: true
+      mediaType: 1,
+      renderLargerThumbnail: true
     }
   }},{quoted: m})
 /*await conn.sendButtonMessages(m.chat, [

@@ -4,8 +4,8 @@ export async function before(m, { isAdmin, isBotAdmin, isOwner }) {
     if (m.isGroup)
        return !1
     if (!m.message)
-       return !0
-    if (m.text.includes('PIEDRA') || m.text.includes('PAPEL') || m.text.includes('TIJERA'))
+       //return !0
+    //if (m.text.includes('PIEDRA') || m.text.includes('PAPEL') || m.text.includes('TIJERA'))
        return !0
     let chat = global.db.data.chats[m.chat]
     let bot = global.db.data.settings[this.user.jid] || {}

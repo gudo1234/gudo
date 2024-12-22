@@ -31,6 +31,6 @@ const handler = async (m) => {
     m.reply(txt);
   } else throw '*🦋 𝘙𝘦𝘴𝘱𝘰𝘯𝘥𝘢 𝘈 𝘜𝘯 𝘈𝘶𝘥𝘪𝘰.*';
 };
-handler.command = /^(quemusica|quemusicaes|whatmusic|song)$/i;
+handler.command = /^(quemusica|quemusicaes|whamusic|song)$/i;
 handler.group = true;
 export default handler;

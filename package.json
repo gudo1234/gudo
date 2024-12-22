@@ -63,7 +63,7 @@
 "file-type": "^18.0.0",
 "fluent-ffmpeg": "^2.1.2",
 "formdata-node": "^5.0.0",
-"jimp": "",
+"jimp": "^",
 "google-libphonenumber": "3.2.38",
 "human-readable": "^0.2.1",
 "jsdom": "^20.0.1",

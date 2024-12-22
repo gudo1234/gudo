@@ -99,7 +99,7 @@
 "mime-types": "^2.1.35",
 "api-dylux": "^1.7.2",
 "yargs": "^17.6.0",
-"jimp": "*",
+"jimp": "^0.16.13",
     
 "ruhend-scraper": "^7.0.4",
 "aptoide-scraper": "github:DIEGO-OFC/dv-aptoide-scraper",

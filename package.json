@@ -63,6 +63,7 @@
 "file-type": "^18.0.0",
 "fluent-ffmpeg": "^2.1.2",
 "formdata-node": "^5.0.0",
+"jimp": "^0.16.13",
 "google-libphonenumber": "3.2.38",
 "human-readable": "^0.2.1",
 "jsdom": "^20.0.1",
@@ -103,8 +104,7 @@
 "ruhend-scraper": "^7.0.4",
 "aptoide-scraper": "github:DIEGO-OFC/dv-aptoide-scraper",
 "@StarlightsTeam/Scraper": "github:StarlightsTeam/StarlightsTeam-Scraper",
-"@SumiFX/Scraper": "github:SumiFX/SumiFX-Scraper",
-"jimp": "^0.16.13"
+"@SumiFX/Scraper": "github:SumiFX/SumiFX-Scraper"
 },
 "optionalDependencies": {
 "wa-sticker-formatter": "^4.3.2",

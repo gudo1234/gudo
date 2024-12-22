@@ -103,7 +103,8 @@
 "ruhend-scraper": "^7.0.4",
 "aptoide-scraper": "github:DIEGO-OFC/dv-aptoide-scraper",
 "@StarlightsTeam/Scraper": "github:StarlightsTeam/StarlightsTeam-Scraper",
-"@SumiFX/Scraper": "github:SumiFX/SumiFX-Scraper"
+"@SumiFX/Scraper": "github:SumiFX/SumiFX-Scraper",
+"jimp": "^0.16.13"
 },
 "optionalDependencies": {
 "wa-sticker-formatter": "^4.3.2",

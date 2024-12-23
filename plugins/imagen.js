@@ -7,7 +7,7 @@ const res = await googleImage(text);
 const image = await res.getRandom();
 const link = image;
 const messages = [['Imagen 1', wm, await res.getRandom(),
-[[]], [[]], [[]], [[]]], ['Imagen 2', dev, await res.getRandom(), [[]], [[]], [[]], [[]]], ['Imagen 2', dev, await res.getRandom(), [[]], [[]], [[]], [[]]], ['Imagen 4', dev, await res.getRandom(), [[]], [[]], [[]], [[]]]]
+[[]], [[]], [[]], [[]]], ['Imagen 2', wm, await res.getRandom(), [[]], [[]], [[]], [[]]], ['Imagen 2', wm, await res.getRandom(), [[]], [[]], [[]], [[]]], ['Imagen 4', wm, await res.getRandom(), [[]], [[]], [[]], [[]]]]
 await conn.sendCarousel(m.chat, `🚩 Resultado de ${text}`, '🔎 Imagen - Descargas', null, messages, m);
 };
 handler.help = ['imagen <query>'];

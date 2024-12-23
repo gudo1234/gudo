@@ -17,7 +17,7 @@ let pp = await conn.profilePictureUrl(m.messageStubParameters[0], 'image').catch
   let user = global.db.data.users[who];
   let userName = user ? user.name : await conn.getName(who);
   let or = ['stiker', 'audio'];
-  let media = or[Math.floor(Math.random() * 3)]
+  let media = or[Math.floor(Math.random() * 2)]
   let stiker = await sticker(imagen7, false, global.packname, global.author)
   if (chat.welcome && (m.messageStubType === 28 || m.messageStubType === 32)) {
 if (media === 'stiker')

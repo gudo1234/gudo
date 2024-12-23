@@ -1,5 +1,5 @@
 import { WAMessageStubType } from '@whiskeysockets/baileys';
-import { sticker } from './lib/sticker.js'
+import { sticker } from '../lib/sticker.js'
 import fetch from 'node-fetch';
 export async function before(m, { conn, participants, groupMetadata }) {
 

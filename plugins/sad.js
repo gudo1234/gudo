@@ -4,6 +4,7 @@ let handler = async (m, { conn, args, usedPrefix, command}) => {
 
 let name = await conn.getName(m.sender)
 let vn = './media/prueba.mp3'
+let vn2 = './media/prueba2.mp3'
 let pp = await (await fetch(`https://qu.ax/tKDez.jpg`)).buffer()
 let pp2 = await (await fetch(`https://qu.ax/sUTYn.jpg`)).buffer()
 let pp3 = await (await fetch(`https://qu.ax/FuyLG.jpg`)).buffer()
@@ -12,7 +13,7 @@ let pp5 = await (await fetch(`https://qu.ax/clDrb.jpg`)).buffer()
 let pp6 = await (await fetch(`https://qu.ax/HgxgB.jpg`)).buffer()
 let pp7 = await (await fetch(`https://qu.ax/ysxlZ.jpg`)).buffer()
 let pp8 = await (await fetch(`https://qu.ax/cbeWi.jpg`)).buffer()
-conn.sendMessage(m.chat, { audio: { url: vn }, 
+conn.sendMessage(m.chat, { audio: { url: [vn, vn2].getRandom() }, 
     contextInfo: { forwardedNewsletterMessageInfo: { 
     newsletterJid: id_canal, 
     serverMessageId: '', 

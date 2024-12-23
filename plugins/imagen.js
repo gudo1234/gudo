@@ -9,8 +9,8 @@ let image = res.getRandom()
 let link = image
 await delay(1000)
 await m.react('✅')
-let name = await conn.getName(m.sender)
-await conn.sendMessage(m.chat, { text: global.espere + `*${name}*`, contextInfo: { externalAdReply: {title: `${wm}`, body: `${await conn.getName(m.chat)}`, humbnailUrl: imagen4, thumbnail: imagen4, showAdAttribution: true, sourceUrl: canal}}} , { quoted: fkontak })
+//let name = await conn.getName(m.sender)
+//await conn.sendMessage(m.chat, { text: global.espere + `*${name}*`, contextInfo: { externalAdReply: {title: `${wm}`, body: `${await conn.getName(m.chat)}`, humbnailUrl: imagen4, thumbnail: imagen4, showAdAttribution: true, sourceUrl: canal}}} , { quoted: fkontak })
 conn.sendFile(m.chat, link, 'error.jpg', `${text}`, m, null, rcanal)}
 catch (error) {
     console.error(error);

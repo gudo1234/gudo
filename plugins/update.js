@@ -34,6 +34,6 @@ await m.reply(`error`)
 }}};
 handler.help = ['update']
 handler.tags = ['owner']
-handler.command = /^(update|actualizar|gitpull)$/i;
+handler.command = ['update', 'actualizar', 'gitpull']
 handler.rowner = true;
 export default handler;

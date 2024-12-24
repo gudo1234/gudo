@@ -1,5 +1,6 @@
 import { WAMessageStubType } from '@whiskeysockets/baileys';
 import { sticker } from './lib/sticker.js'
+import fetch from 'node-fetch';
 
 let handler = async (m, { conn, text, usedPrefix, command }) => {
 let pp = await conn.profilePictureUrl(m.messageStubParameters[0], 'image').catch(_ => 'https://qu.ax/casQP.jpg')

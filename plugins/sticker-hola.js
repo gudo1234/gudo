@@ -1,3 +1,4 @@
+import { WAMessageStubType } from '@whiskeysockets/baileys';
 import { sticker } from '../lib/sticker.js'
 
 let handler = async (m, { conn, text, usedPrefix, command }) => {

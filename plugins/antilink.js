@@ -17,7 +17,7 @@ if (isBotAdmin) {
 const linkThisGroup = `https://chat.whatsapp.com/${await this.groupInviteCode(m.chat)}`
 if (m.text.includes(linkThisGroup)) return !0
 }
-conn.reply(m.chat, `✖️ ${user}\n\nUsuario elminado por mandar link de grupo.`, )
+conn.reply(m.chat, `🚩 El usuario ${user}, serà elminado por mandar link de otro grupo.`, )
 if (isBotAdmin) {
 await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: delet }})
 let responseb = await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')

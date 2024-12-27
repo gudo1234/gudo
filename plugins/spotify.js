@@ -172,7 +172,7 @@ if (!text) throw `🚩 *Ejemplo:* ${usedPrefix + command} diles`
 try {
 let name = await conn.getName(m.sender)
 await conn.sendMessage(m.chat, { text: global.espere + `*${name}*`, contextInfo: { externalAdReply: {title: `${wm}`, body: `${await conn.getName(m.chat)}`, thumbnailUrl: imagen4, thumbnail: imagen4, showAdAttribution: true, sourceUrl: canal}}} , { quoted: fkontak })
-await m.react(rwait)
+await m.react('🕒')
 let songInfo = await spotifyxv(text)
 if (!songInfo.length) throw `*No se encontró la canción*`
 let res = songInfo[0]
@@ -201,7 +201,7 @@ let size = await yt.audio[q].fileSizeH
 let img = await getBuffer(res.imagen)
 conn.sendMessage(m.chat, { audio: { url: dl_url }, fileName: `${ttl}.mp3`, mimetype: 'audio/mpeg' }, { quoted: m })
 await conn.sendMessage(m.chat, {text: info, contextInfo: {forwardingScore: 9999999, isForwarded: true, "externalAdReply": {"showAdAttribution": true, "containsAutoReply": true, "renderLargerThumbnail": true, "title": global.wm, "containsAutoReply": true, "mediaType": 1, "thumbnail": img, "thumbnailUrl": img, "mediaUrl": shortURL, "sourceUrl": shortURL}}}, {quoted: fkontak});
-await m.react(done)
+await m.react('✅')
 } catch (error) {
 }}
 handler.tags = ['descargas']

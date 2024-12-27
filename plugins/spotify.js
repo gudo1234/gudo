@@ -124,7 +124,7 @@ let txt = `*乂  S P O T I F Y  -  D O W N L O A D*\n\n`
     txt += `	✩   *Publicado* : ${album.metadata.releaseDate}\n`   
     txt += `	✩   *Tracks totales* : ${album.trackList.length}\n\n`   
     txt += `*- ↻ Los audios se estan enviando espera un momento, soy lenta. . .*`
-await conn.sendFile(m.chat, img, 'thumbnail.jpg', txt, m)
+await conn.sendFile(m.chat, img, 'thumbnail.jpg', txt, m, null, rcanal)
 for (let i = 0; i < album.trackList.length; i++) {
 await conn.sendFile(m.chat, album.trackList[i].audioBuffer, album.trackList[i].metadata.name + '.mp3', null, m, false, { mimetype: 'audio/mpeg', asDocument: user.useDocument })
 await m.react('✅')
@@ -140,7 +140,7 @@ let txt = `*乂  S P O T I F Y  -  D O W N L O A D*\n\n`
     txt += `	✩   *Album* : ${track.album.name}\n`                 
     txt += `	✩   *Publicado* : ${track.album.releasedDate}\n\n`   
     txt += `*- ↻ El audio se esta enviando espera un momento, soy lenta. . .*`
-await conn.sendFile(m.chat, img, 'thumbnail.jpg', txt, m)
+await conn.sendFile(m.chat, img, 'thumbnail.jpg', txt, m, null, rcanal)
 await conn.sendFile(m.chat, dlspoty, track.title + '.mp3', null, m, false, { mimetype: 'audio/mpeg', asDocument: user.useDocument })
 await m.react('✅')
 } else if (isSpotifyUrl[2] === 'playlist') {
@@ -156,7 +156,7 @@ let txt = `*乂  S P O T I F Y  -  D O W N L O A D*\n\n`
     txt += `	✩   *Playlist* : ${playlistInfoByID.name}\n`
     txt += `	✩   *Tracks totales* : ${tracks.length}\n\n`
     txt += `*- ↻ Los audios se estan enviando espera un momento, soy lenta. . .*`
-await conn.sendFile(m.chat, img, 'thumbnail.jpg', txt, m)
+await conn.sendFile(m.chat, img, 'thumbnail.jpg', txt, m, null, rcanal)
 let target = m.chat
 if (m.isGroup && tracks.length > 20) {
 target = m.sender;

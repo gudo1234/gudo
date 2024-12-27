@@ -74,7 +74,7 @@ let handler = async (_0x394eb8, {
             }]
         }), _0x394eb8[_0x1a6abe(0x1d6)]('🚩 Imagen actualizada con éxito.');
     } catch {
-        return m.react('✖️')
+        return m.reply('error')
     }
 };
 handler.help = ['setppgc']

@@ -33,6 +33,6 @@ console.error(error)
 }}
 
 HS.command = ['ytmp3'];
-handler.group = true;
+HS.group = true;
 
 export default HS

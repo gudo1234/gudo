@@ -20,17 +20,13 @@ let HS = async (m, { conn, text }) => {
 if (!text) {
 return m.reply("🧧 *Ingresa un link de youtube*")
 }
-let ytres = await search(args.join(" "))
-let txt = `- *Título* : ${ytres[0].title}
-- *Duración* : ${ytres[0].timestamp}
-- *Publicado* : ${ytres[0].ago}
-- *Canal* : ${ytres[0].author.name || 'Desconocido'}
-- *Url* : ${'https://youtu.be/' + ytres[0].videoId}`
-await conn.sendFile(m.chat, ytres[0].image, 'thumbnail.jpg', txt, m, null, rcanal)
 try {
 let api = await fetch(`https://api.giftedtech.my.id/api/download/dlmp3?apikey=gifted&url=${text}`)
 let json = await api.json()
 let { quality, title, download_url } = json.result
+
+let txt = `- *Título* : ${title}`
+await conn.sendFile(m.chat, ytres[0].image, 'thumbnail.jpg', txt, m, null, rcanal)
 
 await conn.sendMessage(m.chat, { audio: { url: download_url }, fileName: `${title}.mp3`, mimetype: 'audio/mp4' }, { quoted: m })
 } catch (error) {

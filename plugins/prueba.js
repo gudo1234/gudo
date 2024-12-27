@@ -63,6 +63,7 @@ conn.sendEvent(m.chat, `${rpt}`,`*🧧Prefijo* (${usedPrefix})
 ☯️]▸ xvideosdl
 ☯️]▸ xnxxdl
 ☯️]▸ applemusic
+☯️]▸ pinterest
 ╰───╮╭───╯
 •🔎 BÚSQUEDAS.li
 ╭───╯
@@ -100,6 +101,7 @@ conn.sendEvent(m.chat, `${rpt}`,`*🧧Prefijo* (${usedPrefix})
 ☯️]▸ tweet
 ☯️]▸ whamusic
 ☯️]▸ ttp
+☯️]▸ par
 ╰───╮╭───╯
 •🚦 GRUPO.li
 ╭───╯

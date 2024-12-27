@@ -365,7 +365,8 @@ await conn.sendMessage(m.chat, { audio: { url: download_url }, fileName: `${titl
 console.error(error)
 }}
 
-handler.command = /^(play)$/i
+handler.command = ['play'];
+handler.group = true;
 
 export default handler
 

@@ -44,7 +44,7 @@ let name = await conn.getName(m.sender)
 await conn.sendMessage(m.chat, { text: global.espere + `*${name}*`, contextInfo: { externalAdReply: {title: `${wm}`, body: `${await conn.getName(m.chat)}`, thumbnailUrl: imagen4, thumbnail: imagen4, showAdAttribution: true, sourceUrl: canal}}} , { quoted: fkontak })
 await conn.sendMessage(m.chat, { document: video, caption: HS, mimetype: 'video/mp4', fileName: `${titulo}.mp4`}, { quoted: m})
 } else {
-await conn.sendMessage(m.chat, { video: video, caption: HS, mimetype: 'video/mp4'}, { quoted: m})
+await conn.sendMessage(m.chat, { video: video, caption: HS, mimetype: 'video/mp4'})
 }
 } catch (error) {
 console.error(error)    

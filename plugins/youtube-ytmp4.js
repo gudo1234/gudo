@@ -46,10 +46,10 @@ await conn.sendMessage(m.chat, { video: video, caption: HS, mimetype: 'video/mp4
 }
 } catch (error) {
 console.error(error)
-m.reply(`error`)
+m.reply(`error temporal, prueba con ${usedPrefix + command}2`)
 }}
 
-handler.command = ['ytmp4', 'mp4']
+handler.command = ['ytmp4', 'mp4', 'ytv']
 handler.group = true;
 
 export default handler

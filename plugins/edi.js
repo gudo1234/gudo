@@ -2,7 +2,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
 let txt = `test`
 conn.sendMessage(m.chat, {
            image: {
-               url: "https://files.catbox.moe/yupd7z.jpg"
+               url: "https://files.catbox.moe/beawnt.jpg"
            },
            caption: 'hola',
            mentions: [m.sender],

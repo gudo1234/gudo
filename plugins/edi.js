@@ -15,7 +15,7 @@ conn.sendMessage(m.chat,  {image: {url: imagen4}}, { text: txt, caption: "1234",
 ],
   viewOnce: true,
   headerType: 1,
-  Thumbnail: imagen4,
+  jpegThumbnail: imagen4,
 }, { quoted: m})
 }
 handler.command = ['edi']

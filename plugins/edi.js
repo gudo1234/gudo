@@ -1,6 +1,6 @@
 let handler = async (m, { conn, args, usedPrefix, command }) => {
 let txt = `test`
-m.reply({
+conn.sendMessage(m.chat, {
            image: {
                url: "https://files.catbox.moe/yupd7z.jpg"
            },

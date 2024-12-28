@@ -1,5 +1,5 @@
 let handler = async (m, { conn, args, usedPrefix, command }) => {
-let img = await prepareWAMessageMedia({ image: { url: "https://i.pinimg.com/736x/1c/b9/dc/1cb9dce731c1544b0bd018b02567fd1f.jpg" }}, { upload: conn.waUploadToServer})
+let img = await ({ image: { url: "https://i.pinimg.com/736x/1c/b9/dc/1cb9dce731c1544b0bd018b02567fd1f.jpg" }}, { upload: conn.waUploadToServer})
   let txt = `test`
 conn.sendMessage(m.chat, { text: txt, caption: "1234", footer: wm, buttons: [
   {

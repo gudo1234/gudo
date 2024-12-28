@@ -20,19 +20,19 @@ let HS = async (m, { conn, text }) => {
 if (!text) {
 return m.reply("🧧 *Ingresa un link de youtube*")
 }
-    
+let name = await conn.getName(m.sender)
+await conn.sendMessage(m.chat, { text: global.espere + `*${name}*`, contextInfo: { externalAdReply: {title: `${wm}`, body: `${await conn.getName(m.chat)}`, thumbnailUrl: imagen4, thumbnail: imagen4, showAdAttribution: true, sourceUrl: canal}}} , { quoted: fkontak })
 try {
 let api = await fetch(`https://api.giftedtech.my.id/api/download/dlmp3?apikey=gifted&url=${text}`)
 let json = await api.json()
 let { quality, title, download_url } = json.result
-let name = await conn.getName(m.sender)
-await conn.sendMessage(m.chat, { text: global.espere + `*${name}*`, contextInfo: { externalAdReply: {title: `${wm}`, body: `${await conn.getName(m.chat)}`, thumbnailUrl: imagen4, thumbnail: imagen4, showAdAttribution: true, sourceUrl: canal}}} , { quoted: fkontak })
 await conn.sendMessage(m.chat, { audio: { url: download_url }, fileName: `${title}.mp3`, mimetype: 'audio/mp4' }, { quoted: m })
 } catch (error) {
 console.error(error)
+m.reply(`error temporal, prueba con ${usedPrefix + command}2`)
 }}
 
-HS.command = ['ytmp3'];
+HS.command = ['ytmp3', 'mp3', 'yta'];
 HS.group = true;
 
 export default HS

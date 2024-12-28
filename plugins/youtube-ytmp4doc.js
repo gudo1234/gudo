@@ -68,7 +68,7 @@ await m.react('✖️')
 }}}}
 handler.help = ['ytmp4doc *<link yt>*']
 handler.tags = ['downloader']
-handler.command = ['ytmp4doc']
+handler.command = ['ytmp4doc2']
 handler.group = true;
 
 export default handler

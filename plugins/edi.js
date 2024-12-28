@@ -15,7 +15,7 @@ conn.sendMessage(m.chat, { text: txt, caption: "1234", footer: wm, buttons: [
 ],
   viewOnce: true,
   headerType: 1,
-}, { quoted: m })
+}, { quoted: fkontak})
 }
 handler.command = ['edi']
 export default handler

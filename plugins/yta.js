@@ -66,7 +66,7 @@ await m.react('✖️')
 }}}}
 handler.help = ['ytmp3 *<link yt>*']
 handler.tags = ['downloader']
-handler.command = ['yta']
+handler.command = ['yta2', 'ytmp32', 'mp32']
 handler.group = true;
 //handler.limit = 1
 handler.register = false 

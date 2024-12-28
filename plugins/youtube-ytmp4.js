@@ -34,7 +34,8 @@ let dl_url = `https://ytdownloader.nvlgroup.my.id/download?url=${url}&resolution
 let vidFetch = await fetch(dl_url)
 let video = await vidFetch.buffer()
 let Tamaño = video.length / (1024 * 1024)
-
+let name = await conn.getName(m.sender)
+await conn.sendMessage(m.chat, { text: global.espere + `*${name}*`, contextInfo: { externalAdReply: {title: `${wm}`, body: `${await conn.getName(m.chat)}`, thumbnailUrl: imagen4, thumbnail: imagen4, showAdAttribution: true, sourceUrl: canal}}} , { quoted: m})
 let HS = `- *Titulo* : ${titulo}
 - *Link* : ${url}
 - *Duracion* : ${duracion}
@@ -48,7 +49,7 @@ await conn.sendMessage(m.chat, { video: video, caption: HS, mimetype: 'video/mp4
 console.error(error)    
 }}
 
-handler.command = ['ytmp4']
+handler.command = ['ytmp4', 'mp4']
 handler.group = true;
 
 export default handler

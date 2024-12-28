@@ -1,5 +1,5 @@
 let handler = async (m, { conn, args, usedPrefix, command }) => {
-let txt = `> alba regalame el code 🗿🗿🗿`
+let txt = `test`
 conn.sendMessage(m.chat, { text: txt, caption: "1234", Thumbnail: imagen3, footer: wm, buttons: [
   {
     buttonId: ".gay", 
@@ -15,7 +15,7 @@ conn.sendMessage(m.chat, { text: txt, caption: "1234", Thumbnail: imagen3, foote
 ],
   viewOnce: true,
   headerType: 1,
-}, { quoted: fkontak})
+}, { quoted: m})
 }
 handler.command = ['edi']
 export default handler

@@ -1,6 +1,6 @@
 let handler = async (m, { conn, args, usedPrefix, command }) => {
 let txt = `> alba regalame el code 🗿🗿🗿`
-conn.sendMessage(m.chat, { text: txt, Thumbnail: imagen4, caption: "1234", footer: wm, buttons: [
+conn.sendMessage(m.chat, { text: txt, Thumbnail: imagen3, caption: "1234", footer: wm, buttons: [
   {
     buttonId: ".gay", 
     buttonText: { 

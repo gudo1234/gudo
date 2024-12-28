@@ -1,4 +1,4 @@
-import fg from 'api-dylux'
+/*import fg from 'api-dylux'
 import yts from 'yt-search'
 import { youtubedl, youtubedlv2 } from '@bochilteam/scraper'
 import fetch from 'node-fetch' 
@@ -69,6 +69,6 @@ handler.tags = ['downloader']
 handler.command = ['ytadoc'] 
 handler.group = true;
 //handler.limit = 1
-handler.register = false 
+handler.register = false
 
-export default handler
+export default handler*/

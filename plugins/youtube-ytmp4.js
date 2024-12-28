@@ -21,9 +21,9 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 let [url, resolution] = text.split(' ')
 if (!url) {
 return conn.reply(m.chat, `Ingresa el link de un video de youtube y una calidad ejemplo : ${usedPrefix + command} + *link* *360* `, m)
+}
 let name = await conn.getName(m.sender)
 await conn.sendMessage(m.chat, { text: global.espere + `*${name}*`, contextInfo: { externalAdReply: {title: `${wm}`, body: `${await conn.getName(m.chat)}`, thumbnailUrl: imagen4, thumbnail: imagen4, showAdAttribution: true, sourceUrl: canal}}} , { quoted: m})
-}
 try {
 let apiinfo = await fetch(`https://ytdownloader.nvlgroup.my.id/info?url=${url}`);
 let jsoninfo = await apiinfo.json()

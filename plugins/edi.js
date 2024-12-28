@@ -2,14 +2,14 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
 let txt = `Miguel se la come?`
 conn.sendMessage(m.chat, { text: txt, caption: "1234", footer: wm, buttons: [
   {
-    buttonId: "si", 
+    buttonId: ".gay", 
     buttonText: { 
-      displayText: '.gay' 
+      displayText: 'yes' 
     }
   }, {
-    buttonId: "yes", 
+    buttonId: ".gay", 
     buttonText: {
-      displayText: ".gay"
+      displayText: "sii"
     }
   }
 ],

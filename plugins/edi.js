@@ -17,11 +17,6 @@ conn.sendMessage(m.chat, {
                buttonText: {
                    displayText: "si"
               }
-          },{
-             buttonId: ".gay",
-               buttonText: {
-                   displayText: "yesi"
-              }
           }],
           viewOnce: true,
           headerType: 6,

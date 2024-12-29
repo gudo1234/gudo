@@ -55,7 +55,7 @@ conn.sendMessage(m.chat, {
                buttonText: {
                    displayText: "Dime algo"
               }
-          } null, { mentions: this.parseMention(text) }],
+          }],
           viewOnce: true,
           headerType: 6,
        })

@@ -16,8 +16,8 @@ let pp = await conn.profilePictureUrl(m.messageStubParameters[0], 'image').catch
   let who = m.messageStubParameters[0] + '@s.whatsapp.net';
   let user = global.db.data.users[who];
   let userName = user ? user.name : await conn.getName(who);
-  let or = ['stiker', 'audio'];
-  let media = or[Math.floor(Math.random() * 2)]
+  let or = ['stiker', 'audio', 'boton'];
+  let media = or[Math.floor(Math.random() * 3)]
   let stiker = await sticker(imagen7, false, global.packname, global.author)
   if (chat.welcome && (m.messageStubType === 28 || m.messageStubType === 32)) {
 if (media === 'stiker')
@@ -37,5 +37,27 @@ this.sendMessage(m.chat, { audio: { url: vn2 },
     "sourceUrl": 'https://www.atom.bio/edar_', 
     "showAdAttribution": true}}, 
      seconds: '4556', ptt: true, mimetype: 'audio/mpeg', fileName: `error.mp3` }, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
+
+if (media === 'boton')
+this.sendMessage(m.chat, {
+           image: {
+               url: im},
+           caption: `Adios @${m.messageStubParameters[0].split`@`[0]}`,
+           mentions: [m.sender],
+           footer: `${await conn.getName(m.chat)}`,
+           buttons: [{
+             buttonId: ".trizte",
+               buttonText: {
+                   displayText: "Adios🤨"
+              }
+          },{
+             buttonId: ".consejo",
+               buttonText: {
+                   displayText: "Dime algo"
+              }
+          }],
+          viewOnce: true,
+          headerType: 6,
+       })
   }
 }

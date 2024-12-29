@@ -11,7 +11,7 @@ let pp = await conn.profilePictureUrl(m.messageStubParameters[0], 'image').catch
 
   let chat = global.db.data.chats[m.chat];
   let user = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted.sender
-  let text = `Adio *@${user.split('@')[0]}*`, null, { mentions: [user] })
+  let text = `Adio *@${user.split('@')[0]}*`, null, { mentions: [user] }
   const getMentionedJid = () => {
     return m.messageStubParameters.map(param => `${param}@s.whatsapp.net`);
   };

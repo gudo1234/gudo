@@ -43,7 +43,7 @@ if (media === 'boton')
 this.sendMessage(m.chat, {
     image: im,
     caption: text, // Mención visible del usuario
-    footer: 'Esperemos que no vuelva -_-',
+    footer: wm,
     buttons: [
       {
         buttonId: ".trizte",
@@ -63,7 +63,7 @@ this.sendMessage(m.chat, {
     viewOnce: true,
     headerType: 4,
     mentions: [m.sender], // Mención funcional
-  }, { quoted: fkontak});
+  }, { quoted: fkontak });
        })
   }
                                                               }

@@ -48,14 +48,13 @@ conn.sendMessage(m.chat, {
            buttons: [{
              buttonId: ".trizte",
                buttonText: {
-                   displayText: "Adios😔"
+                   displayText: "Adios 😔"
               }
           },{
              buttonId: ".consejo",
                buttonText: {
                    displayText: "Dime algo"
-              }
-          null, { mentions: this.parseMention(text) }}],
+              }}],
           viewOnce: true,
           headerType: 6,
        })

@@ -3,7 +3,7 @@ const handler = async (m, {conn, args, usedPrefix, command}) => {
 let txt = `no se que poner`
 await m.react('📡')
 const buttonParamsJson = JSON.stringify({
-image: {url: "https://files.catbox.moe/yupd7z.jpg",
+image: {url: "https://files.catbox.moe/yupd7z.jpg"},
 title: "VER LISTA",
 description: "xd",
 sections: [
@@ -24,7 +24,7 @@ rows: [
 rows: [
 { header: "", title: "menu", description: "", id: usedPrefix + "menu" }
 ]}
-]}})
+]})
 const interactiveMessage = {
 body: { text: txt },
 footer: { text: wm + ` \nSeleccione en ver lista` },

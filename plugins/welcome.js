@@ -42,13 +42,13 @@ this.sendMessage(m.chat, { audio: { url: vn2 },
 if (media === 'boton')*/
 conn.sendMessage(m.chat, {
            image: im,
-           caption: `Adios ${user}`,
+           caption: `Adios ${user} Esperemos que no vuelva -_-`,
            mentions: [m.sender],
-           footer: `${user}`,
+           footer: wm,
            buttons: [{
              buttonId: ".trizte",
                buttonText: {
-                   displayText: "Adioss"
+                   displayText: "Adios😔"
               }
           },{
              buttonId: ".consejo",

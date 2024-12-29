@@ -39,10 +39,10 @@ this.sendMessage(m.chat, { audio: { url: vn2 },
      seconds: '4556', ptt: true, mimetype: 'audio/mpeg', fileName: `error.mp3` }, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
 
 if (media === 'boton')
-conn.sendMessage(m.chat, {
+this.sendMessage(m.chat, {
            image: `${im}`,
            caption: `Adios @${m.messageStubParameters[0].split`@`[0]}`,
-           mentions: [null],
+           mentions: [],
            footer: `${await conn.getName(m.chat)}`,
            buttons: [{
              buttonId: ".trizte",

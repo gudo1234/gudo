@@ -27,6 +27,6 @@ await conn.sendMessage(m.chat, { text: global.espere + `*${name}*`, contextInfo:
     return 1
 }
 
-handler.command = ['ytmp4doc', 'mp4doc', 'ytvdoc']
+handler.command = ['ytmp42', 'ytv2']
 handler.group = true;
 export default handler

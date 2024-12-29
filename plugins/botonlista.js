@@ -3,7 +3,6 @@ const handler = async (m, {conn, args, usedPrefix, command}) => {
 let txt = `no se que poner`
 await m.react('📡')
 const buttonParamsJson = JSON.stringify({
-image: {url: "https://files.catbox.moe/yupd7z.jpg"},
 title: "VER LISTA",
 description: "xd",
 sections: [
@@ -43,7 +42,7 @@ await conn.sendButtonMessages(m.chat, [
 ], null, [
 ['Ver Canal', canal]
 ],
-[["Ver Lista", buttonParamsJson.message]]
+[["Ver Lista", buttonParamsJson.sections]]
 ]], m)
 }
 

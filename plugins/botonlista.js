@@ -1,66 +1,58 @@
-import { getDevice } from '@whiskeysockets/baileys';
+const { prepareWAMessageMedia, generateWAMessageFromContent } = require("baileys");
+const { randomBytes } = require("crypto");
 
-const handler = async (m, { conn, args, usedPrefix, command }) => {
-    let txt = "Aquí tienes la lista de opciones:";
-    await m.react('📡');
+const { imageMessage } = await prepareWAMessageMedia({
+    image: { url: "https://files.catbox.moe/beawnt.jpg" }
+}, { upload: sock.waUploadToServer });
 
-    const buttonParamsJson = JSON.stringify({
-        title: "VER LISTA",
-        description: "xd",
-        sections: [
+const sections = [
+    {
+        title: "Tags Relacionados",
+        rows: [
             {
-                title: "Información",
-                highlight_label: "Popular",
-                rows: [
-                    { header: "", title: "refran", description: "", id: usedPrefix + "refran" },
-                    { header: "", title: "chiste", description: "", id: usedPrefix + "chiste" },
-                    { header: "", title: "oracion", description: "", id: usedPrefix + "oracion" }
-                ]
+                title: 'Example',
+                highlight_label: "test",
+                description: "Example description",
+                id: "example_id",
             },
-            {
-                title: "edar.vangh.org",
-                highlight_label: "Popular",
-                rows: [
-                    { header: "", title: "donar", description: "", id: usedPrefix + "donar" },
-                    { header: "", title: "run", description: "", id: usedPrefix + "run" },
-                    { header: "", title: "consejo", description: "", id: usedPrefix + "consejo" },
-                    { header: "", title: "bot", description: "", id: usedPrefix + "bot hola" }
-                ]
-            },
-            {
-                title: "Menu completo",
-                highlight_label: "Popular",
-                rows: [
-                    { header: "", title: "menu", description: "", id: usedPrefix + "menu" }
-                ]
-            }
-        ]
-    });
-
-    const interactiveMessage = {
-        body: { text: txt },
-        footer: { text: wm + ` \nSeleccione en ver lista` },
-        header: { 
-            title: "Opciones", 
-            subtitle: "test4", 
+        ],
+    },
+];
+ 
+const messageContent = {
+    interactiveMessage: {
+        body: { text: 'Aquí tienes la imagen:' },
+        footer: { text: 'Selecciona una opción:' },
+        header: {
+            title: 'Título de Ejemplo',
+            subtitle: 'Subtítulo de Ejemplo',
             hasMediaAttachment: true,
-            media: { url: 'https://files.catbox.moe/beawnt.jpg' }
+            documentMessage: {
+                ...imageMessage,
+                pageCount: 1,
+                fileLength: 99999999999,
+                fileName: 'example_file',
+                jpegThumbnail: imageMessage.jpegThumbnail
+            },
         },
-        nativeFlowMessage: { 
-            buttons: [{ 
-                name: "single_select",
-                buttonParamsJson
-            }]
+        nativeFlowMessage: {
+            buttons: [
+                {
+                    name: "single_select",
+                    buttonParamsJson: JSON.stringify({
+                        title: "Selecciona una opción",
+                        sections: sections,
+                    }),
+                }
+            ],
+            messageParamsJson: "{}",
+            messageVersion: 1
         }
-    };
-
-    const message = { 
-        messageContextInfo: { deviceListMetadata: {}, deviceListMetadataVersion: 2 }, 
-        interactiveMessage 
-    };
-
-    await conn.relayMessage(m.chat, { viewOnceMessage: { message } }, {});
+    },
+    messageContextInfo: {
+        messageSecret: randomBytes(32)
+    }
 };
 
-handler.command = ['o'];
-export default handler;
+const message = generateWAMessageFromContent(m.cht, messageContent, { userJid: sock.user.id });
+await sock.relayMessage(m.cht, message.message, { messageId: message.key.id });

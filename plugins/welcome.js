@@ -3,7 +3,6 @@ import { sticker } from '../lib/sticker.js'
 import fetch from 'node-fetch';
 export async function before(m, { conn, participants, groupMetadata }) {
 
-let m.sender = jidNormalizedUser(m.fromMe ? sock.user.id : m.isGroup ? m.participant : m.chat);
 let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
   if (!m.messageStubType || !m.isGroup) return true;
 let pp = await conn.profilePictureUrl(m.messageStubParameters[0], 'image').catch(_ => 'https://qu.ax/casQP.jpg')
@@ -12,7 +11,7 @@ let pp = await conn.profilePictureUrl(m.messageStubParameters[0], 'image').catch
 
   let chat = global.db.data.chats[m.chat];
   const user = `@${m.sender.split`@`[0]}`;
-  let text = `Adios @${m.sender.split("@")[0]} Esperemos que no vuelva -_- *xD*`
+  let text = `Adios ${user} Esperemos que no vuelva -_- *xD*`
   const getMentionedJid = () => {
     return m.messageStubParameters.map(param => `${param}@s.whatsapp.net`);
   };

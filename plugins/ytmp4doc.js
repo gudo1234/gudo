@@ -14,7 +14,6 @@ await conn.sendMessage(m.chat, { text: global.espere + `*${name}*`, contextInfo:
         {
           const {data}= await axios.get(`https://deliriussapi-oficial.vercel.app/download/ytmp4?url=${enlace}`);
           const yt=data.data.download.url
-          //await conn.sendFile(m.chat,yt,'yt.mp4', wm, m, null)
         await conn.sendMessage(m.chat, {document: {url:yt}, caption: wm, mimetype: 'video/mp4', fileName: `${name}` + `.mp4`}, {quoted: m})
         await m.react('✅');  
         }

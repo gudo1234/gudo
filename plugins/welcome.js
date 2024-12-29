@@ -11,6 +11,7 @@ let pp = await conn.profilePictureUrl(m.messageStubParameters[0], 'image').catch
 
   let chat = global.db.data.chats[m.chat];
   const user = `@${m.sender.split`@`[0]}`;
+  let text = `Adios ${user} Esperemos que no vuelva -_- *xD*`
   const getMentionedJid = () => {
     return m.messageStubParameters.map(param => `${param}@s.whatsapp.net`);
   };
@@ -39,7 +40,6 @@ this.sendMessage(m.chat, { audio: { url: vn2 },
      seconds: '4556', ptt: true, mimetype: 'audio/mpeg', fileName: `error.mp3` }, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
 
 if (media === 'boton')
-let text = `Adios ${user} Esperemos que no vuelva -_- *xD*`
 conn.sendMessage(m.chat, {
            image: im,
            caption: text,

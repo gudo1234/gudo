@@ -25,5 +25,5 @@ await m.react('✖️');
 };
 
 handler.command = ['pinterestdl', 'pindl', 'pinterest', 'pin'];
-
+handler.group = true;
 export default handler;

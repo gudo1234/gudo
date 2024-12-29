@@ -35,6 +35,6 @@ console.error(error)
 m.reply(`error temporal, prueba con ${usedPrefix + command}2`)
 }}
 
-HS.command = ['ytmp4', 'mp4, 'ytv']
+HS.command = ['ytmp4', 'mp4', 'ytv']
 
 export default HS

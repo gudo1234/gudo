@@ -24,7 +24,7 @@ rows: [
 { header: "", title: "menu", description: "", id: usedPrefix + "menu" }
 ]}
 ]})
-/*const interactiveMessage = {
+const interactiveMessage = {
 body: { text: txt },
 footer: { text: wm + ` \nSeleccione en ver lista` },
 header: { title: `xd`, subtitle: "test4", hasMediaAttachment: false },
@@ -32,7 +32,7 @@ nativeFlowMessage: { buttons: [{
 name: "single_select",
 buttonParamsJson
 }]
-}}*/
+}}
 //const message = { messageContextInfo: { deviceListMetadata: {}, deviceListMetadataVersion: 2 }, interactiveMessage }
 //await conn.relayMessage(m.chat, { viewOnceMessage: { message } }, {})
 
@@ -42,7 +42,7 @@ await conn.sendButtonMessages(m.chat, [
 ], null, [
 ['Ver Canal', canal]
 ],
-[["xd", buttonParamsJson.rows]]
+[["xd", interactiveMessage.rows]]
 ]], m)
 }
 

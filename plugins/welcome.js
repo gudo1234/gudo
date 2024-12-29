@@ -44,7 +44,7 @@ conn.sendMessage(m.chat, {
            image: im,
            caption: `Adios ${user}`,
            mentions: [m.sender],
-           footer: ${user},
+           footer: `${user}`,
            buttons: [{
              buttonId: ".trizte",
                buttonText: {

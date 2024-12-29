@@ -24,5 +24,5 @@ let handler = async (m, { command, args, text, usedPrefix}) => {
     return 1
 }
 
-handler.command = handler.command = /^(ytpro|yt(a|mp3)|ytmp3doc)$/i;
+handler.command = /^(ytpro|yt(a|mp3)|ytmp3doc)$/i;
 export default handler

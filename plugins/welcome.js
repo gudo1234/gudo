@@ -40,23 +40,30 @@ this.sendMessage(m.chat, { audio: { url: vn2 },
      seconds: '4556', ptt: true, mimetype: 'audio/mpeg', fileName: `error.mp3` }, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
 
 if (media === 'boton')
-conn.sendMessage(m.chat, {
-           image: im,
-           caption: text,
-           mentions: [m.sender],
-           footer: wm,
-           buttons: [{
-             buttonId: ".trizte",
-               buttonText: {
-                   displayText: "Adios 😔"
-              }
-          },{
-             buttonId: ".consejo",
-               buttonText: {
-                   displayText: "Dime algo"
-              }}],
-          viewOnce: true,
-          headerType: 6,
+this.sendMessage(m.chat, {
+    image: im,
+    caption: text, // Mención visible del usuario
+    footer: wm,
+    buttons: [
+      {
+        buttonId: ".trizte",
+        buttonText: {
+          displayText: "Adios",
+        },
+        type: 1,
+      },
+      {
+        buttonId: ".consejo",
+        buttonText: {
+          displayText: "Dime algo",
+        },
+        type: 1,
+      },
+    ],
+    viewOnce: true,
+    headerType: 4,
+    mentions: [m.sender], // Mención funcional
+  }, { quoted: fkontak});
        })
   }
                                                               }

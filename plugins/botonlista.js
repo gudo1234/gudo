@@ -1,4 +1,4 @@
-let handler = async (m, { conn, args, usedPrefix, command }) => {
+let handler = async (m, { conn, prepareWAMessageMedia, args, usedPrefix, command }) => {
 //const { prepareWAMessageMedia, generateWAMessageFromContent } = require("baileys");
 //const { randomBytes } = require("crypto");
 

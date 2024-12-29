@@ -1,5 +1,5 @@
 const handler = async (m, {conn, participants, usedPrefix, command}) => {
-  const kicktext = `> •Ejemplo: ${usedPrefix + command} @${global.prems}`;
+  const kicktext = `🚩 *Ejemplo:* ${usedPrefix + command} @${global.prems}`;
   if (!m.mentionedJid[0] && !m.quoted) return m.reply(kicktext, m.chat, {mentions: conn.parseMention(kicktext)});
   if (m.mentionedJid.includes(conn.user.jid)) return;
   const user = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted.sender;

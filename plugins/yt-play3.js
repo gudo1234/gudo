@@ -19,12 +19,12 @@ try {
 let api = await fetch(`https://api.giftedtech.my.id/api/download/dlmp3?apikey=gifted&url=${ytres[0].url}`)
 let json = await api.json()
 let { quality, title, download_url } = json.result
-await conn.sendMessage(m.chat, { document: { url: download_url }, fileName: `${title}.mp3`, mimetype: 'video/mp4' }, { quoted: m })
+await conn.sendMessage(m.chat, { document: { url: download_url }, fileName: `${title}.mp3`, mimetype: 'audio/mpeg' }, { quoted: m })
 } catch (error) {
 console.error(error)
 }}
 
-handler.command = ['play4'];
+handler.command = ['play3'];
 handler.group = true;
 
 export default handler

@@ -8,5 +8,5 @@ ptt: true
 })
 }
 
-handler.command = ['triste']
+handler.command = ['trizte']
 export default handler

@@ -1,13 +1,7 @@
-let handler = async (m, { conn, prepareWAMessageMedia, args, usedPrefix, command }) => {
-//const { prepareWAMessageMedia, generateWAMessageFromContent } = require("baileys");
-//const { randomBytes } = require("crypto");
-
-const { imageMessage } = await prepareWAMessageMedia({
-    image: { url: "https://i.pinimg.com/736x/1c/b9/dc/1cb9dce731c1544b0bd018b02567fd1f.jpg" }
-}, { upload: conn.waUploadToServer });
-
+let handler = async (m, { conn, args, usedPrefix, command }) => {
+import { getDevice } from '@whiskeysockets/baileys'
 const sections = [
-    {
+    {image: {url: "https://files.catbox.moe/yupd7z.jpg",
         title: "Tags Relacionados",
         rows: [
             {
@@ -18,6 +12,7 @@ const sections = [
             },
         ],
     },
+ },
 ];
  
 const messageContent = {

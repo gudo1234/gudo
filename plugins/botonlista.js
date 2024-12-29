@@ -34,9 +34,9 @@ buttonParamsJson
 }]
 }}
 const message = { messageContextInfo: { deviceListMetadata: {}, deviceListMetadataVersion: 2 }, interactiveMessage }
-await conn.relayMessage(m.chat, { image: {
+await conn.relayMessage(m.chat, {viewOnceMessage: { message } }, {image: {
                url: "https://files.catbox.moe/beawnt.jpg"
-           }, viewOnceMessage: { message } }, {})
+           }})
 
 }
 

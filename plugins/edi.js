@@ -4,7 +4,7 @@ conn.sendMessage(m.chat, {
            image: {
                url: "https://files.catbox.moe/beawnt.jpg"
            },
-           caption: 'hola',
+           caption: 'holaa',
            mentions: [m.sender],
            footer: wm,
            buttons: [{

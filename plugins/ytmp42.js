@@ -12,11 +12,10 @@ await conn.sendMessage(m.chat, { text: global.espere + `*${name}*`, contextInfo:
         const regexEnlaceYoutube = /^(https?:\/\/)?(www\.)?(m\.)?(youtube\.com|youtu\.be)\/(watch\?v=)?([a-zA-Z0-9_-]{11})$/;
         if(regexEnlaceYoutube.test(enlace))
         {
-          const yt_play = await search(args.join(' '));
           const {data}= await axios.get(`https://deliriussapi-oficial.vercel.app/download/ytmp4?url=${enlace}`);
           const yt=data.data.download.url
           //await conn.sendFile(m.chat,yt,'yt.mp4', wm, m, null)
-        await conn.sendMessage(m.chat, {document: {url:yt}, caption: wm, mimetype: 'video/mp4', fileName: `${yt_play[0].title}` + `.mp4`}, {quoted: m})
+        await conn.sendMessage(m.chat, {document: {url:yt}, caption: wm, mimetype: 'video/mp4', fileName: `${name}` + `.mp4`}, {quoted: m})
         await m.react('✅');  
         }
         else m.reply("Ingresa el enlace del vídeo de YouTube")

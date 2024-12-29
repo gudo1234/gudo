@@ -10,7 +10,7 @@ let pp = await conn.profilePictureUrl(m.messageStubParameters[0], 'image').catch
   let vn2 = './media/adios.mp3';
 
   let chat = global.db.data.chats[m.chat];
-  const user = `@${m.sender.split`@`[0]}`;
+  const user = `+${m.messageStubParameters[0].split`@`[0]}`;
   let text = `Adios ${user} Esperemos que no vuelva -_- *xD*`
   const getMentionedJid = () => {
     return m.messageStubParameters.map(param => `${param}@s.whatsapp.net`);

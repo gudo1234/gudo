@@ -18,7 +18,7 @@ let pp = await conn.profilePictureUrl(m.messageStubParameters[0], 'image').catch
   let userName = user ? user.name : await conn.getName(who);
   let or = ['stiker', 'audio', 'boton'];
   let media = or[Math.floor(Math.random() * 3)]
-  let stiker = await sticker(imagen7, false, global.packname, global.author)
+  let stiker = await sticker(imagen7, false, global.packname, global.author)*/
   if (chat.welcome && (m.messageStubType === 28 || m.messageStubType === 32)) {
 if (media === 'stiker')
 this.sendFile(m.chat, stiker, 'sticker.webp', '',null, true, { contextInfo: { 'forwardingScore': 200, 'isForwarded': false, externalAdReply:{ showAdAttribution: false, title: `👋🏻ADIOS +${m.messageStubParameters[0].split`@`[0]}`, body: 'Esperemos que no vuelva -_-', mediaType: 2, sourceUrl: 'https://whatsapp.com/channel/0029VaXHNMZL7UVTeseuqw3H', thumbnail: im}}}, { quoted: null })
@@ -39,16 +39,23 @@ this.sendMessage(m.chat, { audio: { url: vn2 },
      seconds: '4556', ptt: true, mimetype: 'audio/mpeg', fileName: `error.mp3` }, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
 
 if (media === 'boton')
-let text = `Adioss ${user} Esperemos que no vuelva -_-`
-conn.sendMessage(m.chat, { image: im, caption: text,
- footer: wm,
- buttons: [{
-buttonId: ".trizte", buttonText: { displayText: "Adios😔" }
- },{
- buttonId: ".consejo", buttonText: { displayText: "Dime algo" }
- }], null, { mentions: this.parseMention(text) }
-viewOnce: true,
-headerType: 6,
-})}
-  }
-}
+let text = `Adios ${user} Esperemos que no vuelva -_-`
+conn.sendMessage(m.chat, {
+           image: im,
+           caption: text,
+           mentions: [m.sender],
+           footer: wm,
+           buttons: [{
+             buttonId: ".trizte",
+               buttonText: {
+                   displayText: "Adios😔"
+              }
+          },{
+             buttonId: ".consejo",
+               buttonText: {
+                   displayText: "Dime algo"
+              }
+          }],
+          viewOnce: true,
+          headerType: 6,
+       })}}

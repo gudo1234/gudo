@@ -42,7 +42,7 @@ await conn.sendButtonMessages(m.chat, [
 ], null, [
 ['Ver Canal', canal]
 ],
-[["Ver Lista", buttonParamsJson.sections]]
+[["Ver Lista", buttonParamsJson.rows]]
 ]], m)
 }
 

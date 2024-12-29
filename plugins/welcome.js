@@ -10,11 +10,12 @@ let pp = await conn.profilePictureUrl(m.messageStubParameters[0], 'image').catch
   let vn2 = './media/adios.mp3';
 
   let chat = global.db.data.chats[m.chat];
+  const user = `@${m.sender.split`@`[0]}`;
   const getMentionedJid = () => {
     return m.messageStubParameters.map(param => `${param}@s.whatsapp.net`);
   };
   let who = m.messageStubParameters[0] + '@s.whatsapp.net';
-  let user = global.db.data.users[who];
+  let userr = global.db.data.users[who];
   let userName = user ? user.name : await conn.getName(who);
   /*let or = ['stiker', 'audio', 'boton'];
   let media = or[Math.floor(Math.random() * 3)]
@@ -41,7 +42,7 @@ this.sendMessage(m.chat, { audio: { url: vn2 },
 if (media === 'boton')*/
 conn.sendMessage(m.chat, {
            image: im,
-           caption: `Adios @${m.messageStubParameters[0].split`@`[0]}`,
+           caption: `Adios ${user}`,
            mentions: [m.sender],
            footer: wm,
            buttons: [{

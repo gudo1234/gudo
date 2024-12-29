@@ -44,11 +44,11 @@ conn.sendMessage(m.chat, {
            image: im,
            caption: `Adios ${user}`,
            mentions: [m.sender],
-           footer: wm,
+           footer: ${user},
            buttons: [{
              buttonId: ".trizte",
                buttonText: {
-                   displayText: "Adios"
+                   displayText: "Adios 😔"
               }
           },{
              buttonId: ".consejo",

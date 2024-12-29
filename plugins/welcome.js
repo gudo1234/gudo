@@ -43,7 +43,7 @@ if (media === 'boton')
 this.sendMessage(m.chat, {
     image: im,
     caption: text, // Mención visible del usuario
-    footer: wm,
+    footer: 'Esperemos que no vuelva -_-',
     buttons: [
       {
         buttonId: ".trizte",

@@ -12,7 +12,7 @@ let handler = async (m, { command, args, text, usedPrefix}) => {
         {
           const {data}= await axios.get(`https://deliriussapi-oficial.vercel.app/download/ytmp3?url=${enlace}`);
           const yt=data.data.download.url
-          await conn.sendFile(m.chat,yt,'yt.mp4', wm, m, null)
+          await conn.sendMessage(m.chat, { document: { url: dl_url }, caption: '', mimetype: 'audio/mpeg', fileName: `${title}.mp3`}, { quoted: m })
           await m.react('✅');  
         }
         else m.reply("Ingresa el enlace del vídeo de YouTube")

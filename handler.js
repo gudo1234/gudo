@@ -1421,8 +1421,8 @@ let fkontak2 = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "statu
 let vn = './media/a.mp3'
 let vn2 = './media/bien.mp3'
 let stiker = await sticker(imagen8, false, global.packname, global.author)
-let or = ['stiker', 'texto', 'audio', 'boton'];
-let media = or[Math.floor(Math.random() * 4)]
+let or = ['stiker', 'texto', 'audio'];
+let media = or[Math.floor(Math.random() * 3)]
 
 if (media === 'stiker')
 this.sendFile(id, stiker, 'sticker.webp', '',null, true, { contextInfo: { 'forwardingScore': 200, 'isForwarded': false, externalAdReply:{ showAdAttribution: false, title: `WELCOME +${user.split("@")[0]}`, body: `A: ${await conn.getName(id)}`, mediaType: 2, sourceUrl: canal, thumbnail: apii.data}}}, { quoted: null })
@@ -1464,32 +1464,6 @@ this.sendMessage(id, { audio: { url: [vn, vn2].getRandom() },
     "sourceUrl": 'https://www.atom.bio/edar_', 
     "showAdAttribution": true}}, 
      seconds: '4556', ptt: true, mimetype: 'audio/mpeg', fileName: `error.mp3` }, { quoted: fkontak2, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
-
-if (media === 'boton')
-this.sendMessage(id, {
-    image: apii.data,
-    caption: text,
-    footer: wm,
-    buttons: [
-      {
-        buttonId: "Hola",
-        buttonText: {
-          displayText: "Welcome",
-        },
-        type: 1,
-      },
-      {
-        buttonId: ".consejo",
-        buttonText: {
-          displayText: "Dime algo",
-        },
-        type: 1,
-      },
-    ],
-    viewOnce: true,
-    headerType: 4,
-    mentions: [user],
-  }, { quoted: fkontak2});
 }}}
 			    
 break

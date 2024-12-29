@@ -43,7 +43,7 @@ if (media === 'boton')
 conn.sendMessage(m.chat, {
            image: im,
            caption: text,
-           mentions: [user],
+           mentions: user,
            footer: wm,
            buttons: [{
              buttonId: ".trizte",

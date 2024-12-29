@@ -33,17 +33,11 @@ name: "single_select",
 buttonParamsJson
 }]
 }}
-//const message = { messageContextInfo: { deviceListMetadata: {}, deviceListMetadataVersion: 2 }, interactiveMessage }
-//await conn.relayMessage(m.chat, { viewOnceMessage: { message } }, {})
+const message = { messageContextInfo: { deviceListMetadata: {}, deviceListMetadataVersion: 2 }, interactiveMessage }
+await conn.relayMessage(m.chat, { image: {
+               url: "https://files.catbox.moe/beawnt.jpg"
+           }, viewOnceMessage: { message } }, {})
 
-await conn.sendButtonMessages(m.chat, [
-[txt, nn, imagen4, [
-['video', `.s`], ['Doc.mp3', `.s`], ['Doc.mp4', `.s`]
-], null, [
-['Ver Canal', canal]
-],
-[["xd", interactiveMessage.rows]]
-]], m)
 }
 
 handler.command = ['o']

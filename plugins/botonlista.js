@@ -1,9 +1,10 @@
+let handler = async (m, { conn, args, usedPrefix, command }) => {
 const { prepareWAMessageMedia, generateWAMessageFromContent } = require("baileys");
 const { randomBytes } = require("crypto");
 
 const { imageMessage } = await prepareWAMessageMedia({
     image: { url: "https://i.pinimg.com/736x/1c/b9/dc/1cb9dce731c1544b0bd018b02567fd1f.jpg" }
-}, { upload: sock.waUploadToServer });
+}, { upload: conn.waUploadToServer });
 
 const sections = [
     {
@@ -54,5 +55,8 @@ const messageContent = {
     }
 };
 
-const message = generateWAMessageFromContent(m.cht, messageContent, { userJid: sock.user.id });
-await sock.relayMessage(m.cht, message.message, { messageId: message.key.id });
+const message = generateWAMessageFromContent(m.chat, messageContent, { userJid: conn.user.id });
+await conn.relayMessage(m.chat, message.message, { messageId: message.key.id });
+}
+handler.command = ['o']
+export default handler

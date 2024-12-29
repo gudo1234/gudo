@@ -39,20 +39,22 @@ this.sendMessage(m.chat, { audio: { url: vn2 },
      seconds: '4556', ptt: true, mimetype: 'audio/mpeg', fileName: `error.mp3` }, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
 
 if (media === 'boton')*/
-this.sendMessage(who, {
-           image: `${im}`,
-           caption: `Adios @${m.messageStubParameters[0].split`@`[0]}`,
-           mentions: [],
-           footer: `${await conn.getName(who)}`,
+conn.sendMessage(m.chat, {
+           image: {
+               url: "https://files.catbox.moe/beawnt.jpg"
+           },
+           caption: 'hola',
+           mentions: [m.sender],
+           footer: wm,
            buttons: [{
-             buttonId: ".trizte",
+             buttonId: ".gay",
                buttonText: {
-                   displayText: "Adios🤨"
+                   displayText: "yes"
               }
           },{
-             buttonId: ".consejo",
+             buttonId: ".gay",
                buttonText: {
-                   displayText: "Dime algo"
+                   displayText: "si"
               }
           }],
           viewOnce: true,

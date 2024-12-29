@@ -14,8 +14,9 @@ await conn.sendMessage(m.chat, { text: global.espere + `*${name}*`, contextInfo:
         {
           const {data}= await axios.get(`https://deliriussapi-oficial.vercel.app/download/ytmp4?url=${enlace}`);
           const yt=data.data.download.url
-          await conn.sendFile(m.chat,yt,'yt.mp4', wm, m, null)
-          await m.react('✅');  
+          //await conn.sendFile(m.chat,yt,'yt.mp4', wm, m, null)
+        await conn.sendMessage(m.chat, {document: {url:yt}, caption:"ミ★ 𝘌𝘯𝘪𝘨𝘮𝘢-𝘉𝘰𝘵 ★彡", mimetype: 'video/mp4', fileName: `video`+ `.mp4`}, {quoted: m})
+        await m.react('✅');  
         }
         else m.reply("Ingresa el enlace del vídeo de YouTube")
     }

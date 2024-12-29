@@ -11,7 +11,7 @@ let pp = await conn.profilePictureUrl(m.messageStubParameters[0], 'image').catch
 
   let chat = global.db.data.chats[m.chat];
   const user = `@${m.sender.split`@`[0]}`;
-  let text = `Adioss ${user} Esperemos que no vuelva -_- *xD*`
+  let text = `Adios @${m.sender.split("@")[0]} Esperemos que no vuelva -_- *xD*`
   const getMentionedJid = () => {
     return m.messageStubParameters.map(param => `${param}@s.whatsapp.net`);
   };
@@ -43,7 +43,7 @@ if (media === 'boton')
 conn.sendMessage(m.chat, {
            image: im,
            caption: text,
-           mentions: user,
+           mentions: [m.sender],
            footer: wm,
            buttons: [{
              buttonId: ".trizte",

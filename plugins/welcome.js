@@ -40,8 +40,7 @@ this.sendMessage(m.chat, { audio: { url: vn2 },
 
 if (media === 'boton')
 this.sendMessage(m.chat, {
-           image: {
-               url: `${im}`},
+           image: `${im}`,
            caption: `Adios @${m.messageStubParameters[0].split`@`[0]}`,
            mentions: [null],
            footer: `${await conn.getName(m.chat)}`,

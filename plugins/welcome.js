@@ -39,9 +39,10 @@ this.sendMessage(m.chat, { audio: { url: vn2 },
      seconds: '4556', ptt: true, mimetype: 'audio/mpeg', fileName: `error.mp3` }, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
 
 if (media === 'boton')
+let text = `Adios ${user} Esperemos que no vuelva -_- *xD*`
 conn.sendMessage(m.chat, {
            image: im,
-           caption: `Adios ${user} Esperemos que no vuelva -_-`,
+           caption: text,
            mentions: [m.sender],
            footer: wm,
            buttons: [{

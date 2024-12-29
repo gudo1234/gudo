@@ -48,7 +48,7 @@ conn.sendMessage(m.chat, {
            buttons: [{
              buttonId: ".trizte",
                buttonText: {
-                   displayText: "Adios 😔"
+                   displayText: "Adioss"
               }
           },{
              buttonId: ".consejo",

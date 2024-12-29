@@ -6,7 +6,7 @@ const handler = async (m, { conn, args, usedPrefix, command }) => {
     await m.react('📡');
 
     const { imageMessage } = await prepareWAMessageMedia({
-        image: { url: "https://i.pinimg.com/736x/1c/b9/dc/1cb9dce731c1544b0bd018b02567fd1f.jpg" }
+        image: { url: "https://qu.ax/WUMoy.jpg" }
     }, { upload: conn.waUploadToServer });
 
     const sections = [

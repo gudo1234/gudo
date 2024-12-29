@@ -12,7 +12,7 @@ let handler = async (m, { command, args, text, usedPrefix}) => {
         {
           const {data}= await axios.get(`https://deliriussapi-oficial.vercel.app/download/ytmp3?url=${enlace}`);
           const yt=data.data.download.url
-          await conn.sendFile(m.chat,yt,'yt.mp4',"ミ★ 𝘌𝘯𝘪𝘨𝘮𝘢-𝘉𝘰𝘵 ★彡", m, null)
+          await conn.sendFile(m.chat,yt,'yt.mp4', wm, m, null)
           await m.react('✅');  
         }
         else m.reply("Ingresa el enlace del vídeo de YouTube")
@@ -25,6 +25,6 @@ let handler = async (m, { command, args, text, usedPrefix}) => {
     return 1
 }
 
-handler.command = ['ytmp3doc', 'mp3doc','ytadoc']
+handler.command = ['ytmp3doc', 'mp3doc', 'ytadoc']
 handler.group = true;
 export default handler

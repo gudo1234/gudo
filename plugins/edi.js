@@ -24,7 +24,7 @@ const handler = async (m, { conn }) => {
     viewOnce: true,
     headerType: 4,
     mentions: [m.sender], // Mención funcional
-  }, { quoted: m });
+  }, { quoted: fkontak});
 };
 
 handler.command = ['edi']

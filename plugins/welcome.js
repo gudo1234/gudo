@@ -40,15 +40,15 @@ this.sendMessage(m.chat, { audio: { url: vn2 },
      seconds: '4556', ptt: true, mimetype: 'audio/mpeg', fileName: `error.mp3` }, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
 
 if (media === 'boton')
-this.sendMessage(m.chat, {
+conn.sendMessage(m.chat, {
     image: im,
-    caption: text, // Mención visible del usuario
-    footer: wm,
+    caption: text,
+    footer: 'Esperemos que no vuelva -_-',
     buttons: [
       {
         buttonId: ".trizte",
         buttonText: {
-          displayText: "Adios",
+          displayText: "Adios 😔",
         },
         type: 1,
       },
@@ -62,8 +62,7 @@ this.sendMessage(m.chat, {
     ],
     viewOnce: true,
     headerType: 4,
-    mentions: [m.sender], // Mención funcional
-  }, { quoted: fkontak });
-       })
+    mentions: [m.sender],
+  }, { quoted: fkontak});
   }
                                                               }

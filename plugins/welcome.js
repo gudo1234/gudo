@@ -4,14 +4,14 @@ import fetch from 'node-fetch';
 export async function before(m, { conn, participants, groupMetadata }) {
 
 let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
-  if (!m.mentionedJid[0] || !m.quoted || !m.messageStubType || !m.isGroup) return true;
+  if (!m.messageStubType || !m.isGroup) return true;
 let pp = await conn.profilePictureUrl(m.messageStubParameters[0], 'image').catch(_ => 'https://qu.ax/casQP.jpg')
   let im = await (await fetch(`${pp}`)).buffer()
   let vn2 = './media/adios.mp3';
 
   let chat = global.db.data.chats[m.chat];
   let user = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted.sender
-  let text = `Adio *@${user.split('@')[0]}*`, null, { mentions: [user] }
+  let text = `🚩 *Adios* +${m.messageStubParameters[0].split`@`[0]}`
   const getMentionedJid = () => {
     return m.messageStubParameters.map(param => `${param}@s.whatsapp.net`);
   };

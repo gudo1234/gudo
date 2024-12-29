@@ -19,7 +19,9 @@ conn.sendMessage(m.chat, {
               }
           }],
           viewOnce: true,
-          headerType: 6,
+          headerType: 4,
+         mentions: [m.sender], }, 
+        { quoted: fkontak });
        })
 }
 handler.command = ['edi']

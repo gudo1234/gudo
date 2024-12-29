@@ -39,24 +39,16 @@ this.sendMessage(m.chat, { audio: { url: vn2 },
      seconds: '4556', ptt: true, mimetype: 'audio/mpeg', fileName: `error.mp3` }, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
 
 if (media === 'boton')
-conn.sendMessage(m.chat, {
-           image: im,
-           caption: `Adios ${user} Esperemos que no vuelva -_-`,
-           mentions: [m.sender],
-           footer: wm,
-           buttons: [{
-             buttonId: ".trizte",
-               buttonText: {
-                   displayText: "Adios😔"
-              }
-          },{
-             buttonId: ".consejo",
-               buttonText: {
-                   displayText: "Dime algo"
-              }
-          }],
-          viewOnce: true,
-          headerType: 6,
-       })
+let text = `Adios ${user} Esperemos que no vuelva -_-`
+conn.sendMessage(m.chat, { image: im, caption: text,
+ footer: wm,
+ buttons: [{
+buttonId: ".trizte", buttonText: { displayText: "Adios😔" }
+ },{
+ buttonId: ".consejo", buttonText: { displayText: "Dime algo" }
+ }], null, { mentions: this.parseMention(text) }
+viewOnce: true,
+headerType: 6,
+})}
   }
 }

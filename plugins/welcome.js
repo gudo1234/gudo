@@ -41,20 +41,20 @@ this.sendMessage(m.chat, { audio: { url: vn2 },
 if (media === 'boton')*/
 conn.sendMessage(m.chat, {
            image: {
-               url: "https://files.catbox.moe/beawnt.jpg"
+               url: im
            },
-           caption: 'hola',
+           caption: `Adios @${m.messageStubParameters[0].split`@`[0]}`,
            mentions: [m.sender],
            footer: wm,
            buttons: [{
-             buttonId: ".gay",
+             buttonId: ".trizte",
                buttonText: {
-                   displayText: "yes"
+                   displayText: "Adios"
               }
           },{
-             buttonId: ".gay",
+             buttonId: ".consejo",
                buttonText: {
-                   displayText: "si"
+                   displayText: "Dime algo"
               }
           }],
           viewOnce: true,

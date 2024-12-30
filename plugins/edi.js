@@ -1,8 +1,7 @@
 const handler = async (m, { conn }) => {
-  const taguser = '@' + m.sender.split('@')[0]; // Obtiene el usuario etiquetado
   let txt = `puta`
-  conn.sendMessage(m.chat, { text: txt, contextInfo: { externalAdReply: {title: `${wm}`, body: `${await conn.getName(m.chat)}`, thumbnailUrl: imagen4, thumbnail: imagen4, showAdAttribution: true, sourceUrl: canal}},
-    //caption: `Hola bebe xD`, // Mención visible del usuario
+  conn.sendMessage(m.chat, { text: txt, contextInfo: { externalAdReply: {title: `${wm}`, body: `${await conn.getName(m.chat)}`, thumbnailUrl: imagen4, thumbnail: imagen4, showAdAttribution: true, sourceUrl: 'xd'}},
+    //caption: `Hola bebe xD`,
     footer: wm,
     buttons: [
       {

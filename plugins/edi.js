@@ -1,6 +1,6 @@
 const handler = async (m, { conn }) => {
   let txt = `puta`
-  conn.sendMessage(m.chat, { text: txt, contextInfo: { externalAdReply: {title: `${wm}`, body: `${await conn.getName(m.chat)}`, thumbnailUrl: imagen4, thumbnail: imagen4, showAdAttribution: true, sourceUrl: 'xd',
+  conn.sendMessage(m.chat, { caption: txt, contextInfo: { externalAdReply: {title: `${wm}`, body: `${await conn.getName(m.chat)}`, thumbnailUrl: imagen4, thumbnail: imagen4, showAdAttribution: true, sourceUrl: 'xd',
     //caption: `Hola bebe xD`,
     footer: wm,
     buttons: [

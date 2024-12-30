@@ -20,15 +20,15 @@ if (!text) throw `🚩 *Ejemplo:* ${usedPrefix + command} titulo|opcion 1|opcion
         if (functions.hasDuplicates(u)) {
           return m.reply(m.chat, `🚩 Parece que algunas opciones están duplicadas.:\n\nIntenta hacerlo con diferentes opciones.\n\nEjemplo: *${usedPrefix + command} titulo|opcion 1|opcion 2*`, m);
         }
-        const poll = {
+        /*const poll = {
           name: [name],
           selectableCount: 1,
           values: u,
           mentions: m.participants,
           remoteJid: m.chat
-        }
+        }*/
   try  {
-        return await conn.sendMessage(m.chat, { poll })
+        return await conn.sendMessage(m.chat, { name })
       } catch (e) {
         m.reply(`error`)
       },

@@ -95,4 +95,5 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
 handler.help = ['ytsearch <texto>'];
 handler.tags = ['search'];
 handler.command = ['play']
+handler.group = true;
 export default handler;

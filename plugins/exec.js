@@ -42,8 +42,10 @@ m.exp = old
 }
 
 }
-
-handler.command = ['⚖️']
+handler.help = ['> ', '=> ']
+handler.tags = ['owner']
+handler.customPrefix = /^=?+ /
+handler.command = /(?:)/i
 handler.rowner = true
 
 export default handler

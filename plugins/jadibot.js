@@ -226,12 +226,12 @@ let chtxt = `*Se detectó un nuevo Sub-Bot conectado 💻✨*
 let ppch = await sock.profilePictureUrl(userJid, 'image').catch(_ => imageUrl.getRandom())
 await sleep(3000)
 //if (global.conn.user.jid.split`@`[0] != sock.user.jid.split`@`[0]) {
-await conn.sendMessage(ch.ch1, { text: chtxt, contextInfo: {
+await conn.sendMessage(id_canal, { text: chtxt, contextInfo: {
 externalAdReply: {
 title: "【 📢 Notificación General 📢 】",
 body: '🥳 ¡Nuevo Sub-Bot conectado!',
 thumbnailUrl: ppch,
-sourceUrl: [nna, nna2, nn, md, yt, tiktok].getRandom(),
+sourceUrl: 'https://chat.whatsapp.com/KlFxtwHtqIWIWOTjnjqnu3',
 mediaType: 1,
 showAdAttribution: false,
 renderLargerThumbnail: false
@@ -317,6 +317,6 @@ function sleep(ms) {
 return new Promise(resolve => setTimeout(resolve, ms));}
 
 async function joinChannels(conn) {
-for (const channelId of Object.values(global.ch)) {
+for (const channelId of Object.values(global.id_canal)) {
 await conn.newsletterFollow(channelId).catch(() => {})
 }}

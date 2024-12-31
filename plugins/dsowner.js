@@ -4,7 +4,7 @@ import path from 'path'
 var handler = async (m, { conn, usedPrefix }) => {
 
 if (global.conn.user.jid !== conn.user.jid) {}
-let sessionPath = './Sesion Principal/'
+let sessionPath = './GataBotSession/'
 try {
 if (!existsSync(sessionPath)) {}
 let files = await fs.readdir(sessionPath)

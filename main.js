@@ -274,11 +274,11 @@ unlinkSync(`./GataBotSession/${files}`)
 
 function purgeSessionSB() {
 try {
-let listaDirectorios = readdirSync('./jadibts/');
+let listaDirectorios = readdirSync('./GataJadiBot/');
 let SBprekey = []
 listaDirectorios.forEach(directorio => {
-if (statSync(`./jadibts/${directorio}`).isDirectory()) {
-let DSBPreKeys = readdirSync(`./jadibts/${directorio}`).filter(fileInDir => {
+if (statSync(`./GataJadiBot/${directorio}`).isDirectory()) {
+let DSBPreKeys = readdirSync(`./GataJadiBot/${directorio}`).filter(fileInDir => {
 return fileInDir.startsWith('pre-key-') /*|| fileInDir.startsWith('app-') || fileInDir.startsWith('session-')*/
 })
 SBprekey = [...SBprekey, ...DSBPreKeys]
@@ -437,22 +437,6 @@ conn.ev.on('call', conn.onCall);
   isInit = false;
   return true;
 };
- 
-//GataJadiBot autoreconeccion
-if (global.gataJadibts) {
-const readRutaJadiBot = readdirSync(rutaJadiBot)
-if (readRutaJadiBot.length > 0) {
-const creds = 'creds.json'
-for (const gjbts of readRutaJadiBot) {
-const botPath = join(rutaJadiBot, gjbts)
-const readBotPath = readdirSync(botPath)
-if (readBotPath.includes(creds)) {
-gataJadiBot({pathGataJadiBot: botPath, m: null, conn, args: '', usedPrefix: '/', command: 'serbot'})
-}
-
-}
-}
-}
 
 const pluginFolder = global.__dirname(join(__dirname, './plugins/index'));
 const pluginFilter = (filename) => /\.js$/.test(filename);
@@ -511,4 +495,16 @@ async function _quickTest() {
     spawn('gm'),
     spawn('find', ['--version']),
   ].map((p) => {
- 
+    return Promise.race([
+      new Promise((resolve) => {
+        p.on('close', (code) => {
+          resolve(code !== 127);
+        });
+      }),
+      new Promise((resolve) => {
+        p.on('error', (_) => resolve(false));
+      })]);
+  }));
+  const [ffmpeg, ffprobe, ffmpegWebp, convert, magick, gm, find] = test;
+  const s = global.support = {ffmpeg, ffprobe, ffmpegWebp, convert, magick, gm, find};
+  Object.freeze(global.su

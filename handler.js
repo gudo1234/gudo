@@ -50,7 +50,7 @@ try {
 // use el bucle para insertar datos en lugar de esto
 let user = global.db.data.users[m.sender]
 /*------------------------------------------------*/	            
-let chatgptUser = global.chatgpt.data.users[m.sender];
+//let chatgptUser = global.chatgpt.data.users[m.sender];
 if (typeof chatgptUser !== "object")
 global.chatgpt.data.users[m.sender] = [];
 /*------------------------------------------------*/

@@ -64,8 +64,7 @@ gataJBOptions.usedPrefix = usedPrefix
 gataJBOptions.command = command
 gataJadiBot(gataJBOptions)
 } 
-handler.command = /^(jadibot|serbot|rentbot)/i
-handler.register = true
+handler.command = ['jadibot', 'serbot', 'rentbot']
 export default handler 
 
 export async function gataJadiBot(options) {

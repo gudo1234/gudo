@@ -16,9 +16,9 @@ global.prems = [50492280729]
 //Sólo aplica para opción 2 (ser bot con código de texto de 8 digitos)
 global.botNumberCode = "" //Ejemplo: +59309090909
 global.confirmCode = "" 
-global.sessions = 'seccion-activas'
-global.jadi = 'jadibots'
-global.hutaoJadibts = true
+
+//cambia a false Desactivar en "auto-reconexion" de sub-bots
+global.gataJadibts = true 
 //---------[ APIS GLOBAL ]---------
 
 global.openai_key = 'sk-...OzYy' /* Consigue tu ApiKey en este enlace: https://platform.openai.com/account/api-keys */

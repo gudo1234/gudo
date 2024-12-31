@@ -24,11 +24,11 @@ resultado += segundos + " segundos";
 }
 return resultado;
 }
-const message = users.map((v, index) => `wa.me/${v.user.jid.replace(/[^0-9]/g, '')}?text=${usedPrefix}code\n⭐ *Nombre* (${v.user.name || '-'})\n🕒 *Uptime:* ${ v.uptime ? convertirMsADiasHorasMinutosSegundos(Date.now() - v.uptime) : "Desconocido"}`).join('\n\n')
+const message = users.map((v, index) => `(${index + 1})\nwa.me/${v.user.jid.replace(/[^0-9]/g, '')}?text=${usedPrefix}.code\n*Nombre:* *${v.user.name || '-'}*\n*Uptime:* ${ v.uptime ? convertirMsADiasHorasMinutosSegundos(Date.now() - v.uptime) : "Desconocido"}`).join('\n_______________________\n');
   const replyMessage = message.length === 0 ? '🚩 *Aun no hay sub-bots*' : message;
 const totalUsers = users.length;
-const responseMessage = `🚩 *Jadibots conectados, un total de:* ${totalUsers || '0'}\n\n${replyMessage.trim()}`.trim();
-await _envio.sendMessage(m.chat, { text: responseMessage, contextInfo: {mentionedJid: _envio.parseMention(responseMessage), externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: wm, body: 'Jadibots Izumi', previewType: 0, thumbnail: img.getRandom(), sourceUrl: canal}}}, {quoted: m})}
-//_envio.sendMessage(m.chat, {text: responseMessage, mentions: _envio.parseMention(responseMessage)}, {quoted: m})}
-handler.command = handler.help = ['listjadibot', 'bots'];
+const responseMessage = `🚩 *Jadibots Vinculados*\n*Un total de:* ${totalUsers || '0'}\n\n${replyMessage.trim()}`.trim();
+await _envio.sendMessage(m.chat, {text: responseMessage, mentions: _envio.parseMention(responseMessage)}, {quoted: m})}
+handler.command = handler.help = ['listjadibots', 'bots', 'subsbots'];
+handler.tags = ['jadibot'];
 export default handler;

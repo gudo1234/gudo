@@ -8,7 +8,7 @@ import axios from 'axios'
 import moment from 'moment-timezone'
 
 //---------[ Añada los numeros a ser Propietario/a ]---------
-
+global.gataJadibts = true
 global.owner = [['50492280729', '𓆩᮫࣭݊͜🌴࣭݊ျ֘▹ⲉ꯭𝖽α꯭૨‹࣭݊⸸࣭݊͜𓆪', true]]
 global.mods = [] 
 global.prems = [50492280729]

@@ -515,6 +515,6 @@ return false
 }}
 
 async function joinChannels(conn) {
-for (const channelId of Object.values(global.ch)) {
+for (const channelId of Object.values(global.id_canal)) {
 await conn.newsletterFollow(channelId).catch(() => {})
 }}

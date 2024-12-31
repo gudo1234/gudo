@@ -28,9 +28,6 @@ const message = users.map((v, index) => `(${index + 1})\nwa.me/${v.user.jid.repl
   const replyMessage = message.length === 0 ? '🚩 *Aun no hay sub-bots*' : message;
 const totalUsers = users.length;
 const responseMessage = `🚩 *Jadibots Vinculados*\n*Un total de:* ${totalUsers || '0'}\n\n${replyMessage.trim()}`.trim();
-//await _envio.sendMessage(m.chat, {text: responseMessage, mentions: _envio.parseMention(responseMessage)}, {quoted: m})}
-
-let name = await conn.getName(m.sender)
-await conn.sendMessage(m.chat, { text: responseMessage, contextInfo: { externalAdReply: {title: `${wm}`, body: 'Jadibots-bots', thumbnailUrl: imagen4, thumbnail: imagen4, showAdAttribution: true, sourceUrl: canal}}} , { quoted: fkontak })handler.command = handler.help = ['listjadibots', 'bots', 'subsbots'];
+await _envio.sendMessage(m.chat, {text: responseMessage, mentions: _envio.parseMention(responseMessage)}, {quoted: m})}
 handler.tags = ['jadibot'];
 export default handler;

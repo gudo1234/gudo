@@ -29,5 +29,5 @@ const message = users.map((v, index) => `(${index + 1})\nwa.me/${v.user.jid.repl
 const totalUsers = users.length;
 const responseMessage = `🚩 *Jadibots Vinculados*\n*Un total de:* ${totalUsers || '0'}\n\n${replyMessage.trim()}`.trim();
 await _envio.sendMessage(m.chat, {text: responseMessage, mentions: _envio.parseMention(responseMessage)}, {quoted: m})}
-handler.tags = ['jadibot'];
+handler.command = ['bots'];
 export default handler;

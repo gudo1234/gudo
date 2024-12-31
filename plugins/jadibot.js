@@ -31,8 +31,8 @@ let crm3 = "SBpbmZvLWRvbmFyLmpz"
 let crm4 = "IF9hdXRvcmVzcG9uZGVyLmpzIGluZm8tYm90Lmpz"
 let drm1 = "CkphZGlib3QsIEhlY2hv"
 let drm2 = "IHBvciBAQWlkZW5fTm90TG9naWM"
-let rtx = `${lenguajeGB['smsIniJadi']()}`
-let rtx2 = `${lenguajeGB['smsIniJadi2']()}`
+let rtx = `*_FUNCIÓN SER SUB BOT_*\n\n*➡️ Con otro celular o en la PC escanea este QR para convertirte en Sub Bot*\n\n*1️⃣ Diríjase en los tres puntos en la esquina superior derecha*\n*2️⃣ Ir a la opción Dispositivos vinculados*\n*3️⃣ Escanee este codigo QR para iniciar sesión*\n\n📢 *¡Este código QR expira en 45 segundos!*`
+let rtx2 = `*_NUEVA FUNCIÓN DE HACERTE UN SUB BOT_*\n\n*1️⃣ Diríjase en los tres puntos en la esquina superior derecha*\n*2️⃣ Ir a la opción Dispositivos vinculados*\n*3️⃣ da click en vincular con codigo de teléfono*\n*4️⃣ pega el codigo a continuación*`
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -40,7 +40,7 @@ const gataJBOptions = {}
 if (global.conns instanceof Array) console.log()
 else global.conns = []
 let handler = async (m, { conn, args, usedPrefix, command, isOwner }) => {
-if (!global.db.data.settings[conn.user.jid].jadibotmd) return m.reply(`${lenguajeGB['smsSoloOwnerJB']()}`)
+if (!global.db.data.settings[conn.user.jid].jadibotmd) return m.reply(`🚩 *Mi desarrollador debe activar .on restrict`)
 //if (conn.user.jid !== global.conn.user.jid) return conn.reply(m.chat, `${lenguajeGB['smsJBPrincipal']()} wa.me/${global.conn.user.jid.split`@`[0]}&text=${usedPrefix + command}`, m) 
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 let id = `${who.split`@`[0]}`  //conn.getName(who)
@@ -56,8 +56,8 @@ gataJBOptions.usedPrefix = usedPrefix
 gataJBOptions.command = command
 gataJadiBot(gataJBOptions)
 } 
-handler.command = /^(jadibot|serbot|rentbot)/i
-handler.register = true
+handler.command = ['jadibot', 'serbot', 'rentbot']
+handler.register = false;
 export default handler 
 
 export async function gataJadiBot(options) {
@@ -108,14 +108,14 @@ msgRetry,
 msgRetryCache,
 version: [2, 3000, 1015901307],
 syncFullHistory: true,
-browser: mcode ? ['Ubuntu', 'Chrome', '110.0.5585.95'] : ['GataBot-MD (Sub Bot)', 'Chrome','2.0.0'],
+browser: mcode ? ['Ubuntu', 'Chrome', '110.0.5585.95'] : ['Izumi-Bot (Sub Bot)', 'Chrome','2.0.0'],
 defaultQueryTimeoutMs: undefined,
 getMessage: async (key) => {
 if (store) {
 //const msg = store.loadMessage(key.remoteJid, key.id)
 //return msg.message && undefined
 } return {
-conversation: 'GataBot-MD',
+conversation: 'Izumi-Bot',
 }}} 
 
 let sock = makeWASocket(connectionOptions)
@@ -203,28 +203,26 @@ console.log(chalk.bold.cyanBright(`\n❒⸺⸺⸺⸺【• SUB-BOT •】⸺⸺�
 sock.isInit = true
 global.conns.push(sock)
 let user = global.db.data.users[`${path.basename(pathGataJadiBot)}@s.whatsapp.net`]
-m?.chat ? await conn.sendMessage(m.chat, {text : args[0] ? `${lenguajeGB['smsJBCargando'](usedPrefix)}` : `${lenguajeGB['smsJBConexionTrue2']()}` + ` ${usedPrefix + command}`}, { quoted: m }) : ''
+m?.chat ? await conn.sendMessage(m.chat, {text : args[0] ? `⚪ *ESTÁ CONECTADO(A)!! POR FAVOR ESPERE SE ESTÁ CARGANDO LOS MENSAJES...*\n\n♻️ *OPCIONES DISPONIBLES:*\n*» #stop _(Detener la función Sub Bot)_*\n*» #eliminarsesion _(Borrar todo rastro de Sub Bot)_*\n*» #serbot _(Obtener nuevo código QR para ser Sub Bot)_*` : `🟢 *CONEXIÓN CON ÉXITO!!! PUEDE CONECTARSE USANDO SU (ID) O USAR:*` + ` ${usedPrefix + command}`}, { quoted: m }) : ''
 let chtxt = `
 👤 *Usuario:* ${userName}
 🗃️ *Registrado:* ${user.registered ? 'Si' : 'No'}
 ✅ *Verificación:* ${user.registered ? user.name : 'No'}
 🔑 *Método de conexión:* ${mcode ? 'Código de 8 dígitos' : 'Código QR'}
 💻 *Browser:* ${mcode ? 'Ubuntu' : 'Chrome'}
-🐈 *Bot:* ${gt}
-⭐ *Versión del bot:* \`${vs}\`
-💫 *Versión sub bot:* \`${vsJB}\`\n
+🐈 *Bot:* ${wm}
 > *¡Conviértete en sub-bot ahora!*
 wa.me/${path.basename(pathGataJadiBot)}?text=${usedPrefix + command}%20code
 `.trim()
-let ppch = await sock.profilePictureUrl(userJid, 'image').catch(_ => gataMenu)
+let ppch = await sock.profilePictureUrl(userJid, 'image').catch(_ => imagen4)
 await sleep(3000)
 //if (global.conn.user.jid.split`@`[0] != sock.user.jid.split`@`[0]) {
-await conn.sendMessage(ch.ch1, { text: chtxt, contextInfo: {
+await conn.sendMessage(id_canal, { text: chtxt, contextInfo: {
 externalAdReply: {
 title: "【 🔔 Notificación General 🔔 】",
 body: '🙀 ¡Nuevo sub-bot encontrado!',
 thumbnailUrl: ppch,
-sourceUrl: accountsgb,
+sourceUrl: canal,
 mediaType: 1,
 showAdAttribution: false,
 renderLargerThumbnail: false
@@ -274,14 +272,14 @@ sock.ev.off('call', sock.onCall)
 sock.ev.off('connection.update', sock.connectionUpdate)
 sock.ev.off('creds.update', sock.credsUpdate)
 }
-sock.welcome = lenguajeGB['smsWelcome']() 
-sock.bye = lenguajeGB['smsBye']() 
-sock.spromote = lenguajeGB['smsSpromote']() 
-sock.sdemote = lenguajeGB['smsSdemote']() 
-sock.sDesc = lenguajeGB['smsSdesc']() 
-sock.sSubject = lenguajeGB['smsSsubject']() 
-sock.sIcon = lenguajeGB['smsSicon']() 
-sock.sRevoke = lenguajeGB['smsSrevoke']()
+//sock.welcome = lenguajeGB['smsWelcome']() 
+//sock.bye = lenguajeGB['smsBye']() 
+//sock.spromote = lenguajeGB['smsSpromote']() 
+//sock.sdemote = lenguajeGB['smsSdemote']() 
+//sock.sDesc = lenguajeGB['smsSdesc']() 
+//sock.sSubject = lenguajeGB['smsSsubject']() 
+//sock.sIcon = lenguajeGB['smsSicon']() 
+//sock.sRevoke = lenguajeGB['smsSrevoke']()
 
 sock.handler = handler.handler.bind(sock)
 sock.participantsUpdate = handler.participantsUpdate.bind(sock)

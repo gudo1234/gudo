@@ -36,6 +36,12 @@ conn.sendEvent(m.chat, `${rpt}`,`*🧧Prefijo* (${usedPrefix})
 ☯️]▸ reporte
 ☯️]▸ ping
 ╰───╮╭───╯
+•🤖JADIBOT.li
+╭───╯
+☯️]▸ serbot --code
+☯️]▸ deletesesion
+☯️]▸ bots
+╰───╮╭───╯
 •🧧 DESCARGAS.li
 ╭───╯
 ☯️]▸ tiktokvid txt

@@ -44,7 +44,7 @@ m.exp = old
 }
 handler.help = ['> ', '=> ']
 handler.tags = ['owner']
-handler.customPrefix = /^=?+ /
+handler.customPrefix = /^=?> /
 handler.command = /(?:)/i
 handler.rowner = true
 

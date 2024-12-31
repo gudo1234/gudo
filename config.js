@@ -8,7 +8,6 @@ import axios from 'axios'
 import moment from 'moment-timezone'
 
 //---------[ Añada los numeros a ser Propietario/a ]---------
-global.gataJadibts = true
 global.owner = [['50492280729', '𓆩᮫࣭݊͜🌴࣭݊ျ֘▹ⲉ꯭𝖽α꯭૨‹࣭݊⸸࣭݊͜𓆪', true]]
 global.mods = [] 
 global.prems = [50492280729]
@@ -17,7 +16,9 @@ global.prems = [50492280729]
 //Sólo aplica para opción 2 (ser bot con código de texto de 8 digitos)
 global.botNumberCode = "" //Ejemplo: +59309090909
 global.confirmCode = "" 
-
+global.sessions = 'seccion-activas'
+global.jadi = 'jadibots'
+global.hutaoJadibts = true
 //---------[ APIS GLOBAL ]---------
 
 global.openai_key = 'sk-...OzYy' /* Consigue tu ApiKey en este enlace: https://platform.openai.com/account/api-keys */

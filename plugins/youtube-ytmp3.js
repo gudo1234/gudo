@@ -32,7 +32,7 @@ let { quality, title, download_url, thumbnail } = json.result
 await conn.sendMessage(m.chat, { audio: { url: download_url }, caption: null, mimetype: "audio/mpeg" }, { quoted: m })
 } catch (error) {
 console.error(error)
-m.reply(`error temporal, prueba con ${usedPrefix + command}2`)
+conn.sendButton(m.chat, '🧧 *Se generó un error temporal*' + '🕒', `Toque el boton reintentar`, null, [['reintentar', `${usedPrefix}yta2 ${text}`]], m)
 }}
 
 HS.command = ['ytmp3', 'mp3', 'yta']

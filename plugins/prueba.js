@@ -187,16 +187,16 @@ conn.sendMessage(m.chat, {
     footer: 'Esperemos que no vuelva -_-',
     buttons: [
       {
-        buttonId: ".trizte",
+        buttonId: ".owner",
         buttonText: {
-          displayText: "Adios 😔",
+          displayText: "🚩ᴏᴡɴᴇʀ",
         },
         type: 1,
       },
       {
-        buttonId: ".consejo",
+        buttonId: ".trizte",
         buttonText: {
-          displayText: "Dime algo",
+          displayText: "🎉ᴛᴇsᴛ",
         },
         type: 1,
       },

@@ -210,9 +210,9 @@ conn.sendMessage(m.chat, {
 if (media === 'botons')
 conn.sendButtonMessages(m.chat, [
 [`⭐Hola ${taguser} *🥀Buenos días🌅/tardes🌇/noches🌆*\n\n${txt}`, '𝗉𝗈𝗐𝖾𝗋𝖾𝖽 ⓒ 𝖨𝗓𝗎𝗆𝗂-𝖻𝗈𝗍 𝟤𝟢𝟤𝟢-𝟤𝟢𝟤𝟦.', imagen4, [
-['Atom', usedPrefix + `atom`]
+['🚩ᴀᴛᴏᴍ', usedPrefix + `atom`]
 ], null, [
-['Canal', canal]],
+['🌐Canal', canal]],
 []
 ]], fkontak)
 }

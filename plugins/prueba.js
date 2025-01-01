@@ -16,8 +16,8 @@ let delirius = await axios.get(`https://deliriussapi-oficial.vercel.app/tools/co
   let paisdata = delirius.data.result
   let mundo = paisdata ? `${paisdata.name} ${paisdata.emoji}` : 'Desconocido'
 m.react('🚦')
-let or = ['evento', 'anuncio', 'boton'];
-  let media = or[Math.floor(Math.random() * 3)]
+let or = ['evento', 'anuncio', 'boton', 'botons'];
+  let media = or[Math.floor(Math.random() * 4)]
 let txt = `*🧧Prefijo* (${usedPrefix})
 •🪪 INFO-USUARIO.li
 ╭───╯
@@ -206,6 +206,15 @@ conn.sendMessage(m.chat, {
     headerType: 4,
     mentions: [m.sender],
   }, { quoted: fkontak});
+
+
+conn.sendButtonMessages(m.chat, [
+[`⭐Hola ${taguser} *🥀Buenos días🌅/tardes🌇/noches🌆*\n\n${txt}`, '𝗉𝗈𝗐𝖾𝗋𝖾𝖽 ⓒ 𝖨𝗓𝗎𝗆𝗂-𝖻𝗈𝗍 𝟤𝟢𝟤𝟢-𝟤𝟢𝟤𝟦.', imagen4, [
+['Atom', usedPrefix + `atom`]
+], null, [
+['Canal', canal]],
+[]
+]], fkontak)
 }
 
 handler.command = ['menu', 'menú', 'memu', 'memú', 'help', 'comandos', 'ayuda', 'commands', 'commandos']

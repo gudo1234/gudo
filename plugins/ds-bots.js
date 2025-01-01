@@ -4,7 +4,7 @@ import path from 'path'
 var handler = async (m, { conn, usedPrefix }) => {
 
 if (global.conn.user.jid !== conn.user.jid) {}
-let sessionPath = './jadibts/212621304277/'
+let sessionPath = `./jadibts/${v.user.jid.replace(/[^0-9]/g, '')}/`
 try {
 if (!existsSync(sessionPath)) {}
 let files = await fs.readdir(sessionPath)

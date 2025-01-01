@@ -20,7 +20,7 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
     body: { text: `🚩 *Título:* ${randomVideo.title}\n👤 *Autor:* ${randomVideo.author.name}\n👁️ *Vistas:* ${randomVideo.views}\n🔗 *Url:* ${randomVideo.url}\n🕒 *Duración:* ${randomVideo.timestamp}\n\n> 🚦Seleccione el formato en Descargas...`.trim() },
     footer: { text: `https://www.atom.bio/edar_`.trim() },  
       header: {
-          title: `*⭐YOUTUBE PLAY⭐*`,
+          title: `⭐YOUTUBE PLAY⭐`,
           hasMediaAttachment: true,
           imageMessage: messa.imageMessage,
       },

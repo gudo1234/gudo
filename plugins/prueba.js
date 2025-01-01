@@ -15,12 +15,11 @@ let rpt2 = "¡Recuerda descansar bien esta noche! Un buen sueño rejuvenece ment
       if (nktm >= 11) rpt = "🌇¡Buenas tardes!🍁"
       if (nktm >= 18) rpt = "🌠Que tengas una noche llena de paz y tranquilidad...🌙"
 let name = await conn.getName(m.sender)
-m.react('🍉')
 let pp = await conn.profilePictureUrl(m.sender, 'image').catch(_ => './src/avatar_contact.png')
 let delirius = await axios.get(`https://deliriussapi-oficial.vercel.app/tools/country?text=${PhoneNumber('+' + m.sender.replace('@s.whatsapp.net', '')).getNumber('international')}`)
   let paisdata = delirius.data.result
   let mundo = paisdata ? `${paisdata.name} ${paisdata.emoji}` : 'Desconocido'
-m.react('📘')
+m.react('🚦')
 let or = ['evento', 'anuncio'];
   let media = or[Math.floor(Math.random() * 2)]
 let txt = `*🧧Prefijo* (${usedPrefix})

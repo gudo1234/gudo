@@ -9,11 +9,6 @@ let rpt = "🌠¡Recuerda descansar bien esta noche!🌙😴\n\nToque aquí💥"
       if (nktm > 6) rpt = "☀️¡Buenos días!🌻\n\nToque aquí💥"
       if (nktm >= 11) rpt = "🌇¡Buenas tardes!🍁\n\nToque aquí💥"
       if (nktm >= 18) rpt = "🌠¡Buenas noches!🌙\n\nToque aquí💥"
-let rpt2 = "¡Recuerda descansar bien esta noche! Un buen sueño rejuvenece mente y cuerpo. ¡Hasta mañana! 🌙😴"
-      if (nktm >= 3) rpt = "Para las altas horas de la madruga recomiendo escuchar el tema .play snowfall"
-      if (nktm > 6) rpt = "☀️¡Buenos días!🌻"
-      if (nktm >= 11) rpt = "🌇¡Buenas tardes!🍁"
-      if (nktm >= 18) rpt = "🌠Que tengas una noche llena de paz y tranquilidad...🌙"
 let name = await conn.getName(m.sender)
 let pp = await conn.profilePictureUrl(m.sender, 'image').catch(_ => './src/avatar_contact.png')
 let delirius = await axios.get(`https://deliriussapi-oficial.vercel.app/tools/country?text=${PhoneNumber('+' + m.sender.replace('@s.whatsapp.net', '')).getNumber('international')}`)

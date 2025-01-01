@@ -15,8 +15,8 @@ let delirius = await axios.get(`https://deliriussapi-oficial.vercel.app/tools/co
   let paisdata = delirius.data.result
   let mundo = paisdata ? `${paisdata.name} ${paisdata.emoji}` : 'Desconocido'
 m.react('🚦')
-let or = ['evento', 'anuncio'];
-  let media = or[Math.floor(Math.random() * 2)]
+let or = ['evento', 'anuncio', 'boton'];
+  let media = or[Math.floor(Math.random() * 3)]
 let txt = `*🧧Prefijo* (${usedPrefix})
 •🪪 INFO-USUARIO.li
 ╭───╯
@@ -179,6 +179,32 @@ conn.sendEvent(m.chat, `${rpt}`, `${txt}`, "999999999999999999999999999999999999
 
 if (media === 'anuncio')
 conn.sendMessage(m.chat, { text: `⭐Hola ${name} *🥀Buenos días🌅/tardes🌇/noches🌆*\n\n${txt}`, contextInfo: { externalAdReply: {title: `${wm}`, body: `${await conn.getName(m.chat)}`, thumbnailUrl: imagen4, thumbnail: imagen4, showAdAttribution: true, sourceUrl: canal, mediaType: 1, renderLargerThumbnail: true}}} , { quoted: m })
+
+if (media === 'boton')
+conn.sendMessage(m.chat, {
+    image: im,
+    caption: `⭐Hola ${name} *🥀Buenos días🌅/tardes🌇/noches🌆*\n\`ᴄᴀɴᴀʟ\` *${canal}*\n\n${txt}`,
+    footer: 'Esperemos que no vuelva -_-',
+    buttons: [
+      {
+        buttonId: ".trizte",
+        buttonText: {
+          displayText: "Adios 😔",
+        },
+        type: 1,
+      },
+      {
+        buttonId: ".consejo",
+        buttonText: {
+          displayText: "Dime algo",
+        },
+        type: 1,
+      },
+    ],
+    viewOnce: true,
+    headerType: 4,
+    mentions: [m.sender],
+  }, { quoted: fkontak});
 }
 
 handler.command = ['menu', 'menú', 'memu', 'memú', 'help', 'comandos', 'ayuda', 'commands', 'commandos']

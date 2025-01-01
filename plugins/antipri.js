@@ -5,7 +5,7 @@ export async function before(m, { isAdmin, isBotAdmin, isOwner }) {
        return !1
     if (!m.message)
        return !0
-    if (m.text.includes('.serbot') || m.text.includes('.serbot --code') || m.text.includes('.bots') || m.text.includes('.deletesesion'))
+    if (m.text.includes('.serbot') || m.text.includes('.serbot --code') || m.text.includes('.bots') || m.text.includes('.deletesesion') || m.text.includes('.serbot code'))
        return !0
     let chat = global.db.data.chats[m.chat]
     let bot = global.db.data.settings[this.user.jid] || {}

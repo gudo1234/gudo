@@ -339,7 +339,7 @@ https://whatsapp.com/channel/0029Vanjyqb2f3ERifCpGT0W
 */
 
 // *[ ❀ PLAY ]*
-/*import fetch from 'node-fetch'
+import fetch from 'node-fetch'
 import yts from 'yt-search'
 
 let handler = async (m, { conn, text, args }) => {
@@ -365,7 +365,7 @@ await conn.sendMessage(m.chat, { audio: { url: download_url }, fileName: `${titl
 console.error(error)
 }}
 
-handler.command = ['play'];
+handler.command = ['yta2'];
 handler.group = true;
 
 export default handler
@@ -373,4 +373,4 @@ export default handler
 async function search(query, options = {}) {
   let search = await yts.search({ query, hl: "es", gl: "ES", ...options })
   return search.videos
-}*/
+}

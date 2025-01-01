@@ -27,10 +27,10 @@ resultado += segundos + " segundos";
 }
 return resultado;
 }
-const message = users.map((v, index) => `(${index + 1})\nwa.me/${v.user.jid.replace(/[^0-9]/g, '')}?text=${usedPrefix}code\n*Nombre:* *${v.user.name || '-'}*\n*Uptime:* ${ v.uptime ? convertirMsADiasHorasMinutosSegundos(Date.now() - v.uptime) : "Desconocido"}`).join('\n_______________________\n');
-
+//const message = users.map((v, index) => `(${index + 1})\nwa.me/${v.user.jid.replace(/[^0-9]/g, '')}?text=${usedPrefix}code\n*Nombre:* *${v.user.name || '-'}*\n*Uptime:* ${ v.uptime ? convertirMsADiasHorasMinutosSegundos(Date.now() - v.uptime) : "Desconocido"}`).join('\n_______________________\n');
+const message = users.map((v, index) => null
 if (global.conn.user.jid !== conn.user.jid) {}
-let sessionPath = `./jadibts/${v.user.jid.replace(/[^0-9]/g, '')}/`
+let sessionPath = `./jadibts/${conn.user.jid.replace(/[^0-9]/g, '')}/`
 try {
 if (!existsSync(sessionPath)) {}
 let files = await fs.readdir(sessionPath)

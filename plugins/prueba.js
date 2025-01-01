@@ -182,7 +182,7 @@ conn.sendMessage(m.chat, { text: `⭐Hola ${name} *🥀Buenos días🌅/tardes�
 
 if (media === 'boton')
 conn.sendMessage(m.chat, {
-    image: im,
+    image: imagen4,
     caption: `⭐Hola ${name} *🥀Buenos días🌅/tardes🌇/noches🌆*\n\`ᴄᴀɴᴀʟ\` *${canal}*\n\n${txt}`,
     footer: 'Esperemos que no vuelva -_-',
     buttons: [

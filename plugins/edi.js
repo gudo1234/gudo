@@ -1,5 +1,5 @@
-const handler = async (m, { conn }) => {
-  let txt = `puta`
+let handler = async (m, { conn, args, usedPrefix, command }) => {
+let txt = `puta`
   conn.sendMessage(m.chat, {
     image: imagen4,
     caption: txt,
@@ -24,8 +24,6 @@ const handler = async (m, { conn }) => {
     headerType: 4,
     mentions: [m.sender], // Mención funcional
   }}}, { quoted: fkontak});
-};
 
 handler.command = ['edi']
-
-export default handler;
+export default handler

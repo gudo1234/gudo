@@ -1,29 +1,29 @@
 let handler = async (m, { conn, args, usedPrefix, command }) => {
 let txt = `puta`
-  conn.sendMessage(m.chat, {
+conn.sendMessage(m.chat, {
     image: imagen4,
-    caption: txt,
-    footer: wm,
+    caption: text,
+    footer: 'Esperemos que no vuelva -_-',
     buttons: [
       {
-        buttonId: ".gay",
+        buttonId: ".trizte",
         buttonText: {
-          displayText: "Yes",
+          displayText: "Adios 😔",
         },
         type: 1,
       },
       {
-        buttonId: ".gay",
+        buttonId: ".consejo",
         buttonText: {
-          displayText: "yes",
+          displayText: "Dime algo",
         },
         type: 1,
       },
     ],
     viewOnce: true,
     headerType: 4,
-    mentions: [m.sender], // Mención funcional
-  }}}, { quoted: fkontak});
-
+    mentions: [m.sender],
+  }, { quoted: fkontak});
+}
 handler.command = ['edi']
 export default handler

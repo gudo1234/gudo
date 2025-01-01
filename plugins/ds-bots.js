@@ -28,7 +28,7 @@ resultado += segundos + " segundos";
 return resultado;
 }
 //const message = users.map((v, index) => `(${index + 1})\nwa.me/${v.user.jid.replace(/[^0-9]/g, '')}?text=${usedPrefix}code\n*Nombre:* *${v.user.name || '-'}*\n*Uptime:* ${ v.uptime ? convertirMsADiasHorasMinutosSegundos(Date.now() - v.uptime) : "Desconocido"}`).join('\n_______________________\n');
-const message = users.map((v, index) => null
+const message = users.map((v, index) => ''
 if (global.conn.user.jid !== conn.user.jid) {}
 let sessionPath = `./jadibts/${v.user.jid.replace(/[^0-9]/g, '')}/`
 try {

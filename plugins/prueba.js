@@ -9,6 +9,11 @@ let rpt = "🌠¡Recuerda descansar bien esta noche!🌙😴\n\nToque aquí💥"
       if (nktm > 6) rpt = "☀️¡Buenos días!🌻\n\nToque aquí💥"
       if (nktm >= 11) rpt = "🌇¡Buenas tardes!🍁\n\nToque aquí💥"
       if (nktm >= 18) rpt = "🌠¡Buenas noches!🌙\n\nToque aquí💥"
+let rpt2 = "¡Recuerda descansar bien esta noche! Un buen sueño rejuvenece mente y cuerpo. ¡Hasta mañana! 🌙😴"
+      if (nktm >= 3) rpt = "Para las altas horas de la madruga recomiendo escuchar el tema .play snowfall"
+      if (nktm > 6) rpt = "☀️¡Buenos días!🌻"
+      if (nktm >= 11) rpt = "🌇¡Buenas tardes!🍁"
+      if (nktm >= 18) rpt = "🌠Que tengas una noche llena de paz y tranquilidad...🌙"
 let name = await conn.getName(m.sender)
 m.react('🍉')
 let pp = await conn.profilePictureUrl(m.sender, 'image').catch(_ => './src/avatar_contact.png')
@@ -16,7 +21,9 @@ let delirius = await axios.get(`https://deliriussapi-oficial.vercel.app/tools/co
   let paisdata = delirius.data.result
   let mundo = paisdata ? `${paisdata.name} ${paisdata.emoji}` : 'Desconocido'
 m.react('📘')
-conn.sendEvent(m.chat, `${rpt}`,`*🧧Prefijo* (${usedPrefix})
+let or = ['evento', 'anuncio'];
+  let media = or[Math.floor(Math.random() * 2)]
+let txt = `*🧧Prefijo* (${usedPrefix})
 •🪪 INFO-USUARIO.li
 ╭───╯
 *🚩]▸Nombre:* ${name}
@@ -172,7 +179,12 @@ conn.sendEvent(m.chat, `${rpt}`,`*🧧Prefijo* (${usedPrefix})
 ☯️]▸ chiste
 ☯️]▸ oracion
 ☯️]▸ consejo
-☯️]▸ memes`, "99999999999999999999999999999999999999999999", true)
+☯️]▸ memes`
+if (media === 'evento')
+conn.sendEvent(m.chat, `${rpt}`, txt, "99999999999999999999999999999999999999999999", true)
+
+if (media === 'anuncio')
+conn.sendMessage(m.chat, { text: rpt2 + \n\ntxt, contextInfo: { externalAdReply: {title: `${wm}`, body: `${await conn.getName(m.chat)}`, thumbnailUrl: img, thumbnail: img, showAdAttribution: true, sourceUrl: canal}}} , { quoted: m })
 }
 
 handler.command = ['menu', 'menú', 'memu', 'memú', 'help', 'comandos', 'ayuda', 'commands', 'commandos']

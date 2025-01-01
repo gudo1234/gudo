@@ -21,7 +21,7 @@ if (filesDeleted === 0) {
 }
 handler.help = ['dsowner']
 handler.tags = ['own']
-handler.customPrefix = /dsowner/🎉/
+handler.customPrefix = /dsowner|🎉/
 handler.command = new RegExp
 
 export default handler

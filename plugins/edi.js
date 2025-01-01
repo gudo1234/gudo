@@ -1,6 +1,7 @@
 const handler = async (m, { conn }) => {
   let txt = `puta`
-  conn.sendMessage(m.chat, { imagen: imagen4,
+  conn.sendMessage(m.chat, {
+    image: imagen4,
     caption: txt,
     footer: wm,
     buttons: [

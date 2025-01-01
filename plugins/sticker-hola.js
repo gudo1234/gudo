@@ -16,5 +16,7 @@ function pickRandom(list) {
 }
 let stikerxd = [
 'https://i.ibb.co/VgnWwYq/file.jpg',
-'https://i.ibb.co/P4ggzTZ/file.jpg'
+'https://i.ibb.co/P4ggzTZ/file.jpg',
+'https://i.ibb.co/k6rJLr4/file.jpg',
+'https://i.ibb.co/VqdCMBL/file.jpg'
 ]

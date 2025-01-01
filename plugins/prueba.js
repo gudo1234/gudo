@@ -9,6 +9,7 @@ let rpt = "🌠¡Recuerda descansar bien esta noche!🌙😴\n\nToque aquí💥"
       if (nktm > 6) rpt = "☀️¡Buenos días!🌻\n\nToque aquí💥"
       if (nktm >= 11) rpt = "🌇¡Buenas tardes!🍁\n\nToque aquí💥"
       if (nktm >= 18) rpt = "🌠¡Buenas noches!🌙\n\nToque aquí💥"
+const taguser = '@' + m.sender.split('@s.whatsapp.net')[0];
 let name = await conn.getName(m.sender)
 let pp = await conn.profilePictureUrl(m.sender, 'image').catch(_ => './src/avatar_contact.png')
 let delirius = await axios.get(`https://deliriussapi-oficial.vercel.app/tools/country?text=${PhoneNumber('+' + m.sender.replace('@s.whatsapp.net', '')).getNumber('international')}`)
@@ -178,12 +179,12 @@ if (media === 'evento')
 conn.sendEvent(m.chat, `${rpt}`, `${txt}`, "99999999999999999999999999999999999999999999", true)
 
 if (media === 'anuncio')
-conn.sendMessage(m.chat, { text: `⭐Hola ${name} *🥀Buenos días🌅/tardes🌇/noches🌆*\n\n${txt}`, contextInfo: { externalAdReply: {title: `${wm}`, body: `${await conn.getName(m.chat)}`, thumbnailUrl: imagen4, thumbnail: imagen4, showAdAttribution: true, sourceUrl: canal, mediaType: 1, renderLargerThumbnail: true}}} , { quoted: m })
+conn.sendMessage(m.chat, { text: `⭐Hola ${taguser} *🥀Buenos días🌅/tardes🌇/noches🌆*\n\n${txt}`, contextInfo: { externalAdReply: {title: `${wm}`, body: `${await conn.getName(m.chat)}`, thumbnailUrl: imagen4, thumbnail: imagen4, showAdAttribution: true, sourceUrl: canal, mediaType: 1, renderLargerThumbnail: true}}} , { quoted: m })
 
 if (media === 'boton')
 conn.sendMessage(m.chat, {
     image: imagen4,
-    caption: `⭐Hola ${name} *🥀Buenos días🌅/tardes🌇/noches🌆*\n\`🌐ᴄᴀɴᴀʟ\` *${canal}*\n\n${txt}`,
+    caption: `⭐Hola ${taguser} *🥀Buenos días🌅/tardes🌇/noches🌆*\n\`🌐ᴄᴀɴᴀʟ\` *${canal}*\n\n${txt}`,
     footer: '𝗉𝗈𝗐𝖾𝗋𝖾𝖽 ⓒ 𝖨𝗓𝗎𝗆𝗂-𝖻𝗈𝗍 𝟤𝟢𝟤𝟢-𝟤𝟢𝟤5.',
     buttons: [
       {

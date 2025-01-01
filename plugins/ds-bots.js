@@ -1,9 +1,6 @@
 import ws from 'ws';
-import { readdirSync, unlinkSync, existsSync, promises as fs, rmSync } from 'fs'
-import path from 'path'
+async function handler(m, { conn: _envio, usedPrefix }) {
 const users = [...new Set([...global.conns.filter((conn) => conn.user && conn.ws.socket && conn.ws.socket.readyState !== ws.CLOSED).map((conn) => conn)])];
-var handler = async (m, { conn, usedPrefix }) => {
-
 function convertirMsADiasHorasMinutosSegundos(ms) {
 var segundos = Math.floor(ms / 1000);
 var minutos = Math.floor(segundos / 60);
@@ -47,7 +44,7 @@ if (filesDeleted === 0) {
 }
 handler.help = ['dsowner']
 handler.tags = ['own']
-handler.customPrefix = /dsowner|🎉/
+handler.customPrefix = /ds|🎉/
 handler.command = new RegExp
 
 export default handler

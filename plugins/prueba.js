@@ -183,7 +183,7 @@ if (media === 'evento')
 conn.sendEvent(m.chat, `${rpt}`, txt, "99999999999999999999999999999999999999999999", true)
 
 if (media === 'anuncio')
-conn.sendMessage(m.chat, { text: `${rpt2 + txt}`, contextInfo: { externalAdReply: {title: `${wm}`, body: `${await conn.getName(m.chat)}`, thumbnailUrl: imagen4, thumbnail: imagen4, showAdAttribution: true, sourceUrl: canal, mediaType: 1, renderLargerThumbnail: true}}} , { quoted: m })
+conn.sendMessage(m.chat, { text: `${rpt2\n\n + txt}`, contextInfo: { externalAdReply: {title: `${wm}`, body: `${await conn.getName(m.chat)}`, thumbnailUrl: imagen4, thumbnail: imagen4, showAdAttribution: true, sourceUrl: canal, mediaType: 1, renderLargerThumbnail: true}}} , { quoted: m })
 }
 
 handler.command = ['menu', 'menú', 'memu', 'memú', 'help', 'comandos', 'ayuda', 'commands', 'commandos']

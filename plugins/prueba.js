@@ -183,8 +183,8 @@ conn.sendMessage(m.chat, { text: `⭐Hola ${name} *🥀Buenos días🌅/tardes�
 if (media === 'boton')
 conn.sendMessage(m.chat, {
     image: imagen4,
-    caption: `⭐Hola ${name} *🥀Buenos días🌅/tardes🌇/noches🌆*\n\`ᴄᴀɴᴀʟ\` *${canal}*\n\n${txt}`,
-    footer: 'Esperemos que no vuelva -_-',
+    caption: `⭐Hola ${name} *🥀Buenos días🌅/tardes🌇/noches🌆*\n\`🌐ᴄᴀɴᴀʟ\` *${canal}*\n\n${txt}`,
+    footer: '𝗉𝗈𝗐𝖾𝗋𝖾𝖽 ⓒ 𝖨𝗓𝗎𝗆𝗂-𝖻𝗈𝗍 𝟤𝟢𝟤𝟢-𝟤𝟢𝟤5.',
     buttons: [
       {
         buttonId: ".owner",

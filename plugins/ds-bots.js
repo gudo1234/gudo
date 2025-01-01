@@ -1,4 +1,7 @@
 import ws from 'ws';
+import { readdirSync, unlinkSync, existsSync, promises as fs, rmSync } from 'fs'
+import path from 'path'
+
 async function handler(m, { conn: _envio, usedPrefix }) {
 const users = [...new Set([...global.conns.filter((conn) => conn.user && conn.ws.socket && conn.ws.socket.readyState !== ws.CLOSED).map((conn) => conn)])];
 function convertirMsADiasHorasMinutosSegundos(ms) {

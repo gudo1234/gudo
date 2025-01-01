@@ -1,4 +1,4 @@
-/*import ws from 'ws';
+import ws from 'ws';
 import { readdirSync, unlinkSync, existsSync, promises as fs, rmSync } from 'fs'
 import path from 'path'
 
@@ -50,4 +50,4 @@ handler.tags = ['own']
 handler.customPrefix = /ds|🎉/
 handler.command = new RegExp
 
-export default handler*/
+export default handler

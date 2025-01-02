@@ -71,7 +71,7 @@ let buttons = [
     let gata = {
         image: { url: im },
         caption: txt,
-        footer: gt,
+        footer: wm,
         buttons: buttons,
         viewOnce: true,
         headerType: 4,

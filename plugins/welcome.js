@@ -11,44 +11,7 @@ let pp = await conn.profilePictureUrl(m.messageStubParameters[0], 'image').catch
 
   let chat = global.db.data.chats[m.chat];
   const user = `@${m.sender.split`@`[0]}`;
-  //xd
-  let senderId = m.sender.split('@')[0];
-  let text = `*╭┈⊰* ${groupMetadata.subject} *⊰┈ ✦*\n*┊ 👋 Adios @${senderId}!*\n*┊ 📜 No olvides revisar la descripción del grupo para más detalles.*\n*╰┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈⊰ ✦*\n\n${groupMetadata.desc?.toString() || '¡SIN DESCRIPCIÓN!\n> ${wm}'}`;
-let buttons = [
-        { buttonId: ".triste", buttonText: { displayText: 'Adios 😔' }, type: 1 },
-        { buttonId: ".consejo", buttonText: { displayText: 'Dime algo' }, type: 1 }
-    ];
-  let fake = {
-        contextInfo: {
-            mentionedJid: [m.sender], 
-            isForwarded: true,
-            externalAdReply: {
-                showAdAttribution: true,
-                title: 'Adios',
-                body: wm,
-                mediaUrl: null,
-                description: null,
-                previewType: "PHOTO",
-                thumbnailUrl: im,
-                thumbnail: im,
-                sourceUrl: canal,
-                mediaType: 1,
-                renderLargerThumbnail: false,
-                mentionedJid: [m.sender] 
-            }
-        },
-        mentionedJid: [m.sender] 
-    };
-  let gata = {
-        image: im,
-        caption: text,
-        footer: wm,
-        buttons: buttons,
-        viewOnce: true,
-        headerType: 4,
-        mentions: [m.sender],
-  }, { quoted: null});
-  //xd
+  let text = `🚩 *Adios* +${m.messageStubParameters[0].split`@`[0]}`
   const getMentionedJid = () => {
     return m.messageStubParameters.map(param => `${param}@s.whatsapp.net`);
   };
@@ -77,6 +40,29 @@ this.sendMessage(m.chat, { audio: { url: vn2 },
      seconds: '4556', ptt: true, mimetype: 'audio/mpeg', fileName: `error.mp3` }, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
 
 if (media === 'boton')
-this.sendMessage(m.chat, gata, { quoted: null, mentions: [m.sender] });
+conn.sendMessage(m.chat, {
+    image: im,
+    caption: text,
+    footer: 'Esperemos que no vuelva -_-',
+    buttons: [
+      {
+        buttonId: ".trizte",
+        buttonText: {
+          displayText: "Adios 😔",
+        },
+        type: 1,
+      },
+      {
+        buttonId: ".consejo",
+        buttonText: {
+          displayText: "Dime algo",
+        },
+        type: 1,
+      },
+    ],
+    viewOnce: true,
+    headerType: 4,
+    mentions: [m.sender],
+  }, { quoted: fkontak});
   }
-      }
+        }

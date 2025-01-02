@@ -43,7 +43,7 @@ function cleanSessionFiles() {
       if (file !== 'creds.json') {
         fs.unlink(`${sanSessionPath}${file}`, (err) => {
           if (err && err.code !== 'ENOENT') {
-            console.log(`Error el eliminar Session: ${file}: ` + err);
+            console.log(`Error al eliminar Session: ${file}: ` + err);
           } else {
             console.log(`Session: ${file} elimiando.`);
           }
@@ -53,8 +53,8 @@ function cleanSessionFiles() {
   });
 }
 
-setInterval(cleanSubbotDirectories, 60 * 1000);
-setInterval(cleanSessionFiles, 60 * 1000);
+setInterval(cleanSubbotDirectories, 10 * 1000);
+setInterval(cleanSessionFiles, 10 * 1000);
 
 cleanSubbotDirectories();
 cleanSessionFiles();

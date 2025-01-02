@@ -93,8 +93,8 @@ await conn.sendMessage(m.chat, { text: src,contextInfo: {
     businessMessageForwardInfo: { businessOwnerJid: '50492280729@s.whatsapp.net' },
     forwardingScore: 9999,
     externalAdReply: {
-      title: 'INFO-BOT',
-      body: '©️ Powered By 𓆩᮫࣭݊͜🍁࣭݊ျ֘▹ⲉ꯭𝖽α꯭૨‹࣭݊⸸࣭݊͜𓆪',
+      title: `${await conn.getName(m.chat)}`,
+      body: 'INFO-BOT',
       thumbnailUrl: imagen4,
       thumbnail: imagen4,
       sourceUrl: 'https://www.atom.bio/edar_',

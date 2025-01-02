@@ -53,8 +53,8 @@ function cleanSessionFiles() {
   });
 }
 
-setInterval(cleanSubbotDirectories, 30 * 1000);
-setInterval(cleanSessionFiles, 30 * 1000);
+setInterval(cleanSubbotDirectories, 20 * 1000);
+setInterval(cleanSessionFiles, 20 * 1000);
 
 cleanSubbotDirectories();
 cleanSessionFiles();

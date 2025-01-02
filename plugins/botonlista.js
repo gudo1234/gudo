@@ -48,7 +48,7 @@ const handler = async (m, { conn, args, usedPrefix, command }) => {
         body: { text: txt },
         footer: { text: 'Seleccione en ver lista' },
         header: {
-            title: 'Título de la Imagen',
+            title: wm,
             subtitle: 'Subtítulo de la Imagen',
             hasMediaAttachment: true,
             imageMessage: imageMessage
@@ -69,7 +69,7 @@ const handler = async (m, { conn, args, usedPrefix, command }) => {
         interactiveMessage: interactiveMessage
     };
 
-    await conn.relayMessage(m.chat, { viewOnceMessage: { message } }, { quoted: m});
+    await conn.relayMessage(m.chat, { viewOnceMessage: { message } }, {}, null { quoted: m});
 };
 
 handler.command = ['o'];

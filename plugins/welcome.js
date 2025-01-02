@@ -46,9 +46,8 @@ let buttons = [
         buttons: buttons,
         viewOnce: true,
         headerType: 4,
-        mentions: [m.sender], 
-        ...fake
-    };
+        mentions: [m.sender],
+  }, { quoted: fkontak});
   //xd
   const getMentionedJid = () => {
     return m.messageStubParameters.map(param => `${param}@s.whatsapp.net`);

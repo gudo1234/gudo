@@ -79,6 +79,6 @@ let buttons = [
         ...fake
     };
 
-    await conn.sendMessage(m.chat, gata, { quoted: null, mentions: [m.sender] });
+    await this.sendMessage(m.chat, gata, { quoted: null, mentions: [m.sender] });
   }
                                                               }

@@ -18,6 +18,9 @@ let delirius = await axios.get(`https://deliriussapi-oficial.vercel.app/tools/co
 m.react('🚦')
 let or = ['evento', 'anuncio', 'boton', 'botons'];
   let media = or[Math.floor(Math.random() * 4)]
+let tx = `°∧,,,∧
+(  ̳• · • ̳)
+/    づ♡ _вιєиνєиι∂σ α ℓσѕ ¢σмαи∂σѕ_ ⭐Hola *${name}*\n╭──┄┄─◌──┄┄ 🍋‍🟩 ̥˚◌\n*🥀Buenos días🌅/tardes🌇/noches🌆*\n╰── ── •◌• ── ─ 🔖‧₊˚`
 let txt = `*🧧Prefijo* (${usedPrefix})
 •🪪 INFO-USUARIO.li
 ╭───╯
@@ -179,16 +182,12 @@ if (media === 'evento')
 conn.sendEvent(m.chat, `${rpt}`, `${txt}`, "99999999999999999999999999999999999999999999", true)
 
 if (media === 'anuncio')
-conn.sendMessage(m.chat, { text: `°∧,,,∧
-(  ̳• · • ̳)
-/    づ♡ _вιєиνєиι∂σ α ℓσѕ ¢σмαи∂σѕ_ ⭐Hola *${name}*\n╭──┄┄─◌──┄┄ 🍋‍🟩 ̥˚◌\n*🥀Buenos días🌅/tardes🌇/noches🌆*\n╰── ── •◌• ── ─ 🔖‧₊˚\n\n${txt}`, contextInfo: { externalAdReply: {title: `${wm}`, body: `${await conn.getName(m.chat)}`, thumbnailUrl: imagen4, thumbnail: imagen4, showAdAttribution: true, sourceUrl: canal, mediaType: 1, renderLargerThumbnail: true}}} , { quoted: m })
+conn.sendMessage(m.chat, { text: `${tx}\n\n${txt}`, contextInfo: { externalAdReply: {title: `${wm}`, body: `${await conn.getName(m.chat)}`, thumbnailUrl: imagen4, thumbnail: imagen4, showAdAttribution: true, sourceUrl: canal, mediaType: 1, renderLargerThumbnail: true}}} , { quoted: m })
 
 if (media === 'boton')
 conn.sendMessage(m.chat, {
     image: imagen4,
-    caption: `°∧,,,∧
-(  ̳• · • ̳)
-/    づ♡ _вιєиνєиι∂σ α ℓσѕ ¢σмαи∂σѕ_ ⭐Hola *${name}*\n╭──┄┄─◌──┄┄ 🍋‍🟩 ̥˚◌\n*🥀Buenos días🌅/tardes🌇/noches🌆*\n╰── ── •◌• ── ─ 🔖‧₊˚\n\`🌐ᴄᴀɴᴀʟ\` *${canal}*\n\n${txt}`,
+    caption: `${tx}\n\n${canal}\n\n${txt}`,
     footer: '𝗉𝗈𝗐𝖾𝗋𝖾𝖽 ⓒ 𝖨𝗓𝗎𝗆𝗂-𝖻𝗈𝗍 𝟤𝟢𝟤𝟢-𝟤𝟢𝟤5.',
     buttons: [
       {
@@ -213,12 +212,10 @@ conn.sendMessage(m.chat, {
 
 if (media === 'botons')
 conn.sendButtonMessages(m.chat, [
-[`°∧,,,∧
-(  ̳• · • ̳)
-/    づ♡ _вιєиνєиι∂σ α ℓσѕ ¢σмαи∂σѕ_ ⭐Hola *${name}*\n╭──┄┄─◌──┄┄ 🍋‍🟩 ̥˚◌\n*🥀Buenos días🌅/tardes🌇/noches🌆*\n╰── ── •◌• ── ─ 🔖‧₊˚\n\n${txt}`, '𝗉𝗈𝗐𝖾𝗋𝖾𝖽 ⓒ 𝖨𝗓𝗎𝗆𝗂-𝖻𝗈𝗍 𝟤𝟢𝟤𝟢-𝟤𝟢𝟤5.', imagen4, [
+[`${tx}\n\n${txt}`, '𝗉𝗈𝗐𝖾𝗋𝖾𝖽 ⓒ 𝖨𝗓𝗎𝗆𝗂-𝖻𝗈𝗍 𝟤𝟢𝟤𝟢-𝟤𝟢𝟤5.', imagen4, [
 ['🚩ᴀᴛᴏᴍ', usedPrefix + `.grupos`]
 ], null, [
-['🌐Canal', canal]],
+['🌐ᴄᴀɴᴀʟ', canal]],
 []
 ]], fkontak)
 }

@@ -1,7 +1,6 @@
 import fs from 'fs';
-import path from 'path';
 
-const directoryPath = path.join(__dirname, './jadibts/');
+const directoryPath = './jadibts/';
 
 function cleanSubbotDirectories() {
   fs.readdir(directoryPath, (err, subbotDirs) => {
@@ -10,7 +9,7 @@ function cleanSubbotDirectories() {
     }
     
     subbotDirs.forEach((subbotDir) => {
-      const subbotPath = path.join(directoryPath, subbotDir);
+      const subbotPath = `${directoryPath}${subbotDir}/`;
       
       fs.readdir(subbotPath, (err, files) => {
         if (err) {
@@ -19,7 +18,7 @@ function cleanSubbotDirectories() {
 
         files.forEach((file) => {
           if (file !== 'creds.json') {
-            fs.unlink(path.join(subbotPath, file), (err) => {
+            fs.unlink(`${subbotPath}${file}`, (err) => {
               if (err) {
                 console.log(`Error deleting file ${file}: ` + err);
               } else {

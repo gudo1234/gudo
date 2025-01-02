@@ -1,6 +1,6 @@
 const handler = async (m, {conn}) => {
   await conn.fetchBlocklist().then(async (data) => {
-    let txt = `> •Lista de bloqueados\n> •Total: ${data.length}\n┌─⊷\n`;
+    let txt = `🚩 *Lista de bloqueados*\n_Un total de:_ ${data.length}🧧 *Razón:* _Por escribir en privado_\n┌─⊷\n`;
     for (const i of data) {
       txt += `▢ @${i.split('@')[0]}\n`;
     }

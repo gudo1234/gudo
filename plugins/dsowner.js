@@ -23,6 +23,6 @@ function cleanPrekeys() {
 }
 
 // cada 10 seg por el momento.
-setInterval(cleanPrekeys, 60 * 1000);
+setInterval(cleanPrekeys, 10 * 1000);
 
 cleanPrekeys();

@@ -6,14 +6,50 @@ export async function before(m, { conn, participants, groupMetadata }) {
 let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
   if (!m.messageStubType || !m.isGroup) return true;
 let pp = await conn.profilePictureUrl(m.messageStubParameters[0], 'image').catch(_ => 'https://qu.ax/casQP.jpg')
-let im = await (await fetch(`${pp}`)).buffer()
-const ppg = await conn.profilePictureUrl(m.chat, 'image').catch((_) => null) || `${global.imagen4}`;
-let vn2 = './media/adios.mp3';
+  let im = await (await fetch(`${pp}`)).buffer()
+  let vn2 = './media/adios.mp3';
 
   let chat = global.db.data.chats[m.chat];
+  const user = `@${m.sender.split`@`[0]}`;
+  //xd
   let senderId = m.sender.split('@')[0];
-
-    let txt = `ID: *${groupMetadata.subject}*\nAdios *@${senderId}*`;
+  let text = `*╭┈⊰* ${groupMetadata.subject} *⊰┈ ✦*\n*┊ 👋 Adios @${senderId}!*\n*┊ 📜 No olvides revisar la descripción del grupo para más detalles.*\n*╰┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈⊰ ✦*\n\n${groupMetadata.desc?.toString() || '¡SIN DESCRIPCIÓN!\n> ${wm}'}`;
+let buttons = [
+        { buttonId: ".triste", buttonText: { displayText: 'Adios 😔' }, type: 1 },
+        { buttonId: ".consejo", buttonText: { displayText: 'Dime algo' }, type: 1 }
+    ];
+  let fake = {
+        contextInfo: {
+            mentionedJid: [m.sender], 
+            isForwarded: true,
+            externalAdReply: {
+                showAdAttribution: true,
+                title: 'Adios',
+                body: wm,
+                mediaUrl: null,
+                description: null,
+                previewType: "PHOTO",
+                thumbnailUrl: im,
+                thumbnail: im,
+                sourceUrl: canal,
+                mediaType: 1,
+                renderLargerThumbnail: false,
+                mentionedJid: [m.sender] 
+            }
+        },
+        mentionedJid: [m.sender] 
+    };
+  let gata = {
+        image: { url: im },
+        caption: text,
+        footer: wm,
+        buttons: buttons,
+        viewOnce: true,
+        headerType: 4,
+        mentions: [m.sender], 
+        ...fake
+    };
+  //xd
   const getMentionedJid = () => {
     return m.messageStubParameters.map(param => `${param}@s.whatsapp.net`);
   };
@@ -42,42 +78,6 @@ this.sendMessage(m.chat, { audio: { url: vn2 },
      seconds: '4556', ptt: true, mimetype: 'audio/mpeg', fileName: `error.mp3` }, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
 
 if (media === 'boton')
-let buttons = [
-        { buttonId: ".trizte", buttonText: { displayText: 'Adios 😔' }, type: 1 },
-        { buttonId: ".consejo", buttonText: { displayText: 'Dime algo' }, type: 1 }
-    ];
-
-    let fake = {
-        contextInfo: {
-            mentionedJid: [m.sender], 
-            isForwarded: true,
-            externalAdReply: {
-                showAdAttribution: true,
-                title: 'Esperemos que no vuelva -_-',
-                body: wm,
-                mediaUrl: null,
-                description: null,
-                previewType: "PHOTO",
-                thumbnailUrl: ppg,
-                sourceUrl: canal,
-                mediaType: 1,
-                renderLargerThumbnail: false,
-                mentionedJid: [m.sender] 
-            }
-        },
-        mentionedJid: [m.sender] 
-    };
-
-    let gata = {
-        image: im,
-        caption: txt,
-        footer: wm,
-        buttons: buttons,
-        viewOnce: true,
-        headerType: 4,
-        mentions: [m.sender], 
-        ...fake
-    };
 this.sendMessage(m.chat, gata, { quoted: null, mentions: [m.sender] });
   }
-                                                              }
+      }

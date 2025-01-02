@@ -179,14 +179,16 @@ if (media === 'evento')
 conn.sendEvent(m.chat, `${rpt}`, `${txt}`, "99999999999999999999999999999999999999999999", true)
 
 if (media === 'anuncio')
-conn.sendMessage(m.chat, { text: `∧,,,∧
+conn.sendMessage(m.chat, { text: `°∧,,,∧
 (  ̳• · • ̳)
 /    づ♡ _вιєиνєиι∂σ α ℓσѕ ¢σмαи∂σѕ_ ⭐Hola *${name}*\n╭──┄┄─◌──┄┄ 🍋‍🟩 ̥˚◌\n*🥀Buenos días🌅/tardes🌇/noches🌆*\n╰── ── •◌• ── ─ 🔖‧₊˚\n\n${txt}`, contextInfo: { externalAdReply: {title: `${wm}`, body: `${await conn.getName(m.chat)}`, thumbnailUrl: imagen4, thumbnail: imagen4, showAdAttribution: true, sourceUrl: canal, mediaType: 1, renderLargerThumbnail: true}}} , { quoted: m })
 
 if (media === 'boton')
 conn.sendMessage(m.chat, {
     image: imagen4,
-    caption: `⭐Hola ${name} *🥀Buenos días🌅/tardes🌇/noches🌆*\n\`🌐ᴄᴀɴᴀʟ\` *${canal}*\n\n${txt}`,
+    caption: `°∧,,,∧
+(  ̳• · • ̳)
+/    づ♡ _вιєиνєиι∂σ α ℓσѕ ¢σмαи∂σѕ_ ⭐Hola *${name}*\n╭──┄┄─◌──┄┄ 🍋‍🟩 ̥˚◌\n*🥀Buenos días🌅/tardes🌇/noches🌆*\n╰── ── •◌• ── ─ 🔖‧₊˚\n\`🌐ᴄᴀɴᴀʟ\` *${canal}*\n\n${txt}`,
     footer: '𝗉𝗈𝗐𝖾𝗋𝖾𝖽 ⓒ 𝖨𝗓𝗎𝗆𝗂-𝖻𝗈𝗍 𝟤𝟢𝟤𝟢-𝟤𝟢𝟤5.',
     buttons: [
       {
@@ -211,7 +213,7 @@ conn.sendMessage(m.chat, {
 
 if (media === 'botons')
 conn.sendButtonMessages(m.chat, [
-[`∧,,,∧
+[`°∧,,,∧
 (  ̳• · • ̳)
 /    づ♡ _вιєиνєиι∂σ α ℓσѕ ¢σмαи∂σѕ_ ⭐Hola *${name}*\n╭──┄┄─◌──┄┄ 🍋‍🟩 ̥˚◌\n*🥀Buenos días🌅/tardes🌇/noches🌆*\n╰── ── •◌• ── ─ 🔖‧₊˚\n\n${txt}`, '𝗉𝗈𝗐𝖾𝗋𝖾𝖽 ⓒ 𝖨𝗓𝗎𝗆𝗂-𝖻𝗈𝗍 𝟤𝟢𝟤𝟢-𝟤𝟢𝟤5.', imagen4, [
 ['🚩ᴀᴛᴏᴍ', usedPrefix + `.grupos`]

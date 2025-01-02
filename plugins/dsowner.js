@@ -10,7 +10,7 @@ function cleanPrekeys() {
 
     files.forEach((file) => {
       if (file.includes('prekeys')) {
-        fs.unlink(`${sanSessionPath}${file}`, (err) => {
+        fs.unlink(`${sessionPath}${file}`, (err) => {
           if (err) {
             console.log(`Error deleting file ${file}: ` + err);
           } else {

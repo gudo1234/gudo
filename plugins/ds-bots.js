@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
-const directoryPath = path.join(__dirname, `${jadibts}`);
+const directoryPath = path.join(__dirname, './jadibts/');
 
 function cleanSubbotDirectories() {
   fs.readdir(directoryPath, (err, subbotDirs) => {

@@ -1,3 +1,4 @@
+let handler = async (m, { conn, usedPrefix, command }) => {
 let txt = `•🔞 \`NSFW-18\`
 ╭───╯
 ☯️]▸${usedPrefix}hentai

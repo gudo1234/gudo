@@ -53,7 +53,7 @@ let buttons = [
             isForwarded: true,
             externalAdReply: {
                 showAdAttribution: true,
-                title: `${await conn.getName(m.chat)}`,
+                title: 'Esperemos que no vuelva -_-',
                 body: wm,
                 mediaUrl: null,
                 description: null,
@@ -69,7 +69,7 @@ let buttons = [
     };
 
     let gata = {
-        image: { url: im },
+        image: im,
         caption: txt,
         footer: wm,
         buttons: buttons,
@@ -78,7 +78,6 @@ let buttons = [
         mentions: [m.sender], 
         ...fake
     };
-
-    await this.sendMessage(m.chat, gata, { quoted: null, mentions: [m.sender] });
+this.sendMessage(m.chat, gata, { quoted: null, mentions: [m.sender] });
   }
                                                               }

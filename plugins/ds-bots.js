@@ -1,4 +1,4 @@
-import fs from 'fs';
+/*import fs from 'fs';
 
 const directoryPath = './jadibts/';
 
@@ -35,4 +35,4 @@ function cleanSubbotDirectories() {
 // cada 10 segundos gey de Edar
 setInterval(cleanSubbotDirectories, 60 * 1000);
 
-cleanSubbotDirectories();
+cleanSubbotDirectories();*/

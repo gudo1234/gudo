@@ -5,7 +5,7 @@ let handler  = async (m, { conn, usedPrefix, command }) => {
 let img = imagen1
 const more = String.fromCharCode(8206)
 const readMore = more.repeat(4001)
-let txt = `*_🧧 Visita nuestro centro de atención en:*_ https://atom.bio/edar_`
+let txt = `_*🧧 Visita nuestro centro de atención en:*_ https://atom.bio/edar_`
 await conn.sendFile(m.chat, img, "Thumbnail.jpg", txt, m, null, rcanal)
 }
 handler.help = ['grupos']

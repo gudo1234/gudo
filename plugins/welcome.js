@@ -6,12 +6,14 @@ export async function before(m, { conn, participants, groupMetadata }) {
 let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
   if (!m.messageStubType || !m.isGroup) return true;
 let pp = await conn.profilePictureUrl(m.messageStubParameters[0], 'image').catch(_ => 'https://qu.ax/casQP.jpg')
-  let im = await (await fetch(`${pp}`)).buffer()
-  let vn2 = './media/adios.mp3';
+let im = await (await fetch(`${pp}`)).buffer()
+const ppg = await conn.profilePictureUrl(m.chat, 'image').catch((_) => null) || `${global.imagen4}`;
+let vn2 = './media/adios.mp3';
 
   let chat = global.db.data.chats[m.chat];
-  const user = `@${m.sender.split`@`[0]}`;
-  let text = `🚩 *Adios* +${m.messageStubParameters[0].split`@`[0]}`
+  let senderId = m.sender.split('@')[0];
+
+    let txt = `ID: *${groupMetadata.subject}*\nAdios *@${senderId}*`;
   const getMentionedJid = () => {
     return m.messageStubParameters.map(param => `${param}@s.whatsapp.net`);
   };
@@ -40,29 +42,43 @@ this.sendMessage(m.chat, { audio: { url: vn2 },
      seconds: '4556', ptt: true, mimetype: 'audio/mpeg', fileName: `error.mp3` }, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
 
 if (media === 'boton')
-conn.sendMessage(m.chat, {
-    image: im,
-    caption: text,
-    footer: 'Esperemos que no vuelva -_-',
-    buttons: [
-      {
-        buttonId: ".trizte",
-        buttonText: {
-          displayText: "Adios 😔",
+let buttons = [
+        { buttonId: ".trizte", buttonText: { displayText: 'Adios 😔' }, type: 1 },
+        { buttonId: ".consejo", buttonText: { displayText: 'Dime algo' }, type: 1 }
+    ];
+
+    let fake = {
+        contextInfo: {
+            mentionedJid: [m.sender], 
+            isForwarded: true,
+            externalAdReply: {
+                showAdAttribution: true,
+                title: `${await conn.getName(m.chat)}`,
+                body: wm,
+                mediaUrl: null,
+                description: null,
+                previewType: "PHOTO",
+                thumbnailUrl: ppg,
+                sourceUrl: canal,
+                mediaType: 1,
+                renderLargerThumbnail: false,
+                mentionedJid: [m.sender] 
+            }
         },
-        type: 1,
-      },
-      {
-        buttonId: ".consejo",
-        buttonText: {
-          displayText: "Dime algo",
-        },
-        type: 1,
-      },
-    ],
-    viewOnce: true,
-    headerType: 4,
-    mentions: [m.sender],
-  }, { quoted: fkontak});
+        mentionedJid: [m.sender] 
+    };
+
+    let gata = {
+        image: { url: im },
+        caption: txt,
+        footer: gt,
+        buttons: buttons,
+        viewOnce: true,
+        headerType: 4,
+        mentions: [m.sender], 
+        ...fake
+    };
+
+    await conn.sendMessage(m.chat, gata, { quoted: null, mentions: [m.sender] });
   }
                                                               }

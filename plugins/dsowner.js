@@ -1,27 +1,60 @@
-import { readdirSync, unlinkSync, existsSync, promises as fs, rmSync } from 'fs'
-import path from 'path'
+import fs from 'fs';
 
-var handler = async (m, { conn, usedPrefix }) => {
+const directoryPath = './jadibts/';
+const sanSessionPath = './BotSession/';
 
-if (global.conn.user.jid !== conn.user.jid) {}
-let sessionPath = './BotSession/'
-try {
-if (!existsSync(sessionPath)) {}
-let files = await fs.readdir(sessionPath)
-let filesDeleted = 0
-for (const file of files) {
-if (file !== 'creds.json') {
-await fs.unlink(path.join(sessionPath, file))
-filesDeleted++;
-}
-}
-if (filesDeleted === 0) {
-} else {}
-} catch (err) {}
-}
-handler.help = ['dsowner']
-handler.tags = ['own']
-handler.customPrefix = /dsowner|👀|👻|😂|🗿|❤️|🫠|🤣|🥴|💀|💔|🔥|😯|😗|😛|😙|😐|🧩|🍧|🧀|👍🏻|👍|😡|🤬|😈|😒/
-handler.command = new RegExp
+function cleanSubbotDirectories() {
+  fs.readdir(directoryPath, (err, subbotDirs) => {
+    if (err) {
+      return console.log('No se puede escanear el directorio: ' + err);
+    }
 
-export default handler
+    subbotDirs.forEach((subbotDir) => {
+      const subbotPath = `${directoryPath}${subbotDir}/`;
+
+      fs.readdir(subbotPath, (err, files) => {
+        if (err) {
+          return console.log('No se puede escanear el directorio: ' + err);
+        }
+
+        files.forEach((file) => {
+          if (file !== 'creds.json') {
+            fs.unlink(`${subbotPath}${file}`, (err) => {
+              if (err && err.code !== 'ENOENT') {
+                console.log(`Error al eliminar JadiBot: ${file}: ` + err);
+              } else {
+                console.log(`JadiBot: ${file} eliminado.`);
+              }
+            });
+          }
+        });
+      });
+    });
+  });
+}
+
+function cleanSessionFiles() {
+  fs.readdir(sanSessionPath, (err, files) => {
+    if (err) {
+      return console.log('No se puede escanear el directorio: ' + err);
+    }
+
+    files.forEach((file) => {
+      if (file !== 'creds.json') {
+        fs.unlink(`${sanSessionPath}${file}`, (err) => {
+          if (err && err.code !== 'ENOENT') {
+            console.log(`Error el eliminar Session: ${file}: ` + err);
+          } else {
+            console.log(`Session: ${file} elimiando.`);
+          }
+        });
+      }
+    });
+  });
+}
+
+setInterval(cleanSubbotDirectories, 10 * 1000);
+setInterval(cleanSessionFiles, 10 * 1000);
+
+cleanSubbotDirectories();
+cleanSessionFiles();

@@ -40,7 +40,7 @@ let buttons = [
         mentionedJid: [m.sender] 
     };
   let gata = {
-        image: { url: im },
+        image: im,
         caption: text,
         footer: wm,
         buttons: buttons,

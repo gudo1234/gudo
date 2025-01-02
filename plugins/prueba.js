@@ -213,7 +213,7 @@ conn.sendMessage(m.chat, {
 if (media === 'botons')
 conn.sendButtonMessages(m.chat, [
 [`${tx}\n\n${txt}`, '𝗉𝗈𝗐𝖾𝗋𝖾𝖽 ⓒ 𝖨𝗓𝗎𝗆𝗂-𝖻𝗈𝗍 𝟤𝟢𝟤𝟢-𝟤𝟢𝟤5.', imagen4, [
-['🚩ᴀᴛᴏᴍ', usedPrefix + `.grupos`]
+['🚩ᴀᴛᴏᴍ', `.grupos`]
 ], null, [
 ['🌐ᴄᴀɴᴀʟ', canal]],
 []

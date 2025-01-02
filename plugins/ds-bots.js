@@ -33,6 +33,6 @@ function cleanSubbotDirectories() {
 }
 
 // cada 10 segundos gey de Edar
-setInterval(cleanSubbotDirectories, 10 * 1000);
+setInterval(cleanSubbotDirectories, 60 * 1000);
 
 cleanSubbotDirectories();

@@ -1,28 +1,27 @@
-import fs from 'fs';
+import { readdirSync, unlinkSync, existsSync, promises as fs, rmSync } from 'fs'
+import path from 'path'
 
-const sanSessionPath = './BotSession/';
+var handler = async (m, { conn, usedPrefix }) => {
 
-function cleanPrekeys() {
-  fs.readdir(sanSessionPath, (err, files) => {
-    if (err) {
-      return console.log('Unable to scan SanSession directory: ' + err);
-    }
-
-    files.forEach((file) => {
-      if (file.includes('prekeys')) {
-        fs.unlink(`${sessionPath}${file}`, (err) => {
-          if (err) {
-            console.log(`Error deleting file ${file}: ` + err);
-          } else {
-            console.log(`File ${file} deleted successfully.`);
-          }
-        });
-      }
-    });
-  });
+if (global.conn.user.jid !== conn.user.jid) {}
+let sessionPath = './BotSession/'
+try {
+if (!existsSync(sessionPath)) {}
+let files = await fs.readdir(sessionPath)
+let filesDeleted = 0
+for (const file of files) {
+if (file !== 'creds.json') {
+await fs.unlink(path.join(sessionPath, file))
+filesDeleted++;
 }
+}
+if (filesDeleted === 0) {
+} else {}
+} catch (err) {}
+}
+handler.help = ['dsowner']
+handler.tags = ['own']
+handler.customPrefix = /dsowner|👀|👻|😂|🗿|❤️|🫠|🤣|🥴|💀|💔|🔥|😯|😗|😛|😙|😐|🧩|🍧|🧀|👍🏻|👍|😡|🤬|😈|😒/
+handler.command = new RegExp
 
-// cada 10 seg por el momento.
-setInterval(cleanPrekeys, 10 * 1000);
-
-cleanPrekeys();
+export default handler

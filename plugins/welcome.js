@@ -12,26 +12,6 @@ let pp = await conn.profilePictureUrl(m.messageStubParameters[0], 'image').catch
   let chat = global.db.data.chats[m.chat];
   const user = `@${m.sender.split`@`[0]}`;
   let text = `🚩 *Adios* +${m.messageStubParameters[0].split`@`[0]}`
-let fake = {
-        contextInfo: {
-            mentionedJid: [m.sender], 
-            isForwarded: true,
-            externalAdReply: {
-                showAdAttribution: true,
-                title: 'xd',
-                body: wm,
-                mediaUrl: null,
-                description: null,
-                previewType: "PHOTO",
-                thumbnailUrl: im,
-                sourceUrl: canal,
-                mediaType: 1,
-                renderLargerThumbnail: false,
-                mentionedJid: [m.sender] 
-            }
-        },
-        mentionedJid: [m.sender] 
-    };
   const getMentionedJid = () => {
     return m.messageStubParameters.map(param => `${param}@s.whatsapp.net`);
   };
@@ -82,8 +62,7 @@ conn.sendMessage(m.chat, {
     ],
     viewOnce: true,
     headerType: 4,
-    mentions: [m.sender], 
-        ...fake
-    };
+    mentions: [m.sender],
+  }, { quoted: fkontak});
   }
-        }
+      }

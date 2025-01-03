@@ -16,7 +16,7 @@ function pickRandom(list) {
   return list[Math.floor(list.length * Math.random())]
 }
 let stikerxd = [
-'https://qu.ax/uAgtZ.mp4',
+'https://i.ibb.co/KDFrVLm/file.jpg',
 'https://i.ibb.co/GxLxfBy/file.jpg',
 'https://i.ibb.co/CwXdmXj/file.jpg'
 ]

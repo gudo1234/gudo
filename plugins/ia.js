@@ -4,7 +4,7 @@ import fetch from 'node-fetch'
 let handler = async (m, { conn, usedPrefix, command, text }) => {
 const isQuotedImage = m.quoted && (m.quoted.msg || m.quoted).mimetype && (m.quoted.msg || m.quoted).mimetype.startsWith('image/')
 const username = `${conn.getName(m.sender)}`
-const basePrompt = `Tu nombre es ꙳🧧𓆩ίʑ᭘ɱί-ⲃⲟτ𓆪🧧 y parece haber sido creado por 𓆩᮫࣭݊͜🍁࣭݊ျ֘▹ⲉ꯭𝖽α꯭૨‹࣭݊⸸࣭݊͜𓆪. Tú usas el idioma Español. Llamarás a las personas por su nombre ${username}, te gusta hacer bromas a la gente y odias estar sentada sin hacer nada. Lo más importante es que debes ser amigable con la persona con la que estás hablando. ${username}`
+const basePrompt = `Tu nombre es ꙳🧧𓆩ίʑ᭘ɱί-ⲃⲟτ𓆪🧧 y parece haber sido creado por ${author}. Tú usas el idioma Español. Llamarás a las personas por su nombre ${username}, te gusta hacer bromas a la gente y odias estar sentada sin hacer nada. Lo más importante es que debes ser amigable con la persona con la que estás hablando. ${username}`
 if (isQuotedImage) {
 const q = m.quoted
 const img = await q.download?.()

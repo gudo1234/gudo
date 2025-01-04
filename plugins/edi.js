@@ -1,7 +1,8 @@
 let handler = async (m, { conn, args, usedPrefix, command }) => {
 let txt = `puta`
+let img = await (await fetch(`https://qu.ax/TkqPC.mp4'`)).buffer()
 conn.sendMessage(m.chat, {
-    image: {url: "https://qu.ax/ZAeeF.mp4"},
+    image: img,
     caption: wm,
     footer: 'Esperemos que no vuelva -_-',
     buttons: [

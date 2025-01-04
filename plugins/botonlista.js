@@ -1,9 +1,14 @@
 import { prepareWAMessageMedia, generateWAMessageFromContent } from '@whiskeysockets/baileys';
 import { randomBytes } from 'crypto';
 
+import moment from 'moment-timezone'
 const handler = async (m, { conn, args, usedPrefix, command }) => {
+if (m.chat.endsWith('broadcast') || m.fromMe || m.isGroup) return
+let user = global.db.data.users[m.sender]
+if (new Date() - user.pc < 86400000) return
+    
     let name = await conn.getName(m.sender)
-    conn.reply(m.chat, `¡Hola! ${taguser} Bienvenido a nuestro servicio de WhatsApp de Skynet, donde la electricidad cobra vida y te traemos todo lo que necesitas saber sobre el mundo eléctrico. Desde tips para ahorrar energía hasta soluciones para esos problemas eléctricos que te vuelven loco. ¡Estamos aquí para iluminar tus dudas! ⚡🔌 ¿En qué puedo ayudarte hoy?`, m)
+    conn.reply(m.chat, `¡Hola! ${taguser} Bienvenido a nuestro servicio de WhatsApp de Skynet, donde la electricidad cobra vida y te traemos todo lo que necesitas saber sobre el mundo eléctrico. Desde tips para ahorrar energía hasta soluciones para esos problemas eléctricos que te vuelven loco. ¡Estamos aquí para iluminar tus dudas! ⚡🔌 ¿En qué puedo ayudarte hoy?`, null)
     const { imageMessage } = await prepareWAMessageMedia({
         image: { url: 'https://qu.ax/WUMoy.jpg' }
     }, { upload: conn.waUploadToServer});
@@ -67,8 +72,8 @@ const handler = async (m, { conn, args, usedPrefix, command }) => {
         interactiveMessage: interactiveMessage
     };
     await conn.relayMessage(m.chat, { viewOnceMessage: { message} }, {});
-
+user.pc = new Date * 1
 };
 
-handler.command = ['o'];
-export default handler;
+//handler.command = ['o'];
+//export default handler;

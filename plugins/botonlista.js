@@ -35,8 +35,7 @@ const { imageMessage } = await prepareWAMessageMedia({
             title: "Menú completo",
             highlight_label: "Popular",
             rows: [
-                { header: "", title: "Menú", description: "", id: usedPrefix + "menu" },
-                { header: "", title: "owner", description: "", id: usedPrefix + "dueño" }
+                { header: "", title: "Menú", description: "", id: usedPrefix + "menu" }
             ]
         }
     ];
@@ -52,7 +51,7 @@ const { imageMessage } = await prepareWAMessageMedia({
         footer: { text: 'Seleccione opción requerida para ser atendido:' },
         header: {
             //title: '',
-            //subtitle: 'Subtítulo de la Imagen',
+             //subtitle: 'Subtítulo de la Imagen',
             hasMediaAttachment: true,
             imageMessage: imageMessage
         },
@@ -72,6 +71,5 @@ const { imageMessage } = await prepareWAMessageMedia({
         interactiveMessage: interactiveMessage
     };
     await conn.relayMessage(m.chat, { viewOnceMessage: { message} }, {});
-
 user.pc = new Date * 1
 }

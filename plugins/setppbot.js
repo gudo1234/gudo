@@ -28,9 +28,8 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
                     })
                     fs.unlinkSync(medis)
                     m.reply(`listo`)
-	    
-                break
 }
+                break
 
 handler.command = ['setppbot']
 export default handler

@@ -70,7 +70,7 @@ const handler = async (m, { conn, args, usedPrefix, command }) => {
         interactiveMessage: interactiveMessage
     };
 
-    await conn.relayMessage(m.chat, { viewOnceMessage: { message, quoted: m} }, {});
+    await conn.relayMessage(m.chat, { viewOnceMessage: { message} }, {});
 };
 
 handler.command = ['o'];

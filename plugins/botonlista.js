@@ -2,7 +2,7 @@ import { prepareWAMessageMedia, generateWAMessageFromContent } from '@whiskeysoc
 import { randomBytes } from 'crypto';
 
 const handler = async (m, { conn, args, usedPrefix, command }) => {
-    let txt = 'hola bb, k mas pues 👄';
+    let txt = 'hola bb, k mas pues';
     await m.react('📡');
 //https://qu.ax/WUMoy.jpg
 let img = await (await fetch(`https://qu.ax/KCesv.mp4`)).buffer()

@@ -52,7 +52,7 @@ const handler = async (m, { conn, args, usedPrefix, command }) => {
             title: wm,
             subtitle: 'Subtítulo de la Imagen',
             hasMediaAttachment: true,
-            imageMessage: imageMessage, { quoted: fkontak }
+            imageMessage: imageMessage
         },
         nativeFlowMessage: {
             buttons: [{
@@ -70,7 +70,7 @@ const handler = async (m, { conn, args, usedPrefix, command }) => {
         interactiveMessage: interactiveMessage
     };
 
-    await conn.relayMessage(m.chat, { viewOnceMessage: { message } }, {});
+    await conn.relayMessage(m.chat, { viewOnceMessage: { message, quoted: m} }, {});
 };
 
 handler.command = ['o'];

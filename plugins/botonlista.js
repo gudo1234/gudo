@@ -2,10 +2,8 @@ import { prepareWAMessageMedia, generateWAMessageFromContent } from '@whiskeysoc
 import { randomBytes } from 'crypto';
 
 const handler = async (m, { conn, args, usedPrefix, command }) => {
-    let txt = 'hola bb, k mas pues';
-    await m.react('📡');
-//https://qu.ax/WUMoy.jpg
-//let img = await (await fetch(`https://qu.ax/KCesv.mp4`)).buffer()
+    let name = await conn.getName(m.sender)
+    let txt = `¡Hola *${name}* Bienvenido a nuestro servicio de WhatsApp de Celasa ⚡ de todo en electricidad ⚡!`;
     const { imageMessage } = await prepareWAMessageMedia({
         image: { url: 'https://qu.ax/WUMoy.jpg' }
     }, { upload: conn.waUploadToServer});
@@ -46,8 +44,8 @@ const handler = async (m, { conn, args, usedPrefix, command }) => {
     });
 
     const interactiveMessage = {
-        body: { text: txt },
-        footer: { text: 'Seleccione en ver lista' },
+        body: { text: 'Seleccione opción requerida para ser atendido:' },
+        footer: { text: 'Seleccione opción requerida para ser atendido:' },
         header: {
             title: wm,
             subtitle: 'Subtítulo de la Imagen',
@@ -69,8 +67,9 @@ const handler = async (m, { conn, args, usedPrefix, command }) => {
         },
         interactiveMessage: interactiveMessage
     };
-
+m.reply(`${txt}`)
     await conn.relayMessage(m.chat, { viewOnceMessage: { message} }, {});
+
 };
 
 handler.command = ['o'];

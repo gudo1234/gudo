@@ -6,8 +6,8 @@ const handler = async (m, { conn, args, usedPrefix, command }) => {
     await m.react('📡');
 //https://qu.ax/WUMoy.jpg
 //let img = await (await fetch(`https://qu.ax/KCesv.mp4`)).buffer()
-    const { videoMessage } = await prepareWAMessageMedia({
-        video: { url: 'https://telegra.ph/file/a808ef0a53bf35252a1c2.mp4' }, gifPlayback: true
+    const { imageMessage } = await prepareWAMessageMedia({
+        video: { url: 'https://qu.ax/WUMoy.jpg' }
     }, { upload: conn.waUploadToServer });
 
     const sections = [
@@ -52,7 +52,7 @@ const handler = async (m, { conn, args, usedPrefix, command }) => {
             title: wm,
             subtitle: 'Subtítulo de la Imagen',
             hasMediaAttachment: true,
-            videoMessage: videoMessage
+            imageMessage: imageMessage
         },
         nativeFlowMessage: {
             buttons: [{

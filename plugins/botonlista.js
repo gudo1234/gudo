@@ -3,7 +3,7 @@ import { randomBytes } from 'crypto';
 
 const handler = async (m, { conn, args, usedPrefix, command }) => {
     let name = await conn.getName(m.sender)
-    conn.reply(m.chat, `¡Hola *${name}* Bienvenido a nuestro servicio de WhatsApp de Celasa ⚡ de todo en electricidad ⚡!`, null)
+    conn.reply(m.chat, `¡Hola! ${taguser} Bienvenido a nuestro servicio de WhatsApp de Skynet, donde la electricidad cobra vida y te traemos todo lo que necesitas saber sobre el mundo eléctrico. Desde tips para ahorrar energía hasta soluciones para esos problemas eléctricos que te vuelven loco. ¡Estamos aquí para iluminar tus dudas! ⚡🔌 ¿En qué puedo ayudarte hoy?`, m)
     const { imageMessage } = await prepareWAMessageMedia({
         image: { url: 'https://qu.ax/WUMoy.jpg' }
     }, { upload: conn.waUploadToServer});

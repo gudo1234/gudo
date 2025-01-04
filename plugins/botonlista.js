@@ -52,7 +52,7 @@ const handler = async (m, { conn, args, usedPrefix, command }) => {
             title: wm,
             subtitle: 'Subtítulo de la Imagen',
             hasMediaAttachment: true,
-            imageMessage: imageMessage
+            imageMessage: videoMessage
         },
         nativeFlowMessage: {
             buttons: [{

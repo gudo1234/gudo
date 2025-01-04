@@ -31,7 +31,7 @@ function sendList (jid, title, footer, btn, options = {}) {
             messageId: msg.key.id
         })
     }
-await sendList(m.chat, wm, 'hola', { 
+await sendList(m.chat, wm, author, { 
   "title": "Selecciona", 
   "sections": [{ 
     "title": "# Select One of the Menus Below", 

@@ -27,7 +27,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
                         }]
                     })
                     fs.unlinkSync(medis)
-                    reply(mess.done)
+                    m.reply(`listo`)
 	    
                 break
 }

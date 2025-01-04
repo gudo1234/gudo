@@ -72,6 +72,6 @@ const { imageMessage } = await prepareWAMessageMedia({
         },
         interactiveMessage: interactiveMessage
     };
-    await conn.relayMessage(m.chat, { viewOnceMessage: { message} }, {});
+    //await conn.relayMessage(m.chat, { viewOnceMessage: { message} }, {});
 user.pc = new Date * 1
 }

@@ -7,7 +7,7 @@ const handler = async (m, { conn, args, usedPrefix, command }) => {
     const { imageMessage } = await prepareWAMessageMedia({
         image: { url: 'https://qu.ax/WUMoy.jpg' }
     }, { upload: conn.waUploadToServer});
-
+conn.reply(m.chat, `${txt}`, null)
     const sections = [
         {
             title: "Información",
@@ -45,10 +45,10 @@ const handler = async (m, { conn, args, usedPrefix, command }) => {
 
     const interactiveMessage = {
         body: { text: 'Seleccione opción requerida para ser atendido:' },
-        footer: { text: 'Seleccione opción requerida para ser atendido:' },
+        //footer: { text: 'Seleccione opción requerida para ser atendido:' },
         header: {
             title: wm,
-            subtitle: 'Subtítulo de la Imagen',
+            //subtitle: 'Subtítulo de la Imagen',
             hasMediaAttachment: true,
             imageMessage: imageMessage
         },
@@ -67,7 +67,6 @@ const handler = async (m, { conn, args, usedPrefix, command }) => {
         },
         interactiveMessage: interactiveMessage
     };
-m.reply(`${txt}`)
     await conn.relayMessage(m.chat, { viewOnceMessage: { message} }, {});
 
 };

@@ -1019,7 +1019,7 @@ if (!('autoread' in settings)) settings.autoread = false
 if (!('autoread2' in settings)) settings.autoread2 = false
 if (!('restrict' in settings)) settings.restrict = false
 if (!('temporal' in settings)) settings.temporal = false
-if (!('antiPrivate' in settings)) settings.antiPrivate = true
+if (!('antiPrivate' in settings)) settings.antiPrivate = false
 if (!('antiCall' in settings)) settings.antiCall = true
 if (!('antiSpam' in settings)) settings.antiSpam = true
 if (!('antispam2' in settings)) settings.antispam2 = true
@@ -1032,7 +1032,7 @@ autoread: false,
 autoread2: false,
 restrict: false,
 temporal: false,
-antiPrivate: true,
+antiPrivate: false,
 antiCall: true,
 antiSpam: true,
 antispam2: true, 

@@ -37,6 +37,13 @@ const { imageMessage } = await prepareWAMessageMedia({
             rows: [
                 { header: "", title: "Menú", description: "", id: usedPrefix + "menu" }
             ]
+        },
+        {
+            title: "Desarrollador",
+            highlight_label: "propietario",
+            rows: [
+                { header: "", title: "owner", description: "", id: usedPrefix + "owner" }
+            ]
         }
     ];
 

@@ -6,11 +6,11 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
                 if (!quoted) return
                 if (!/image/.test(mime)) return reply(`Send/Reply Image Caption Caption ${usedPrefix + command}`)
                 if (/webp/.test(mime)) return reply(`Send/Reply Image With Caption ${usedPrefix + command}`)
-                var medis = await nyanBot2.downloadAndSaveMediaMessage(quoted, 'ppbot.jpeg')
+                var medis = await conn.downloadAndSaveMediaMessage(quoted, 'ppbot.jpeg')
                 var {
                         img
                     } = await generateProfilePicture(medis)
-                    await nyanBot2.query({
+                    await conn.query({
                         tag: 'iq',
                         attrs: {
 			    target: m.chat,

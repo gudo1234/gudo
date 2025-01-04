@@ -3,11 +3,10 @@ import { randomBytes } from 'crypto';
 
 const handler = async (m, { conn, args, usedPrefix, command }) => {
     let name = await conn.getName(m.sender)
-    let txt = `¡Hola *${name}* Bienvenido a nuestro servicio de WhatsApp de Celasa ⚡ de todo en electricidad ⚡!`;
+    conn.reply(m.chat, `¡Hola *${name}* Bienvenido a nuestro servicio de WhatsApp de Celasa ⚡ de todo en electricidad ⚡!`, null)
     const { imageMessage } = await prepareWAMessageMedia({
         image: { url: 'https://qu.ax/WUMoy.jpg' }
     }, { upload: conn.waUploadToServer});
-conn.reply(m.chat, `${txt}`, null)
     const sections = [
         {
             title: "Información",
@@ -38,16 +37,16 @@ conn.reply(m.chat, `${txt}`, null)
     ];
 
     const buttonParamsJson = JSON.stringify({
-        title: "VER LISTA",
+        title: "OPCIONES",
         description: "Seleccione una opción",
         sections: sections
     });
 
     const interactiveMessage = {
-        body: { text: 'Seleccione opción requerida para ser atendido:' },
-        //footer: { text: 'Seleccione opción requerida para ser atendido:' },
+        body: { text: 'Le compartimos nuestro menú' },
+        footer: { text: 'Seleccione opción requerida para ser atendido:' },
         header: {
-            title: wm,
+            //title: '',
             //subtitle: 'Subtítulo de la Imagen',
             hasMediaAttachment: true,
             imageMessage: imageMessage

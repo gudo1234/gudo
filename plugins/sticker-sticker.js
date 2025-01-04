@@ -17,7 +17,7 @@ let img = await q.download?.()
 if (!img) return conn.reply(m.chat, `🧧 Responda a img, gif, video...`, m)
 
 let out
-m.react(🧩)
+m.react('🧩')
 try {
 stiker = await sticker(img, false, `${name}`)
 } catch (e) {

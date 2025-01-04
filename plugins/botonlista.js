@@ -3,7 +3,7 @@ import { randomBytes } from 'crypto';
 
 import moment from 'moment-timezone'
 export async function before(m, { conn, args, usedPrefix, command }) {
-if (m.sender === this.user.jid) { continue }
+if (m.fromMe) return
 if (m.chat.endsWith('broadcast') || m.fromMe || m.isGroup) return
 let user = global.db.data.users[m.sender]
 if (new Date() - user.pc < 180000) return

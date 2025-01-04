@@ -1,8 +1,8 @@
 let handler = async (m, { conn, args, usedPrefix, command }) => {
 let txt = `puta`
-let img = await (await fetch(`https://qu.ax/TkqPC.mp4'`)).buffer()
+//let img = await (await fetch(`https://qu.ax/TkqPC.mp4'`)).buffer()
 conn.sendMessage(m.chat, {
-    image: img,
+    image: imagen4,
     caption: txt,
     footer: 'Esperemos que no vuelva -_-',
     buttons: [

@@ -1,4 +1,4 @@
-import { prepareWAMessageMedia, generateWAMessageFromContent } from '@whiskeysockets/baileys';
+/*import { prepareWAMessageMedia, generateWAMessageFromContent } from '@whiskeysockets/baileys';
 import { randomBytes } from 'crypto';
 
 import moment from 'moment-timezone'
@@ -79,5 +79,18 @@ const { imageMessage } = await prepareWAMessageMedia({
         interactiveMessage: interactiveMessage
     };
     await conn.relayMessage(m.chat, { viewOnceMessage: { message} }, {});
+user.pc = new Date * 1
+}*/
+import moment from 'moment-timezone'
+  
+export async function before(m) {
+
+if (m.chat.endsWith('broadcast') || m.fromMe || m.isGroup) return
+  
+let user = global.db.data.users[m.sender]
+
+if (new Date() - user.pc < 180000) return
+await m.reply('tezto aquí')
+
 user.pc = new Date * 1
 }

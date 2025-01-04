@@ -8,7 +8,7 @@ const handler = async (m, { conn, args, usedPrefix, command }) => {
 //let img = await (await fetch(`https://qu.ax/KCesv.mp4`)).buffer()
     const { imageMessage } = await prepareWAMessageMedia({
         image: { url: 'https://qu.ax/WUMoy.jpg' }
-    }, { upload: conn.waUploadToServer, quoted: m });
+    }, { upload: conn.waUploadToServer});
 
     const sections = [
         {
@@ -52,7 +52,7 @@ const handler = async (m, { conn, args, usedPrefix, command }) => {
             title: wm,
             subtitle: 'Subtítulo de la Imagen',
             hasMediaAttachment: true,
-            imageMessage: imageMessage
+            imageMessage: imageMessage, { quoted: fkontak }
         },
         nativeFlowMessage: {
             buttons: [{

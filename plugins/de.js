@@ -1,8 +1,7 @@
 let handler = async (m, { conn, args, usedPrefix, command }) => {
 
-const { default: makeWASocket, generateWAMessageFromContent, 
-prepareWAMessageMedia, useMultiFileAuthState, Browsers, DisconnectReason, makeInMemoryStore, makeCacheableSignalKeyStore, fetchLatestWaWebVersion, proto, PHONENUMBER_MCC, getAggregateVotesInPollMessage, fetchLatestBaileysVersion, jidDecode, downloadContentFromMessage } = require('@whiskeysockets/baileys');
-
+import { prepareWAMessageMedia, generateWAMessageFromContent } from '@whiskeysockets/baileys';
+import { randomBytes } from 'crypto';
 function sendList (jid, title, footer, btn, options = {}) {
         let msg = generateWAMessageFromContent(jid, {
             viewOnceMessage: {

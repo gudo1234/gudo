@@ -7,7 +7,7 @@ const handler = async (m, { conn, args, usedPrefix, command }) => {
 //https://qu.ax/WUMoy.jpg
 //let img = await (await fetch(`https://qu.ax/KCesv.mp4`)).buffer()
     const { imageMessage } = await prepareWAMessageMedia({
-        video: { url: 'https://telegra.ph/file/a808ef0a53bf35252a1c2.mp4' }
+        image: { url: 'https://telegra.ph/file/a808ef0a53bf35252a1c2.mp4' }
     }, { upload: conn.waUploadToServer });
 
     const sections = [

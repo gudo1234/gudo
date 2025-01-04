@@ -3,7 +3,7 @@ let txt = `puta`
 let img = await (await fetch(`https://qu.ax/TkqPC.mp4'`)).buffer()
 conn.sendMessage(m.chat, {
     image: img,
-    caption: wm,
+    caption: txt,
     footer: 'Esperemos que no vuelva -_-',
     buttons: [
       {

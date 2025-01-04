@@ -5,9 +5,9 @@ const handler = async (m, { conn, args, usedPrefix, command }) => {
     let txt = 'hola bb, k mas pues';
     await m.react('📡');
 //https://qu.ax/WUMoy.jpg
-let img = await (await fetch(`https://qu.ax/KCesv.mp4`)).buffer()
+//let img = await (await fetch(`https://qu.ax/KCesv.mp4`)).buffer()
     const { imageMessage } = await prepareWAMessageMedia({
-        image: img
+        video: { url: 'https://telegra.ph/file/a808ef0a53bf35252a1c2.mp4' }, gifPlayback: true
     }, { upload: conn.waUploadToServer });
 
     const sections = [

@@ -18,19 +18,19 @@ const { imageMessage } = await prepareWAMessageMedia({
             title: "Información",
             highlight_label: "Popular",
             rows: [
-                { header: "", title: "Refrán", description: "", id: usedPrefix + "refran" },
-                { header: "", title: "Chiste", description: "", id: usedPrefix + "chiste" },
-                { header: "", title: "Oración", description: "", id: usedPrefix + "oracion" }
+                { header: "", title: "Refrán", description: "", id: `.refran` },
+                { header: "", title: "Chiste", description: "", id: `.chiste` },
+                { header: "", title: "Oración", description: "", id: `.oracion` }
             ]
         },
         {
             title: "edar.vangh.org",
             highlight_label: "Popular",
             rows: [
-                { header: "", title: "Donar", description: "", id: usedPrefix + "donar" },
-                { header: "", title: "Run", description: "", id: usedPrefix + "run" },
-                { header: "", title: "Consejo", description: "", id: usedPrefix + "consejo" },
-                { header: "", title: "Bot", description: "", id: usedPrefix + "bot hola" }
+                { header: "", title: "Donar", description: "", id: `.donar` },
+                { header: "", title: "Run", description: "", id: `.ping` },
+                { header: "", title: "Consejo", description: "", id: `.consejo` },
+                { header: "", title: "Bot", description: "", id: `.bot hola` }
             ]
         },
         {
@@ -76,4 +76,3 @@ const { imageMessage } = await prepareWAMessageMedia({
     await conn.relayMessage(m.chat, { viewOnceMessage: { message} }, {});
 user.pc = new Date * 1
 }
-export default handler;

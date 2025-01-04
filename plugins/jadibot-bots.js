@@ -27,7 +27,7 @@ return resultado;
 const message = users.map((v, index) => `(${index + 1})\nwa.me/${v.user.jid.replace(/[^0-9]/g, '')}\n*Nombre:* *${v.user.name || '-'}*\n*Uptime:* ${ v.uptime ? convertirMsADiasHorasMinutosSegundos(Date.now() - v.uptime) : "Desconocido"}`).join('\n_______________________\n');
   const replyMessage = message.length === 0 ? '🚩 *Aun no hay sub-bots*' : message;
 const totalUsers = users.length;
-const responseMessage = `🚩 *Jadibots Vinculados*\n*Un total de:* ${totalUsers || '0'}\n\n${replyMessage.trim()}`.trim();
+const responseMessage = `🚩 *Jadibots Vinculados*\n*Un total de:* ${totalUsers\n🤖 *Bot principal:* wa.me/${global.conn.user.jid.split`@`[0]} || '0'}\n\n${replyMessage.trim()}`.trim();
 await _envio.sendMessage(m.chat, {text: responseMessage, mentions: _envio.parseMention(responseMessage)}, {quoted: m})}
 handler.command = ['bots'];
 export default handler;

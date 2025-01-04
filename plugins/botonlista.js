@@ -35,14 +35,8 @@ const { imageMessage } = await prepareWAMessageMedia({
             title: "Menú completo",
             highlight_label: "Popular",
             rows: [
-                { header: "", title: "Menú", description: "", id: usedPrefix + "menu" }
-            ]
-        },
-        {
-            title: "Desarrollador",
-            highlight_label: "propietario",
-            rows: [
-                { header: "", title: "owner", description: "", id: usedPrefix + "owner" }
+                { header: "", title: "Menú", description: "", id: usedPrefix + "menu" },
+                { header: "", title: "owner", description: "", id: usedPrefix + "dueño" }
             ]
         }
     ];

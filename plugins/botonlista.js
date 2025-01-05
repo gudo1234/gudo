@@ -10,6 +10,7 @@ if (m.isBaileys && m.fromMe)
        return !1
     if (!m.message)
        return !0
+let name = await conn.getName(m.sender)
 let user = global.db.data.users[m.sender]
 if (new Date() - user.pc < 43200000) return
 const { imageMessage } = await prepareWAMessageMedia({
@@ -28,7 +29,7 @@ const { imageMessage } = await prepareWAMessageMedia({
             highlight_label: "ASESOR",
             rows: [
                 { header: "", title: "Hablar con su desarrollador", description: "", id: `.tes hola` },
-                { header: "", title: "Horario", description: "", id: `.tes5`}
+                { header: "", title: "📅Horario", description: "", id: `.tes5`}
             ]
         },
         {
@@ -70,7 +71,7 @@ const { imageMessage } = await prepareWAMessageMedia({
         interactiveMessage: interactiveMessage
     };
 m.react('🤖')
-await m.reply(`🖐🏻 ¡Hola! *${taguser}* mi nombre es *${wm}* y fui desarrollada para cumplir multiples funciones en *WhatsApp🪀*.
+await m.reply(`🖐🏻 ¡Hola! *${name}* mi nombre es *${wm}* y fui desarrollada para cumplir multiples funciones en *WhatsApp🪀*.
 
 ✧──────‧₊˚📁˚₊‧──────╮
 │ _Tengo muchos comandos_

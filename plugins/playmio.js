@@ -1,4 +1,4 @@
-/*import { youtubedl, youtubedlv2 } from '@bochilteam/scraper'
+import { youtubedl, youtubedlv2 } from '@bochilteam/scraper'
 import fetch from 'node-fetch'
 import yts from 'yt-search'
 import ytdl from 'ytdl-core'
@@ -322,7 +322,7 @@ if (data.status === 'ok') {
   } else {
     throw new Error("No se pudo obtener la descarga desde 9Convert");
   }
-  }*/
+  }
 /* 
 
 [ Canal Principal ] :
@@ -339,7 +339,7 @@ https://whatsapp.com/channel/0029Vanjyqb2f3ERifCpGT0W
 */
 
 // *[ ❀ PLAY ]*
-import fetch from 'node-fetch'
+/*import fetch from 'node-fetch'
 import yts from 'yt-search'
 
 let handler = async (m, { conn, text, args }) => {
@@ -373,4 +373,4 @@ export default handler
 async function search(query, options = {}) {
   let search = await yts.search({ query, hl: "es", gl: "ES", ...options })
   return search.videos
-}
+}*/

@@ -1,4 +1,4 @@
-let handler = async (m, { conn, args, usedPrefix, command }) => {{
+let handler = async (m, { conn, args, usedPrefix, command }) => {
   
                 /*if (!m.isGroup) return
                 if (!isAdmins) return reply(mess.admin)
@@ -29,6 +29,5 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {{
                     fs.unlinkSync(medis)
                     m.reply(`listo`)
 }
-                break}
 handler.command = ['setppbot']
 export default handler

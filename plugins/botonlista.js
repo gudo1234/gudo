@@ -24,8 +24,7 @@ const { imageMessage } = await prepareWAMessageMedia({
             highlight_label: "Popular",
             rows: [
                 { header: "", title: "Refrán", description: "", id: `.refran` },
-                { header: "", title: "Chiste", description: "", id: `.chiste` },
-                { header: "", title: "Oración", description: "", id: `.oracion` }
+                { header: "", title: "Chiste", description: "", id: `.chiste` }
             ]
         },
         {
@@ -33,14 +32,12 @@ const { imageMessage } = await prepareWAMessageMedia({
             highlight_label: "Popular",
             rows: [
                 { header: "", title: "Donar", description: "", id: `.donar` },
-                { header: "", title: "Run", description: "", id: `.ping` },
-                { header: "", title: "Consejo", description: "", id: `.consejo` },
-                { header: "", title: "Bot", description: "", id: `.bot hola` }
+                { header: "", title: "Run", description: "", id: `.ping` }
             ]
         },
         {
             title: "Menú completo",
-            highlight_label: "Popular",
+            highlight_label: "Popular2",
             rows: [
                 { header: "", title: "Menús", description: "", id: `.menu`},
                 { header: "", title: "owner", description: "", id: `.dueño`}

@@ -16,7 +16,7 @@ if (new Date() - user.pc < 180000) return
 //await m.reply(`¡Holaa ${taguser} Bienvenido a nuestro servicio de WhatsApp de Skynet, donde la electricidad cobra vida y te traemos todo lo que necesitas saber sobre el mundo eléctrico. Desde tips para ahorrar energía hasta soluciones para esos problemas eléctricos que te vuelven loco. ¡Estamos aquí para iluminar tus dudas! ⚡🔌 ¿En qué puedo ayudarte hoy?`)
 
 const { imageMessage } = await prepareWAMessageMedia({
-        image: { url: 'https://qu.ax/WUMoy.jpg' }
+        image: { url: 'https://qu.ax/GylpM.jpg' }
     }, { upload: conn.waUploadToServer});
     const sections = [
         {

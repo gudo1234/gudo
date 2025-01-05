@@ -19,16 +19,16 @@ conn.sendMessage(m.chat, {
     footer: 'Seleccione opción:',
     buttons: [
       {
-        buttonId: ".trizte",
+        buttonId: ".tes5",
         buttonText: {
-          displayText: "Adios 😔",
+          displayText: "Si",
         },
         type: 1,
       },
       {
-        buttonId: ".consejo",
+        buttonId: "ok",
         buttonText: {
-          displayText: "Dime algo",
+          displayText: "No",
         },
         type: 1,
       },
@@ -37,7 +37,10 @@ conn.sendMessage(m.chat, {
     headerType: 4,
     mentions: [m.sender],
   }, { quoted: fkontak});
+    
+if (command == 'tes5')
+conn.reply(m.chat, `¡Estamos aquí para ayudarte! 👋 Si tienes alguna pregunta o necesitas ayuda, selecciona una opción del menú.`, m)
 }
 
-handler.command = ['tes2', 'tes3', 'tes4']
+handler.command = ['tes2', 'tes3', 'tes4', 'tes5']
 export default handler

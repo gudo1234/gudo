@@ -47,7 +47,7 @@ else global.conns = []
 
 let handler = async (m, { conn, args, usedPrefix, command, isOwner }) => {
 if (!global.db.data.settings[conn.user.jid].jadibotmd) return m.reply(`🚩 *Comando desactivado por mi desarrollador*`)
-if (conn.user.jid !== global.conn.user.jid) return conn.reply(m.chat, `🚩 *Diríjase al número principal del bot*\nwa.me/${global.conn.user.jid.split`@`[0]}&text=${usedPrefix + command}`, m)
+if (conn.user.jid !== global.conn.user.jid) return conn.reply(m.chat, `🚩 *Diríjase al número principal del bot*\nwa.me/${global.conn.user.jid.split`@`[0]}&text=${usedPrefix + command}+--code`, m)
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 let id = `${who.split`@`[0]}`  //conn.getName(who)
 let pathGataJadiBot = path.join("./jadibts/", id)

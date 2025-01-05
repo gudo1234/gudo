@@ -84,7 +84,7 @@ await m.reply(`🖐🏻 ¡Hola! *${name}* mi nombre es *Izumi* y fui desarrollad
 │ _chatGPT y diversos juegos._
 ✧──────‧₊˚🎠˚₊‧──────╯
 
-╭︿︿︿︿‧₊˚🌐˚₊‧︿︿︿︿︿╮
+╭︶︶︶︶︶🌐︶︶︶︶︶╮
 *Síguenos en nuestro canal*
 *y mantente informado....*
 ╰︶︶︶︶︶🎉︶︶︶︶︶╯`)

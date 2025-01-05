@@ -27,7 +27,7 @@ const { imageMessage } = await prepareWAMessageMedia({
             title: "Servicio",
             highlight_label: "Rockstar Game's",
             rows: [
-                { header: "", title: "𝙝𝙖𝙗𝙡𝙖𝙧 𝙘𝙤𝙣 𝙪𝙣 𝙖𝙨𝙚𝙨𝙤𝙧🙋🏻‍♂", description: "", id: `.tes` }
+                { header: "", title: "𝙝𝙖𝙗𝙡𝙖𝙧 𝙘𝙤𝙣 𝙪𝙣 𝙖𝙨𝙚𝙨𝙤𝙧🙋🏻‍♂", description: "", id: `.tes hola` }
             ]
         },
         {

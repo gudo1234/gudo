@@ -23,15 +23,14 @@ const { imageMessage } = await prepareWAMessageMedia({
             title: "Información",
             highlight_label: "Catálogos disponibles",
             rows: [
-                { header: "", title: "🛰️⌑꯭𝙫𝙚𝙧 𝙥𝙧𝙤𝙙𝙪𝙘𝙩𝙤⌑꯭🛰️", description: "", id: `precio` },
-                { header: "", title: "Hablar con un asesor", description: "", id: `.tes` }
+                { header: "", title: "🛰️⌑꯭𝙫𝙚𝙧 𝙥𝙧𝙤𝙙𝙪𝙘𝙩𝙤⌑꯭🛰️", description: "", id: `precio` }
             ]
         },
         {
-            title: "edar.vangh.org",
-            highlight_label: "Popular",
+            title: "Servicio",
+            highlight_label: "Rockstar Game's",
             rows: [
-                { header: "", title: "Donar", description: "", id: `.donar` },
+                { header: "", title: "Hablar con un asesor", description: "", id: `.tes` },
                 { header: "", title: "Run", description: "", id: `.ping` }
             ]
         },

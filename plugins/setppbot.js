@@ -8,7 +8,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
 		m.reply(`Send/Reply Image Caption Caption ${usedPrefix + command}`)
                 if (/webp/.test(null))
 		m.reply(`Send/Reply Image With Caption ${usedPrefix + command}`)
-                var medis = await conn.downloadAndSaveMediaMessage(quoted, 'ppbot.jpeg')
+                var medis = await conn.downloadAndSaveMediaMessage(quoted: m, 'ppbot.jpeg')
                 var {
                         img
                     } = await generateProfilePicture(medis)

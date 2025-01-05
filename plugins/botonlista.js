@@ -10,11 +10,8 @@ if (m.isBaileys && m.fromMe)
        return !1
     if (!m.message)
        return !0
-//if (m.chat.endsWith('broadcast') || m.isGroup) return
 let user = global.db.data.users[m.sender]
 if (new Date() - user.pc < 90000) return
-//await m.reply(`¡Holaa ${taguser} Bienvenido a nuestro servicio de WhatsApp de Skynet, donde la electricidad cobra vida y te traemos todo lo que necesitas saber sobre el mundo eléctrico. Desde tips para ahorrar energía hasta soluciones para esos problemas eléctricos que te vuelven loco. ¡Estamos aquí para iluminar tus dudas! ⚡🔌 ¿En qué puedo ayudarte hoy?`)
-
 const { imageMessage } = await prepareWAMessageMedia({
         image: { url: 'https://qu.ax/GylpM.jpg' }
     }, { upload: conn.waUploadToServer});
@@ -30,14 +27,14 @@ const { imageMessage } = await prepareWAMessageMedia({
             title: "Servicio",
             highlight_label: "Rockstar Game's",
             rows: [
-                { header: "", title: "🙋‍♂️⌑꯭𝙝𝙖𝙗𝙡𝙖𝙧 𝙘𝙤𝙣 𝙪𝙣 𝙖𝙨𝙚𝙨𝙤𝙧⌑꯭🙋🏻‍♂", description: "", id: `.tes` }
+                { header: "", title: "𝙝𝙖𝙗𝙡𝙖𝙧 𝙘𝙤𝙣 𝙪𝙣 𝙖𝙨𝙚𝙨𝙤𝙧🙋🏻‍♂", description: "", id: `.tes` }
             ]
         },
         {
             title: "🌐Convivir",
             highlight_label: "Únete a nuestra comunidad en WhatsApp",
             rows: [
-                { header: "", title: "☄️⌑꯭unirme al grupo⌑꯭☄️", description: "", id: `.tes2`}
+                { header: "", title: "𝙂𝙧𝙪𝙥𝙤🛡️", description: "", id: `.tes2`}
             ]
         }
     ];
@@ -52,8 +49,6 @@ const { imageMessage } = await prepareWAMessageMedia({
         body: { text: 'Le compartimos nuestro menú' },
         footer: { text: 'Seleccione opción requerida para ser atendido:' },
         header: {
-            //title: '',
-             //subtitle: 'Subtítulo de la Imagen',
             hasMediaAttachment: true,
             imageMessage: imageMessage
         },
@@ -76,16 +71,3 @@ await m.reply(`¡Hola! *${taguser}* ¡🎮✨ Rockstar Game's te trae la oportun
     await conn.relayMessage(m.chat, { viewOnceMessage: { message} }, {});
 user.pc = new Date * 1
 }
-/*import moment from 'moment-timezone'
-  
-export async function before(m) {
-
-if (m.chat.endsWith('broadcast') || m.fromMe || m.isGroup) return
-  
-let user = global.db.data.users[m.sender]
-
-if (new Date() - user.pc < 180000) return
-await m.reply('tezto aquí')
-
-user.pc = new Date * 1
-}*/

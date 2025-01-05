@@ -182,7 +182,7 @@ console.log(e);
 }}}}}}}
 
 if (command == 'play4' || command == 'playdoc2') {
-if (!text) return conn.reply(m.chat, ``*Ejemplo:* ${usedPrefix + command} diles`,  m);
+if (!text) return conn.reply(m.chat, `*Ejemplo:* ${usedPrefix + command} diles`,  m);
 const yt_play = await search(args.join(' '));
 const ytplay2 = await yts(text);
 const texto1 = `*Título:* ${yt_play[0].title}*Publicado:* ${yt_play[0].ago}

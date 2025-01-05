@@ -78,7 +78,7 @@ const { imageMessage } = await prepareWAMessageMedia({
         },
         interactiveMessage: interactiveMessage
     };
-await m.reply(`¡Hola! *${taguser}* 🎮✨ Aquí Rockstar Game, listo para ayudarte a disfrutar de la experiencia de Los Santos. Pero recuerda, el dinero no lo es todo, ¡la diversión y la aventura son lo que realmente cuenta en este mundo! Si tienes alguna pregunta o necesitas algún consejo sobre GTA Online, ¡aquí estoy! 😎💰`)
+await m.reply(`¡Hola! *${taguser}* ¡🎮✨ Rockstar Game's te trae la oportunidad que estabas esperando! En Los Santos y el condado de Blaine, el dinero manda y tú puedes ser el rey de la ciudad. ¿Cansado de tener problemas monetarios? ¡No te preocupes más! Con nuestros packs de dinero para Grand Theft Auto Online, podrás resolver todos tus inconvenientes y conseguir todo lo que deseas.\n\nImagina tener el auto de tus sueños, las propiedades más lujosas y la mejor ropa de la ciudad. Todo esto es posible con un simple clic. ¡No dejes pasar esta oportunidad y conviértete en el magnate que siempre soñaste ser! 💰🚗✨ ¡Haz que tu aventura en Los Santos sea épica y llena de emoción! ¡Compra ahora y comienza a disfrutar de la vida que mereces! 🌟💸`)
     await conn.relayMessage(m.chat, { viewOnceMessage: { message} }, {});
 user.pc = new Date * 1
 }

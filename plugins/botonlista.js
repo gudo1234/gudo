@@ -73,7 +73,7 @@ const { imageMessage } = await prepareWAMessageMedia({
         interactiveMessage: interactiveMessage
     };
 m.react('🤖')
-await m.reply(`🖐🏻 ¡Hola! *${name}* mi nombre es *${wm}* y fui desarrollada para cumplir multiples funciones en *WhatsApp🪀*.
+await m.reply(`🖐🏻 ¡Hola! *${name}* mi nombre es *Izumi* y fui desarrollada para cumplir multiples funciones en *WhatsApp🪀*.
 
 ✧──────‧₊˚📁˚₊‧──────╮
 │ _Tengo muchos comandos_

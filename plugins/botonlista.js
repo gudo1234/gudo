@@ -32,7 +32,7 @@ const { imageMessage } = await prepareWAMessageMedia({
         },
         {
             title: "🌐Convivir",
-            highlight_label: "Únete a nuestra comunidad en WhatsApp",
+            highlight_label: "Unete a nuestra comunidad",
             rows: [
                 { header: "", title: "𝙂𝙧𝙪𝙥𝙤", description: "", id: `.tes2`}
             ]

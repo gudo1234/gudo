@@ -1,4 +1,4 @@
-import { prepareWAMessageMedia, generateWAMessageFromContent, getDevice } from '@whiskeysockets/baileys'
+/*import { prepareWAMessageMedia, generateWAMessageFromContent, getDevice } from '@whiskeysockets/baileys'
 import yts from 'yt-search';
 import fs from 'fs';
 
@@ -96,4 +96,4 @@ handler.help = ['ytsearch <texto>'];
 handler.tags = ['search'];
 handler.command = ['play']
 handler.group = true;
-export default handler;
+export default handler;*/

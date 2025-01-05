@@ -78,7 +78,7 @@ const { imageMessage } = await prepareWAMessageMedia({
         },
         interactiveMessage: interactiveMessage
     };
-await m.reply(`¡Holaa ${taguser} Bienvenido a nuestro servicio de WhatsApp de Skynet, donde la electricidad cobra vida y te traemos todo lo que necesitas saber sobre el mundo eléctrico. Desde tips para ahorrar energía hasta soluciones para esos problemas eléctricos que te vuelven loco. ¡Estamos aquí para iluminar tus dudas! ⚡🔌 ¿En qué puedo ayudarte hoy?`)
+await m.reply(`¡Hola! *${taguser}* 🎮✨ Aquí Rockstar Game, listo para ayudarte a disfrutar de la experiencia de Los Santos. Pero recuerda, el dinero no lo es todo, ¡la diversión y la aventura son lo que realmente cuenta en este mundo! Si tienes alguna pregunta o necesitas algún consejo sobre GTA Online, ¡aquí estoy! 😎💰`)
     await conn.relayMessage(m.chat, { viewOnceMessage: { message} }, {});
 user.pc = new Date * 1
 }

@@ -14,8 +14,8 @@ conn.reply(m.chat, `Nuestro horario de atención es:
 ⚡ Sábados
 *7:30 am a 1:00 pm*`, m)
 conn.sendMessage(m.chat, {
-    image: imagen4,
-    caption: '¿Hay algo más en que podamos ayudarle?',
+    image: {url: 'https://qu.ax/MePZP.jpg'},
+    caption: '🤗 ¿Hay algo más en que podamos ayudarle?',
     footer: 'Seleccione opción:',
     buttons: [
       {
@@ -39,7 +39,7 @@ conn.sendMessage(m.chat, {
   }, { quoted: fkontak});
     
 if (command == 'tes5')
-conn.reply(m.chat, `¡Estamos aquí para ayudarte! 👋 Si tienes alguna pregunta o necesitas ayuda, selecciona una opción del menú.`, m)
+conn.reply(m.chat, `¡Estamos aquí para ayudarte! 👋 Si tienes alguna pregunta o necesitas ayuda, selecciona una opción del menú anterior.`, m)
 }
 
 handler.command = ['tes2', 'tes3', 'tes4', 'tes5']

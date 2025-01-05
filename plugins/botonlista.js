@@ -23,7 +23,7 @@ const { imageMessage } = await prepareWAMessageMedia({
             title: "Información",
             highlight_label: "Popular",
             rows: [
-                { header: "", title: "Refrán", description: "", id: `.refran` },
+                { header: "", title: "🛰️⌑꯭𝙫𝙚𝙧 𝙥𝙧𝙤𝙙𝙪𝙘𝙩𝙤⌑꯭🛰️", description: "", id: `.refran` },
                 { header: "", title: "Chiste", description: "", id: `.chiste` }
             ]
         },

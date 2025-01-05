@@ -34,7 +34,7 @@ const { imageMessage } = await prepareWAMessageMedia({
             title: "🌐Convivir",
             highlight_label: "Únete a nuestra comunidad en WhatsApp",
             rows: [
-                { header: "", title: "𝙂𝙧𝙪𝙥𝙤🛡️", description: "", id: `.tes2`}
+                { header: "", title: "𝙂𝙧𝙪𝙥𝙤", description: "", id: `.tes2`}
             ]
         }
     ];

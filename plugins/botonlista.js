@@ -31,7 +31,7 @@ const { imageMessage } = await prepareWAMessageMedia({
             highlight_label: "ASESOR",
             rows: [
                 { header: "", title: "Hablar con su desarrollador", description: "", id: `.tes hola` },
-                { header: "", title: "📅Horario", description: "", id: `.tes5`}
+                { header: "", title: "📅Horario", description: "", id: `.tes4`}
             ]
         },
         {

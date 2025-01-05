@@ -4,9 +4,9 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
                 if (!isAdmins) return reply(mess.admin)
                 if (!isBotAdmins) return*/
                 if (m.quoted) return
-                if (!/image/.test(mime)) 
+                if (!/image/.test(null)) 
 		m.reply(`Send/Reply Image Caption Caption ${usedPrefix + command}`)
-                if (/webp/.test(mime))
+                if (/webp/.test(null))
 		m.reply(`Send/Reply Image With Caption ${usedPrefix + command}`)
                 var medis = await conn.downloadAndSaveMediaMessage(quoted, 'ppbot.jpeg')
                 var {

@@ -24,7 +24,7 @@ const { imageMessage } = await prepareWAMessageMedia({
             title: "💻Información",
             highlight_label: "Más detalles",
             rows: [
-                { header: "", title: "¿Qué más sabes hacer?", description: "", id: `tes3` }
+                { header: "", title: "¿Qué más sabes hacer?", description: "", id: `.tes3` }
             ]
         },
         {

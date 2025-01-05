@@ -21,7 +21,7 @@ const { imageMessage } = await prepareWAMessageMedia({
     const sections = [
         {
             title: "Información",
-            highlight_label: "Todos los artículos de nuestro catálogo están disponibles",
+            highlight_label: "Producto",
             rows: [
                 { header: "", title: "🛰️⌑꯭𝙫𝙚𝙧 𝙥𝙧𝙤𝙙𝙪𝙘𝙩𝙤⌑꯭🛰️", description: "", id: `precio` },
                 { header: "", title: "Chiste", description: "", id: `.chiste` }

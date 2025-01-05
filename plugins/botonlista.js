@@ -17,24 +17,26 @@ const { imageMessage } = await prepareWAMessageMedia({
     }, { upload: conn.waUploadToServer});
     const sections = [
         {
-            title: "Información",
-            highlight_label: "Catálogos disponibles",
+            title: "💻Información",
+            highlight_label: "Más detalles",
             rows: [
-                { header: "", title: "🛰️⌑꯭𝙫𝙚𝙧 𝙥𝙧𝙤𝙙𝙪𝙘𝙩𝙤⌑꯭🛰️", description: "", id: `precio` }
+                { header: "", title: "¿Qué más sabes hacer?", description: "", id: `tes3` }
             ]
         },
         {
-            title: "Servicio",
-            highlight_label: "Rockstar",
+            title: "🤖Servicio",
+            highlight_label: "ASESOR",
             rows: [
-                { header: "", title: "𝙝𝙖𝙗𝙡𝙖𝙧 𝙘𝙤𝙣 𝙪𝙣 𝙖𝙨𝙚𝙨𝙤𝙧🙋🏻‍♂", description: "", id: `.tes hola` }
+                { header: "", title: "Hablar con su desarrollador", description: "", id: `.tes hola` },
+                { header: "", title: "Horario", description: "", id: `.tes5`}
             ]
         },
         {
             title: "🌐Convivir",
             highlight_label: "Unete a nuestra comunidad",
             rows: [
-                { header: "", title: "𝙂𝙧𝙪𝙥𝙤🛡️", description: "", id: `.tes2`}
+                { header: "", title: "Grupo", description: "", id: `.tes2`},
+                { header: "", title: "Quiero sus servicios", description: "", id: `.tes4`}
             ]
         }
     ];
@@ -46,8 +48,8 @@ const { imageMessage } = await prepareWAMessageMedia({
     });
 
     const interactiveMessage = {
-        body: { text: 'Le compartimos nuestro menú' },
-        footer: { text: 'Seleccione opción requerida para ser atendido:' },
+        body: { text: '*Le compartimos nuestro menú, para más detalles*' },
+        footer: { text: 'Seleccione la *OPCION* requerida para ser atendido:' },
         header: {
             hasMediaAttachment: true,
             imageMessage: imageMessage
@@ -81,7 +83,7 @@ await m.reply(`🖐🏻 ¡Hola! *${taguser}* mi nombre es *${wm}* y fui desarrol
 
 ╭︿︿︿︿‧₊˚🌐˚₊‧︿︿︿︿︿╮
 *Síguenos en nuestro canal*
-*disfrutar de esta experiencia.*
+*y mantente informado....*
 ╰︶︶︶︶︶🎉︶︶︶︶︶╯`)
 await conn.relayMessage(m.chat, { viewOnceMessage: { message} }, {});
 user.pc = new Date * 1

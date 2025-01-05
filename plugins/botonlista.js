@@ -11,7 +11,7 @@ if (m.isBaileys && m.fromMe)
     if (!m.message)
        return !0
 let user = global.db.data.users[m.sender]
-if (new Date() - user.pc < 90000) return
+if (new Date() - user.pc < 420000) return
 const { imageMessage } = await prepareWAMessageMedia({
         image: { url: 'https://qu.ax/GylpM.jpg' }
     }, { upload: conn.waUploadToServer});

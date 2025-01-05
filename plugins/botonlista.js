@@ -16,7 +16,7 @@ let name = await conn.getName(m.sender)
 let user = global.db.data.users[m.sender]
 if (new Date() - user.pc < 43200000) return
 const { imageMessage } = await prepareWAMessageMedia({
-        image: { url: 'https://qu.ax/GylpM.jpg' }
+        image: { url: 'https://qu.ax/UccDS.jpg' }
     }, { upload: conn.waUploadToServer});
     const sections = [
         {

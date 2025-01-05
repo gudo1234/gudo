@@ -34,10 +34,10 @@ const { imageMessage } = await prepareWAMessageMedia({
             ]
         },
         {
-            title: "Menú completo",
-            highlight_label: "Popular2",
+            title: "🌐Convivir",
+            highlight_label: "Únete a nuestra comunidad en WhatsApp",
             rows: [
-                { header: "", title: "Menús", description: "", id: `.menu`}
+                { header: "", title: "Menús", description: "", id: `.tes2`}
             ]
         }
     ];

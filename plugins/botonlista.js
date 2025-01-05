@@ -24,7 +24,7 @@ const { imageMessage } = await prepareWAMessageMedia({
             highlight_label: "Catálogos disponibles",
             rows: [
                 { header: "", title: "🛰️⌑꯭𝙫𝙚𝙧 𝙥𝙧𝙤𝙙𝙪𝙘𝙩𝙤⌑꯭🛰️", description: "", id: `precio` },
-                { header: "", title: "Chiste", description: "", id: `.chiste` }
+                { header: "", title: "Hablar con un asesor", description: "", id: `.tes` }
             ]
         },
         {

@@ -10,6 +10,7 @@ if (m.isBaileys && m.fromMe)
        return !1
     if (!m.message)
        return !0
+let vn3 = './media/prueba3.mp3'
 let name = await conn.getName(m.sender)
 let user = global.db.data.users[m.sender]
 if (new Date() - user.pc < 43200000) return
@@ -87,5 +88,9 @@ await m.reply(`🖐🏻 ¡Hola! *${name}* mi nombre es *${wm}* y fui desarrollad
 *y mantente informado....*
 ╰︶︶︶︶︶🎉︶︶︶︶︶╯`)
 await conn.relayMessage(m.chat, { viewOnceMessage: { message} }, {});
+conn.sendFile(m.chat, vn3, 'prueba3.mp3', null, null, true, { 
+type: 'audioMessage', 
+ptt: true 
+})
 user.pc = new Date * 1
 }

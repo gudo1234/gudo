@@ -196,7 +196,7 @@ console.log(e2);
 }
 handler.command = /^(play[2-4]?|audio|video|playdoc2?)$/i
 //handler.limit = 2
-//handler.group = true
+handler.group = true
 export default handler
 
 async function search(query, options = {}) {

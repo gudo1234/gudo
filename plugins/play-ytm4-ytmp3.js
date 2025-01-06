@@ -5,7 +5,7 @@ import ytdl from 'ytdl-core'
 import axios from 'axios'
 let handler = async (m, { conn, args, usedPrefix, command }) => {
 let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
-if (!args[0]) return await conn.reply(m.chat, '*𝙌𝙪𝙚 𝙚𝙨𝙩𝙖 𝙗𝙪𝙨𝙘𝙖𝙙𝙤🤔 𝙄𝙣𝙜𝙧𝙚𝙨𝙚 𝙚𝙡 𝙚𝙣𝙡𝙖𝙘𝙚 𝙙𝙚 𝙔𝙤𝙪𝙏𝙪𝙗𝙚 𝙥𝙖𝙧𝙖 𝙙𝙚𝙨𝙘𝙖𝙧𝙜𝙖𝙧 𝙚𝙡 𝙖𝙪𝙙𝙞𝙤*', m, {contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: mg, body: ' 💫 𝐒𝐮𝐩𝐞𝐫 𝐁𝐨𝐭 𝐃𝐞 𝐖𝐡𝐚𝐭𝐬𝐚𝐩𝐩 🥳 ', previewType: 0, thumbnail: img.getRandom(), sourceUrl: redes.getRandom()}}})    
+if (!args[0]) return await conn.reply(m.chat, '🚩 _Ingrese un enlace de YouTube para descargar el audio.\n\n*Ejemplo:* .ytmp3 https://youtube.com/watch?v=RIUy6aCqUMw', m, {contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: mg, body: ' 💫 𝐒𝐮𝐩𝐞𝐫 𝐁𝐨𝐭 𝐃𝐞 𝐖𝐡𝐚𝐭𝐬𝐚𝐩𝐩 🥳 ', previewType: 0, thumbnail: img.getRandom(), sourceUrl: redes.getRandom()}}})    
 
 if (command == 'ytmp3' || command == 'fgmp3') {
 let youtubeLink = '';
@@ -27,7 +27,8 @@ return
 return
 }}}  
   
-conn.reply(m.chat, [`*⌛ 𝙀𝙨𝙥𝙚𝙧𝙚 ✋ 𝙪𝙣 𝙢𝙤𝙢𝙚𝙣𝙩𝙤... 𝙔𝙖 𝙚𝙨𝙩𝙤𝙮 𝙙𝙚𝙨𝙘𝙖𝙧𝙜𝙖𝙙𝙤 𝙩𝙪 𝙖𝙪𝙙𝙞𝙤🍹*`, `⌛ 𝙋𝙍𝙊𝘾𝙀𝙎𝘼𝙉𝘿𝙊...\n*𝘌𝘴𝘵𝘰𝘺 𝘪𝘯𝘵𝘦𝘯𝘵𝘢𝘯𝘥𝘰 𝘥𝘦𝘴𝘤𝘢𝘳𝘨𝘢 𝘴𝘶𝘴 𝘈𝘶𝘥𝘪𝘰 𝘦𝘴𝘱𝘦𝘳𝘦 🏃‍♂️💨*`, `Calmao pa estoy bucando tu canción 😎\n\n*Recuerda colocar bien el nombre de la cancion o el link del video de youtube*\n\n> *Si el comando *play no funciona utiliza el comando *ytmp3*`].getRandom(), m, {contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: wm, body: ' 💫 𝐒𝐮𝐩𝐞𝐫 𝐁𝐨𝐭 𝐃𝐞 𝐖𝐡𝐚𝐭𝐬𝐚𝐩𝐩 🥳 ', previewType: 0, thumbnail: img.getRandom(), sourceUrl: redes.getRandom()}}})    
+let name = await conn.getName(m.sender)
+await conn.sendMessage(m.chat, { text: global.espere + `*${name}*`, contextInfo: { externalAdReply: {title: `${wm}`, body: `${await conn.getName(m.chat)}`, thumbnailUrl: imagen4, thumbnail: imagen4, showAdAttribution: true, sourceUrl: canal}}} , { quoted: fkontak })   
 try {
 const res = await fetch(`https://api.zenkey.my.id/api/download/ytmp3?apikey=zenkey&url=${encodeURIComponent(args)}`)
 let { result } = await res.json()
@@ -86,7 +87,8 @@ return
 }} else {
 return
 }}}  
-conn.reply(m.chat, [`*⌛ 𝙀𝙨𝙥𝙚𝙧𝙚 ✋ 𝙪𝙣 𝙢𝙤𝙢𝙚𝙣𝙩𝙤... 𝙔𝙖 𝙚𝙨𝙩𝙤𝙮 𝙙𝙚𝙨𝙘𝙖𝙧𝙜𝙖𝙙𝙤 𝙩𝙪 𝙑𝙞𝙙𝙚𝙤 🍹*`, `⌛ 𝙋𝙍𝙊𝘾𝙀𝙎𝘼𝙉𝘿𝙊...\n*𝘌𝘴𝘵𝘰𝘺 𝘪𝘯𝘵𝘦𝘯𝘵𝘢𝘯𝘥𝘰 𝘥𝘦𝘴𝘤𝘢𝘳𝘨𝘢 𝘴𝘶𝘴 𝘝𝘪𝘥𝘦𝘰 𝘦𝘴𝘱𝘦𝘳𝘦 🏃‍♂️💨*`, `Calma ✋🥸🤚\n\n*Estoy descargando tu video 🔄*\n\n> *Aguarde un momento, por favor*`].getRandom(), m, {contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: wm, body: ' 💫 𝐒𝐮𝐩𝐞𝐫 𝐁𝐨𝐭 𝐃𝐞 𝐖𝐡𝐚𝐭𝐬𝐚𝐩𝐩 🥳 ', previewType: 0, thumbnail: img.getRandom(), sourceUrl: redes.getRandom()}}})    
+let name = await conn.getName(m.sender)
+await conn.sendMessage(m.chat, { text: global.espere + `*${name}*`, contextInfo: { externalAdReply: {title: `${wm}`, body: `${await conn.getName(m.chat)}`, thumbnailUrl: imagen4, thumbnail: imagen4, showAdAttribution: true, sourceUrl: canal}}} , { quoted: fkontak })   
 try {
 const res = await fetch(`https://api.zenkey.my.id/api/download/ytmp3?apikey=zenkey&url=${encodeURIComponent(args)}`)
 let { result } = await res.json()

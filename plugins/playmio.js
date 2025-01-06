@@ -3,14 +3,14 @@ if (!text) {
 return m.reply("🧧 *ingresa un texto de lo que quieres buscar*")
 }
     
-let ytres = await search(args.join(" "))
+//let ytres = await search(args.join(" "))
 /*let txt = `*Título* : ${ytres[0].title}
 *Duración* : ${ytres[0].timestap}
 *Publicado* : ${ytres[0].ago}
 *Canal* : ${ytres[0].author.name || 'Desconocido'}
 *Url* : ${'https://youtu.be/' + ytres[0].videoId}`*/
 await m.react('🕒')
-await conn.sendFile(m.chat, null, 'thumbnail.jpg', txt, m, null, rcanal)
+//await conn.sendFile(m.chat, null, 'thumbnail.jpg', null, m, null, rcanal)
     
 try {
 let api = await fetch(`https://api.zenkey.my.id/api/download/ytmp3?apikey=zenkey&url=${ytres[0].url}`)

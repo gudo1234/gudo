@@ -10,6 +10,6 @@ m.react('🕒')
 }
 }
 
-handler.command = ['play']
+handler.command = ['ytmp3']
 handler.group = true
 export default handler

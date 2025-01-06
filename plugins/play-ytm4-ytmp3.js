@@ -122,6 +122,7 @@ await conn.sendMessage(m.chat, { video: { url: n2 }, fileName: `${n}.mp4`, mimet
 //console.log('Error 3 ' + E3)   
 }}}}}}
 handler.command = ['ytmp3', 'ytmp4']
+handler.group = true
 export default handler
 
 function bytesToSize(bytes) {

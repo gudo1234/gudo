@@ -11,22 +11,22 @@ const tipoDescarga = command === 'play' ? 'audio' : command === 'play2' ? 'video
 const yt_play = await search(args.join(' '))
 const ytplay2 = await yts(text)
 const texto1 = `⌘━─━─≪ *YOUTUBE* ≫─━─━⌘
-★ ${mid.smsYT1}
+★ *Titulo:*
 ★ ${yt_play[0].title}
 ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴
-★ ${mid.smsYT15}
+★ *Subido:*
 ★ ${yt_play[0].ago}
 ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴
-★ ${mid.smsYT5}
+★ *Duración:*
 ★ ${secondString(yt_play[0].duration.seconds)}
 ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴
-★  ${mid.smsYT10}
+★  *Vistas:*
 ★ ${MilesNumber(yt_play[0].views)}
 ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴
-★  ${mid.smsYT2}
+★  *Author:*
 ★ ${yt_play[0].author.name}
 ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴ ╴
-★ ${mid.smsYT4}
+★ *Url:*
 ★ ${yt_play[0].url.replace(/^https?:\/\//, '')}
 ⌘━━─≪ ${wm} ≫─━━⌘
 

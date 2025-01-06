@@ -22,7 +22,7 @@ console.error(error)
 }}
 
 handler.command = ['yta2'];
-handler.group = true;
+//handler.group = true;
 
 export default handler
 

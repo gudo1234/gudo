@@ -101,7 +101,7 @@ const yt = await youtubedl(yt_play[0].url).catch(async _ => await youtubedlv2(yt
 console.log(yt)
 let q = getBestVideoQuality(yt)
 console.log(q)
-await conn.sendMessage(m.chat, { video: { url: await yt.video[q].download() }, fileName: `${await yt.title}.mp4`, mimetype: 'video/mp4', caption: `⟡ *${yt_play[0].title}*\n⟡ \`${q}\` | ${await yt.video[q].fileSizeH}\n> ${wm}`}, { quoted: m })
+await conn.sendMessage(m.chat, { video: { url: await yt.video[q].download() }, fileName: `${await yt.title}.mp4`, mimetype: 'video/mp4', caption: `⟡ *${yt_play[0].title}*\n⟡ \`${wm}\` | ${await yt.video[q].fileSizeH}\n> ${wm}`}, { quoted: m })
 } catch (e) {
 await m.react('❌')
 console.log(e)

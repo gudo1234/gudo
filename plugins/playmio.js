@@ -27,6 +27,6 @@ handler.command = ['yta2'];
 export default handler
 
 async function search(query, options = {}) {
-  let search = await yts.search({ query, hl: "es", gl: "ES", ...options })
+//let search = await yts.search({ query, hl: "es", gl: "ES", ...options })
   return search.videos
 }

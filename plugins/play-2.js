@@ -2,8 +2,8 @@ import yts from 'youtube-yts';
 import fetch from 'node-fetch';
 import fs from 'fs';
 
-const handler = async (msg, { args }) => {
-    if (!args.length) return msg.reply('✳️ Proporciona un término de búsqueda.');
+let handler = async (m, { text, conn, args, usedPrefix, command }) => {
+if (!args[0]) return conn.reply(m.chat, `Proporciona una url de YouTube`, m)
 
     const query = args.join(' ');
     try {
@@ -39,11 +39,11 @@ const handler = async (msg, { args }) => {
             stream.on('finish', r);
         });
 
-        await msg.reply({ content: `🎥 *Aquí tienes tu video: ${vid.title}*`, files: [path] });
+        await conn.reply({ content: `🎥 *Aquí tienes tu video: ${vid.title}*`, files: [path] });
         fs.unlinkSync(path);
     } catch (e) {
         console.error(e);
-        msg.reply('❌ Error al procesar tu solicitud. Intenta nuevamente.');
+        m.reply('❌ Error al procesar tu solicitud. Intenta nuevamente.');
     }
 };
 

@@ -1,4 +1,5 @@
 import { getDevice } from "@whiskeysockets/baileys"
+import moment from 'moment-timezone'
 import PhoneNumber from 'awesome-phonenumber'
 let handler = async (m, { conn, args, usedPrefix, command }) => {
 
@@ -10,6 +11,10 @@ let rpt = "🌠¡Recuerda descansar bien esta noche!🌙😴\n\nToque aquí💥"
       if (nktm >= 11) rpt = "🌇¡Buenas tardes!🍁\n\nToque aquí💥"
       if (nktm >= 18) rpt = "🌠¡Buenas noches!🌙\n\nToque aquí💥"
 let name = await conn.getName(m.sender)
+//pais
+let regionNames = new Intl.DisplayNames(['en'], { type: 'region' })
+let format = PhoneNum(`+${num.split('@')[0]}`)
+let country = regionNames.of(format.getRegionCode('international'))
 //let pp = await conn.profilePictureUrl(m.sender, 'image').catch(_ => './src/avatar_contact.png')
 //const pp = await conn.profilePictureUrl(m.chat, 'image').catch((_) => null) || `${global.imagen4}`;
 
@@ -26,6 +31,7 @@ let txt = `*🧧Prefijo* (${usedPrefix})
 •🪪 INFO-USUARIO.li
 ╭───╯
 *🚩]▸Nombre:* ${name}
+🌎*Pais:* ${country.toUpperCase()}
 (${getDevice(m.key.id)})
 *🗓]▸Fecha:* ${moment.tz('America/Bogota').format('DD/MM/YY')}
 ╰───╮╭───╯

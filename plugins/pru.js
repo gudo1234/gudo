@@ -4,7 +4,7 @@ import PhoneNum from 'awesome-phonenumber'
 
 let regionNames = new Intl.DisplayNames(['en'], { type: 'region' })
 
-let handler = async (m, { conn, args, usedPrefix, command }) => {
+let handler = async (m, { conn, args, text, usedPrefix, command }) => {
 
 const nkdt = new Date();
 const nktm = nkdt.getHours();

@@ -68,6 +68,7 @@ console.log(`Error en ${usedPrefix + command}`)
 console.log(E3)}
 }}}}}
 handler.command = ['ytv', 'ytmp4']
+handler.command = true
 export default handler
 
 function bytesToSize(bytes) {

@@ -6,7 +6,7 @@ throw false
 }
 const taguser = '@' + m.sender.split('@s.whatsapp.net')[0];
 let pesan = args.join` `
-let oi = `> Mensaje: ${pesan}`
+let oi = `> *Mensaje:* ${pesan}`
 let teks = `🚩 _El administrador ${taguser} los a invocado a todos..._\n${oi}\n`
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 let mentionedJid = [who]

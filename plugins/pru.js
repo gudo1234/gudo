@@ -4,7 +4,7 @@ import PhoneNum from 'awesome-phonenumber'
 let regionNames = new Intl.DisplayNames(['en'], { type: 'region' })
 let handler = async (m, { conn, usedPrefix, command }) => {
 
-const format = new Intl.NumberFormat('en'); // Puedes usar el locale que prefieras
+const format = new Intl.NumberFormat('en-EN'); // Puedes usar el locale que prefieras
 const regionNames = new Intl.DisplayNames(['en'], { type: 'region' });
 
 // Obtener el código de región internacional

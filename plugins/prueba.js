@@ -1,7 +1,5 @@
 import { getDevice } from "@whiskeysockets/baileys"
-import moment from 'moment-timezone'
 import PhoneNumber from 'awesome-phonenumber'
-let regionNames = new Intl.DisplayNames(['en'], { type: 'region' })
 
 let handler = async (m, { conn, args, usedPrefix, command }) => {
 
@@ -14,18 +12,6 @@ let rpt = "🌠¡Recuerda descansar bien esta noche!🌙😴\n\nToque aquí💥"
       if (nktm >= 18) rpt = "🌠¡Buenas noches!🌙\n\nToque aquí💥"
 let name = await conn.getName(m.sender)
 //pais
-
-let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
-	//let num = m.quoted?.sender || m.mentionedJid?.[0] || text
-	//if (!num) throw `*Ejemplo*: ${usedPrefix + cmd} @tag 50492280729`
-	num = num.replace(/\D/g, '') + '@s.whatsapp.net'
-	if (!(await conn.onWhatsApp(num))[0]?.exists) throw 'Este usuario no existe, asegurese de escribir bien el numero.'
-	let img = await conn.profilePictureUrl(num, 'image').catch(_ => './src/avatar_contact.png')
-	let bio = await conn.fetchStatus(num).catch(_ => { })
-	let name = await conn.getName(num)
-	let business = await conn.getBusinessProfile(num)
-	let format = PhoneNum(`+${num.split('@')[0]}`)
-	let country = regionNames.of(format.getRegionCode('international'))
 
 //let pp = await conn.profilePictureUrl(m.sender, 'image').catch(_ => './src/avatar_contact.png')
 //const pp = await conn.profilePictureUrl(m.chat, 'image').catch((_) => null) || `${global.imagen4}`;

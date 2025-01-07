@@ -14,6 +14,5 @@ let country = regionNames.of(regionCode);
   conn.reply(m.chat, `*Pais:* ${country}\nxd ${regionCode}`, m)
 }
 
-handler.command = ['play']
-handler.group = true
+handler.command = ['🍋‍🟩']
 export default handler

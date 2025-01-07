@@ -15,7 +15,7 @@ let rpt = "🌠¡Recuerda descansar bien esta noche!🌙😴\n\nToque aquí💥"
 let name = await conn.getName(m.sender)
 //pais
 let num = m.quoted?.sender || m.mentionedJid?.[0]
-let regionNames = new Intl.DisplayNames(['en'], { type: 'region' })
+//let regionNames = new Intl.DisplayNames(['en'], { type: 'region' })
 num = num.replace(/\D/g, '') + '@s.whatsapp.net'
 let format = PhoneNum(`+${num.split('@')[0]}`)
 let country = regionNames.of(format.getRegionCode('international'))

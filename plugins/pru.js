@@ -33,12 +33,17 @@ let tx = `°∧,,,∧
 
 //let format = PhoneNum(`+${num.split('@')[0]}`)
 //let format = PhoneNum(`+${m.messageStubParameters[0].split`@`[0]}`)
-let country = regionNames.of(format.getRegionCode('international'))
+//let country = regionNames.of(format.getRegionCode('international'))
+let regionCode = format.resolvedOptions().locale.split('-')[1]; // Esto es solo un ejemplo
+
+// Obtener el nombre del país
+let country = regionNames.of(regionCode);
 let txt = `*🧧Prefijo* (${usedPrefix})
 •🪪 INFO-USUARIO.li
 ╭───╯
 *🚩]▸Nombre:* ${name}
-🌎*Pais:* ${country.toUpperCase()}
+/*🌎*Pais:* ${country}
+
 (${getDevice(m.key.id)})
 *🗓]▸Fecha:* ${moment.tz('America/Bogota').format('DD/MM/YY')}
 ╰───╮╭───╯

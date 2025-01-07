@@ -15,9 +15,8 @@ let rpt = "🌠¡Recuerda descansar bien esta noche!🌙😴\n\nToque aquí💥"
       if (nktm >= 18) rpt = "🌠¡Buenas noches!🌙\n\nToque aquí💥"
 let name = await conn.getName(m.sender)
 //pais
-let num = m.quoted?.sender || m.mentionedJid?.[0] || text
-	if (!num) throw `🚩 *Ejemplo*: ${usedPrefix + command} @${prems}`
-	num = num.replace(/\D/g, '') + '@s.whatsapp.net'
+let num = m.quoted?.sender || m.mentionedJid?.[0]
+	//num = num.replace(/\D/g, '') + '@s.whatsapp.net'
 //let pp = await conn.profilePictureUrl(m.sender, 'image').catch(_ => './src/avatar_contact.png')
 //const pp = await conn.profilePictureUrl(m.chat, 'image').catch((_) => null) || `${global.imagen4}`;
 

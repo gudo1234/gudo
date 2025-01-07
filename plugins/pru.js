@@ -4,7 +4,7 @@ import PhoneNum from 'awesome-phonenumber'
 
 let regionNames = new Intl.DisplayNames(['en'], { type: 'region' })
 
-let handler = async (m, { conn, args, text, usedPrefix, command, participants, groupMetadata }) => {
+let handler = async (m, { conn, args, usedPrefix, command}) => {
 
 const nkdt = new Date();
 const nktm = nkdt.getHours();
@@ -15,9 +15,9 @@ let rpt = "🌠¡Recuerda descansar bien esta noche!🌙😴\n\nToque aquí💥"
       if (nktm >= 18) rpt = "🌠¡Buenas noches!🌙\n\nToque aquí💥"
 let name = await conn.getName(m.sender)
 //pais
-let num = m.quoted?.sender || m.mentionedJid?.[0]
+//let num = m.quoted?.sender || m.mentionedJid?.[0]
 	//num = num.replace(/\D/g, '') + '@s.whatsapp.net'
-let pp = await conn.profilePictureUrl(m.messageStubParameters[0], 'image').catch(_ => 'https://qu.ax/casQP.jpg')
+//let pp = await conn.profilePictureUrl(m.messageStubParameters[0], 'image').catch(_ => 'https://qu.ax/casQP.jpg')
 //let pp = await conn.profilePictureUrl(m.sender, 'image').catch(_ => './src/avatar_contact.png')
 //const pp = await conn.profilePictureUrl(m.chat, 'image').catch((_) => null) || `${global.imagen4}`;
 
@@ -32,7 +32,7 @@ let tx = `°∧,,,∧
 /    づ♡ *_вιєиνєиι∂σ α ℓσѕ ¢σмαи∂σѕ_*\n> ⭐Hola *${name}*\n╭──┄┄─◌──┄┄ 🍋‍🟩 ̥˚◌\n*🥀Buenos días🌅tardes🌇noches🌆*\n╰── ── •◌• ── ─ 🔖‧₊˚`
 
 //let format = PhoneNum(`+${num.split('@')[0]}`)
-let format = PhoneNum(`+${m.messageStubParameters[0].split`@`[0]}`)
+//let format = PhoneNum(`+${m.messageStubParameters[0].split`@`[0]}`)
 let country = regionNames.of(format.getRegionCode('international'))
 let txt = `*🧧Prefijo* (${usedPrefix})
 •🪪 INFO-USUARIO.li

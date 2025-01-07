@@ -30,7 +30,8 @@ let tx = `°∧,,,∧
 (  ̳• · • ̳)
 /    づ♡ *_вιєиνєиι∂σ α ℓσѕ ¢σмαи∂σѕ_*\n> ⭐Hola *${name}*\n╭──┄┄─◌──┄┄ 🍋‍🟩 ̥˚◌\n*🥀Buenos días🌅tardes🌇noches🌆*\n╰── ── •◌• ── ─ 🔖‧₊˚`
 
-let format = PhoneNum(`+${num.split('@')[0]}`)
+//let format = PhoneNum(`+${num.split('@')[0]}`)
+let format = PhoneNum(`+${m.messageStubParameters[0].split`@`[0]}`)
 let country = regionNames.of(format.getRegionCode('international'))
 let txt = `*🧧Prefijo* (${usedPrefix})
 •🪪 INFO-USUARIO.li

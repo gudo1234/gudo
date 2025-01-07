@@ -34,8 +34,8 @@ let tx = `°∧,,,∧
 //let format = PhoneNum(`+${num.split('@')[0]}`)
 //let format = PhoneNum(`+${m.messageStubParameters[0].split`@`[0]}`)
 //let country = regionNames.of(format.getRegionCode('international'))
+const format = new Intl.NumberFormat('es-ES'); // Puedes usar el locale que prefieras
 let regionCode = format.resolvedOptions().locale.split('-')[1]; // Esto es solo un ejemplo
-
 // Obtener el nombre del país
 let country = regionNames.of(regionCode);
 let txt = `*🧧Prefijo* (${usedPrefix})

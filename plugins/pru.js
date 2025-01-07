@@ -1,18 +1,19 @@
 import moment from 'moment-timezone';
-import PhoneNum from 'awesome-phonenumber';
+
+let regionNames = new Intl.DisplayNames(['en'], { type: 'region' });
 
 let handler = async (m, { conn, usedPrefix, command }) => {
-  // Suponiendo que el número de teléfono viene en el mensaje
-  let phoneNumber = m.sender; // Esto es solo un ejemplo, deberías obtener el número de manera adecuada
+  const format = new Intl.NumberFormat('en-EN'); // Puedes usar el locale que prefieras
 
-  // Crear una instancia de PhoneNum
-  let phone = PhoneNum(phoneNumber);
+  // Obtener el código de región internacional
+  let locale = format.resolvedOptions().locale; // Obtiene el locale completo
+  let regionCode = locale.includes('-') ? locale.split('-')[1] : locale; // Maneja el caso sin guion
 
-  // Obtener el país a partir del número de teléfono
-  let country = phone.getRegionCode(); // Obtiene el código de región
-  let countryName = phone.getCountry(); // Obtiene el nombre del país
-
-  conn.reply(m.chat, `*País:* ${countryName} (${country})`, m);
+  // Obtener el nombre del país
+  let country = regionNames.of(regionCode);
+  
+  // Responder con el país detectado
+  conn.reply(m.chat, `*País:* ${country}`, m);
 }
 
 handler.command = ['🍋‍🟩'];

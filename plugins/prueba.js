@@ -29,7 +29,7 @@ let txt = `*🧧Prefijo* (${usedPrefix})
 •🪪 INFO-USUARIO.li
 ╭───╯
 *🚩]▸Nombre:* ${name}
-🌎*Pais:* ${country.toUpperCase()}
+🌎*Pais:* -
 (${getDevice(m.key.id)})
 *🗓]▸Fecha:* ${moment.tz('America/Bogota').format('DD/MM/YY')}
 ╰───╮╭───╯

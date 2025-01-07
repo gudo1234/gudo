@@ -14,7 +14,7 @@ let txt = `\`↖AVISO↗\`\nLos recurson se an agotado para este grupo, comuniqu
 //let pp = 'https://telegra.ph/file/5ab1ca8bf65c1ddb36c20.mp4'
 //await conn.sendMessage(m.chat, { video: { url: pp }, gifPlayback: true, caption: '*Adios a todos, el Bot se despide! (≧ω≦)ゞ*', mentions: [m.sender] }, { quoted: estilo })
 await conn.sendButtonMessages(m.chat, [
-[txt, '𝗉𝗈𝗐𝖾𝗋𝖾𝖽 ⓒ 𝖨𝗓𝗎𝗆𝗂-𝖻𝗈𝗍 𝟤𝟢𝟤𝟢-𝟤𝟢𝟤𝟦.', imagen4|| logo, [
+[txt, '𝗉𝗈𝗐𝖾𝗋𝖾𝖽 ⓒ 𝖨𝗓𝗎𝗆𝗂-𝖻𝗈𝗍 𝟤𝟢𝟤𝟢-𝟤𝟢𝟤5.', imagen4|| logo, [
 ['Atom', `atom`]
 ], null, [
 ['Propietario', edar], ['Novedades', canal]],

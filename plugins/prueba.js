@@ -1,6 +1,8 @@
 import { getDevice } from "@whiskeysockets/baileys"
 import moment from 'moment-timezone'
 import PhoneNumber from 'awesome-phonenumber'
+let regionNames = new Intl.DisplayNames(['en'], { type: 'region' })
+
 let handler = async (m, { conn, args, usedPrefix, command }) => {
 
 const nkdt = new Date();
@@ -12,8 +14,7 @@ let rpt = "🌠¡Recuerda descansar bien esta noche!🌙😴\n\nToque aquí💥"
       if (nktm >= 18) rpt = "🌠¡Buenas noches!🌙\n\nToque aquí💥"
 let name = await conn.getName(m.sender)
 //pais
-let regionNames = new Intl.DisplayNames(['en'], { type: 'region' })
-let num = num.replace(/\D/g, '') + '@s.whatsapp.net'
+//let num = num.replace(/\D/g, '') + '@s.whatsapp.net'
 let format = PhoneNum(`+${num.split('@')[0]}`)
 let country = regionNames.of(format.getRegionCode('international'))
 //let pp = await conn.profilePictureUrl(m.sender, 'image').catch(_ => './src/avatar_contact.png')

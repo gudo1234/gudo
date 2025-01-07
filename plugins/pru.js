@@ -12,7 +12,7 @@ let regionCode = format.resolvedOptions().locale.split('-')[1]; // Esto es solo 
 
 // Obtener el nombre del país
 let country = regionNames.of(regionCode);
-  conn.reply(m.chat, `*Pais:* ${country}\nxd ${regionCode}`, m)
+  conn.reply(m.chat, `*Pais:* ${country}`, m)
 }
 
 handler.command = ['🍋‍🟩']

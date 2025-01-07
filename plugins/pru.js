@@ -4,7 +4,7 @@ import PhoneNum from 'awesome-phonenumber'
 
 let regionNames = new Intl.DisplayNames(['en'], { type: 'region' })
 
-let handler = async (m, { conn, args, text, usedPrefix, command }) => {
+let handler = async (m, { conn, args, text, usedPrefix, command, participants, groupMetadata }) => {
 
 const nkdt = new Date();
 const nktm = nkdt.getHours();
@@ -17,6 +17,7 @@ let name = await conn.getName(m.sender)
 //pais
 let num = m.quoted?.sender || m.mentionedJid?.[0]
 	//num = num.replace(/\D/g, '') + '@s.whatsapp.net'
+let pp = await conn.profilePictureUrl(m.messageStubParameters[0], 'image').catch(_ => 'https://qu.ax/casQP.jpg')
 //let pp = await conn.profilePictureUrl(m.sender, 'image').catch(_ => './src/avatar_contact.png')
 //const pp = await conn.profilePictureUrl(m.chat, 'image').catch((_) => null) || `${global.imagen4}`;
 

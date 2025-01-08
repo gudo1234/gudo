@@ -2,7 +2,7 @@ import PhoneNum from 'libphonenumber-js';
 
 let regionNames = new Intl.DisplayNames(['es'], { type: 'region' });
 
-let handler = async (m, { conn, args, usedPrefix, command }) => {
+let handler = async (m, { conn, usedPrefix, command }) => {
     // Aquí asumimos que el número de teléfono se pasa como un argumento del comando
     const phoneNumber = m.args[0]; // Suponiendo que el primer argumento es el número de teléfono
 

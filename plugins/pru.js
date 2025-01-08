@@ -1,7 +1,7 @@
 import PhoneNumber from 'awesome-phonenumber'
 import fetch from 'node-fetch'
 
-var handler = async (m, { conn }) => {
+var handler = async (m, { conn, participants, groupMetadata }) => {
 
 let user = db.data.users[m.sender]
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender

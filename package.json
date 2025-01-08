@@ -29,6 +29,7 @@
 "url": "https://github.com/gudo1234/gudo/issues" },
 "license": "GPL-3.0-or-later",
 "dependencies": {
+"country-flag-emoji": "^2.0.0",
 "@whiskeysockets/baileys": "github:ds6/bails",
 "@adiwajshing/keyed-db": "^0.2.4",
 "@bochilteam/scraper": "^4.2.4",

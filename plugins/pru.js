@@ -34,6 +34,11 @@ let handler = async (m, { conn, usedPrefix, command }) => {
     console.log(`Código de región obtenido: ${countryCode}`); // Para depuración
     console.log(`Número de teléfono: ${m.sender}`); // Para verificar el número de teléfono
 
+    if (!countryCode) {
+        m.reply('*País:* No se pudo determinar el país. Asegúrate de que el número esté en un formato válido.');
+        return;
+    }
+
     let country = regionMap[countryCode] || 'DESCONOCIDO'; // Obtiene el nombre del país o 'DESCONOCIDO' si no está en el mapa
     m.reply(`*País:* ${country}`);
 }

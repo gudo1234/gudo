@@ -4,11 +4,12 @@ import PhoneNum from 'awesome-phonenumber';
 let regionNames = new Intl.DisplayNames(['en'], { type: 'region' });
 
 let handler = async (m, { conn, usedPrefix, command }) => {
-    // Obtener el número de teléfono del sender
-    let phoneNumber = m.sender; // Aquí asumimos que el sender tiene el formato adecuado
+    // Verificar si hay un mensaje citado
+    let quotedMessage = m.quoted ? m.quoted : m;
+    let phoneNumber = quotedMessage.text; // Obtener el texto del mensaje citado
 
     if (!phoneNumber) {
-        return m.reply('No se pudo detectar el número de teléfono del usuario. Asegúrate de que tu número esté configurado correctamente.');
+        return m.reply('Por favor, cita un mensaje que contenga un número de teléfono. Ejemplo: !coun +1234567890');
     }
 
     let phone = new PhoneNum(phoneNumber);

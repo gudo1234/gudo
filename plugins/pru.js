@@ -24,7 +24,7 @@ conn.sendFile(m.chat, pp, 'perfil.jpg', str, fkon, false, { mentions: [who] })
 
 }
 handler.command = ['coun', '🍋‍🟩']
-//handler.group = true
+handler.group = true
 export default handler
 
 const more = String.fromCharCode(8206)

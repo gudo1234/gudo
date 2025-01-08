@@ -24,5 +24,5 @@ let handler = async (m, { conn, usedPrefix, command }) => {
     m.reply(`*País:* ${countryName} ${flag}`);
 }
 
-handler.command = ['coun'];
+handler.command = ['co'];
 export default handler;

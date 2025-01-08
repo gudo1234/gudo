@@ -29,7 +29,6 @@
 "url": "https://github.com/gudo1234/gudo/issues" },
 "license": "GPL-3.0-or-later",
 "dependencies": {
-"country-flag-emoji": "^2.0.0",
 "@whiskeysockets/baileys": "github:ds6/bails",
 "@adiwajshing/keyed-db": "^0.2.4",
 "@bochilteam/scraper": "^4.2.4",
@@ -104,7 +103,8 @@
 "ruhend-scraper": "^7.0.4",
 "aptoide-scraper": "github:DIEGO-OFC/dv-aptoide-scraper",
 "@StarlightsTeam/Scraper": "github:StarlightsTeam/StarlightsTeam-Scraper",
-"@SumiFX/Scraper": "github:SumiFX/SumiFX-Scraper"
+"@SumiFX/Scraper": "github:SumiFX/SumiFX-Scraper",
+"country-flag-emoji": "^2.0.0"
 },
 "optionalDependencies": {
 "wa-sticker-formatter": "^4.3.2",

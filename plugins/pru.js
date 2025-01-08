@@ -7,7 +7,7 @@ let handler = async (m, { conn, usedPrefix, command }) => {
     let phoneNumber = m.text.split(' ')[1];
 
     if (!phoneNumber) {
-        return m.reply(`Por favor, proporciona un número de teléfono. Ejemplo: ${usedPrefix + command} +1234567890`);
+        return m.reply('Por favor, proporciona un número de teléfono. Ejemplo: !coun +1234567890');
     }
 
     let phone = new PhoneNum(phoneNumber);

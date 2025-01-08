@@ -1,16 +1,22 @@
-let messageCount = 0;
+let messageCount = {};
 
 let handler = async (m, { conn, usedPrefix, command }) => {
-    messageCount++;
+    // Incrementar el contador de mensajes del usuario
+    if (!messageCount[m.sender]) {
+        messageCount[m.sender] = 0;
+    }
+    messageCount[m.sender]++;
 
-    // Aquí puedes ajustar el límite según lo que desees
-    const limit = 3;
-
-    if (messageCount >= limit) {
-        messageCount = 0; // Reiniciar el contador
-
-        await m.reply('xd js'); // Asegúrate de usar await si m.reply es una función asincrónica
+    // Verificar si el usuario ha enviado 3 mensajes
+    if (messageCount[m.sender] % 3 === 0) {
+        m.reply(`¡Has enviado ${messageCount[m.sender]} mensajes! Aquí tienes un mensaje especial.`);
     }
 }
 
+// Resetea el contador cada cierto tiempo (opcional)
+setInterval(() => {
+    messageCount = {};
+}, 3600000); // Resetea cada hora
+
+//module.exports = handler;
 export default handler;

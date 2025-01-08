@@ -5,7 +5,9 @@ var handler = async (m, { conn }) => {
 
 let user = db.data.users[m.sender]
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
-let pp = await conn.profilePictureUrl(who, 'image').catch(_ => './src/avatar_contact.png')
+//let pp = await conn.profilePictureUrl(who, 'image').catch(_ => './src/avatar_contact.png')
+let pp = await conn.profilePictureUrl(m.messageStubParameters[0], 'image').catch(_ => 'https://qu.ax/casQP.jpg')
+  let im = await (await fetch(`${pp}`)).buffer()
 let { premium, level, diamond, exp, lastclaim, registered, regTime, age } = global.db.data.users[m.sender]
 let username = conn.getName(who)
 let name = conn.getName(who)
@@ -14,13 +16,14 @@ let fkon = { key: { fromMe: false, participant: `${m.sender.split`@`[0]}@s.whats
 let str = `*Nombre:* ${username} 
 *Tag:* @${who.replace(/@.+/, '')}
 *Numero:* ${PhoneNumber('+' + who.replace('@s.whatsapp.net', '')).getNumber('international')}
-*Link:* https://wa.me/${who.split`@`[0]}`.trim()
+*Link:* https://wa.me/${who.split`@`[0]}
+*Country:* Honduras 🇭🇳`.trim()
 
-conn.sendFile(m.chat, pp, 'perfil.jpg', str, fkon, false, { mentions: [who] })
+conn.sendFile(m.chat, im, 'perfil.jpg', str, fkon, false, { mentions: [who] })
 
 }
 handler.command = ['coun', '🍋‍🟩']
-
+handler.group = true
 export default handler
 
 const more = String.fromCharCode(8206)

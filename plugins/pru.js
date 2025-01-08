@@ -18,5 +18,5 @@ setInterval(() => {
     messageCount = {};
 }, 3600000); // Resetea cada hora
 
-//module.exports = handler;
-export default handler;
+module.exports = handler;
+//export default handler;

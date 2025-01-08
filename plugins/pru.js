@@ -5,10 +5,10 @@ var handler = async (m, { conn, participants, groupMetadata }) => {
 
 let user = db.data.users[m.sender]
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
-//let pp = await conn.profilePictureUrl(who, 'image').catch(_ => './src/avatar_contact.png')
-if (!m.messageStubType || !m.isGroup) return true;
-let pp = await conn.profilePictureUrl(who, 'image').catch(_ => 'https://qu.ax/casQP.jpg')
-  let im = await (await fetch(`${pp}`)).buffer()
+let pp = await conn.profilePictureUrl(who, 'image').catch(_ => './src/avatar_contact.png')
+//if (!m.messageStubType || !m.isGroup) return true;
+//let pp = await conn.profilePictureUrl(who, 'image').catch(_ => 'https://qu.ax/casQP.jpg')
+  //let im = await (await fetch(`${pp}`)).buffer()
 let { premium, level, diamond, exp, lastclaim, registered, regTime, age } = global.db.data.users[m.sender]
 let username = conn.getName(who)
 let name = conn.getName(who)
@@ -20,7 +20,7 @@ let str = `*Nombre:* ${username}
 *Link:* https://wa.me/${who.split`@`[0]}
 *Country:* Honduras 🇭🇳`.trim()
 
-conn.sendFile(m.chat, im, 'perfil.jpg', str, fkon, false, { mentions: [who] })
+conn.sendFile(m.chat, pp, 'perfil.jpg', str, fkon, false, { mentions: [who] })
 
 }
 handler.command = ['coun', '🍋‍🟩']

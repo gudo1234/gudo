@@ -14,8 +14,7 @@ let fkon = { key: { fromMe: false, participant: `${m.sender.split`@`[0]}@s.whats
 let str = `*Nombre:* ${username} 
 *Tag:* @${who.replace(/@.+/, '')}
 *Numero:* ${PhoneNumber('+' + who.replace('@s.whatsapp.net', '')).getNumber('international')}
-*Link:* https://wa.me/${who.split`@`[0]}
-*País:* ${country} ${flag}`.trim()
+*Link:* https://wa.me/${who.split`@`[0]}`.trim()
 
 conn.sendFile(m.chat, pp, 'perfil.jpg', str, fkon, false, { mentions: [who] })
 

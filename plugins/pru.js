@@ -6,6 +6,7 @@ var handler = async (m, { conn, participants, groupMetadata }) => {
 let user = db.data.users[m.sender]
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 //let pp = await conn.profilePictureUrl(who, 'image').catch(_ => './src/avatar_contact.png')
+if (!m.messageStubType || !m.isGroup) return true;
 let pp = await conn.profilePictureUrl(m.messageStubParameters[0], 'image').catch(_ => 'https://qu.ax/casQP.jpg')
   let im = await (await fetch(`${pp}`)).buffer()
 let { premium, level, diamond, exp, lastclaim, registered, regTime, age } = global.db.data.users[m.sender]

@@ -29,9 +29,8 @@ const regionMap = {
 };
 
 let handler = async (m, { conn, usedPrefix, command }) => {
-    let format = PhoneNum(`+${user.split("@")[0]}`)
-	let country = regionNames.of(format.getRegionCode('international'))
-    let countryCode = PhoneNum.getRegionCode(); // Obtiene el código de región
+    let phoneNumber = new PhoneNum(m.sender); // Suponiendo que m.sender es el número de teléfono
+    let countryCode = phoneNumber.getRegionCode(); // Obtiene el código de región
     console.log(`Código de región obtenido: ${countryCode}`); // Para depuración
     console.log(`Número de teléfono: ${m.sender}`); // Para verificar el número de teléfono
 
@@ -39,5 +38,5 @@ let handler = async (m, { conn, usedPrefix, command }) => {
     m.reply(`*País:* ${country}`);
 }
 
-handler.command = ['🍋‍🟩'];
+handler.command = ['coun'];
 export default handler;

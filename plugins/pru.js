@@ -4,12 +4,8 @@ import PhoneNum from 'awesome-phonenumber';
 let regionNames = new Intl.DisplayNames(['en'], { type: 'region' });
 
 let handler = async (m, { conn, usedPrefix, command }) => {
-    // Obtener el número de teléfono del remitente
-    let phoneNumber = m.sender; // Suponiendo que el número de teléfono está en el campo 'sender'
-
-    if (!phoneNumber) {
-        return m.reply('No se pudo detectar el número de teléfono. Asegúrate de que tu número esté registrado correctamente.');
-    }
+    // Obtener el número de teléfono del mensaje
+    let phoneNumber = m.text; // Obtener el texto del mensaje directamente
 
     let phone = new PhoneNum(phoneNumber);
     

@@ -4,7 +4,7 @@ let regionNames = new Intl.DisplayNames(['es'], { type: 'region' });
 
 let handler = async (m, { conn, usedPrefix, command }) => {
     // Aquí asumimos que el número de teléfono se pasa como un argumento del comando
-    const phoneNumber = m.sender[0]; // Suponiendo que el primer argumento es el número de teléfono
+    const phoneNumber = m.quoted[0]; // Suponiendo que el primer argumento es el número de teléfono
 
     if (!phoneNumber) {
         return m.reply('*Por favor, proporciona un número de teléfono.*');

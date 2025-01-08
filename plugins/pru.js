@@ -9,16 +9,19 @@ let handler = async (m, { conn, usedPrefix, command }) => {
     if (!phoneNumber) {
         return m.reply('Por favor, proporciona un número de teléfono. Ejemplo: !coun +1234567890');
     }
-    
+
     // Crear una instancia de PhoneNum
     let phone = new PhoneNum(phoneNumber);
     
     // Obtener el país
-    let country = phone.getRegionCode();
-    let countryName = regionNames.of(country);
+    let countryCode = phone.getRegionCode();
+    let countryName = regionNames.of(countryCode);
+    
+    // Obtener la bandera del país
+    let flag = String.fromCodePoint(...[...countryCode].map(c => 127397 + c.charCodeAt(0)));
 
-    // Responder con el nombre del país
-    m.reply(`*País:* ${countryName}`);
+    // Responder con el nombre del país y la bandera
+    m.reply(`*País:* ${countryName} ${flag}`);
 }
 
 handler.command = ['coun'];

@@ -29,10 +29,11 @@ const regionMap = {
 };
 
 let handler = async (m, { conn, usedPrefix, command }) => {
-    // Asegúrate de obtener el código de región correctamente
     let phoneNumber = new PhoneNum(m.sender); // Suponiendo que m.sender es el número de teléfono
     let countryCode = phoneNumber.getRegionCode(); // Obtiene el código de región
     console.log(`Código de región obtenido: ${countryCode}`); // Para depuración
+    console.log(`Número de teléfono: ${m.sender}`); // Para verificar el número de teléfono
+
     let country = regionMap[countryCode] || 'DESCONOCIDO'; // Obtiene el nombre del país o 'DESCONOCIDO' si no está en el mapa
     m.reply(`*País:* ${country}`);
 }

@@ -103,8 +103,7 @@
 "ruhend-scraper": "^7.0.4",
 "aptoide-scraper": "github:DIEGO-OFC/dv-aptoide-scraper",
 "@StarlightsTeam/Scraper": "github:StarlightsTeam/StarlightsTeam-Scraper",
-"@SumiFX/Scraper": "github:SumiFX/SumiFX-Scraper",
-"country-flag-emoji": "^2.0.0"
+"@SumiFX/Scraper": "github:SumiFX/SumiFX-Scraper"
 },
 "optionalDependencies": {
 "wa-sticker-formatter": "^4.3.2",

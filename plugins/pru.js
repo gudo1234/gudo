@@ -1,12 +1,30 @@
 import moment from 'moment-timezone';
 import PhoneNum from 'awesome-phonenumber';
 
-// Mapa simple de códigos de región a nombres de países
+// Mapa simple de códigos de región a nombres de países y sus banderas
 const regionMap = {
-    'US': 'ESTADOS UNIDOS',
-    'MX': 'MÉXICO',
-    'ES': 'ESPAÑA',
-    'HN': 'HONDURAS',
+    'US': '🇺🇸 ESTADOS UNIDOS',
+    'MX': '🇲🇽 MÉXICO',
+    'ES': '🇪🇸 ESPAÑA',
+    'HN': '🇭🇳 HONDURAS', // Agregado Honduras
+    'AR': '🇦🇷 ARGENTINA',
+    'BR': '🇧🇷 BRASIL',
+    'CO': '🇨🇴 COLOMBIA',
+    'CL': '🇨🇱 CHILE',
+    'PE': '🇵🇪 PERÚ',
+    'VE': '🇻🇪 VENEZUELA',
+    'FR': '🇫🇷 FRANCIA',
+    'DE': '🇩🇪 ALEMANIA',
+    'IT': '🇮🇹 ITALIA',
+    'GB': '🇬🇧 REINO UNIDO',
+    'JP': '🇯🇵 JAPÓN',
+    'CN': '🇨🇳 CHINA',
+    'IN': '🇮🇳 INDIA',
+    'RU': '🇷🇺 RUSIA',
+    'AU': '🇦🇺 AUSTRALIA',
+    'ZA': '🇿🇦 SUDÁFRICA',
+    'KR': '🇰🇷 COREA DEL SUR',
+    'NG': '🇳🇬 NÍGERIA',
     // Agrega más códigos y nombres según sea necesario
 };
 

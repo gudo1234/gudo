@@ -1,46 +1,24 @@
 import moment from 'moment-timezone';
 import PhoneNum from 'awesome-phonenumber';
 
-// Mapa simple de códigos de región a nombres de países y sus banderas
-const regionMap = {
-    'US': '🇺🇸 ESTADOS UNIDOS',
-    'MX': '🇲🇽 MÉXICO',
-    'ES': '🇪🇸 ESPAÑA',
-    'HN': '🇭🇳 HONDURAS', // Agregado Honduras
-    'AR': '🇦🇷 ARGENTINA',
-    'BR': '🇧🇷 BRASIL',
-    'CO': '🇨🇴 COLOMBIA',
-    'CL': '🇨🇱 CHILE',
-    'PE': '🇵🇪 PERÚ',
-    'VE': '🇻🇪 VENEZUELA',
-    'FR': '🇫🇷 FRANCIA',
-    'DE': '🇩🇪 ALEMANIA',
-    'IT': '🇮🇹 ITALIA',
-    'GB': '🇬🇧 REINO UNIDO',
-    'JP': '🇯🇵 JAPÓN',
-    'CN': '🇨🇳 CHINA',
-    'IN': '🇮🇳 INDIA',
-    'RU': '🇷🇺 RUSIA',
-    'AU': '🇦🇺 AUSTRALIA',
-    'ZA': '🇿🇦 SUDÁFRICA',
-    'KR': '🇰🇷 COREA DEL SUR',
-    'NG': '🇳🇬 NÍGERIA',
-    // Agrega más códigos y nombres según sea necesario
-};
+let regionNames = new Intl.DisplayNames(['en'], { type: 'region' });
 
 let handler = async (m, { conn, usedPrefix, command }) => {
-    let phoneNumber = new PhoneNum(m.sender.trim()); // Suponiendo que m.sender es el número de teléfono
-    let countryCode = phoneNumber.getRegionCode(); // Obtiene el código de región
-    console.log(`Código de región obtenido: ${countryCode}`); // Para depuración
-    console.log(`Número de teléfono: ${m.sender}`); // Para verificar el número de teléfono
-
-    if (!countryCode) {
-        m.reply('*País:* No se pudo determinar el país. Asegúrate de que el número esté en un formato válido.');
-        return;
+    // Suponiendo que el número de teléfono se pasa como argumento
+    let phoneNumber = m.text.split(' ')[1]; // Ejemplo: !coun +1234567890
+    if (!phoneNumber) {
+        return m.reply('Por favor, proporciona un número de teléfono. Ejemplo: !coun +1234567890');
     }
+    
+    // Crear una instancia de PhoneNum
+    let phone = new PhoneNum(phoneNumber);
+    
+    // Obtener el país
+    let country = phone.getRegionCode();
+    let countryName = regionNames.of(country);
 
-    let country = regionMap[countryCode] || 'DESCONOCIDO'; // Obtiene el nombre del país o 'DESCONOCIDO' si no está en el mapa
-    m.reply(`*País:* ${country}`);
+    // Responder con el nombre del país
+    m.reply(`*País:* ${countryName}`);
 }
 
 handler.command = ['coun'];

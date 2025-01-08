@@ -11,7 +11,8 @@ let handler = async (m, { conn, usedPrefix, command }) => {
     
     // Verificar si el número de teléfono es válido
     if (!phone.isValid()) {
-        return m.reply('El número de teléfono proporcionado no es válido. Asegúrate de incluir el código de país.');
+        m.reply('El número de teléfono proporcionado no es válido. Asegúrate de incluir el código de país.');
+        return; // Salimos de la función si no es válido
     }
 
     let countryCode = phone.getRegionCode();

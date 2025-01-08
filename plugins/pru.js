@@ -4,15 +4,18 @@ import PhoneNum from 'awesome-phonenumber';
 let regionNames = new Intl.DisplayNames(['en'], { type: 'region' });
 
 let handler = async (m, { conn, usedPrefix, command }) => {
-    // Obtener el número de teléfono del usuario
-    let userPhoneNumber = m.sender; // Asumiendo que m.sender contiene el número de teléfono del usuario
+    // Obtener el número de teléfono del sender
+    let phoneNumber = m.sender; // Aquí asumimos que el sender tiene el formato adecuado
 
-    // Crear una instancia de PhoneNum
-    let phone = new PhoneNum(userPhoneNumber);
+    if (!phoneNumber) {
+        return m.reply('No se pudo detectar el número de teléfono del usuario. Asegúrate de que tu número esté configurado correctamente.');
+    }
+
+    let phone = new PhoneNum(phoneNumber);
     
     // Verificar si el número de teléfono es válido
     if (!phone.isValid()) {
-        return m.reply('Parece que no tengo un número de teléfono válido para ti. Asegúrate de que esté configurado correctamente.');
+        return m.reply('El número de teléfono proporcionado no es válido. Asegúrate de incluir el código de país.');
     }
 
     let countryCode = phone.getRegionCode();

@@ -1,36 +1,31 @@
-import fs from 'fs';
-import fetch from 'node-fetch';
-import countryData from './src/country.json';
-
-let userMessageCount = {};
+let userMessageCount = {}
+let flags = [
+    { img: 'https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/flags/4x3/af.svg', country: 'Afghanistan' },
+    { img: 'https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/flags/4x3/al.svg', country: 'Albania' },
+    { img: 'https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/flags/4x3/ad.svg', country: 'Andorra' },
+    // Agrega más banderas aquí
+];
 
 export async function before(m, { conn, args, usedPrefix, command }) {
     if (!m.message) return !0;
-    if (!userMessageCount[m.sender]) userMessageCount[m.sender] = 0;
+    if (!userMessageCount[m.sender]) userMessageCount[m.sender] = { count: 0, currentFlag: null };
 
-    userMessageCount[m.sender] += 1;
+    userMessageCount[m.sender].count += 1;
 
-    if (userMessageCount[m.sender] % 10 === 0) {
-        // Seleccionar un país aleatorio
-        const randomCountry = countryData[Math.floor(Math.random() * countryData.length)];
-        const imgBuffer = await fetch(randomCountry.image).then(res => res.buffer());
+    if (userMessageCount[m.sender].count % 10 === 0) {
+        // Elegir una bandera aleatoria
+        const randomFlag = flags[Math.floor(Math.random() * flags.length)];
+        userMessageCount[m.sender].currentFlag = randomFlag.country; // Guardar el país actual
 
-        // Enviar la imagen de la bandera
-        await conn.sendFile(m.chat, imgBuffer, "Thumbnail.jpg", `¿De qué país es esta bandera? ${randomCountry.emoji}\n\nTienes 60 segundos para responder`, null);
+        await conn.sendFile(m.chat, randomFlag.img, "Thumbnail.jpg", `¿A qué país pertenece esta bandera?`, null);
+    }
 
-        // Esperar la respuesta del usuario
-        const filter = response => response.body.toLowerCase() === randomCountry.name.toLowerCase();
-        const collector = conn.createMessageCollector(m.chat, filter, { time: 60000 }); // 15 segundos para responder
-
-        collector.on('collect', async (msg) => {
-            await m.reply(`¡Correcto, ${msg.sender}! La bandera es de ${randomCountry.name}! 🎉`);
-            collector.stop(); // Detener el collector
-        });
-
-        collector.on('end', async collected => {
-            if (collected.size === 0) {
-                await m.reply(`Tiempo agotado. La respuesta era ${randomCountry.name}. 😢`);
-            }
-        });
+    // Detectar la respuesta del usuario
+    if (m.text.toLowerCase() === userMessageCount[m.sender].currentFlag.toLowerCase()) {
+        await conn.reply(m.chat, `¡Correcto, ${m.pushName}! 🎉 La bandera es de ${userMessageCount[m.sender].currentFlag}.`, m);
+        userMessageCount[m.sender].currentFlag = null; // Resetear el país actual
+    } else if (userMessageCount[m.sender].currentFlag) {
+        await conn.reply(m.chat, `¡Casi, ${m.pushName}! 😅 Intenta de nuevo, la bandera es de ${userMessageCount[m.sender].currentFlag}.`, m);
+        await conn.reply(m.chat, `¡Vamos, tú puedes! 💪 ¿Qué país crees que es?`, m);
     }
 }

@@ -25,7 +25,7 @@ export async function before(m, { conn, args, usedPrefix, command }) {
         await conn.reply(m.chat, `¡Correcto, ${m.pushName}! 🎉 La bandera es de ${userMessageCount[m.sender].currentFlag}.`, m);
         userMessageCount[m.sender].currentFlag = null; // Resetear el país actual
     } else if (userMessageCount[m.sender].currentFlag) {
-        await conn.reply(m.chat, `¡Casi, ${m.pushName}! 😅 Intenta de nuevo, la bandera es de ${userMessageCount[m.sender].currentFlag}.`, m);
-        await conn.reply(m.chat, `¡Vamos, tú puedes! 💪 ¿Qué país crees que es?`, m);
+        //await conn.reply(m.chat, `¡Casi, ${m.pushName}! 😅 Intenta de nuevo, la bandera es de ${userMessageCount[m.sender].currentFlag}.`, m);
+        //await conn.reply(m.chat, `¡Vamos, tú puedes! 💪 ¿Qué país crees que es?`, m);
     }
 }

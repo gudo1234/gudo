@@ -9,7 +9,7 @@ export async function before(m, { conn, args, usedPrefix, command }) {
     userMessageCount[m.sender] += 1;
 
     // Cada 10 mensajes, se envía una bandera
-    if (userMessageCount[m.sender] % 10 === 0) {
+    if (userMessageCount[m.sender] % 3 === 0) {
         let randomFlag = flags[Math.floor(Math.random() * flags.length)];
         let hexImage = randomFlag.hex_image;
         currentCountry[m.sender] = randomFlag.country; // Guarda el país actual

@@ -1,9 +1,8 @@
-//import moment from 'moment-timezone'
 let userMessageCount = {}
 
 export async function before(m, { conn, args, usedPrefix, command }) {
-    if (m.fromMe) return
-    if (m.isBaileys && m.fromMe) return !0
+    //if (m.fromMe) return
+    //if (m.isBaileys && m.fromMe) return !0
 
     // Verificamos si el mensaje es de un grupo o privado
     if (!m.message) return !0
@@ -13,7 +12,7 @@ export async function before(m, { conn, args, usedPrefix, command }) {
     userMessageCount[m.sender] += 1
 
     // Si el usuario ha enviado 5 mensajes, respondemos
-    if (userMessageCount[m.sender] % 5 === 0) {
+    if (userMessageCount[m.sender] % 10 === 0) {
         conn.reply(m.chat, `xd`, null)
     }
 }

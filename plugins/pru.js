@@ -24,7 +24,6 @@ let flags = [
 ];
 
 export async function before(m, { conn, args, usedPrefix, command }) {
-let = imagen4
   if (!m.message) return !0;
     if (!userMessageCount[m.sender]) userMessageCount[m.sender] = { count: 0, currentFlag: null };
 
@@ -35,7 +34,9 @@ let = imagen4
         const randomFlag = flags[Math.floor(Math.random() * flags.length)];
         userMessageCount[m.sender].currentFlag = randomFlag.name; // Guardar el país actual
         userMessageCount[m.sender].currentFlag2 = randomFlag.emoji;
-        await conn.sendFile(m.chat, img, "Thumbnail.jpg", `🌎 ¿A qué país pertenece esta bandera? ${userMessageCount[m.sender].currentFlag2}.`, null);
+        //await conn.sendFile(m.chat, img, "Thumbnail.jpg", `🌎 ¿A qué país pertenece esta bandera? ${userMessageCount[m.sender].currentFlag2}.`, null);
+    let img = imagen4
+    await conn.sendFile(m.chat, img, "Thumbnail.jpg", `¿A qué país pertenece esta bandera? ${userMessageCount[m.sender].currentFlag2}.`, m, null, rcanal)
     }
 
     // Detectar la respuesta del usuario

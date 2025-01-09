@@ -1,9 +1,25 @@
 let userMessageCount = {}
 let flags = [
-    { img: 'https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/flags/4x3/af.svg', country: 'Afghanistan' },
-    { img: 'https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/flags/4x3/al.svg', country: 'Albania' },
-    { img: 'https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/flags/4x3/ad.svg', country: 'Andorra' },
-    // Agrega más banderas aquí
+  {
+    "name": "Afghanistan",
+    "code": "AF",
+    "emoji": "🇦🇫",
+    "image": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/flags/4x3/af.svg",
+    "dialCodes": [
+      "+93"
+    ],
+    "slug": "afghanistan"
+  },
+  {
+    "name": "Albania",
+    "code": "AL",
+    "emoji": "🇦🇱",
+    "image": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/flags/4x3/al.svg",
+    "dialCodes": [
+      "+355"
+    ],
+    "slug": "albania"
+  }
 ];
 
 export async function before(m, { conn, args, usedPrefix, command }) {
@@ -15,9 +31,9 @@ export async function before(m, { conn, args, usedPrefix, command }) {
     if (userMessageCount[m.sender].count % 10 === 0) {
         // Elegir una bandera aleatoria
         const randomFlag = flags[Math.floor(Math.random() * flags.length)];
-        userMessageCount[m.sender].currentFlag = randomFlag.country; // Guardar el país actual
+        userMessageCount[m.sender].currentFlag = randomFlag.name; // Guardar el país actual
 
-        await conn.sendFile(m.chat, randomFlag.img, "Thumbnail.jpg", `¿A qué país pertenece esta bandera?`, null);
+        await conn.sendFile(m.chat, randomFlag.image, "Thumbnail.jpg", `¿A qué país pertenece esta bandera? ${emoji}`, null);
     }
 
     // Detectar la respuesta del usuario

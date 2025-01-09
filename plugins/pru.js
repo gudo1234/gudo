@@ -1,46 +1,47 @@
 import fs from 'fs';
+import path from 'path';
 
-// Cargar el archivo country.json
-const countries = JSON.parse(fs.readFileSync('./src/country.json', 'utf-8'));
-let userMessageCount = {};
-let guessedCountries = {};
+let userAttempts = {};
+let guessedFlags = new Set();
+const countries = JSON.parse(fs.readFileSync(path.join(__dirname, 'src', 'country.json'), 'utf-8'));
 
-export async function before(m, { conn }) {
+export async function before(m, { conn, args, usedPrefix, command }) {
     if (!m.message) return !0;
 
-    // Inicializar el contador de mensajes del usuario si no existe
-    if (!userMessageCount[m.sender]) userMessageCount[m.sender] = 0;
-
-    userMessageCount[m.sender] += 1;
-
-    // Enviar una bandera cada 10 mensajes
-    if (userMessageCount[m.sender] % 10 === 0) {
-        // Seleccionar un país aleatorio
-        const randomCountry = countries[Math.floor(Math.random() * countries.length)];
-        
-        // Guardar el país en un objeto para verificar respuestas
-        guessedCountries[m.sender] = randomCountry.name;
-
-        // Enviar la bandera asegurando que el archivo se envíe en formato correcto
-        await conn.sendFile(m.chat, randomCountry.image, "Thumbnail.jpg", `¿A qué país pertenece esta bandera? ${randomCountry.emoji}`, null, {
-            mimetype: 'image/jpeg' // Aseguramos que el tipo MIME sea correcto
-        });
+    // Seleccionar una bandera aleatoria que no haya sido adivinada
+    let availableCountries = countries.filter(country => !guessedFlags.has(country.code));
+    if (availableCountries.length === 0) {
+        return conn.sendMessage(m.chat, '¡Ya has adivinado todas las banderas!', m);
     }
-}
 
-// Función para manejar las respuestas
-export async function onMessage(m, { conn }) {
-    const userAnswer = m.text.trim();
-    const correctAnswer = guessedCountries[m.sender];
+    let randomCountry = availableCountries[Math.floor(Math.random() * availableCountries.length)];
+    
+    // Enviar la bandera
+    await conn.sendFile(m.chat, randomCountry.image, 'flag.png', `¿A qué país pertenece esta bandera? ${randomCountry.emoji}`, m);
 
-    if (correctAnswer) {
-        // Comparar la respuesta del usuario con la respuesta correcta
-        if (userAnswer.toLowerCase() === correctAnswer.toLowerCase()) {
-            await conn.reply(m.chat, `¡Correcto! 🎉 La bandera es de ${correctAnswer}.`, m);
-            // Limpiar la respuesta adivinada
-            delete guessedCountries[m.sender];
+    // Inicializar el conteo de intentos del usuario
+    if (!userAttempts[m.sender]) userAttempts[m.sender] = { count: 0, correct: false };
+
+    // Esperar respuesta del usuario
+    conn.on('chat-update', async (chatUpdate) => {
+        if (!chatUpdate.messages) return;
+        const message = chatUpdate.messages.all()[0];
+
+        if (message.key.fromMe || !message.message) return;
+
+        // Comprobar respuesta
+        if (!userAttempts[m.sender].correct) {
+            userAttempts[m.sender].count++;
+
+            if (message.message.conversation.toLowerCase() === randomCountry.name.toLowerCase()) {
+                userAttempts[m.sender].correct = true;
+                guessedFlags.add(randomCountry.code);
+                await conn.sendMessage(m.chat, `¡Correcto! 🎉 La bandera es de ${randomCountry.name}.`, m);
+            } else {
+                await conn.sendMessage(m.chat, `Incorrecto. 😢 Intenta de nuevo.`, m);
+            }
         } else {
-            await conn.reply(m.chat, `Incorrecto. 😢 La respuesta correcta era ${correctAnswer}.`, m);
+            await conn.sendMessage(m.chat, `Ya has adivinado esta bandera. ¡Sigue intentando!`, m);
         }
-    }
+    });
 }

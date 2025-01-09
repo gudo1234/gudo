@@ -12,7 +12,7 @@ export async function before(m, { conn, args, usedPrefix, command }) {
 
     userMessageCount[m.sender] += 1;
 
-    if (userMessageCount[m.sender] % 3 === 0) {
+    if (userMessageCount[m.sender] % 10 === 0) {
         // Seleccionar un país aleatorio
         const randomCountry = countries[Math.floor(Math.random() * countries.length)];
         

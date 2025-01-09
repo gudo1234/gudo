@@ -1,4 +1,4 @@
-let userMessageCount = {};
+let userMessageCount = {}
 let flags = [
   {
     "name": "Afghanistan",
@@ -33,17 +33,12 @@ export async function before(m, { conn, args, usedPrefix, command }) {
         const randomFlag = flags[Math.floor(Math.random() * flags.length)];
         userMessageCount[m.sender].currentFlag = randomFlag.name; // Guardar el país actual
         userMessageCount[m.sender].currentFlag2 = randomFlag.emoji;
-        await conn.sendFile(m.chat, randomFlag.image, "Thumbnail.jpg", `¿A qué país pertenece esta bandera? ${userMessageCount[m.sender].currentFlag2}.`, null);
+        await conn.sendFile(m.chat, randomFlag.image, "Thumbnail.jpg", `🌎 ¿A qué país pertenece esta bandera? ${userMessageCount[m.sender].currentFlag2}.`, null);
     }
 
-    // Verificar si el mensaje es una respuesta al mensaje de la pregunta
-    if (m.isReply && m.reply && m.reply.text.includes('¿A qué país pertenece esta bandera?')) {
-        // Detectar la respuesta del usuario
-        if (m.text.toLowerCase() === userMessageCount[m.sender].currentFlag.toLowerCase()) {
-            await conn.reply(m.chat, `¡Correcto, ${m.pushName}! 🎉 La bandera es de ${userMessageCount[m.sender].currentFlag}.`, m);
-            userMessageCount[m.sender].currentFlag = null; // Resetear el país actual
-        } else {
-            await conn.reply(m.chat, `¡Incorrecto, ${m.pushName}! 😢 Intenta de nuevo.`, m);
-        }
+    // Detectar la respuesta del usuario
+    if (m.text.toLowerCase() === userMessageCount[m.sender].currentFlag.toLowerCase()) {
+        await conn.reply(m.chat, `¡Correcto, ${m.pushName}! 🎉 La bandera es de ${userMessageCount[m.sender].currentFlag}.`, m);
+        userMessageCount[m.sender].currentFlag = null; // Resetear el país actual
     }
 }

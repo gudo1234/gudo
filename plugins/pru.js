@@ -34,7 +34,7 @@ export async function before(m, { conn, args, usedPrefix, command }) {
         userMessageCount[m.sender].currentFlag = randomFlag.name; // Guardar el país actual
         userMessageCount[m.sender].currentFlag2 = randomFlag.emoji;
         //await conn.sendFile(m.chat, randomFlag.image, "Thumbnail.jpg", `🌎 ¿A qué país pertenece esta bandera? ${userMessageCount[m.sender].currentFlag2}.`, null);    
-conn.sendMessage(m.chat, { text: `¿A qué país pertenece esta bandera? ${userMessageCount[m.sender].currentFlag2}.`, contextInfo: { externalAdReply: {title: `${wm}`, body: '¡Adivina que bandera es!', thumbnailUrl: randomFlag.image, thumbnail: randomFlag.image, showAdAttribution: true, sourceUrl: canal, mediaType: 1, renderLargerThumbnail: true}}} , { quoted: null })    
+await conn.reply(m.chat, { text: `¿A qué país pertenece esta bandera? ${userMessageCount[m.sender].currentFlag2}.`, contextInfo: { externalAdReply: {title: `${wm}`, body: '¡Adivina que bandera es!', thumbnailUrl: randomFlag.image, thumbnail: randomFlag.image, showAdAttribution: true, sourceUrl: canal, mediaType: 1, renderLargerThumbnail: true}}} , { quoted: null })    
     }
 
     // Detectar la respuesta del usuario

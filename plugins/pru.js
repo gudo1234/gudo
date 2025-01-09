@@ -32,13 +32,13 @@ export async function before(m, { conn, args, usedPrefix, command }) {
         // Elegir una bandera aleatoria
         const randomFlag = flags[Math.floor(Math.random() * flags.length)];
         userMessageCount[m.sender].currentFlag = randomFlag.name; // Guardar el país actual
-
-        await conn.sendFile(m.chat, randomFlag.image, "Thumbnail.jpg", `¿A qué país pertenece esta bandera?`, null);
+        userMessageCount[m.sender].currentFlag2 = randomFlag.emoji;
+        await conn.sendFile(m.chat, randomFlag.image, "Thumbnail.jpg", `¿A qué país pertenece esta bandera? ${userMessageCount[m.sender].currentFlag}.`, null);
     }
 
     // Detectar la respuesta del usuario
     if (m.text.toLowerCase() === userMessageCount[m.sender].currentFlag.toLowerCase()) {
-        await conn.reply(m.chat, `¡Correcto, ${m.pushName}! 🎉 La bandera es de ${userMessageCount[m.sender].currentFlag}.`, m);
+        await conn.reply(m.chat, `¡Correcto, ${m.pushName}! 🎉 La bandera es de ${userMessageCount[m.sender].currentFlag2}.`, m);
         userMessageCount[m.sender].currentFlag = null; // Resetear el país actual
     } else if (userMessageCount[m.sender].currentFlag) {
         //await conn.reply(m.chat, `¡Casi, ${m.pushName}! 😅 Intenta de nuevo, la bandera es de ${userMessageCount[m.sender].currentFlag}.`, m);

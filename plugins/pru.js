@@ -1,22 +1,23 @@
-let messageCount = {};
+import moment from 'moment-timezone'
 
-let handler = async (m, { conn, usedPrefix, command }) => {
-    // Incrementar el contador de mensajes del usuario
-    if (!messageCount[m.sender]) {
-        messageCount[m.sender] = 0;
-    }
-    messageCount[m.sender]++;
+let userMessageCount = {}
 
-    // Verificar si el usuario ha enviado 3 mensajes
-    if (messageCount[m.sender] % 3 === 0) {
-        m.reply(`¡Has enviado ${messageCount[m.sender]} mensajes! Aquí tienes un mensaje especial.`);
+export async function before(m, { conn, args, usedPrefix, command }) {
+    if (m.fromMe) return
+    if (m.isBaileys && m.fromMe) return !0
+
+    // Verificamos si el mensaje es de un grupo o privado
+    if (!m.message) return !0
+    if (!userMessageCount[m.sender]) userMessageCount[m.sender] = 0
+
+    // Incrementamos el contador de mensajes
+    userMessageCount[m.sender] += 1
+
+    // Si el usuario ha enviado 5 mensajes, respondemos
+    if (userMessageCount[m.sender] % 5 === 0) {
+        let user = global.db.data.users[m.sender]
+        if (new Date() - user.pc < 21600000) return // 6 horas
+        conn.reply(m.chat, `texto enviado`, null)
+        user.pc = new Date * 1
     }
 }
-
-// Resetea el contador cada cierto tiempo (opcional)
-setInterval(() => {
-    messageCount = {};
-}, 3600000); // Resetea cada hora
-
-module.exports = handler;
-//export default handler;

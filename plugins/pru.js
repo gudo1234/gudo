@@ -37,7 +37,7 @@ export async function before(m, { conn, args, usedPrefix, command }) {
     }
 
     // Detectar la respuesta del usuario
-    if (m.texttoLowerCase() === userMessageCount[m.sender].currentFlag.toLowerCase()) {
+    if (m.text.toLowerCase() === userMessageCount[m.sender].currentFlag.toLowerCase()) {
         await conn.reply(m.chat, `¡Correcto, ${m.pushName}! 🎉 La bandera es de ${userMessageCount[m.sender].currentFlag}.`, m);
         userMessageCount[m.sender].currentFlag = null; // Resetear el país actual
     }

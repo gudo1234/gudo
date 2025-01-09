@@ -33,7 +33,7 @@ export async function before(m, { conn, args, usedPrefix, command }) {
         const randomFlag = flags[Math.floor(Math.random() * flags.length)];
         userMessageCount[m.sender].currentFlag = randomFlag.name; // Guardar el país actual
 
-        await conn.sendFile(m.chat, randomFlag.image, "Thumbnail.jpg", `¿A qué país pertenece esta bandera? ${emoji}`, null);
+        await conn.sendFile(m.chat, randomFlag.image, "Thumbnail.jpg", `¿A qué país pertenece esta bandera?`, null);
     }
 
     // Detectar la respuesta del usuario

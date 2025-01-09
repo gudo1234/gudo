@@ -6,7 +6,7 @@ import cheerio from 'cheerio'
 import fetch from 'node-fetch'
 import axios from 'axios' 
 import moment from 'moment-timezone'
-import flags from './flags.json'
+//import flags from './flags.json'
 //---------[ Añada los numeros a ser Propietario/a ]---------
 global.owner = [['50492280729', 'ᯓ᮫݃͜ᮨ🍁ܾ݉ᢥ౽꯭ⲉυ꯭᥉′🦦ꪃꒉܻᵃₚͬ៰⍳', true]]
 global.mods = [] 

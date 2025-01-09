@@ -6,8 +6,8 @@ const handler = async (m, {conn, participants, groupMetadata, args}) => {
   const pesan = args.join` `;
   const oi = `Mensaje: ${pesan}`;
   const text = `🚩 *invocando Admins del Grupo...*
-${oi}\n━━━✦✗✦━━━
-${listAdmin}\n━━━✦✗✦━━━
+${oi}\n━━━✦🖐🏻✦━━━
+${listAdmin}\n━━━✦🌟✦━━━
 > Use este comando cuando se trate de una emergencia. ¡Sea activo y pronto estará en esta lista!`.trim();
   conn.sendFile(m.chat, pp, 'error.jpg', text, m, false, {mentions: [...groupAdmins.map((v) => v.id), owner]});
 };

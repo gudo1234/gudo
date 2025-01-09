@@ -1,43 +1,33 @@
-let userMessageCount = {}
+let userMessageCount = {};
 let flags = require('./flags.json');
-let currentFlag = null; // Para almacenar la bandera actual
-let correctAnswers = {}; // Para almacenar respuestas correctas
+let currentFlag = {}; // Para almacenar la bandera actual y su respuesta
 
 export async function before(m, { conn, args, usedPrefix, command }) {
-
-    // Función para obtener una bandera aleatoria
-    function getRandomFlag() {
-        const flagKeys = Object.keys(flags);
-        const randomIndex = Math.floor(Math.random() * flagKeys.length);
-        return flagKeys[randomIndex];
-    }
-
-    // Si no hay mensaje, retorna
     if (!m.message) return !0;
+    if (!userMessageCount[m.sender]) userMessageCount[m.sender] = { count: 0, answered: false };
 
-    // Inicializa el contador de mensajes del usuario
-    if (!userMessageCount[m.sender]) userMessageCount[m.sender] = 0;
+    userMessageCount[m.sender].count += 1;
 
-    userMessageCount[m.sender] += 1;
+    // Enviar una pregunta cada 10 mensajes
+    if (userMessageCount[m.sender].count % 3 === 0 && !userMessageCount[m.sender].answered) {
+        // Selecciona una bandera aleatoria
+        let flagKeys = Object.keys(flags);
+        let randomKey = flagKeys[Math.floor(Math.random() * flagKeys.length)];
+        currentFlag = flags[randomKey]; // La bandera actual
+        let buffer = Buffer.from(currentFlag.hex_image, 'hex'); // Convertir de hexadecimal a buffer
 
-    // Envía una bandera cada 10 mensajes
-    if (userMessageCount[m.sender] % 3 === 0) {
-        currentFlag = getRandomFlag(); // Obtiene una bandera aleatoria
-        const buffer = flags[currentFlag]; // Obtiene la imagen de la bandera
         await conn.sendFile(m.chat, buffer, "Thumbnail.jpg", `🕒 ¿De qué país es esta bandera?`, null);
-        correctAnswers[m.sender] = currentFlag; // Guarda la respuesta correcta para el usuario
+        userMessageCount[m.sender].answered = true; // Marcar como respondido
     }
 
-    // Verifica la respuesta del usuario
-    if (args.length > 0) {
-        const userAnswer = args.join(' ').toLowerCase(); // Respuesta del usuario
-        const correctAnswer = correctAnswers[m.sender]; // Respuesta correcta
-
-        if (userAnswer === flags[correctAnswer].name.toLowerCase()) {
-            await conn.reply(m.chat, `🎉 ¡Correcto, ${m.sender}! Es la bandera de ${flags[correctAnswer].name}.`, m);
-            delete correctAnswers[m.sender]; // Elimina la respuesta correcta almacenada
-        } else if (correctAnswers[m.sender]) {
-            await conn.reply(m.chat, `❌ Incorrecto, ${m.sender}. Intenta de nuevo!`, m);
+    // Verificar respuestas
+    if (userMessageCount[m.sender].answered) {
+        let answer = args.join(" ").toLowerCase();
+        if (answer === currentFlag.country.toLowerCase()) {
+            await conn.sendMessage(m.chat, `🎉 ¡Correcto! La bandera es de ${currentFlag.country}!`, null);
+            userMessageCount[m.sender].answered = false; // Reiniciar la pregunta
+        } else if (answer !== "" && answer !== currentFlag.country.toLowerCase()) {
+            await conn.sendMessage(m.chat, `❌ Incorrecto. Intenta de nuevo!`, null);
         }
     }
 }

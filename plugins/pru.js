@@ -4,7 +4,7 @@ let flags = [
     "name": "Afghanistan",
     "code": "AF",
     "emoji": "🇦🇫",
-    "image": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/flags/4x3/af.svg",
+    "image": "https://qu.ax/hCNpT.jpg",
     "dialCodes": [
       "+93"
     ],
@@ -14,7 +14,7 @@ let flags = [
     "name": "Albania",
     "code": "AL",
     "emoji": "🇦🇱",
-    "image": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/flags/4x3/al.svg",
+    "image": "https://qu.ax/LZNgz.jpg",
     "dialCodes": [
       "+355"
     ],

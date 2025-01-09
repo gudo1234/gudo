@@ -1,28 +1,28 @@
-let userMessageCount = {}
-let flags = [
-    { img: 'https://upload.wikimedia.org/wikipedia/commons/1/1a/Flag_of_Argentina.svg', country: 'Argentina' },
-    { img: 'https://upload.wikimedia.org/wikipedia/en/0/05/Flag_of_Brazil.svg', country: 'Brasil' },
-    { img: 'https://upload.wikimedia.org/wikipedia/commons/7/78/Flag_of_Chile.svg', country: 'Chile' },
-    // Agrega más banderas aquí
-];
+let userMessageCount = {};
+let flags = require('./flags.json'); // Asegúrate de que el archivo flags.json esté en el mismo directorio
 
 export async function before(m, { conn, args, usedPrefix, command }) {
     if (!m.message) return !0;
-    if (!userMessageCount[m.sender]) userMessageCount[m.sender] = { count: 0, currentFlag: null };
+    if (!userMessageCount[m.sender]) userMessageCount[m.sender] = 0;
 
-    userMessageCount[m.sender].count += 1;
+    userMessageCount[m.sender] += 1;
 
-    if (userMessageCount[m.sender].count % 10 === 0) {
-        // Elegir una bandera aleatoria
-        const randomFlag = flags[Math.floor(Math.random() * flags.length)];
-        userMessageCount[m.sender].currentFlag = randomFlag.country; // Guardar el país actual
+    if (userMessageCount[m.sender] % 10 === 0) {
+        // Elegir una bandera aleatoria del archivo flags.json
+        let randomFlag = flags[Math.floor(Math.random() * flags.length)];
+        let img = randomFlag.hex_image; // Asegúrate de que tu objeto tenga una propiedad 'image' con la URL de la imagen
+        let country = randomFlag.country; // Asegúrate de que tu objeto tenga una propiedad 'country' con el nombre del país
 
-        await conn.sendFile(m.chat, randomFlag.img, "Thumbnail.jpg", `¿A qué país pertenece esta bandera?`, null, null, rcanal);
-    }
+        await conn.sendFile(m.chat, img, "Thumbnail.jpg", `¿De qué país es esta bandera?`, null);
 
-    // Detectar la respuesta del usuario
-    if (m.text.toLowerCase() === userMessageCount[m.sender].currentFlag.toLowerCase()) {
-        await conn.reply(m.chat, `¡Correcto, ${m.pushName}! 🎉 La bandera es de ${userMessageCount[m.sender].currentFlag}.`, m);
-        userMessageCount[m.sender].currentFlag = null; // Resetear el país actual
+        // Esperar la respuesta del usuario
+        conn.on('message', async (response) => {
+            if (response.body.toLowerCase() === country.toLowerCase()) {
+                await conn.sendMessage(m.chat, `¡Correcto, ${m.sender.split('@')[0]}! 🎉 Es ${country}.`, null);
+                // Puedes agregar más lógica aquí si quieres
+            } else {
+                await conn.sendMessage(m.chat, `Incorrecto, ${m.sender.split('@')[0]}! 😢 Intenta de nuevo.`, m);
+            }
+        });
     }
 }

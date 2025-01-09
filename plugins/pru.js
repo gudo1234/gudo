@@ -1,5 +1,4 @@
-import moment from 'moment-timezone'
-
+//import moment from 'moment-timezone'
 let userMessageCount = {}
 
 export async function before(m, { conn, args, usedPrefix, command }) {
@@ -15,9 +14,6 @@ export async function before(m, { conn, args, usedPrefix, command }) {
 
     // Si el usuario ha enviado 5 mensajes, respondemos
     if (userMessageCount[m.sender] % 5 === 0) {
-        let user = global.db.data.users[m.sender]
-        if (new Date() - user.pc < 21600000) return // 6 horas
-        conn.reply(m.chat, `texto enviado`, null)
-        user.pc = new Date * 1
+        conn.reply(m.chat, `xd`, null)
     }
 }

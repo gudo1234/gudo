@@ -1,3 +1,4 @@
+import fetch from 'node-fetch'
 let userMessageCount = {}
 let flags = [
   {

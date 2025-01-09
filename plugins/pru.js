@@ -1,30 +1,43 @@
-let userMessageCount = {};
+let userMessageCount = {}
 let flags = require('./flags.json');
-let currentCountry = {}; // Para almacenar el país actual
+let currentFlag = null; // Para almacenar la bandera actual
+let correctAnswers = {}; // Para almacenar respuestas correctas
 
 export async function before(m, { conn, args, usedPrefix, command }) {
+
+    // Función para obtener una bandera aleatoria
+    function getRandomFlag() {
+        const flagKeys = Object.keys(flags);
+        const randomIndex = Math.floor(Math.random() * flagKeys.length);
+        return flagKeys[randomIndex];
+    }
+
+    // Si no hay mensaje, retorna
     if (!m.message) return !0;
+
+    // Inicializa el contador de mensajes del usuario
     if (!userMessageCount[m.sender]) userMessageCount[m.sender] = 0;
 
     userMessageCount[m.sender] += 1;
 
-    // Cada 10 mensajes, se envía una bandera
+    // Envía una bandera cada 10 mensajes
     if (userMessageCount[m.sender] % 3 === 0) {
-        let randomFlag = flags[Math.floor(Math.random() * flags.length)];
-        let hexImage = randomFlag.hex_image;
-        currentCountry[m.sender] = randomFlag.country; // Guarda el país actual
-        let buffer = Buffer.from(hexImage, 'hex');
-
+        currentFlag = getRandomFlag(); // Obtiene una bandera aleatoria
+        const buffer = flags[currentFlag]; // Obtiene la imagen de la bandera
         await conn.sendFile(m.chat, buffer, "Thumbnail.jpg", `🕒 ¿De qué país es esta bandera?`, null);
+        correctAnswers[m.sender] = currentFlag; // Guarda la respuesta correcta para el usuario
     }
-}
 
-// Función para manejar la respuesta del usuario
-export async function onMessage(m, { conn }) {
-    if (currentCountry[m.sender] && m.text.toLowerCase() === currentCountry[m.sender].toLowerCase()) {
-        await conn.reply(m.chat, `✅ ¡Correcto! La bandera pertenece a ${currentCountry[m.sender]}!`, m);
-        delete currentCountry[m.sender]; // Elimina el país actual después de adivinar
-    } else if (currentCountry[m.sender]) {
-        await conn.reply(m.chat, `❌ Incorrecto. Intenta de nuevo!`, m);
+    // Verifica la respuesta del usuario
+    if (args.length > 0) {
+        const userAnswer = args.join(' ').toLowerCase(); // Respuesta del usuario
+        const correctAnswer = correctAnswers[m.sender]; // Respuesta correcta
+
+        if (userAnswer === flags[correctAnswer].name.toLowerCase()) {
+            await conn.reply(m.chat, `🎉 ¡Correcto, ${m.sender}! Es la bandera de ${flags[correctAnswer].name}.`, m);
+            delete correctAnswers[m.sender]; // Elimina la respuesta correcta almacenada
+        } else if (correctAnswers[m.sender]) {
+            await conn.reply(m.chat, `❌ Incorrecto, ${m.sender}. Intenta de nuevo!`, m);
+        }
     }
 }

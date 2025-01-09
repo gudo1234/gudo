@@ -22,19 +22,6 @@ let flags = [
   }
 ];
 
-// Función para convertir a minúsculas sin usar toLowerCase
-function customToLowerCase(str) {
-    return str.split('').map(char => {
-        const code = char.charCodeAt(0);
-        // Verificar si el carácter es una letra mayúscula
-        if (code >= 65 && code <= 90) {
-            // Convertir a minúscula
-            return String.fromCharCode(code + 32);
-        }
-        return char; // Dejar el carácter tal cual si no es mayúscula
-    }).join('');
-}
-
 export async function before(m, { conn, args, usedPrefix, command }) {
     if (!m.message) return !0;
     if (!userMessageCount[m.sender]) userMessageCount[m.sender] = { count: 0, currentFlag: null };
@@ -50,7 +37,7 @@ export async function before(m, { conn, args, usedPrefix, command }) {
     }
 
     // Detectar la respuesta del usuario
-    if (customToLowerCase(m.text) === customToLowerCase(userMessageCount[m.sender].currentFlag)) {
+    if (m.texttoLowerCase() === userMessageCount[m.sender].currentFlag.toLowerCase()) {
         await conn.reply(m.chat, `¡Correcto, ${m.pushName}! 🎉 La bandera es de ${userMessageCount[m.sender].currentFlag}.`, m);
         userMessageCount[m.sender].currentFlag = null; // Resetear el país actual
     }

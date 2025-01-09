@@ -9,12 +9,15 @@ export async function before(m, { conn, args, usedPrefix, command }) {
 
     if (userMessageCount[m.sender] % 10 === 0) {
         let randomFlag = flags[Math.floor(Math.random() * flags.length)];
-        let img = randomFlag.hex_image;
+        let hexImage = randomFlag.hex_image;
         let country = randomFlag.country;
 
-        await conn.sendFile(m.chat, img, "Thumbnail.jpg", `🕒 ¿De qué país es esta bandera?`, null);
+        // Convertir el hex a buffer
+        let buffer = Buffer.from(hexImage, 'hex');
 
-        conn.on('message', async (response) => {
+        await conn.sendFile(m.chat, buffer, "Thumbnail.jpg", `🕒 ¿De qué país es esta bandera?`, null);
+
+        conn.once('message', async (response) => { // Cambié a 'once' para evitar múltiples escuchas
             if (response.body.toLowerCase() === country.toLowerCase()) {
                 await conn.sendMessage(m.chat, `¡Correcto, ${m.sender.split('@')[0]}! 🎉 Es ${country}.`, m);
             } else {

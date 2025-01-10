@@ -1,6 +1,4 @@
-import similarity from 'similarity';
-
-let userMessageCount = {};
+let userMessageCount = {}
 let flags = [
   {
     "name": "Afghanistan",
@@ -25,7 +23,7 @@ let flags = [
 ];
 
 export async function before(m, { conn, args, usedPrefix, command }) {
-    if (!m.message) return true; // Cambié !0 a true
+    if (!m.message) return !0;
     if (!userMessageCount[m.sender]) userMessageCount[m.sender] = { count: 0, currentFlag: null };
 
     userMessageCount[m.sender].count += 1;
@@ -35,25 +33,13 @@ export async function before(m, { conn, args, usedPrefix, command }) {
         const randomFlag = flags[Math.floor(Math.random() * flags.length)];
         userMessageCount[m.sender].currentFlag = randomFlag.name; // Guardar el país actual
         userMessageCount[m.sender].currentFlag2 = randomFlag.emoji;
-        await conn.sendFile(m.chat, randomFlag.image, "Thumbnail.jpg", `🌎 ¿A qué país pertenece esta bandera? ${userMessageCount[m.sender].currentFlag2}.`, null);
+let txt = `🌎 ¿A qué país pertenece esta bandera? ${userMessageCount[m.sender].currentFlag2}.`
+        await conn.sendFile(m.chat, randomFlag.image, "Thumbnail.jpg", txt, null);
     }
 
     // Detectar la respuesta del usuario
-    const id = m.chat;
-    if (!m.quoted || !m.quoted.fromMe || !m.quoted.isBaileys || !/^ⷮ/i.test(m.quoted.text)) return true; // Cambié !0 a true
-    this.tekateki = this.tekateki ? this.tekateki : {};
-    if (!(id in this.tekateki)) return m.reply('Esa pregunta ya ha terminado!');
-    if (m.quoted.id == this.tekateki[id][0].id) {
-        const json = JSON.parse(JSON.stringify(this.tekateki[id][1]));
-        if (m.text.toLowerCase() == json.response.toLowerCase().trim()) {
-            global.db.data.users[m.sender].exp += this.tekateki[id][2];
-            m.reply(`*Respuesta correcta!* ${m.pushName} 🎉`); // Cambié puchName a pushName
-            clearTimeout(this.tekateki[id][3]);
-            delete this.tekateki[id];
-        } else if (similarity(m.text.toLowerCase(), json.response.toLowerCase().trim()) >= threshold) {
-            m.reply(`Casi lo logras!`);
-        } else {
-            m.reply('Respuesta incorrecta!');
-        }
+    if (m.text.toLowerCase().includes('@' + conn.user.jid.split('@')[0]) && m.text.toLowerCase() === userMessageCount[m.sender].currentFlag.toLowerCase()) {
+        await conn.reply(m.chat, `¡Correcto, ${m.pushName}! 🎉 La bandera es de ${userMessageCount[m.sender].currentFlag}.`, m);
+        userMessageCount[m.sender].currentFlag = null; // Resetear el país actual
     }
 }

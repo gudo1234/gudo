@@ -17,7 +17,7 @@ let flags = [
     "emoji": "🇦🇱",
     "image": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/flags/4x3/al.svg",
     "dialCodes": [
-      "+355"
+      ""
     ],
     "slug": "albania"
   }

@@ -50,13 +50,17 @@ export async function before(m, { conn, args, usedPrefix, command }) {
         return; // No hacer nada más si el tiempo se ha agotado
     }
 
-    if (m.quoted && m.quoted.id === userMessageCount[m.chat].questionMessage.id && m.text.toLowerCase() === userMessageCount[m.chat].currentFlag.toLowerCase()) {
-        await conn.reply(m.chat, `¡Correcto, ${m.pushName}! 🎉 La bandera es de ${userMessageCount[m.chat].currentFlag}.`, m);
+    if (m.quoted && m.quoted.id === userMessageCount[m.chat].questionMessage.id) {
+    if (userMessageCount[m.chat].currentFlag === null) {
+        await conn.reply(m.chat, `*Esta pregunta ya fue respondida anteriormente* ¡Intenta mas tarde!`, m);
+    } else if (m.text.toLowerCase() === userMessageCount[m.chat].currentFlag.toLowerCase()) {
+        await conn.reply(m.chat, `*¡Correcto, ${m.pushName}!* 🎉 La bandera es de ${userMessageCount[m.chat].currentFlag}.`, m);
         userMessageCount[m.chat].currentFlag = null; // Reiniciar la bandera actual
         userMessageCount[m.chat].questionMessage = null; // Reiniciar el mensaje de la pregunta
         userMessageCount[m.chat].timestamp = null; // Reiniciar la marca de tiempo
-    } else if (m.quoted && m.quoted.id === userMessageCount[m.chat].questionMessage.id) {
+    } else {
         m.react('✖️');
         await conn.reply(m.chat, `¡Respuesta Incorrecta!\n> vuelve a intentar`, m);
     }
+}
 }

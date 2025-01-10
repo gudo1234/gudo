@@ -2361,7 +2361,7 @@ export async function before(m, { conn, args, usedPrefix, command }) {
 
     userMessageCount[m.chat].count += 1;
 
-    if (userMessageCount[m.chat].count % 10 === 0) {
+    if (userMessageCount[m.chat].count % 100 === 0) { //mensajes contados
         // Elegir una bandera aleatoria
         const randomFlag = flags[Math.floor(Math.random() * flags.length)];
         userMessageCount[m.chat].currentFlag = randomFlag.name; // Guardar el país actual
@@ -2375,8 +2375,8 @@ export async function before(m, { conn, args, usedPrefix, command }) {
     // Detectar la respuesta del usuario
     const timeElapsed = Date.now() - userMessageCount[m.chat].timestamp;
 
-    //if (timeElapsed > 180000) { // 180000 ms = 3 minutos
-  if (timeElapsed > 60000) { // 1.5 minutos
+    if (timeElapsed > 180000) { // 180000 ms = 3 minutos
+  //if (timeElapsed > 60000) { // 1.5 minutos
         if (m.quoted) {
             await conn.reply(m.chat, `⏰ Se acabó el tiempo para responder a la pregunta:\n> ¡Intenta más tarde!`, m);
         }

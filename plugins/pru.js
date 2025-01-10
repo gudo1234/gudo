@@ -38,10 +38,23 @@ let txt = `🎉 ¿A qué país pertenece esta bandera? ${userMessageCount[m.chat
     }
 
     // Detectar la respuesta del usuario
-if (m.text.toLowerCase() === userMessageCount[m.chat].currentFlag.toLowerCase() && m.quoted) {
-    await conn.reply(m.chat, `¡Correcto, ${m.pushName}! 🎉 La bandera es de ${userMessageCount[m.chat].currentFlag}.`, m);
-} else if (m.quoted) {
-    m.react('✖️');
-    await conn.reply(m.chat, `¡Respuesta Incorrecta!\n> vuelve a intentar`, m);
+// Suponiendo que tienes un objeto para guardar las respuestas anteriores
+const answeredQuestions = {};
+
+if (m.quoted) {
+    const quotedMessageId = m.quoted.id; // ID del mensaje citado
+    const quotedMessageText = m.quoted.text; // Texto del mensaje citado
+
+    // Verificamos si la pregunta ya ha sido respondida
+    if (answeredQuestions[quotedMessageId]) {
+        await conn.reply(m.chat, `Esta pregunta ya ha sido respondida anteriormente. La respuesta fue: ${answeredQuestions[quotedMessageId]}`, m);
+    } else if (m.text.toLowerCase() === userMessageCount[m.chat].currentFlag.toLowerCase()) {
+        // Guardamos la respuesta en el registro
+        answeredQuestions[quotedMessageId] = m.text; // Guardamos la respuesta
+        await conn.reply(m.chat, `¡Correcto, ${m.pushName}! 🎉 La bandera es de ${userMessageCount[m.chat].currentFlag}.`, m);
+    } else {
+        m.react('✖️');
+        await conn.reply(m.chat, `¡Respuesta Incorrecta!\n> vuelve a intentar`, m);
+    }
 }
 }

@@ -1,3 +1,4 @@
+import moment from 'moment-timezone';
 let userMessageCount = {}
 let flags = [
   {
@@ -38,23 +39,19 @@ let txt = `🎉 ¿A qué país pertenece esta bandera? ${userMessageCount[m.chat
     }
 
     // Detectar la respuesta del usuario
-// Suponiendo que tienes un objeto para guardar las respuestas anteriores
-const answeredQuestions = {};
+// Inicializamos el tiempo de respuesta
+user.pc = new Date() * 1;
 
-if (m.quoted) {
-    const quotedMessageId = m.quoted.id; // ID del mensaje citado
-    const quotedMessageText = m.quoted.text; // Texto del mensaje citado
-
-    // Verificamos si la pregunta ya ha sido respondida
-    if (answeredQuestions[quotedMessageId]) {
-        await conn.reply(m.chat, `Esta pregunta ya ha sido respondida anteriormente. La respuesta fue: ${answeredQuestions[quotedMessageId]}`, m);
-    } else if (m.text.toLowerCase() === userMessageCount[m.chat].currentFlag.toLowerCase()) {
-        // Guardamos la respuesta en el registro
-        answeredQuestions[quotedMessageId] = m.text; // Guardamos la respuesta
+// En el bloque de código donde se verifica la respuesta
+if (new Date() - user.pc < 3 * 60 * 1000) { // 3 minutos en milisegundos
+    if (m.text.toLowerCase() === userMessageCount[m.chat].currentFlag.toLowerCase() && m.quoted) {
         await conn.reply(m.chat, `¡Correcto, ${m.pushName}! 🎉 La bandera es de ${userMessageCount[m.chat].currentFlag}.`, m);
-    } else {
+    } else if (m.quoted) {
         m.react('✖️');
         await conn.reply(m.chat, `¡Respuesta Incorrecta!\n> vuelve a intentar`, m);
     }
+} else if (m.quoted) {
+  m.react('🐢');
+    await conn.reply(m.chat, `¡Tiempo agotado! ⏳ No puedes responder más.`, m);
 }
 }

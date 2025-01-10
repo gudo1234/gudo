@@ -35,7 +35,7 @@ export async function before(m, { conn, args, usedPrefix, command }) {
         userMessageCount[m.chat].currentFlag = randomFlag.name; // Guardar el país actual
         userMessageCount[m.chat].currentFlag2 = randomFlag.emoji;
 
-        let txt = `💣 *¿A qué país pertenece esta bandera? ${userMessageCount[m.chat].currentFlag2}*\n_🤖Responde a este mensaje con la respuesta correcta_.\n> *Tiempo:* 3 minutos`;
+        let txt = `💣 *¿A qué país pertenece esta bandera? ${userMessageCount[m.chat].currentFlag2}*\n_🤖Responda a este mensaje con la respuesta correcta_.\n> *Tiempo:* 3 minutos`;
         userMessageCount[m.chat].questionMessage = await conn.sendFile(m.chat, randomFlag.image, "Thumbnail.jpg", txt, null, null, rcanal);
         userMessageCount[m.chat].timestamp = Date.now(); // Guardar el tiempo de la pregunta
     }
@@ -45,7 +45,7 @@ export async function before(m, { conn, args, usedPrefix, command }) {
 
     if (timeElapsed > 180000) { // 180000 ms = 3 minutos
         if (m.quoted && m.quoted.id === userMessageCount[m.chat].questionMessage.id) {
-            await conn.reply(m.chat, `⏰ Se acabó el tiempo para responder a la pregunta.`, m);
+            await conn.reply(m.chat, `⏰ *Se acabó el tiempo para responder a la pregunta.*`, m);
         }
         return; // No hacer nada más si el tiempo se ha agotado
     }

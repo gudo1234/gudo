@@ -59,6 +59,7 @@ export async function before(m, { conn, args, usedPrefix, command }) {
         try {
             await conn.deleteMessage(m.chat, { id: userMessageCount[m.chat].questionMessage.id, remoteJid: m.chat, fromMe: true });
         } catch (error) {
+          m.reply(`${error}`)
             console.error("Error al eliminar el mensaje:", error);
         }
         

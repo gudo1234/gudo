@@ -40,7 +40,6 @@ let txt = `🎉 ¿A qué país pertenece esta bandera? ${userMessageCount[m.chat
 
     // Detectar la respuesta del usuario
 // Inicializamos el tiempo de respuesta
-user.pc = new Date() * 1;
 
 // En el bloque de código donde se verifica la respuesta
 if (new Date() - user.pc < 3 * 60 * 1000) { // 3 minutos en milisegundos
@@ -53,5 +52,6 @@ if (new Date() - user.pc < 3 * 60 * 1000) { // 3 minutos en milisegundos
 } else if (m.quoted) {
   m.react('🐢');
     await conn.reply(m.chat, `¡Tiempo agotado! ⏳ No puedes responder más.`, m);
+user.pc = new Date() * 1;
 }
 }

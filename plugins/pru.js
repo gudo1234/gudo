@@ -68,6 +68,6 @@ export async function before(m, { conn, args, usedPrefix, command }) {
         userMessageCount[m.chat].timestamp = null; // Reiniciar la marca de tiempo
     } else if (m.quoted && m.quoted.id === userMessageCount[m.chat].questionMessage.id) {
         m.react('✖️');
-        await conn.reply(m.chat, `¡Respuesta Incorrecta!\n> vuelve a intentar\n🧩 _*Pista:* Su código de área es *${userMessageCount[m.chat].currentFlag3}*_`, m);
+        await conn.reply(m.chat, `*¡Respuesta Incorrecta!*\n> vuelve a intentar\n🧩 _*Pista:* Su código de área es *${userMessageCount[m.chat].currentFlag3}*_`, m);
     }
 }

@@ -1,13 +1,13 @@
-let userMessageCount = {}
+import similarity from 'similarity';
+
+let userMessageCount = {};
 let flags = [
   {
     "name": "Afghanistan",
     "code": "AF",
     "emoji": "🇦🇫",
     "image": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/flags/4x3/af.svg",
-    "dialCodes": [
-      "+93"
-    ],
+    "dialCodes": [" +93"],
     "slug": "afghanistan"
   },
   {
@@ -15,34 +15,53 @@ let flags = [
     "code": "AL",
     "emoji": "🇦🇱",
     "image": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/flags/4x3/al.svg",
-    "dialCodes": [
-      "+355"
-    ],
+    "dialCodes": [" +355"],
     "slug": "albania"
   }
 ];
 
-export async function before(m, { conn, args, usedPrefix, command }) {
-    if (!m.message) return !0;
-    
-    // Inicializamos el contador de mensajes si no existe
-    if (!userMessageCount[m.sender]) userMessageCount[m.sender] = { count: 0, currentFlag: null };
-    
-    userMessageCount[m.sender].count += 1;
-    
-    // Cada 10 mensajes, se envía una pregunta sobre la bandera
-    if (userMessageCount[m.sender].count % 10 === 0) {
-        const randomFlag = flags[Math.floor(Math.random() * flags.length)];
-        userMessageCount[m.sender].currentFlag = randomFlag.name;
-        userMessageCount[m.sender].currentFlag2 = randomFlag.emoji;
+const threshold = 0.72;
 
-        let txt = `🖐️ ¿A qué país pertenece esta bandera? ${userMessageCount[m.sender].currentFlag2}.`;
-        await conn.sendFile(m.chat, randomFlag.image, "Thumbnail.jpg", txt, null);   
+let handler = m => m;
+
+handler.before = async function (m) {
+  if (!m.message) return true;
+
+  // Inicializamos el contador de mensajes si no existe
+  if (!userMessageCount[m.sender]) userMessageCount[m.sender] = { count: 0, currentFlag: null };
+
+  userMessageCount[m.sender].count += 1;
+
+  // Cada 10 mensajes, se envía una pregunta sobre la bandera
+  if (userMessageCount[m.sender].count % 10 === 0) {
+    // Escoger una bandera aleatoriamente
+    const randomFlag = flags[Math.floor(Math.random() * flags.length)];
+    userMessageCount[m.sender].currentFlag = randomFlag;
+
+    //-----------[adivina la bandera]-------
+    const txt = `🌎 ¿A qué país pertenece esta bandera? ${randomFlag.emoji}`;
+    await conn.sendFile(m.chat, randomFlag.image, "Thumbnail.jpg", txt, null);
+
+    this.tekateki = this.tekateki ? this.tekateki : {};
+    const id = m.chat;
+
+    if (!(id in this.tekateki)) {
+      this.tekateki[id] = [m, randomFlag]; // Guardamos el mensaje y la bandera
+      setTimeout(() => delete this.tekateki[id], 30000); // Eliminar después de 30 segundos si no hay respuesta
     }
-    
-    // Comprobamos si la respuesta es correcta solo si hay una pregunta activa
-    if (userMessageCount[m.sender].currentFlag && m.text.toLowerCase() === userMessageCount[m.sender].currentFlag.toLowerCase()) {
-        await conn.reply(m.chat, `¡Correcto, ${m.pushName}! 🎉 La bandera es de ${userMessageCount[m.sender].currentFlag}.`, m);
-        userMessageCount[m.sender].currentFlag = null; // Reiniciamos la bandera actual
+  }
+
+  // Verificar respuesta
+  if (this.tekateki && m.quoted && m.quoted.id == this.tekateki[m.chat][0].id) {
+    const json = this.tekateki[m.chat][1];
+    if (m.text.toLowerCase() == json.name.toLowerCase().trim()) {
+      global.db.data.users[m.sender].exp += 10; // Suponiendo que se le da 10 de experiencia
+      m.reply(`¡Respuesta correcta! 🎉 la respuesta es ${json.name}.`);
+      delete this.tekateki[m.chat]; // Eliminar la pregunta
+    } else if (similarity(m.text.toLowerCase(), json.name.toLowerCase().trim()) >= threshold) {
+      m.reply(`Casi lo logras!`);
+    } else {
+      m.reply('Respuesta incorrecta!');
     }
-}
+  }
+};

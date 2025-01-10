@@ -38,7 +38,13 @@ let txt = `🎉 ¿A qué país pertenece esta bandera? ${userMessageCount[m.send
     }
 
     // Detectar la respuesta del usuario
+/*if (m.text.toLowerCase() === userMessageCount[m.sender].currentFlag.toLowerCase() && m.quoted) {
+    await conn.reply(m.chat, `¡Correcto, ${m.pushName}! 🎉 La bandera es de ${userMessageCount[m.sender].currentFlag}.`, m);
+}*/
 if (m.text.toLowerCase() === userMessageCount[m.sender].currentFlag.toLowerCase() && m.quoted) {
     await conn.reply(m.chat, `¡Correcto, ${m.pushName}! 🎉 La bandera es de ${userMessageCount[m.sender].currentFlag}.`, m);
+} else if (m.quoted) {
+m.react('✖️')
+    await conn.reply(m.chat, `¡Respuesta Incorrecta!\n> vuelve a intentar`, m.quoted);
 }
 }

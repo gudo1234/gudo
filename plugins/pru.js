@@ -52,7 +52,7 @@ export async function before(m, { conn, args, usedPrefix, command }) {
 
     if (m.quoted && m.quoted.id === userMessageCount[m.chat].questionMessage.id && m.text.toLowerCase() === userMessageCount[m.chat].currentFlag.toLowerCase()) {
       m.react('🎉')
-      await conn.reply(m.chat, `*¡Correcto*, ${m.pushName}!* 🎉 La bandera es de *${userMessageCount[m.chat].currentFlag}*.`, m);
+      await conn.reply(m.chat, `*¡Correcto, ${m.pushName}!* 🎉 La bandera es de *${userMessageCount[m.chat].currentFlag}*.`, m);
         userMessageCount[m.chat].currentFlag = null; // Reiniciar la bandera actual
         userMessageCount[m.chat].questionMessage = null; // Reiniciar el mensaje de la pregunta
         userMessageCount[m.chat].timestamp = null; // Reiniciar la marca de tiempo

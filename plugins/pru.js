@@ -1,3 +1,4 @@
+import moment from 'moment-timezone'
 let userMessageCount = {}
 let flags = [
   {
@@ -33,25 +34,15 @@ export async function before(m, { conn, args, usedPrefix, command }) {
         const randomFlag = flags[Math.floor(Math.random() * flags.length)];
         userMessageCount[m.chat].currentFlag = randomFlag.name; // Guardar el país actual
         userMessageCount[m.chat].currentFlag2 = randomFlag.emoji;
-let txt = `🎉 ¿A qué país pertenece esta bandera? ${userMessageCount[m.chat].currentFlag2}.`
+let txt = `💣 ¿A qué país pertenece esta bandera? ${userMessageCount[m.chat].currentFlag2}.`
         await conn.sendFile(m.chat, randomFlag.image, "Thumbnail.jpg", txt, null);
     }
 
     // Detectar la respuesta del usuario
-import moment from 'moment-timezone';
-// Inicializamos el tiempo de respuesta
-
-// En el bloque de código donde se verifica la respuesta
-if (new Date() - user.pc < 3 * 60 * 1000) { // 3 minutos en milisegundos
-user.pc = new Date() * 1;
 if (m.text.toLowerCase() === userMessageCount[m.chat].currentFlag.toLowerCase() && m.quoted) {
-        await conn.reply(m.chat, `¡Correcto, ${m.pushName}! 🎉 La bandera es de ${userMessageCount[m.chat].currentFlag}.`, m);
-    } else if (m.quoted) {
-        m.react('✖️');
-        await conn.reply(m.chat, `¡Respuesta Incorrecta!\n> vuelve a intentar`, m);
-    }
+    await conn.reply(m.chat, `¡Correcto, ${m.pushName}! 🎉 La bandera es de ${userMessageCount[m.chat].currentFlag}.`, m);
 } else if (m.quoted) {
-  m.react('🐢');
-    await conn.reply(m.chat, `¡Tiempo agotado! ⏳ No puedes responder más.`, m);
+    m.react('✖️');
+    await conn.reply(m.chat, `¡Respuesta Incorrecta!\n> vuelve a intentar`, m);
 }
 }

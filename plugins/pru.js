@@ -33,8 +33,9 @@ export async function before(m, { conn, args, usedPrefix, command }) {
         // Elegir una bandera aleatoria
         const randomFlag = flags[Math.floor(Math.random() * flags.length)];
         userMessageCount[m.chat].currentFlag = randomFlag.name; // Guardar el país actual
-        userMessageCount[m.chat].currentFlag2 = randomFlag.emoji;
-
+        userMessageCount[m.chat].currentFlag2 = randomFlag.emoji; // para emoji
+        userMessageCount[m.chat].currentFlag3 = randomFlag.dialCodes || "DESCONOCIDO"; // para dialCodes, mostrando "DESCONOCIDO" si no hay
+      
         let txt = `💣 *¿A qué país pertenece la bandera que se muestra? ${userMessageCount[m.chat].currentFlag2}*\n_🤖 Por favor, responda a este mensaje con la respuesta correcta en un plazo de *3 minutos*._`;
         userMessageCount[m.chat].questionMessage = await conn.sendFile(m.chat, randomFlag.image, "Thumbnail.jpg", txt, null, null, rcanal);
         userMessageCount[m.chat].timestamp = Date.now(); // Guardar el tiempo de la pregunta
@@ -52,7 +53,7 @@ export async function before(m, { conn, args, usedPrefix, command }) {
 
     if (m.quoted && m.quoted.id === userMessageCount[m.chat].questionMessage.id && m.text.toLowerCase() === userMessageCount[m.chat].currentFlag.toLowerCase()) {
       m.react('🎉')
-      await conn.reply(m.chat, `*¡Correcto, ${m.pushName}!* 🎉 La bandera es de *${userMessageCount[m.chat].currentFlag}*.`, m);
+      await conn.reply(m.chat, `*¡Correcto, ${m.pushName}!* 🎉 La bandera es de *${userMessageCount[m.chat].currentFlag}* y su código es: *${userMessageCount[m.chat].currentFlag3}*.`, m);
         userMessageCount[m.chat].currentFlag = null; // Reiniciar la bandera actual
         userMessageCount[m.chat].questionMessage = null; // Reiniciar el mensaje de la pregunta
         userMessageCount[m.chat].timestamp = null; // Reiniciar la marca de tiempo

@@ -38,8 +38,7 @@ let txt = `🌎 ¿A qué país pertenece esta bandera? ${userMessageCount[m.send
     }
 
     // Detectar la respuesta del usuario
-    if (m.text.toLowerCase().includes('@' + conn.user.jid.split('@')[0]) && m.text.toLowerCase() === userMessageCount[m.sender].currentFlag.toLowerCase()) {
-        await conn.reply(m.chat, `¡Correcto, ${m.pushName}! 🎉 La bandera es de ${userMessageCount[m.sender].currentFlag}.`, m);
-        userMessageCount[m.sender].currentFlag = null; // Resetear el país actual
-    }
+if (m.text.toLowerCase() === userMessageCount[m.sender].currentFlag.toLowerCase() && m.hasQuotedMsg) {
+    await conn.reply(m.chat, `¡Correcto, ${m.pushName}! 🎉 La bandera es de ${userMessageCount[m.sender].currentFlag}.`, m);
+}
 }

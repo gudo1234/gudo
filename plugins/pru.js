@@ -1,4 +1,4 @@
-import moment from 'moment-timezone';
+/*import moment from 'moment-timezone';
 let userMessageCount = {};
 let flags = [
   {
@@ -70,4 +70,4 @@ export async function before(m, { conn, args, usedPrefix, command }) {
         m.react('✖️');
         await conn.reply(m.chat, `*¡Respuesta Incorrecta!*\n> vuelve a intentar\n🧩 _*Pista:* Su código de área es *${userMessageCount[m.chat].currentFlag3}*_`, m);
     }
-}
+}*/

@@ -24,16 +24,16 @@ let flags = [
 
 export async function before(m, { conn, args, usedPrefix, command }) {
     if (!m.message) return !0;
-    if (!userMessageCount[m.chat]) userMessageCount[m.sender] = { count: 0, currentFlag: null };
+    if (!userMessageCount[m.chat]) userMessageCount[m.chat] = { count: 0, currentFlag: null };
 
     userMessageCount[m.chat].count += 1;
 
-    if (userMessageCount[m.sender].count % 10 === 0) {
+    if (userMessageCount[m.chat].count % 10 === 0) {
         // Elegir una bandera aleatoria
         const randomFlag = flags[Math.floor(Math.random() * flags.length)];
-        userMessageCount[m.sender].currentFlag = randomFlag.name; // Guardar el país actual
-        userMessageCount[m.sender].currentFlag2 = randomFlag.emoji;
-let txt = `🎉 ¿A qué país pertenece esta bandera? ${userMessageCount[m.sender].currentFlag2}.`
+        userMessageCount[m.chat].currentFlag = randomFlag.name; // Guardar el país actual
+        userMessageCount[m.chat].currentFlag2 = randomFlag.emoji;
+let txt = `🎉 ¿A qué país pertenece esta bandera? ${userMessageCount[m.chat].currentFlag2}.`
         await conn.sendFile(m.chat, randomFlag.image, "Thumbnail.jpg", txt, null);
     }
 

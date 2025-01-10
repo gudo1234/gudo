@@ -57,7 +57,6 @@ export async function before(m, { conn, args, usedPrefix, command }) {
         
         // Eliminar la pregunta para todos
         try {
-            //await conn.deleteMessage(m.chat, { id: userMessageCount[m.chat].questionMessage.id, remoteJid: m.chat, fromMe: true });
         await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, id: userMessageCount[m.chat].questionMessage.id, fromMe: true } });
         } catch (error) {
           m.reply(`${error}`)
@@ -69,6 +68,6 @@ export async function before(m, { conn, args, usedPrefix, command }) {
         userMessageCount[m.chat].timestamp = null; // Reiniciar la marca de tiempo
     } else if (m.quoted && m.quoted.id === userMessageCount[m.chat].questionMessage.id) {
         m.react('✖️');
-        await conn.reply(m.chat, `¡Respuesta Incorrecta!\n> vuelve a intentar`, m);
+        await conn.reply(m.chat, `¡Respuesta Incorrecta!\n> vuelve a intentar\n🧩 _*Pista:* Su código de área es *${userMessageCount[m.chat].currentFlag3}*_`, m);
     }
 }

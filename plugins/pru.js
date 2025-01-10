@@ -1,4 +1,3 @@
-import moment from 'moment-timezone';
 let userMessageCount = {}
 let flags = [
   {
@@ -39,11 +38,13 @@ let txt = `🎉 ¿A qué país pertenece esta bandera? ${userMessageCount[m.chat
     }
 
     // Detectar la respuesta del usuario
+import moment from 'moment-timezone';
 // Inicializamos el tiempo de respuesta
 
 // En el bloque de código donde se verifica la respuesta
 if (new Date() - user.pc < 3 * 60 * 1000) { // 3 minutos en milisegundos
-    if (m.text.toLowerCase() === userMessageCount[m.chat].currentFlag.toLowerCase() && m.quoted) {
+user.pc = new Date() * 1;
+if (m.text.toLowerCase() === userMessageCount[m.chat].currentFlag.toLowerCase() && m.quoted) {
         await conn.reply(m.chat, `¡Correcto, ${m.pushName}! 🎉 La bandera es de ${userMessageCount[m.chat].currentFlag}.`, m);
     } else if (m.quoted) {
         m.react('✖️');
@@ -52,6 +53,5 @@ if (new Date() - user.pc < 3 * 60 * 1000) { // 3 minutos en milisegundos
 } else if (m.quoted) {
   m.react('🐢');
     await conn.reply(m.chat, `¡Tiempo agotado! ⏳ No puedes responder más.`, m);
-user.pc = new Date() * 1;
 }
 }

@@ -57,7 +57,8 @@ export async function before(m, { conn, args, usedPrefix, command }) {
         
         // Eliminar la pregunta para todos
         try {
-            await conn.deleteMessage(m.chat, { id: userMessageCount[m.chat].questionMessage.id, remoteJid: m.chat, fromMe: true });
+            //await conn.deleteMessage(m.chat, { id: userMessageCount[m.chat].questionMessage.id, remoteJid: m.chat, fromMe: true });
+        await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, id: userMessageCount[m.chat].questionMessage.id } });
         } catch (error) {
           m.reply(`${error}`)
             console.error("Error al eliminar el mensaje:", error);

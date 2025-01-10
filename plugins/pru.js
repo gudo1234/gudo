@@ -45,7 +45,7 @@ export async function before(m, { conn, args, usedPrefix, command }) {
 
     if (timeElapsed > 180000) { // 180000 ms = 3 minutos
         if (m.quoted && m.quoted.id === userMessageCount[m.chat].questionMessage.id) {
-            await conn.reply(m.chat, `⏰ Se acabó el tiempo para responder a la pregunta:\n> ${userMessageCount[m.chat].questionMessage}\n¡Intenta de nuevo!`, m);
+            await conn.reply(m.chat, `⏰ Se acabó el tiempo para responder a la pregunta.`, m);
         }
         return; // No hacer nada más si el tiempo se ha agotado
     }

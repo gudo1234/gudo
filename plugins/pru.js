@@ -17,7 +17,7 @@ let flags = [
     "emoji": "🇦🇱",
     "image": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/flags/4x3/al.svg",
     "dialCodes": [
-      "+355"
+      ""
     ],
     "slug": "albania"
   }
@@ -54,9 +54,13 @@ export async function before(m, { conn, args, usedPrefix, command }) {
     if (m.quoted && m.quoted.id === userMessageCount[m.chat].questionMessage.id && m.text.toLowerCase() === userMessageCount[m.chat].currentFlag.toLowerCase()) {
       m.react('🎉')
       await conn.reply(m.chat, `*¡Correcto, ${m.pushName}!* 🎉 La bandera es de *${userMessageCount[m.chat].currentFlag}* y su código es: *${userMessageCount[m.chat].currentFlag3}*.`, m);
-        userMessageCount[m.chat].currentFlag = null; // Reiniciar la bandera actual
-        userMessageCount[m.chat].questionMessage = null; // Reiniciar el mensaje de la pregunta
-        userMessageCount[m.chat].timestamp = null; // Reiniciar la marca de tiempo
+      
+      // Eliminar el mensaje de la pregunta
+      await conn.deleteMessage(m.chat, userMessageCount[m.chat].questionMessage.id);
+
+      userMessageCount[m.chat].currentFlag = null; // Reiniciar la bandera actual
+      userMessageCount[m.chat].questionMessage = null; // Reiniciar el mensaje de la pregunta
+      userMessageCount[m.chat].timestamp = null; // Reiniciar la marca de tiempo
     } else if (m.quoted && m.quoted.id === userMessageCount[m.chat].questionMessage.id) {
         m.react('✖️');
         await conn.reply(m.chat, `¡Respuesta Incorrecta!\n> vuelve a intentar`, m);

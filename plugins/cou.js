@@ -1,13 +1,13 @@
-let handler = async (m, { conn, text, args, participants, usedPrefix, command }) => {
+let handler = async (m, { conn, text, core, participants, usedPrefix, command }) => {
       try {
         await m.react('🕐')
         /*if (!text) {
           return conn.reply(m.chat, `🤨 *Ejemplo:* titulo|opcion 1|opcion 2`, m);
-        }
+        }*/
         let [name, ...value] = core.text.split`|`
             value = (value).join`|`,
             u = value.split`|`
-        if (!value) {
+        /*if (!value) {
           return conn.reply(m.chat, `Debe agregar más opciones, por *ejemplo:* ${usedPrefix + command} ¿Soy un buen bot?|sí|no|quizás`, m);
         }
         if (u.length < 2) {
@@ -22,13 +22,13 @@ let handler = async (m, { conn, text, args, participants, usedPrefix, command })
           return conm.reply(m.chat, `Parece que algunas opciones están duplicadas.`, m);
         }*/
 let a = []
-let b = text.split('|')
+//let b = text.split('|')
 
 if (!b[0]) return conn.reply(m.chat, `🚩 *Crea una encuesta.*\n*ejemplo:* ${usedPrefix + command} Motivo de Encuesta|texto1|texto2|texto3....`, m) 
 if (!b[1]) return conn.reply(m.chat, `🚩 _Use de la siguiente forma utilizando_ *" | "* \n*Ejemplo:* ${usedPrefix + command} Motivo de Encuesta|texto1|texto2|texto3....`, m)
 if (b[13]) return conn.reply(m.chat, `🚩 Lo máximo que debes poner es un total de *13* opciones.`, m)
         const poll = {
-          name: b,
+          name: [name],
           selectableCount: 1,
           values: a,
           mentions: m.participants,

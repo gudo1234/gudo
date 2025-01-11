@@ -15,7 +15,7 @@ let handler = async (m, { conn, text, args, participants, usedPrefix, command })
 //const message = texto + '\n' + mentions.map(id => `_______________`).join(', '); // Formateamos las menciones
 let users = participants.map(u => u.id).filter(v => v !== conn.user.jid)
 
-return conn.sendPoll(m.chat, texto, a, { users });
+return conn.sendPoll(m.chat, texto, a, { mentions: users });
 }
 handler.command = ['poll', 'encuesta', 'crearencuesta', 'startpoll', 'encuestas', 'polls'] 
 export default handler

@@ -6,10 +6,9 @@ import axios from 'axios'
 const LimitAud = 725 * 1024 * 1024; //700MB
 const LimitVid = 425 * 1024 * 1024; //425MB
 const handler = async (m, {conn, command, args, text, usedPrefix}) => {
-
+await m.react('🕒');
 if (command == 'play') {
 if (!text) return conn.reply(m.chat, `*Ejemplo:* ${usedPrefix + command} diles`,  m);
-await m.react('🕒');
 const yt_play = await search(args.join(' '));
 const ytplay2 = await yts(text);
 const texto1 = `*Título:* ${yt_play[0].title}\n*Publicado:* ${yt_play[0].ago}
@@ -30,28 +29,7 @@ image: { url: yt_play[0].thumbnail }, caption: texto1, contextInfo: {
     },
     businessMessageForwardInfo: { businessOwnerJid: '50492280729@s.whatsapp.net' },
     forwardingScore: 9999,
-    externalAdReply: { title: 'Espere un momento', body: '꙳🧧𓆩ίʑ᭘ɱί-ⲃⲟτ𓆪🧧꙳', sourceUrl: canal, thumbnail: imagen4}}, quoted: m});
-/*await conn.sendMessage(m.chat, { text: texto1, contextInfo: {
-    mentionedJid: [m.sender],
-    groupMentions: [],
-    isForwarded: true,
-    forwardedNewsletterMessageInfo: {
-      newsletterJid: '120363285614743024@newsletter',
-      newsletterName: `꙳🧧𓆩ίʑ᭘ɱί-ⲃⲟτ𓆪🧧꙳`,
-      serverMessageId: 0
-    },
-    businessMessageForwardInfo: { businessOwnerJid: '50492280729@s.whatsapp.net' },
-    forwardingScore: 9999,
-    externalAdReply: {
-      title: name,
-      body: 'Espere un momento',
-      thumbnailUrl: { url: yt_play[0].thumbnail },
-      thumbnail: { url: yt_play[0].thumbnail },
-      sourceUrl: 'https://www.atom.bio/edar_',
-      mediaType: 1,
-      renderLargerThumbnail: true
-    }
-  }},{quoted: m})*/
+    externalAdReply: { title: 'Espere un momento', body: '꙳🧧𓆩ίʑ᭘ɱί-ⲃⲟτ𓆪🧧꙳', sourceUrl: 'https://www.atom.bio/edar_', thumbnail: imagen4}}, quoted: m});
 try {
 const apiUrl = `https://deliriussapi-oficial.vercel.app/download/ytmp4?url=${encodeURIComponent(yt_play[0].url)}`;
 const apiResponse = await fetch(apiUrl);
@@ -105,7 +83,18 @@ const texto1 = `*Título:* ${yt_play[0].title}\n*Publicado:* ${yt_play[0].ago}
 [ ℹ️ ] Se está enviando el Video, espere...`.trim();
 
 await conn.sendMessage(m.chat, {
-image: { url: yt_play[0].thumbnail }, caption: texto1, contextInfo: { externalAdReply: { title: 'Espere un momento', body: '꙳🧧𓆩ίʑ᭘ɱί-ⲃⲟτ𓆪🧧꙳', sourceUrl: canal, thumbnail: imagen4}}, quoted: m});
+image: { url: yt_play[0].thumbnail }, caption: texto1, contextInfo: {
+    mentionedJid: [m.sender],
+    groupMentions: [],
+    isForwarded: true,
+    forwardedNewsletterMessageInfo: {
+      newsletterJid: '120363285614743024@newsletter',
+      newsletterName: `꙳🧧𓆩ίʑ᭘ɱί-ⲃⲟτ𓆪🧧꙳`,
+      serverMessageId: 0
+    },
+    businessMessageForwardInfo: { businessOwnerJid: '50492280729@s.whatsapp.net' },
+    forwardingScore: 9999,
+    externalAdReply: { title: 'Espere un momento', body: '꙳🧧𓆩ίʑ᭘ɱί-ⲃⲟτ𓆪🧧꙳', sourceUrl: 'https://www.atom.bio/edar_', thumbnail: imagen4}}, quoted: m});
 try {
 const apiUrl = `https://deliriussapi-oficial.vercel.app/download/ytmp4?url=${encodeURIComponent(yt_play[0].url)}`;
 const apiResponse = await fetch(apiUrl);
@@ -171,7 +160,18 @@ const texto1 = `*Título:* ${yt_play[0].title}\n*Publicado:* ${yt_play[0].ago}
 [ ℹ️ ] Se está enviando el Documento, espere...`.trim();
 
 await conn.sendMessage(m.chat, {
-image: { url: yt_play[0].thumbnail }, caption: texto1, contextInfo: { externalAdReply: { title: 'Espere un momento', body: '꙳🧧𓆩ίʑ᭘ɱί-ⲃⲟτ𓆪🧧꙳', sourceUrl: canal, thumbnail: imagen4}}, quoted: m});
+image: { url: yt_play[0].thumbnail }, caption: texto1, contextInfo: {
+    mentionedJid: [m.sender],
+    groupMentions: [],
+    isForwarded: true,
+    forwardedNewsletterMessageInfo: {
+      newsletterJid: '120363285614743024@newsletter',
+      newsletterName: `꙳🧧𓆩ίʑ᭘ɱί-ⲃⲟτ𓆪🧧꙳`,
+      serverMessageId: 0
+    },
+    businessMessageForwardInfo: { businessOwnerJid: '50492280729@s.whatsapp.net' },
+    forwardingScore: 9999,
+    externalAdReply: { title: 'Espere un momento', body: '꙳🧧𓆩ίʑ᭘ɱί-ⲃⲟτ𓆪🧧꙳', sourceUrl: 'https://www.atom.bio/edar_', thumbnail: imagen4}}, quoted: m});
 try {
 const apiUrl = `https://deliriussapi-oficial.vercel.app/download/ytmp4?url=${encodeURIComponent(yt_play[0].url)}`;
 const apiResponse = await fetch(apiUrl);
@@ -224,7 +224,18 @@ const texto1 = `*Título:* ${yt_play[0].title}\n*Publicado:* ${yt_play[0].ago}
 [ ℹ️ ] Se está enviando el Documento, espere...`.trim();
 
 await conn.sendMessage(m.chat, {
-image: { url: yt_play[0].thumbnail }, caption: texto1, contextInfo: { externalAdReply: { title: 'Espere un momento', body: '꙳🧧𓆩ίʑ᭘ɱί-ⲃⲟτ𓆪🧧꙳', sourceUrl: canal, thumbnail: imagen4}}, quoted: m});
+image: { url: yt_play[0].thumbnail }, caption: texto1, contextInfo: {
+    mentionedJid: [m.sender],
+    groupMentions: [],
+    isForwarded: true,
+    forwardedNewsletterMessageInfo: {
+      newsletterJid: '120363285614743024@newsletter',
+      newsletterName: `꙳🧧𓆩ίʑ᭘ɱί-ⲃⲟτ𓆪🧧꙳`,
+      serverMessageId: 0
+    },
+    businessMessageForwardInfo: { businessOwnerJid: '50492280729@s.whatsapp.net' },
+    forwardingScore: 9999,
+    externalAdReply: { title: 'Espere un momento', body: '꙳🧧𓆩ίʑ᭘ɱί-ⲃⲟτ𓆪🧧꙳', sourceUrl: 'https://www.atom.bio/edar_', thumbnail: imagen4}}, quoted: m});
 try {
 const apiUrl = `https://deliriussapi-oficial.vercel.app/download/ytmp4?url=${encodeURIComponent(yt_play[0].url)}`;
 const apiResponse = await fetch(apiUrl);

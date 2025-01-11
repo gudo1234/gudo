@@ -9,12 +9,7 @@ let handler = async (m, { conn, text, args, participants, usedPrefix, command })
     for (let c = 1; c < b.length; c++) { a.push([b[c]]) }
     let texto = `📊 *Encuesta creada por:* ${conn.getName(m.sender)}\n*${text.split('|')[0]}*`
 
-    // Obtener las menciones de todos los participantes
-    //let groupMetadata = await conn.groupMetadata(m.chat);
-//const mentions = groupMetadata.participants.map(v => v.id);
-//const message = texto + '\n' + mentions.map(id => `_______________`).join(', '); // Formateamos las menciones
 let users = participants.map(u => u.id).filter(v => v !== conn.user.jid)
-
 return conn.sendPoll(m.chat, texto, a, { mentions: users });
 }
 handler.command = ['poll', 'encuesta', 'crearencuesta', 'startpoll', 'encuestas', 'polls'] 

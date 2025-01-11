@@ -12,7 +12,7 @@ let caption = `*Nombre:* ${name}
 await conn.sendMessage(m.chat, { text: caption, contextInfo: { externalAdReply: {title: `${wm}`, body: `${await conn.getName(m.chat)}`, thumbnailUrl: imagen4, thumbnail: imagen4, showAdAttribution: true, sourceUrl: canal}}} , { quoted: m })
 await conn.sendFile(m.chat, link, name, '', m, null, { mimetype: mime, asDocument: true })
 } catch (e) {
-await conn.reply(m.chat, `Error`)
+m.reply('error') 
 console.log(e)
 handler.limit = false      
 }}

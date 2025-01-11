@@ -10,6 +10,7 @@ let handler = async (m, { conn, text, args, participants, usedPrefix, command })
     let texto = `📊 *Encuesta creada por:* ${conn.getName(m.sender)}\n*${text.split('|')[0]}*`
 
     // Obtener las menciones de todos los participantes
+    let groupMetadata = await conn.groupMetadata(m.chat);
     const mentions = groupMetadata.participants.map(v => v.id);
     
     return conn.sendPoll(m.chat, texto, a, { mentions })

@@ -11,9 +11,14 @@ let handler = async (m, { conn, text, args, participants, usedPrefix, command })
 
     // Aquí creamos las menciones
     let mentions = participants.map(u => u.id).filter(v => v !== conn.user.jid);
-    let formattedMentions = mentions.map(id => { return { id: id, text: conn.getName(id) } });
+    let formattedMentions = mentions.map(id => ({ id: id, text: conn.getName(id) }));
 
-    return conn.sendPoll(m.chat, texto, a, { mentions: formattedMentions });
+    // Asegúrate de que todos los participantes se mencionen
+    if (formattedMentions.length > 0) {
+        return conn.sendPoll(m.chat, texto, a, { mentions: formattedMentions });
+    } else {
+        return conn.reply(m.chat, `🚩 No hay participantes para mencionar.`, m);
+    }
 }
 handler.command = ['poll', 'encuesta', 'crearencuesta', 'startpoll', 'encuestas', 'polls'] 
 export default handler

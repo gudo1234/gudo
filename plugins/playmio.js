@@ -6,17 +6,17 @@ import axios from 'axios'
 const LimitAud = 725 * 1024 * 1024; //700MB
 const LimitVid = 425 * 1024 * 1024; //425MB
 const handler = async (m, {conn, command, args, text, usedPrefix}) => {
-await m.react('🕒');
+
 if (command == 'play') {
 if (!text) return conn.reply(m.chat, `*Ejemplo:* ${usedPrefix + command} diles`,  m);
 const yt_play = await search(args.join(' '));
 const ytplay2 = await yts(text);
 const texto1 = `*Título:* ${yt_play[0].title}\n*Publicado:* ${yt_play[0].ago}
-*Duración:* ${secondString(yt_play[0].duration.seconds)}*Vistas:* ${MilesNumber(yt_play[0].views)}*Autor:* ${yt_play[0].author.name}
+*Duración:* ${secondString(yt_play[0].duration.seconds)}\n*Vistas:* ${MilesNumber(yt_play[0].views)}*Autor:* ${yt_play[0].author.name}
 *Enlace:* ${yt_play[0].url}
 
 [ ℹ️ ] Se está enviando el Audio, espere...`.trim();
-
+await m.react('🕒');
 await conn.sendMessage(m.chat, {
 image: { url: yt_play[0].thumbnail }, caption: texto1, contextInfo: {
     mentionedJid: [m.sender],
@@ -77,11 +77,11 @@ if (!text) return conn.reply(m.chat, `*Ejemplo:* ${usedPrefix + command} diles`,
 const yt_play = await search(args.join(' '));
 const ytplay2 = await yts(text);
 const texto1 = `*Título:* ${yt_play[0].title}\n*Publicado:* ${yt_play[0].ago}
-*Duración:* ${secondString(yt_play[0].duration.seconds)}*Vistas:* ${MilesNumber(yt_play[0].views)}*Autor:* ${yt_play[0].author.name}
+*Duración:* ${secondString(yt_play[0].duration.seconds)}\n*Vistas:* ${MilesNumber(yt_play[0].views)}*Autor:* ${yt_play[0].author.name}
 *Enlace:* ${yt_play[0].url}
 
 [ ℹ️ ] Se está enviando el Video, espere...`.trim();
-
+await m.react('🕒');
 await conn.sendMessage(m.chat, {
 image: { url: yt_play[0].thumbnail }, caption: texto1, contextInfo: {
     mentionedJid: [m.sender],
@@ -154,11 +154,11 @@ if (!text) return conn.reply(m.chat, `*Ejemplo:* ${usedPrefix + command} diles`,
 const yt_play = await search(args.join(' '));
 const ytplay2 = await yts(text);
 const texto1 = `*Título:* ${yt_play[0].title}\n*Publicado:* ${yt_play[0].ago}
-*Duración:* ${secondString(yt_play[0].duration.seconds)}*Vistas:* ${MilesNumber(yt_play[0].views)}*Autor:* ${yt_play[0].author.name}
+*Duración:* ${secondString(yt_play[0].duration.seconds)}\n*Vistas:* ${MilesNumber(yt_play[0].views)}*Autor:* ${yt_play[0].author.name}
 *Enlace:* ${yt_play[0].url}
 
 [ ℹ️ ] Se está enviando el Documento, espere...`.trim();
-
+await m.react('🕒');
 await conn.sendMessage(m.chat, {
 image: { url: yt_play[0].thumbnail }, caption: texto1, contextInfo: {
     mentionedJid: [m.sender],
@@ -218,11 +218,11 @@ if (!text) return conn.reply(m.chat, `*Ejemplo:* ${usedPrefix + command} diles`,
 const yt_play = await search(args.join(' '));
 const ytplay2 = await yts(text);
 const texto1 = `*Título:* ${yt_play[0].title}\n*Publicado:* ${yt_play[0].ago}
-*Duración:* ${secondString(yt_play[0].duration.seconds)}*Vistas:* ${MilesNumber(yt_play[0].views)}*Autor:* ${yt_play[0].author.name}
+*Duración:* ${secondString(yt_play[0].duration.seconds)}\n*Vistas:* ${MilesNumber(yt_play[0].views)}*Autor:* ${yt_play[0].author.name}
 *Enlace:* ${yt_play[0].url}
 
 [ ℹ️ ] Se está enviando el Documento, espere...`.trim();
-
+await m.react('🕒');
 await conn.sendMessage(m.chat, {
 image: { url: yt_play[0].thumbnail }, caption: texto1, contextInfo: {
     mentionedJid: [m.sender],

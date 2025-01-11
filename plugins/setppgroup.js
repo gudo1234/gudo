@@ -1,6 +1,6 @@
 let handler = async (m, { conn, usedPrefix, command }) => {
     let q = m.quoted ? m.quoted : m;
-    let mime = (q.msg || q).mimetype || q.mediaType || '';
+    let mime = q.mimetype || q.mediaType || '';
 
     if (/image/.test(mime)) {
         try {
@@ -15,7 +15,7 @@ let handler = async (m, { conn, usedPrefix, command }) => {
             m.reply(`🚩 *Error al actualizar la foto de perfil: ${error.message}*`);
         }
     } else {
-        throw `🚩 *Responda a una imagen*`;
+        m.reply(`🚩 *Responda a una imagen*`);
     }
 }
 
@@ -23,5 +23,3 @@ handler.command = ['setppgc', 'setppgroup', 'icongc'];
 handler.group = true;
 handler.admin = true;
 handler.botAdmin = true;
-
-export default handler

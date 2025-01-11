@@ -142,6 +142,7 @@ let txt = `*🧧Prefijo* (${usedPrefix})
 ☯️]▸ demote
 ☯️]▸ addcmd
 ☯️]▸ delcmd
+☯️]▸ encuesta
 ╰───╮╭───╯
 •📘 OTROS-MENUS.li
 ╭───╯

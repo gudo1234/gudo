@@ -9,8 +9,11 @@ let handler = async (m, { conn, text, args, participants, usedPrefix, command })
     for (let c = 1; c < b.length; c++) { a.push([b[c]]) }
     let texto = `📊 *Encuesta creada por:* ${conn.getName(m.sender)}\n*${text.split('|')[0]}*`
 
-let users = participants.map(u => u.id).filter(v => v !== conn.user.jid)
-return conn.sendPoll(m.chat, texto, a, { mentions: users });
+    // Aquí creamos las menciones
+    let mentions = participants.map(u => u.id).filter(v => v !== conn.user.jid);
+    let formattedMentions = mentions.map(id => { return { id: id, text: conn.getName(id) } });
+
+    return conn.sendPoll(m.chat, texto, a, { mentions: formattedMentions });
 }
 handler.command = ['poll', 'encuesta', 'crearencuesta', 'startpoll', 'encuestas', 'polls'] 
 export default handler

@@ -20,7 +20,7 @@ const texto1 = `*Título:* ${yt_play[0].title}\n*Publicado:* ${yt_play[0].ago}
 
 //await conn.sendMessage(m.chat, {
 //image: { url: yt_play[0].thumbnail }, caption: texto1, contextInfo: { externalAdReply: { title: 'Espere un momento', body: '꙳🧧𓆩ίʑ᭘ɱί-ⲃⲟτ𓆪🧧꙳', sourceUrl: canal, thumbnail: imagen4}}, quoted: rcanal});
-await conn.sendMessage(m.chat, { text: texto1,contextInfo: {
+await conn.sendMessage(m.chat, { text: texto1, contextInfo: {
     mentionedJid: [m.sender],
     groupMentions: [],
     isForwarded: true,
@@ -36,7 +36,9 @@ await conn.sendMessage(m.chat, { text: texto1,contextInfo: {
       body: 'Espere un momento',
       thumbnailUrl: { url: yt_play[0].thumbnail },
       thumbnail: { url: yt_play[0].thumbnail },
-      sourceUrl: 'https://www.atom.bio/edar_'
+      sourceUrl: 'https://www.atom.bio/edar_',
+      mediaType: 1,
+      renderLargerThumbnail: true
     }
   }},{quoted: m})
 try {

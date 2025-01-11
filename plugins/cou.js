@@ -29,10 +29,10 @@ let handler = async (m, { conn, text, args, participants, usedPrefix, command })
           remoteJid: m.chat
         }  
         return await conn.sendMessage(m.chat, { poll })
-      } catch (e) {
-      m.reply(e)
-        //conn.reply(m.chat, functions.jsonFormat(e), m)
-      }
+      } catch (error) {
+          m.reply(`${error}`)
+            console.error("Error al eliminar el mensaje:", error);
+        }
   }
 
 handler.command = ['no'] 

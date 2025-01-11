@@ -12,20 +12,20 @@ if (!text) return conn.reply(m.chat, `*Ejemplo:* ${usedPrefix + command} diles`,
 await m.react('🕒');
 const yt_play = await search(args.join(' '));
 const ytplay2 = await yts(text);
-const texto1 = `*Título:* ${yt_play[0].title}*Publicado:* ${yt_play[0].ago}
+const texto1 = `*Título:* ${yt_play[0].title}\n*Publicado:* ${yt_play[0].ago}
 *Duración:* ${secondString(yt_play[0].duration.seconds)}*Vistas:* ${MilesNumber(yt_play[0].views)}*Autor:* ${yt_play[0].author.name}
 *Enlace:* ${yt_play[0].url}
 
 [ ℹ️ ] Se está enviando el Audio, espere...`.trim();
 
 await conn.sendMessage(m.chat, {
-image: { url: yt_play[0].thumbnail }, caption: texto1, contextInfo: { externalAdReply: { title: 'Espere un momento', body: '꙳🧧𓆩ίʑ᭘ɱί-ⲃⲟτ𓆪🧧꙳', sourceUrl: canal, thumbnail: imagen4}}, quoted: m});
+image: { url: yt_play[0].thumbnail }, caption: texto1, contextInfo: { externalAdReply: { title: 'Espere un momento', body: '꙳🧧𓆩ίʑ᭘ɱί-ⲃⲟτ𓆪🧧꙳', sourceUrl: canal, thumbnail: imagen4}}, quoted: rcanal});
 try {
 const apiUrl = `https://deliriussapi-oficial.vercel.app/download/ytmp4?url=${encodeURIComponent(yt_play[0].url)}`;
 const apiResponse = await fetch(apiUrl);
 const delius = await apiResponse.json();
 if (!delius.status) {
-return m.react(error)}
+return m.react('✖️')}
 const downloadUrl = delius.data.download.url;
 await conn.sendMessage(m.chat, { audio: { url: downloadUrl }, mimetype: 'audio/mpeg' }, { quoted: m });
 } catch (e1) {
@@ -66,7 +66,7 @@ if (command == 'play2' || command == 'mp4') {
 if (!text) return conn.reply(m.chat, `*Ejemplo:* ${usedPrefix + command} diles`,  m);
 const yt_play = await search(args.join(' '));
 const ytplay2 = await yts(text);
-const texto1 = `*Título:* ${yt_play[0].title}*Publicado:* ${yt_play[0].ago}
+const texto1 = `*Título:* ${yt_play[0].title}\n*Publicado:* ${yt_play[0].ago}
 *Duración:* ${secondString(yt_play[0].duration.seconds)}*Vistas:* ${MilesNumber(yt_play[0].views)}*Autor:* ${yt_play[0].author.name}
 *Enlace:* ${yt_play[0].url}
 
@@ -132,7 +132,7 @@ if (command == 'play3' || command == 'playdoc') {
 if (!text) return conn.reply(m.chat, `*Ejemplo:* ${usedPrefix + command} diles`,  m);
 const yt_play = await search(args.join(' '));
 const ytplay2 = await yts(text);
-const texto1 = `*Título:* ${yt_play[0].title}*Publicado:* ${yt_play[0].ago}
+const texto1 = `*Título:* ${yt_play[0].title}\n*Publicado:* ${yt_play[0].ago}
 *Duración:* ${secondString(yt_play[0].duration.seconds)}*Vistas:* ${MilesNumber(yt_play[0].views)}*Autor:* ${yt_play[0].author.name}
 *Enlace:* ${yt_play[0].url}
 
@@ -185,7 +185,7 @@ if (command == 'play4' || command == 'playdoc2') {
 if (!text) return conn.reply(m.chat, `*Ejemplo:* ${usedPrefix + command} diles`,  m);
 const yt_play = await search(args.join(' '));
 const ytplay2 = await yts(text);
-const texto1 = `*Título:* ${yt_play[0].title}*Publicado:* ${yt_play[0].ago}
+const texto1 = `*Título:* ${yt_play[0].title}\n*Publicado:* ${yt_play[0].ago}
 *Duración:* ${secondString(yt_play[0].duration.seconds)}*Vistas:* ${MilesNumber(yt_play[0].views)}*Autor:* ${yt_play[0].author.name}
 *Enlace:* ${yt_play[0].url}
 

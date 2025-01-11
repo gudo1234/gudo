@@ -10,15 +10,12 @@ let handler = async (m, { conn, text, args, participants, usedPrefix, command })
     let texto = `📊 *Encuesta creada por:* ${conn.getName(m.sender)}\n*${text.split('|')[0]}*`
 
     // Aquí creamos las menciones
-    let mentions = participants.map(u => u.id).filter(v => v !== conn.user.jid);
-    let formattedMentions = mentions.map(id => ({ id: id, text: conn.getName(id) }));
+    let groupMetadata = await conn.groupMetadata(m.chat);
+const mentions = groupMetadata.participants.map(v => v.id);
+const message = texto + '\n' + mentions.map(id => `@${id.split('@')[0]}`).join(', '); // Formateamos las menciones
 
-    // Asegúrate de que todos los participantes se mencionen
-    if (formattedMentions.length > 0) {
-        return conn.sendPoll(m.chat, texto, a, { mentions: formattedMentions });
-    } else {
-        return conn.reply(m.chat, `🚩 No hay participantes para mencionar.`, m);
-    }
+// Aquí se envía el mensaje con las menciones
+return conn.sendPoll(m.chat, message, a, { mentions, quoted: m });
 }
 handler.command = ['poll', 'encuesta', 'crearencuesta', 'startpoll', 'encuestas', 'polls'] 
 export default handler

@@ -18,8 +18,9 @@ const texto1 = `*Título:* ${yt_play[0].title}\n*Publicado:* ${yt_play[0].ago}
 
 [ ℹ️ ] Se está enviando el Audio, espere...`.trim();
 
-await conn.sendMessage(m.chat, {
-image: { url: yt_play[0].thumbnail }, caption: texto1, contextInfo: { externalAdReply: { title: 'Espere un momento', body: '꙳🧧𓆩ίʑ᭘ɱί-ⲃⲟτ𓆪🧧꙳', sourceUrl: canal, thumbnail: imagen4}}, quoted: rcanal});
+//await conn.sendMessage(m.chat, {
+//image: { url: yt_play[0].thumbnail }, caption: texto1, contextInfo: { externalAdReply: { title: 'Espere un momento', body: '꙳🧧𓆩ίʑ᭘ɱί-ⲃⲟτ𓆪🧧꙳', sourceUrl: canal, thumbnail: imagen4}}, quoted: rcanal});
+await conn.sendMessage(m.chat, { text: texto1, contextInfo: { externalAdReply: {title: 'Espere un momento...', body: `${await conn.getName(m.chat)}`, thumbnailUrl: yt_play[0].thumbnail, thumbnail: yt_play[0].thumbnail, showAdAttribution: true, sourceUrl: canal}}} , { quoted: m})
 try {
 const apiUrl = `https://deliriussapi-oficial.vercel.app/download/ytmp4?url=${encodeURIComponent(yt_play[0].url)}`;
 const apiResponse = await fetch(apiUrl);

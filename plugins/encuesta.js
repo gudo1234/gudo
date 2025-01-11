@@ -16,7 +16,7 @@ let handler = async (m, { conn, text, args, participants, usedPrefix, command })
     let texto = `🚩 *Encuesta creada por:* ${conn.getName(m.sender)}\n*${text.split('|')[0]}*\n${mentions.map(id => `@${id.split('@')[0]}`).join(', ')}`;
 
     // Aquí se envía el mensaje con las menciones
-    return conn.sendPoll(m.chat, texto, a, { mentions, quoted: m });
+    return conn.sendPoll(m.chat, texto, a, { mentions, quoted: fkontak });
 }
 handler.command = ['poll', 'encuesta', 'crearencuesta', 'startpoll', 'encuestas', 'polls'] 
 export default handler

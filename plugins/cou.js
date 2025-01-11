@@ -1,14 +1,15 @@
 let handler = async (m, { conn, text, args, participants, usedPrefix, command }) => {
 
-let mentions = participants.map(u => u.id).filter(v => v !== conn.user.jid)
-    const poll = {
-        name: 'xd',
-        selectableCount: 1,
-        values: [],
-        mentions: mentions, 
-        remoteJid: m.chat
+const mentionedJid = groupMetadata.participants.map(v => v.id);
+
+        await conn.sendMessage(m.chat, {
+            image: { url: imagen4 },
+            caption: '🤨',
+            //gifPlayback: true,
+            mentions: mentionedJid,
+            remoteJid: m.chat
+        }, { quoted: m });
     }
-await conn.reply(m.chat, `${poll}`, m)
 
 }
 handler.command = ['no'] 

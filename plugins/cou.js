@@ -28,9 +28,9 @@ let b = text.split('|')
 if (!b[1]) return conn.reply(m.chat, `🚩 _Use de la siguiente forma utilizando_ *" | "* \n*Ejemplo:* ${usedPrefix + command} Motivo de Encuesta|texto1|texto2|texto3....`, m)
 if (b[13]) return conn.reply(m.chat, `🚩 Lo máximo que debes poner es un total de *13* opciones.`, m)
         const poll = {
-          name: [name],
+          name: [b[0]],
           selectableCount: 1,
-          values: u,
+          values: a,
           mentions: m.participants,
           remoteJid: m.chat
         }  

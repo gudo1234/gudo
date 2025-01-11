@@ -20,7 +20,25 @@ const texto1 = `*Título:* ${yt_play[0].title}\n*Publicado:* ${yt_play[0].ago}
 
 //await conn.sendMessage(m.chat, {
 //image: { url: yt_play[0].thumbnail }, caption: texto1, contextInfo: { externalAdReply: { title: 'Espere un momento', body: '꙳🧧𓆩ίʑ᭘ɱί-ⲃⲟτ𓆪🧧꙳', sourceUrl: canal, thumbnail: imagen4}}, quoted: rcanal});
-await conn.sendMessage(m.chat, { text: texto1, contextInfo: { externalAdReply: {title: 'Espere un momento...', body: `${await conn.getName(m.chat)}`, thumbnailUrl: yt_play[0].thumbnail, thumbnail: yt_play[0].thumbnail, showAdAttribution: true, sourceUrl: canal}}} , { quoted: m})
+await conn.sendMessage(m.chat, { text: texto1,contextInfo: {
+    mentionedJid: [m.sender],
+    groupMentions: [],
+    isForwarded: true,
+    forwardedNewsletterMessageInfo: {
+      newsletterJid: '120363285614743024@newsletter',
+      newsletterName: `꙳🧧𓆩ίʑ᭘ɱί-ⲃⲟτ𓆪🧧꙳`,
+      serverMessageId: 0
+    },
+    businessMessageForwardInfo: { businessOwnerJid: '50492280729@s.whatsapp.net' },
+    forwardingScore: 9999,
+    externalAdReply: {
+      title: `${await conn.getName(m.chat)}`,
+      body: 'Espere un momento',
+      thumbnailUrl: yt_play[0],
+      thumbnail: yt_play[0],
+      sourceUrl: canal,
+    }
+  }},{quoted: m})
 try {
 const apiUrl = `https://deliriussapi-oficial.vercel.app/download/ytmp4?url=${encodeURIComponent(yt_play[0].url)}`;
 const apiResponse = await fetch(apiUrl);

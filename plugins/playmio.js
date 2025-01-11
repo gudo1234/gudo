@@ -34,8 +34,8 @@ await conn.sendMessage(m.chat, { text: texto1,contextInfo: {
     externalAdReply: {
       title: `${await conn.getName(m.chat)}`,
       body: 'Espere un momento',
-      thumbnailUrl: yt_play[0],
-      thumbnail: yt_play[0],
+      thumbnailUrl: yt_play[0].thumbnail,
+      thumbnail: yt_play[0].thumbnail,
       sourceUrl: canal,
     }
   }},{quoted: m})

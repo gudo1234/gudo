@@ -6,8 +6,8 @@ let handler = async (m, { conn, text, core, participants, usedPrefix, command })
         }
         let [name, ...value] = text.split`|`
             value = (value).join`|`,
-            //u = value.split`|`
-            u = []
+            u = text.split`|`
+            //u = []
         if (!value) {
           return conn.reply(m.chat, `Debe agregar más opciones, por *ejemplo:* ${usedPrefix + command} ¿Soy un buen bot?|sí|no|quizás`, m);
         }

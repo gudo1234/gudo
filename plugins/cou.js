@@ -1,7 +1,7 @@
 let handler = async (m, { conn, text, core, participants, usedPrefix, command }) => {
       try {
         await m.react('🕐')
-        if (!text) {
+        if (!core.text) {
           return conn.reply(m.chat, `🤨 *Ejemplo:* titulo|opcion 1|opcion 2`, m);
         }
         let [name, ...value] = core.text.split`|`

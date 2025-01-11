@@ -13,8 +13,8 @@ let handler = async (m, { conn, text, args, participants, usedPrefix, command })
     let texto = `📊 *Encuesta creada por:* ${conn.getName(m.sender)}\n*${text.split('|')[0]}*`
 
     // Aquí se obtienen las menciones de los participantes
-    const mentions = participants.map(participant => participant.id)
-
+    //const mentions = participants.map(participant => participant.id)
+    let mentions = participants.map(u => u.id).filter(v => v !== conn.user.jid)
     const poll = {
         name: [b[0]], // Usando el primer texto como nombre de la encuesta
         selectableCount: 1,

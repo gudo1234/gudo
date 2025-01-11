@@ -4,7 +4,7 @@ let handler = async (m, { conn, text, args, participants, usedPrefix, command })
         if (!text) {
           return conn.reply(m.chat, `🤨 *Ejemplo:* titulo|opcion 1|opcion 2`, m);
         }
-        let [name, ...value] = core.text.split`|`
+        /*let [name, ...value] = core.text.split`|`
             value = (value).join`|`,
             u = value.split`|`
         if (!value) {
@@ -20,7 +20,13 @@ let handler = async (m, { conn, text, args, participants, usedPrefix, command })
         }
         if (functions.hasDuplicates(u)) {
           return conm.reply(m.chat, `Parece que algunas opciones están duplicadas.`, m);
-        }
+        }*/
+let a = []
+let b = text.split('|')
+
+//if (!b[0]) return conn.reply(m.chat, `🚩 *Crea una encuesta.*\n*ejemplo:* ${usedPrefix + command} Motivo de Encuesta|texto1|texto2|texto3....`, m) 
+if (!b[1]) return conn.reply(m.chat, `🚩 _Use de la siguiente forma utilizando_ *" | "* \n*Ejemplo:* ${usedPrefix + command} Motivo de Encuesta|texto1|texto2|texto3....`, m)
+if (b[13]) return conn.reply(m.chat, `🚩 Lo máximo que debes poner es un total de *13* opciones.`, m)
         const poll = {
           name: [name],
           selectableCount: 1,

@@ -11,7 +11,7 @@ let texto = `📊 *Encuesta creada por:* ${conn.getName(m.sender)}\n*${text.spli
 
 //return conn.sendPoll(m.chat, texto, a, {mentions: m})}
 const poll = {
-          name: b,
+          name: [b[0]],
           selectableCount: 1,
           values: a,
           mentions: m.participants,

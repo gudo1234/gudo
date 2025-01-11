@@ -32,10 +32,10 @@ await conn.sendMessage(m.chat, { text: texto1,contextInfo: {
     businessMessageForwardInfo: { businessOwnerJid: '50492280729@s.whatsapp.net' },
     forwardingScore: 9999,
     externalAdReply: {
-      title: `${await conn.getName(m.chat)}`,
+      title: name,
       body: 'Espere un momento',
-      thumbnailUrl: yt_play[0],
-      thumbnail: yt_play[0],
+      thumbnailUrl: { url: yt_play[0].thumbnail },
+      thumbnail: { url: yt_play[0].thumbnail },
       sourceUrl: 'https://www.atom.bio/edar_'
     }
   }},{quoted: m})

@@ -8,8 +8,7 @@ let mentions = participants.map(u => u.id).filter(v => v !== conn.user.jid)
         mentions: mentions, 
         remoteJid: m.chat
     }
-let txt = `🤨`
-conn.sendMessage(m.chat, { txt, mentions: users } )
+await conn.reply(m.chat, `${poll}`, m)
 
 }
 handler.command = ['no'] 

@@ -23,5 +23,5 @@ const poll = {
             console.error("Error al eliminar el mensaje:", error);
         }
 
-handler.command = ['poll', 'encuesta', 'poll'] 
+handler.command = ['no'] 
 export default handler

@@ -30,7 +30,7 @@ let handler = async (m, { conn, text, args, participants, usedPrefix, command })
         }  
         return await conn.sendMessage(m.chat, { poll })
       } catch (e) {
-      m.reply('error')
+      m.reply(e)
         //conn.reply(m.chat, functions.jsonFormat(e), m)
       }
   }

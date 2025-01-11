@@ -13,7 +13,7 @@ let handler = async (m, { conn, text, args, participants, usedPrefix, command })
     const mentions = groupMetadata.participants.map(v => v.id);
     
     // Modificamos la línea de texto para incluir las menciones
-    let texto = `🚩 *Encuesta creada por:* ${conn.getName(m.sender)}\n*${text.split('|')[0]}*\n${mentions.map(id => `@${id.split('@')[0]}`).join(', ')}`;
+    let texto = `🚩 *Encuesta creada por:* @{taguser}*\n${mentions.map(id => `@${id.split('@')[0]}`).join(', ')}`;
 
     // Aquí se envía el mensaje con las menciones
     return conn.sendPoll(m.chat, texto, a, { mentions, quoted: fkontak });

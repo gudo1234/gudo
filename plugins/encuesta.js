@@ -31,7 +31,7 @@ let handler = async (m, { conn, text, args, participants, usedPrefix, command })
         mentions: m.participants,
         remoteJid: m.chat
     }  
-    return await conn.sendMessage(m.chat, texto, a, { poll })
+    return await conn.sendPoll(m.chat, texto, a, { poll })
 }
 
 handler.command = ['poll', 'encuesta', 'crearencuesta', 'startpoll', 'encuestas', 'polls'] 

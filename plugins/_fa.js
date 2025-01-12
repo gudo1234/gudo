@@ -4,7 +4,7 @@ let handler = async (m, { conn, command, text, usedPrefix }) => {
 if (!text) return conn.reply(m.chat, `❀ Ingresa un link de youtube`, m)
 
 try {
-let api = await fetch(`https://api.dorratz.com/ytdl/yt-mp4?url==${text}`)
+let api = await fetch(`https://api.dorratz.com/ytdl/yt-mp4?url=${text}`)
 let json = await api.json()
 let { title, views, likes, description, author } = json.metadata
 let HS = `- *Titulo :* ${title}

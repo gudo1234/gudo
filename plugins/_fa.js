@@ -1,34 +1,29 @@
-import fetch from 'node-fetch'
+import fetch from 'node-fetch';
 
 let handler = async (m, { conn, command, text, usedPrefix }) => {
-    if (!text) return conn.reply(m.chat, `❀ Ingresa un link de youtube`, m)
+    if (!text) return conn.reply(m.chat, `❀ Ingresa un link de youtube`, m);
 
     try {
-        let apiResponse = await fetch(`https://api.dorratz.com/ytdl/yt-mp4?url=${text}`)
-        let apiData = await apiResponse.json()
+        let api = await fetch(`https://api.dorratz.com/ytdl/yt-mp4?url=${text}`);
+        let json = await api.json();
 
-        // Asegúrate de que la respuesta tenga los datos necesarios
-        if (apiData && apiData.url) {
-            let dl_url = apiData.url; // URL del video
-            let ttl = apiData.title; // Título del video
-            let size = apiData.size; // Tamaño del video (si está disponible)
-            let yt = apiData.thumbnail; // Miniatura del video (si está disponible)
-
+        // Verificamos si se obtuvo el video correctamente
+        if (json.url) {
             await conn.sendMessage(m.chat, {
-                video: { url: dl_url },
-                fileName: `${ttl}.mp4`,
+                video: { url: json.url },
+                fileName: `${json.title}.mp4`,
                 mimetype: 'video/mp4',
-                caption: `*Título*: ${ttl}\n*Peso:* ${size}`,
-                thumbnail: await fetch(yt)
-            }, { quoted: m })
+                caption: `*Título:* ${json.title}`,
+                thumbnail: { url: json.thumbnail }
+            }, { quoted: m });
         } else {
-            conn.reply(m.chat, `❌ No se pudo obtener el video.`, m)
+            conn.reply(m.chat, '❌ No se pudo obtener el video. Verifica el enlace.', m);
         }
     } catch (error) {
-        console.error(error)
-        conn.reply(m.chat, `❌ Ocurrió un error: ${error.message}`, m)
+        console.error(error);
+        conn.reply(m.chat, '❌ Ocurrió un error al intentar descargar el video.', m);
     }
-}
+};
 
-handler.command = ['pla']
-export default handler
+handler.command = ['pla'];
+export default handler;

@@ -1,28 +1,23 @@
 import fetch from 'node-fetch'
 
 let handler = async (m, { conn, command, text, usedPrefix }) => {
-    if (!text) return conn.reply(m.chat, `❀ Ingresa un link de youtube`, m)
+    if (!text) return conn.reply(m.chat, `❀ Ingresa un link de Youtube`, m);
+
+    const videoUrl = text; // Aquí tomamos el link de YouTube que el usuario ingresa
+    const apiUrl = `https://api.dorratz.com/ytdl/yt-mp4?url=${encodeURIComponent(videoUrl)}`;
 
     try {
-        let api = await fetch(`https://api.dorratz.com/ytdl/yt-mp4?url=${text}`)
-        let json = await api.json()
+        const response = await fetch(apiUrl);
+        const data = await response.json();
 
-        // Verificamos que se haya obtenido un resultado
-        if (!json || !json.url) {
-            return conn.reply(m.chat, `❌ No se pudo obtener el video.`, m)
+        if (data.success) {
+            // Aquí puedes enviar el link de descarga al usuario
+            conn.reply(m.chat, `🎉 Aquí está tu video: ${data.url}`, m);
+        } else {
+            conn.reply(m.chat, `❌ No se pudo descargar el video. Intenta con otro enlace.`, m);
         }
-
-        await conn.sendMessage(m.chat, { 
-            video: { url: json.url }, 
-            fileName: `${json.title}.mp4`, 
-            mimetype: 'video/mp4', 
-            caption: `*Título:* ${json.title}`, 
-            thumbnail: { url: json.thumbnail } 
-        }, { quoted: m })
-
     } catch (error) {
-        console.error(error)
-        conn.reply(m.chat, `❌ Ocurrió un error al intentar descargar el video.`, m)
+        conn.reply(m.chat, `⚠️ Ocurrió un error al intentar descargar el video: ${error.message}`, m);
     }
 }
 

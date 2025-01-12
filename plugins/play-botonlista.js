@@ -1,4 +1,4 @@
-/*import { prepareWAMessageMedia, generateWAMessageFromContent, getDevice } from '@whiskeysockets/baileys'
+import { prepareWAMessageMedia, generateWAMessageFromContent, getDevice } from '@whiskeysockets/baileys'
 import yts from 'yt-search';
 import fs from 'fs';
 
@@ -37,25 +37,25 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
                   header: '',
                   title: 'Descargar',
                   description: '🎶Audio',
-                  id: `.yta ${video.url}`
+                  id: `.pla ${video.url}`
                 },
                 {
                   header: '',
                   title: 'Descargar',
                   description: '🎥Video',
-                  id: `.ytv ${video.url}`
+                  id: `.pla2 ${video.url}`
                 },
                 {
                   header: '',
                   title: 'Descargar',
                   description: '📀doc.mp3',
-                  id: `.ytmp3doc ${video.url}`
+                  id: `.pla3 ${video.url}`
                 },
                 {
                   header: '',
                   title: 'Descargar',
                   description: '📥doc.mp4',
-                  id: `.ytmp4doc ${video.url}`
+                  id: `.pla4 ${video.url}`
                 }
               ]
             }))
@@ -96,4 +96,4 @@ handler.help = ['ytsearch <texto>'];
 handler.tags = ['search'];
 handler.command = ['play']
 handler.group = true;
-export default handler;*/
+export default handler;

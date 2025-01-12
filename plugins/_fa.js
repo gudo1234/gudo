@@ -8,7 +8,7 @@ await m.react('⌛')
 if (command == 'pla') {
     try {
 await
-    await conn.sendMessage(m.chat, { video: { url: `https://api.dorratz.com/ytdl/yt-mp4?url=${text}` }, caption: `${name}` }, { quoted: m });
+    await conn.sendMessage(m.chat, { video: { url: `https://api.dorratz.com/ytdl/yt-mp4?url=${text}` }, mimetype: 'video/mp4',caption: `${name}` }, { quoted: m });
 }catch(e) {
         await m.react('❌')
         return console.log(e)

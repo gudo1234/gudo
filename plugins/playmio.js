@@ -1,4 +1,4 @@
-/*import { youtubedl, youtubedlv2 } from '@bochilteam/scraper'
+import { youtubedl, youtubedlv2 } from '@bochilteam/scraper'
 import fetch from 'node-fetch'
 import yts from 'yt-search'
 import ytdl from 'ytdl-core'
@@ -255,7 +255,7 @@ console.log(e2);
 }}}
 
 }
-handler.command = ['play', 'play2', 'play3', 'play4', 'mp3', 'mp4', 'playdoc', 'playdoc2']
+handler.command = ['play2', 'play3', 'play4', 'mp3', 'mp4', 'playdoc', 'playdoc2']
 handler.group = true;
 export default handler;
 
@@ -348,4 +348,4 @@ if (data.status === 'ok') {
     return data.result.mp3;
   } else {
     throw new Error("No se pudo obtener la descarga desde 9Convert");
-  }}*/
+  }}

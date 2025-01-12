@@ -11,6 +11,7 @@ await
     await conn.sendMessage(m.chat, { audio: { url: `https://api.dorratz.com/ytdl/yt-mp4?url=${text}` }, mimetype: 'audio/mpeg'}, { quoted: m });
 }catch(e) {
         await m.react('❌')
+        m.reply(`Error, ${e}`)
         return console.log(e)
     }}
 
@@ -20,6 +21,7 @@ await
     await conn.sendMessage(m.chat, { video: { url: `https://api.dorratz.com/ytdl/yt-mp4?url=${text}` }, caption: `${name}` }, { quoted: m });
 }catch(e) {
         await m.react('❌')
+        m.reply(`Error, ${e}`)
         return console.log(e)
     }}
 
@@ -29,6 +31,7 @@ await
     await conn.sendMessage(m.chat, { document: { url: `https://api.dorratz.com/ytdl/yt-mp4?url=${text}` }, mimetype: 'audio/mpeg',fileName: `audio.mp3`,caption: `${name}` }, { quoted: m });
 }catch(e) {
         await m.react('❌')
+        m.reply(`Error, ${e}`)
         return console.log(e)
     }}
 
@@ -38,6 +41,7 @@ await
     await conn.sendMessage(m.chat, { document: { url: `https://api.dorratz.com/ytdl/yt-mp4?url=${text}` }, mimetype: 'video/mp4',fileName: `video.mp4`,caption: `${name}` }, { quoted: m });
 }catch(e) {
         await m.react('❌')
+        m.reply(`Error, ${e}`)
         return console.log(e)
     }}
 }

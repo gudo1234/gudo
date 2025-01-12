@@ -38,5 +38,5 @@ const handler = async (m, {conn, command, args, text, usedPrefix}) => {
     }
   };
   
- handler.command = ['play']
+ handler.command = ['pla5']
 export default handler;

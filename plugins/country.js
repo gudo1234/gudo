@@ -2374,7 +2374,7 @@ export async function before(m, { conn, args, usedPrefix, command }) {
         userMessageCount[m.chat].timestamp = null; // Reiniciar la marca de tiempo
     }
 
-    //if (userMessageCount[m.chat].count % 80 === 0 && !userMessageCount[m.chat].questionMessage) {
+    if (userMessageCount[m.chat].count % 80 === 0 && !userMessageCount[m.chat].questionMessage) {
         // Elegir una bandera aleatoria
         const randomFlag = flags[Math.floor(Math.random() * flags.length)];
         userMessageCount[m.chat].currentFlag = randomFlag.name; // Guardar el país actual
@@ -2384,7 +2384,7 @@ export async function before(m, { conn, args, usedPrefix, command }) {
         let txt = `💣 *¿A qué país pertenece la bandera que se muestra? ${userMessageCount[m.chat].currentFlag2}*\n_🤖 Por favor, responda a este mensaje con la respuesta correcta en un plazo de *3 minutos*._`;
         userMessageCount[m.chat].questionMessage = await conn.sendFile(m.chat, randomFlag.image, "Thumbnail.jpg", txt, null, null, rcanal);
         userMessageCount[m.chat].timestamp = Date.now(); // Guardar el tiempo de la pregunta
-    //}
+    }
 
     // Detectar la respuesta del usuario
     const timeElapsed = Date.now() - userMessageCount[m.chat].timestamp;

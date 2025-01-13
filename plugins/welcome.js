@@ -22,10 +22,16 @@ let pp = await conn.profilePictureUrl(m.messageStubParameters[0], 'image').catch
   let stiker = await sticker(imagen7, false, global.packname, global.author)
   if (chat.welcome && (m.messageStubType === 28 || m.messageStubType === 32)) {
 if (media === 'stiker')
-this.sendFile(m.chat, stiker, 'sticker.webp', '',null, true, { contextInfo: { 'forwardingScore': 200, 'isForwarded': false, externalAdReply:{ showAdAttribution: false, title: `👋🏻ADIOS +${m.messageStubParameters[0].split`@`[0]}`, body: 'Esperemos que no vuelva -_-', mediaType: 2, sourceUrl: 'https://whatsapp.com/channel/0029VaXHNMZL7UVTeseuqw3H', thumbnail: im}}}, { quoted: null })
+let msg = await this.sendFile(m.chat, stiker, 'sticker.webp', '',null, true, { contextInfo: { 'forwardingScore': 200, 'isForwarded': false, externalAdReply:{ showAdAttribution: false, title: `👋🏻ADIOS +${m.messageStubParameters[0].split`@`[0]}`, body: 'Esperemos que no vuelva -_-', mediaType: 2, sourceUrl: 'https://whatsapp.com/channel/0029VaXHNMZL7UVTeseuqw3H', thumbnail: im}}}, { quoted: null })
+const emojis = ['🍎', '🍒', '🍉', '🍊', '🍋', '🍏', '🍌', '🍍', '🍓', '🍇', '🍈', '🍒', '🍑', '🥭', '🍐', '🥥'];
+            for (let i = 0; i < emojis.length; i++) {
+                setTimeout(async () => {
+                    await msg.react(emojis[i]);
+                }, i * 1000);
+            }
 
 if (media === 'audio')
-this.sendMessage(m.chat, { audio: { url: vn2 }, 
+let msg = await this.sendMessage(m.chat, { audio: { url: vn2 }, 
     contextInfo: { forwardedNewsletterMessageInfo: { 
     newsletterJid: id_canal, 
     serverMessageId: '', 
@@ -38,9 +44,15 @@ this.sendMessage(m.chat, { audio: { url: vn2 },
     "sourceUrl": 'https://www.atom.bio/edar_', 
     "showAdAttribution": true}}, 
      seconds: '4556', ptt: true, mimetype: 'audio/mpeg', fileName: `error.mp3` }, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
+const emojis = ['🍎', '🍒', '🍉', '🍊', '🍋', '🍏', '🍌', '🍍', '🍓', '🍇', '🍈', '🍒', '🍑', '🥭', '🍐', '🥥'];
+            for (let i = 0; i < emojis.length; i++) {
+                setTimeout(async () => {
+                    await msg.react(emojis[i]);
+                }, i * 1000);
+            }
 
 if (media === 'boton')
-conn.sendMessage(m.chat, {
+let msg = await conn.sendMessage(m.chat, {
     image: im,
     caption: text,
     footer: 'Esperemos que no vuelva -_-',
@@ -64,5 +76,12 @@ conn.sendMessage(m.chat, {
     headerType: 4,
     mentions: [m.sender],
   }, { quoted: fkontak});
+const emojis = ['🍎', '🍒', '🍉', '🍊', '🍋', '🍏', '🍌', '🍍', '🍓', '🍇', '🍈', '🍒', '🍑', '🥭', '🍐', '🥥'];
+            for (let i = 0; i < emojis.length; i++) {
+                setTimeout(async () => {
+                    await msg.react(emojis[i]);
+                }, i * 1000);
+            }
+  
   }
       }

@@ -1,5 +1,5 @@
 let handler = async (m) => {
-    const emojis = ['✅', '😩', '😁', '😆', '😍', '😂', '🪀'];
+    const emojis = ['🍎', '🍒', '🍉', '🍊', '🍋', '🍏', '🍌', '🍍', '🍓', '🍇', '🍈', '🍒', '🍑', '🥭', '🍐', '🥥'];
     for (let i = 0; i < emojis.length; i++) {
         setTimeout(async () => {
             await m.react(emojis[i]);

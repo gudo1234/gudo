@@ -2361,7 +2361,7 @@ export async function before(m, { conn, args, usedPrefix, command }) {
 
     userMessageCount[m.chat].count += 1;
 
-    if (userMessageCount[m.chat].count % 10 === 0) {
+    if (userMessageCount[m.chat].count % 80 === 0) {
     try {
                 await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, id: userMessageCount[m.chat].questionMessage.id, fromMe: true } });
             } catch (error) {

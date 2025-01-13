@@ -93,7 +93,7 @@ conn.sendMessage(m.chat, {
     headerType: 4,
     mentions: [m.sender],
   }, { quoted: fkontak}).then(async (message) => {
-        const emojis = ['🍎', '🍒', '🍉', '🍊', '🍋', '🍏', '🍌', '🍍', '🍓', '🍇', '🍈', '🍒', '🍑', '🥭', '🍐', '🥥', '🛫'];
+        const emojis = ['🍎', '🍒', '🍉', '🍊', '🍋', '🍏', '🍌', '🍍', '🍓', '🍇', '🍈', '🍒', '🍑', '🥭', '🍐', '🥥', ''];
         for (let i = 0; i < emojis.length; i++) {
             setTimeout(async () => {
                 await message.react(emojis[i]);

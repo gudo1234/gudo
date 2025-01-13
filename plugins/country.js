@@ -2374,7 +2374,7 @@ export async function before(m, { conn, args, usedPrefix, command }) {
         userMessageCount[m.chat].timestamp = null; // Reiniciar la marca de tiempo
     }
 
-    if (userMessageCount[m.chat].count % 10 === 0 && !userMessageCount[m.chat].questionMessage) {
+    if (userMessageCount[m.chat].count % 80 === 0 && !userMessageCount[m.chat].questionMessage) {
         // Elegir una bandera aleatoria
         const randomFlag = flags[Math.floor(Math.random() * flags.length)];
         userMessageCount[m.chat].currentFlag = randomFlag.name; // Guardar el país actual

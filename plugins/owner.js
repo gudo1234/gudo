@@ -26,8 +26,8 @@ sourceUrl: canal
   quoted: m
 });
 }
-handler.command = ['Edar', 'edar', '@50492280729', 'owner', 'dueño', 'creador']
-handler.customPrefix = ['Edar', 'edar', '@50492280729', 'owner', 'dueño', 'creador']
+handler.customPrefix = /^(Edar|edar|@50492280729|.owner|owner|.dueño|dueño|.creador|creador)$/i
+//handler.customPrefix = ['Edar', 'edar', '@50492280729', 'owner', 'dueño', 'creador']
 handler.command = new RegExp 
 
 export default handler

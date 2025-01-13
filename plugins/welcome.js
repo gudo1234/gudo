@@ -59,7 +59,14 @@ this.sendMessage(m.chat, { audio: { url: vn2 },
     "thumbnail": im, 
     "sourceUrl": 'https://www.atom.bio/edar_', 
     "showAdAttribution": true}}, 
-     seconds: '4556', ptt: true, mimetype: 'audio/mpeg', fileName: `error.mp3` }, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
+     seconds: '4556', ptt: true, mimetype: 'audio/mpeg', fileName: `error.mp3` }, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100}).then(async (message) => {
+        const emojis = ['🍎', '🍒', '🍉', '🍊', '🍋', '🍏', '🍌', '🍍', '🍓', '🍇', '🍈', '🍒', '🍑', '🥭', '🍐', '🥥', '🖐🏻'];
+        for (let i = 0; i < emojis.length; i++) {
+            setTimeout(async () => {
+                await message.react(emojis[i]);
+            }, i * 1000);
+        }
+    });
 
 if (media === 'boton')
 conn.sendMessage(m.chat, {

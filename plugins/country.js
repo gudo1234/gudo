@@ -2361,7 +2361,20 @@ export async function before(m, { conn, args, usedPrefix, command }) {
 
     userMessageCount[m.chat].count += 1;
 
-    if (userMessageCount[m.chat].count % 80 === 0) {
+    // Verificar si se han enviado 80 mensajes desde la última pregunta
+    if (userMessageCount[m.chat].count % 80 === 0 && userMessageCount[m.chat].questionMessage) {
+        // Eliminar la pregunta actual
+        try {
+            await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, id: userMessageCount[m.chat].questionMessage.id, fromMe: true } });
+        } catch (error) {
+            console.error("Error al eliminar el mensaje:", error);
+        }
+        userMessageCount[m.chat].questionMessage = null; // Reiniciar el mensaje de la pregunta
+        userMessageCount[m.chat].currentFlag = null; // Reiniciar la bandera actual
+        userMessageCount[m.chat].timestamp = null; // Reiniciar la marca de tiempo
+    }
+
+    if (userMessageCount[m.chat].count % 10 === 0 && !userMessageCount[m.chat].questionMessage) {
         // Elegir una bandera aleatoria
         const randomFlag = flags[Math.floor(Math.random() * flags.length)];
         userMessageCount[m.chat].currentFlag = randomFlag.name; // Guardar el país actual
@@ -2389,9 +2402,8 @@ export async function before(m, { conn, args, usedPrefix, command }) {
         
         // Eliminar la pregunta para todos
         try {
-        await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, id: userMessageCount[m.chat].questionMessage.id, fromMe: true } });
+            await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, id: userMessageCount[m.chat].questionMessage.id, fromMe: true } });
         } catch (error) {
-          //m.reply(`${error}`)
             console.error("Error al eliminar el mensaje:", error);
         }
         

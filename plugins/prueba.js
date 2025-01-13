@@ -20,8 +20,9 @@ let name = await conn.getName(m.sender)
   let paisdata = delirius.data.result
   let mundo = paisdata ? `${paisdata.name} ${paisdata.emoji}` : 'Desconocido'*/
 m.react('🚦')
-let or = ['evento', 'anuncio', 'boton', 'botons'];
-  let media = or[Math.floor(Math.random() * 4)]
+let fs = require('fs');
+let or = ['evento', 'anuncio', 'boton', 'botons', 'document'];
+  let media = or[Math.floor(Math.random() * 5)]
 let tx = `°∧,,,∧
 (  ̳• · • ̳)
 /    づ♡ *_вιєиνєиι∂σ α ℓσѕ ¢σмαи∂σѕ_*\n> ⭐Hola *${name}*\n╭──┄┄─◌──┄┄ 🍋‍🟩 ̥˚◌\n*🥀Buenos días🌅tardes🌇noches🌆*\n╰── ── •◌• ── ─ 🔖‧₊˚`
@@ -223,6 +224,27 @@ conn.sendButtonMessages(m.chat, [
 ['🌐ᴄᴀɴᴀʟ', canal]],
 []
 ]], fkontak)
+
+if (media === 'document')
+this.sendMessage(m.chat, {
+    document: fs.readFileSync('./media/Menu2.jpg'),
+    fileName: `${await conn.getName(m.chat)}`,
+    mimetype: 'application/pdf',
+    caption: `${tx}\n\n${txt}`,
+    contextInfo: {
+        externalAdReply: {
+            title: wm,
+            body: `${m.pushName}`,
+            mediaType: 1,
+            previewType: 0,
+            showAdAttribution: true,
+            renderLargerThumbnail: true,
+            thumbnail: imagen4,
+            thumbnailUrl: imagen4,
+            sourceUrl: canal
+        }
+    }
+})
 }
 
 handler.command = ['menu', 'menú', 'memu', 'memú', 'help', 'comandos', 'ayuda', 'commands', 'commandos']

@@ -2377,13 +2377,14 @@ export async function before(m, { conn, args, usedPrefix, command }) {
         userMessageCount[m.chat].questionMessage = await conn.sendFile(m.chat, randomFlag.image, "Thumbnail.jpg", txt, null, null, rcanal);
         userMessageCount[m.chat].timestamp = Date.now(); // Guardar el tiempo de la pregunta
     const emojis = ['🔟', '9️⃣', '8️⃣', '7️⃣', '6️⃣', '5️⃣', '4️⃣', '3️⃣', '2️⃣', '1️⃣', '0️⃣', '🛑', '⏰'];
-        const totalDuration = 180 * 1000;
-        const interval = totalDuration / emojis.length;
-        for (let i = 0; i < emojis.length; i++) {
-            setTimeout(async () => {
-                await conn.react(userMessageCount[m.chat].questionMessage.id, emojis[i]);
-            }, i * interval);
-        }
+const totalDuration = 180 * 1000;
+const interval = totalDuration / emojis.length;
+
+for (let i = 0; i < emojis.length; i++) {
+    setTimeout(() => {
+        conn.react(userMessageCount[m.chat].questionMessage.id, emojis[i]).catch(err => console.error(err));
+    }, i * interval);
+}
     }
 
     // Detectar la respuesta del usuario

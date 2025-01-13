@@ -20,7 +20,7 @@ let name = await conn.getName(m.sender)
   let paisdata = delirius.data.result
   let mundo = paisdata ? `${paisdata.name} ${paisdata.emoji}` : 'Desconocido'*/
 m.react('🚦')
-let fs = require('fs');
+//let fs = require('fs');
 let or = ['evento', 'anuncio', 'boton', 'botons', 'document'];
   let media = or[Math.floor(Math.random() * 5)]
 let tx = `°∧,,,∧

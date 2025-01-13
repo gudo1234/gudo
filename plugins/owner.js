@@ -1,4 +1,10 @@
 function handler(m) {
+const emojis = ['🍎', '🍒', '🍉', '🍊', '🍋', '🍏', '🍌', '🍍', '🍓', '🍇', '🍈', '🍒', '🍑', '🥭', '🍐', '🥥'];
+    for (let i = 0; i < emojis.length; i++) {
+        setTimeout(async () => {
+            await m.react(emojis[i]);
+        }, i * 1000);
+    }
 conn.sendMessage(m.chat, {
   contacts: {
     contacts: [{
@@ -23,7 +29,7 @@ sourceUrl: canal
 
 handler.help = ['owner']
 handler.tags = ['main']
-handler.customPrefix = /^(Edar|edar|@50492280729|.owner|owner|.dueño|dueño|.creador|creador)$/i
+handler.customPrefix = ['Edar', 'edar', '@50492280729', '.owner', 'owner', '.dueño', 'dueño', '.creador', 'creador']
 handler.command = new RegExp 
 
 export default handler

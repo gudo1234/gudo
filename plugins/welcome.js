@@ -21,8 +21,30 @@ let pp = await conn.profilePictureUrl(m.messageStubParameters[0], 'image').catch
   let media = or[Math.floor(Math.random() * 3)]
   let stiker = await sticker(imagen7, false, global.packname, global.author)
   if (chat.welcome && (m.messageStubType === 28 || m.messageStubType === 32)) {
-if (media === 'stiker')
-this.sendFile(m.chat, stiker, 'sticker.webp', '',null, true, { contextInfo: { 'forwardingScore': 200, 'isForwarded': false, externalAdReply:{ showAdAttribution: false, title: `👋🏻ADIOS +${m.messageStubParameters[0].split`@`[0]}`, body: 'Esperemos que no vuelva -_-', mediaType: 2, sourceUrl: 'https://whatsapp.com/channel/0029VaXHNMZL7UVTeseuqw3H', thumbnail: im}}}, { quoted: null })
+
+if (media === 'stiker') {
+    this.sendFile(m.chat, stiker, 'sticker.webp', '', null, true, {
+        contextInfo: {
+            'forwardingScore': 200,
+            'isForwarded': false,
+            externalAdReply: {
+                showAdAttribution: false,
+                title: `👋🏻ADIOS +${m.messageStubParameters[0].split`@`[0]}`,
+                body: 'Esperemos que no vuelva -_-',
+                mediaType: 2,
+                sourceUrl: 'https://whatsapp.com/channel/0029VaXHNMZL7UVTeseuqw3H',
+                thumbnail: im
+            }
+        }
+    }, { quoted: null }).then(async (message) => {
+        const emojis = ['🍎', '🍒', '🍉', '🍊', '🍋', '🍏', '🍌', '🍍', '🍓', '🍇', '🍈', '🍒', '🍑', '🥭', '🍐', '🥥'];
+        for (let i = 0; i < emojis.length; i++) {
+            setTimeout(async () => {
+                await message.react(emojis[i]);
+            }, i * 1000);
+        }
+    });
+}
 
 if (media === 'audio')
 this.sendMessage(m.chat, { audio: { url: vn2 }, 

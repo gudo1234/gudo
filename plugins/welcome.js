@@ -1,4 +1,4 @@
-import { WAMessageStubType } from '@whiskeysockets/baileys';
+/*import { WAMessageStubType } from '@whiskeysockets/baileys';
 import { sticker } from '../lib/sticker.js'
 import fetch from 'node-fetch';
 export async function before(m, { conn, participants, groupMetadata }) {
@@ -65,4 +65,44 @@ conn.sendMessage(m.chat, {
     mentions: [m.sender],
   }, { quoted: fkontak});
   }
-      }
+      }*/
+
+import { WAMessageStubType } from '@whiskeysockets/baileys';
+import fetch from 'node-fetch';
+import { createCanvas, loadImage } from 'canvas';
+
+export async function before(m, { conn, participants, groupMetadata }) {
+    if (!m.messageStubType || !m.isGroup) return true;
+
+    let pp = await conn.profilePictureUrl(m.messageStubParameters[0], 'image').catch(_ => 'https://qu.ax/casQP.jpg');
+    let im = await (await fetch(`${pp}`)).buffer();
+    
+    let chat = global.db.data.chats[m.chat];
+    const getMentionedJid = () => {
+        return m.messageStubParameters.map(param => `${param}@s.whatsapp.net`);
+    };
+    
+    let who = m.messageStubParameters[0] + '@s.whatsapp.net';
+    let user = global.db.data.users[who];
+    let userName = user ? user.name : await conn.getName(who);
+    
+    if (chat.welcome && (m.messageStubType === 28 || m.messageStubType === 32)) {
+        // Crear el canvas
+        const canvas = createCanvas(800, 400);
+        const ctx = canvas.getContext('2d');
+
+        // Cargar la imagen del perfil
+        const profileImage = await loadImage(im);
+        ctx.drawImage(profileImage, 50, 50, 100, 100); // Dibujar la imagen del perfil
+
+        // Añadir texto
+        ctx.font = '30px Arial';
+        ctx.fillStyle = 'black';
+        ctx.fillText(`Adiós, ${userName}!`, 200, 100);
+        ctx.fillText(`Grupo: ${groupMetadata.subject}`, 200, 150);
+
+        // Convertir a JPG y enviar
+        const buffer = canvas.toBuffer('image/jpeg');
+        await conn.sendFile(m.chat, buffer, 'despedida.jpg', '', m);
+    }
+}

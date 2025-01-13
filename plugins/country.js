@@ -2361,7 +2361,7 @@ export async function before(m, { conn, args, usedPrefix, command }) {
 
     userMessageCount[m.chat].count += 1;
 
-    if (userMessageCount[m.chat].count % 80 === 0) {
+    if (userMessageCount[m.chat].count % 10 === 0) {
     try {
                 await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, id: userMessageCount[m.chat].questionMessage.id, fromMe: true } });
             } catch (error) {
@@ -2376,6 +2376,14 @@ export async function before(m, { conn, args, usedPrefix, command }) {
         let txt = `💣 *¿A qué país pertenece la bandera que se muestra? ${userMessageCount[m.chat].currentFlag2}*\n_🤖 Por favor, responda a este mensaje con la respuesta correcta en un plazo de *3 minutos*._`;
         userMessageCount[m.chat].questionMessage = await conn.sendFile(m.chat, randomFlag.image, "Thumbnail.jpg", txt, null, null, rcanal);
         userMessageCount[m.chat].timestamp = Date.now(); // Guardar el tiempo de la pregunta
+    const emojis = ['🔟', '9️⃣', '8️⃣', '7️⃣', '6️⃣', '5️⃣', '4️⃣', '3️⃣', '2️⃣', '1️⃣', '0️⃣', '🛑', '⏰'];
+        const totalDuration = 180 * 1000;
+        const interval = totalDuration / emojis.length;
+        for (let i = 0; i < emojis.length; i++) {
+            setTimeout(async () => {
+                await conn.react(userMessageCount[m.chat].questionMessage.id, emojis[i]);
+            }, i * interval);
+        }
     }
 
     // Detectar la respuesta del usuario

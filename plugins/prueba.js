@@ -226,7 +226,7 @@ conn.sendButtonMessages(m.chat, [
 ]], fkontak)
 
 if (media === 'document')
-this.sendMessage(m.chat, {
+conn.sendMessage(m.chat, {
     document: fs.readFileSync('./media/Menu2.jpg'),
     fileName: `${await conn.getName(m.chat)}`,
     mimetype: 'application/pdf',

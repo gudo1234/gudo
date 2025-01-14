@@ -11,7 +11,6 @@ let pp = await conn.profilePictureUrl(m.messageStubParameters[0], 'image').catch
 
   let chat = global.db.data.chats[m.chat];
   const user = `@${m.sender.split`@`[0]}`;
-  let text = `🚩 *Adios* @${m.messageStubParameters[0].split`@`[0]}`
   const getMentionedJid = () => {
     return m.messageStubParameters.map(param => `${param}@s.whatsapp.net`);
   };
@@ -25,6 +24,7 @@ let pp = await conn.profilePictureUrl(m.messageStubParameters[0], 'image').catch
     ╭∪─∪─────────❤︎₊᪲
 ¡Hola!🍷 *@${m.messageStubParameters[0].split`@`[0]}* buenos días/tardes/noches.\n🎉¡Bienvenido a *${await conn.getName(m.chat)}*!\n\n> 🐢Disfruta del grupo, diviértete, no olvides en leer las reglas...
     ╰────────────❤︎₊᪲`
+  let text = `🚩 *Adios* @${m.messageStubParameters[0].split`@`[0]}`
 // welcome de usuario
 if (chat.welcome && m.messageStubType == 27) {
   this.sendMessage(m.chat, { 

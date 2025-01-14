@@ -22,28 +22,31 @@ let pp = await conn.profilePictureUrl(m.messageStubParameters[0], 'image').catch
   let stiker = await sticker(imagen7, false, global.packname, global.author)
   
 // welcome de usuario
-  if (chat.welcome && m.messageStubType == 27) {
-    let wel = `_*Welcome*_ @${m.sender.split('@')[0]}\n_*𝗕𝗶𝗲𝗻𝘃𝗲𝗻𝗶𝗱𝗼/𝗮*_\n${groupMetadata.subject}\n   └───────────────┈ ⳹`
-this.sendMessage(m.chat, { text: wel,contextInfo: {
-    mentionedJid: [m.sender],
-    groupMentions: [],
-    isForwarded: true,
-    forwardedNewsletterMessageInfo: {
-      newsletterJid: '120363285614743024@newsletter',
-      newsletterName: `꙳🧧𓆩ίʑ᭘ɱί-ⲃⲟτ𓆪🧧꙳`,
-      serverMessageId: 0
-    },
-    businessMessageForwardInfo: { businessOwnerJid: '50492280729@s.whatsapp.net' },
-    forwardingScore: 9999,
-    externalAdReply: {
-      title: `🍒ᴡᴇʟᴄᴏᴍᴇ🍒`,
-      body: 'Izumi te da la bienvenida',
-      thumbnailUrl: im,
-      thumbnail: im,
-      sourceUrl: 'https://www.atom.bio/edar_'
-    }
-  }},{quoted: fkontak})
-}
+  if (chat.welcome && (m.messageStubType == 27 || m.messageStubType == 28)) { // 27 para unirse por enlace, 28 para ser añadido
+    let wel = `_*𝗕𝗶𝗲𝗻𝘃𝗲𝗻𝗶𝗱𝗼*_ @${m.sender.split('@')[0]} 🎉`; // Mención al usuario
+    this.sendMessage(m.chat, { 
+        text: wel, 
+        contextInfo: {
+            mentionedJid: [m.sender], // Asegúrate de incluir al nuevo usuario aquí
+            groupMentions: [],
+            isForwarded: true,
+            forwardedNewsletterMessageInfo: {
+                newsletterJid: '120363285614743024@newsletter',
+                newsletterName: `꙳🧧𓆩ίʑ᭘ɱί-ⲃⲟτ𓆪🧧꙳`,
+                serverMessageId: 0
+            },
+            businessMessageForwardInfo: { businessOwnerJid: '50492280729@s.whatsapp.net' },
+            forwardingScore: 9999,
+            externalAdReply: {
+                title: `🍒ᴡᴇʟᴄᴏᴍᴇ🍒`,
+                body: 'Izumi te da la bienvenida',
+                thumbnailUrl: im,
+                thumbnail: im,
+                sourceUrl: 'https://www.atom.bio/edar_'
+            }
+        }
+    }, { quoted: fkontak });
+  }
 
 // Despedida
 if (chat.welcome && (m.messageStubType === 28 || m.messageStubType === 32)) {

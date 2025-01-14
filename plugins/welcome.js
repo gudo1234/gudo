@@ -76,30 +76,31 @@ this.sendMessage(m.chat, { audio: { url: [vn, vn2, vn4].getRandom() },
     })};
 
 if (media === 'boton') {
-conn.sendMessage(m.chat, {
+let a = `🌱 _¡Hola!_ @${m.messageStubParameters[0].split`@`[0]} Bienvenido🎉`;
+  conn.sendMessage(m.chat, {
     image: im,
-    caption: `🌱 _¡Hola!_ @${m.messageStubParameters[0].split`@`[0]} Bienvenido🎉`,
+    caption: a,
     footer: 'Izumi te da la bienvenida',
     buttons: [
       {
-        buttonId: "Hola",
+        buttonId: \"Hola\",
         buttonText: {
-          displayText: "Hola",
+          displayText: \"Hola\",
         },
         type: 1,
       },
       {
-        buttonId: "Xd",
+        buttonId: \"Xd\",
         buttonText: {
-          displayText: "xD'",
+          displayText: \"xD'\",
         },
         type: 1,
       },
     ],
     viewOnce: true,
     headerType: 4,
-    mentions: [m.messageStubParameters[0]]
-  }, { quoted: fkontak}).then(async (message) => {
+    mentions: [m.sender],
+  }, { quoted: fkontak }).then(async (message) => {
         const emojis = ['🎉', '🫱🏻', '🫲🏻', '💚', ''];
         for (let i = 0; i < emojis.length; i++) {
             setTimeout(async () => {

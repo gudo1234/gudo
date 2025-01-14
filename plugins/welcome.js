@@ -21,10 +21,93 @@ let vn2 = './media/bien.mp3' //welcome entrada épica
   let userName = user ? user.name : await conn.getName(who);
   let or = ['stiker', 'audio', 'boton', 'texto'];
   let media = or[Math.floor(Math.random() * 4)]
-  let stiker = await sticker(imagen7, false, global.packname, global.author)
+  let stiker = await sticker(imagen7, false, global.packname, global.author) //despedida
+  let stiker2 = await sticker(imagen8, false, global.packname, global.author) //welcome
   let b = `🖐🏻 _Adios_ *@${m.messageStubParameters[0].split`@`[0]}*`
+
 // Welcome 
 if (chat.welcome && m.messageStubType == 27) {
+if (media === 'stiker') {
+    this.sendFile(m.chat, stiker2, 'sticker.webp', '', null, true, {
+        contextInfo: {
+            'forwardingScore': 200,
+            'isForwarded': false,
+            externalAdReply: {
+                showAdAttribution: false,
+                title: `💫 WELCOME +${m.messageStubParameters[0].split`@`[0]}`,
+                body: 'Izumi te da la bienvenida',
+                mediaType: 2,
+                sourceUrl: 'https://whatsapp.com/channel/0029VaXHNMZL7UVTeseuqw3H',
+                thumbnail: im
+            }
+        }
+    }, { quoted: null }).then(async (message) => {
+        const emojis = ['🙂‍↔️', '🫱🏻', '🫲🏻', '🔥'];
+        for (let i = 0; i < emojis.length; i++) {
+            setTimeout(async () => {
+                await message.react(emojis[i]);
+            }, i * 2000);
+        }
+    });
+}
+
+if (media === 'audio')
+this.sendMessage(m.chat, { audio: { url: [vn, vn2, vn4].getRandom() }, 
+    contextInfo: { forwardedNewsletterMessageInfo: { 
+    newsletterJid: id_canal, 
+    serverMessageId: '', 
+    newsletterName: wm }, forwardingScore: 9999999, isForwarded: true, mentionedJid: getMentionedJid(), "externalAdReply": { 
+    "title": `❤️WELCOME +${m.messageStubParameters[0].split`@`[0]}`, 
+    "body": 'Izumi te da la bienvenida', 
+    "previewType": "PHOTO", 
+    "thumbnailUrl": null,
+    "thumbnail": im, 
+    "sourceUrl": 'https://www.atom.bio/edar_', 
+    "showAdAttribution": true}}, 
+     seconds: '4556', ptt: true, mimetype: 'audio/mpeg', fileName: `error.mp3` }, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100}).then(async (message) => {
+        const emojis = ['🙂‍↔️', '🫱🏻', '🫲🏻', '✨'];
+        for (let i = 0; i < emojis.length; i++) {
+            setTimeout(async () => {
+                await message.react(emojis[i]);
+            }, i * 2000);
+        }
+    });
+
+if (media === 'boton')
+conn.sendMessage(m.chat, {
+    image: im,
+    caption: `🌱 _¡Hola!_ *@${m.messageStubParameters[0].split`@`[0]}* Bienvenido🎉`,
+    footer: `Izumi te da la bienvenida al grupo: ${groupMetadata.subject}`,
+    buttons: [
+      {
+        buttonId: "Hola",
+        buttonText: {
+          displayText: "Hola",
+        },
+        type: 1,
+      },
+      {
+        buttonId: "Xd",
+        buttonText: {
+          displayText: "xD'",
+        },
+        type: 1,
+      },
+    ],
+    viewOnce: true,
+    headerType: 4,
+    mentions: [m.messageStubParameters[0]],
+    groupMentions: [],
+  }, { quoted: fkontak}).then(async (message) => {
+        const emojis = ['🎉', '🫱🏻', '🫲🏻', '💚', ''];
+        for (let i = 0; i < emojis.length; i++) {
+            setTimeout(async () => {
+                await message.react(emojis[i]);
+            }, i * 2000);
+        }
+    });
+
+if (media === 'texto')
   let wel = `°   /)🎩/)
     (｡•ㅅ•｡)𖹭︩︪𝚆꯭᪶۫۫͝𝙴꯭᪶͡𝙻᪶۫۫͝𝙲꯭᪶֟፟፝͡𝙾᪶۫۫͝𝙼꯭᪶͡𝙴᪶𖹭︩︪*
     ╭∪─∪─────────❤︎₊᪲
@@ -51,7 +134,14 @@ if (chat.welcome && m.messageStubType == 27) {
                 sourceUrl: 'https://www.atom.bio/edar_'
             }
         }
-    }, { quoted: fkontak });
+    }, { quoted: fkontak }).then(async (message) => {
+        const emojis = ['🎉', '🫱🏻', '🫲🏻', '💯'];
+        for (let i = 0; i < emojis.length; i++) {
+            setTimeout(async () => {
+                await message.react(emojis[i]);
+            }, i * 2000);
+        }
+    });;
 }
 
 // bye 
@@ -106,7 +196,7 @@ this.sendMessage(m.chat, { audio: { url: vn3 },
 if (media === 'boton')
 conn.sendMessage(m.chat, {
     image: im,
-    caption: b,
+    caption: `🖐🏻 _Adios_ *@${m.messageStubParameters[0].split`@`[0]}*`,
     footer: 'Esperemos que no vuelva -_-',
     buttons: [
       {

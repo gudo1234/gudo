@@ -11,7 +11,6 @@ let pp = await conn.profilePictureUrl(m.messageStubParameters[0], 'image').catch
 
   let chat = global.db.data.chats[m.chat];
   const user = `@${m.sender.split`@`[0]}`;
-  let text = `🚩 *Adios* +${m.messageStubParameters[0].split`@`[0]}`
   const getMentionedJid = () => {
     return m.messageStubParameters.map(param => `${param}@s.whatsapp.net`);
   };
@@ -23,7 +22,7 @@ let pp = await conn.profilePictureUrl(m.messageStubParameters[0], 'image').catch
 
 // Welcome 
 if (chat.welcome && m.messageStubType == 27) {
-  let wel = `    /)🎩/)
+  let wel = `°   /)🎩/)
     (｡•ㅅ•｡)𖹭︩︪𝚆꯭᪶۫۫͝𝙴꯭᪶͡𝙻᪶۫۫͝𝙲꯭᪶֟፟፝͡𝙾᪶۫۫͝𝙼꯭᪶͡𝙴᪶𖹭︩︪*
     ╭∪─∪─────────❤︎₊᪲
 ¡Hola!🍷 *@${m.messageStubParameters[0].split`@`[0]}* buenos días/tardes/noches.\n🎉¡Bienvenido a *${groupMetadata.subject}*!\n\n> 🐢Disfruta del grupo, diviértete, no olvides en leer las reglas...
@@ -103,6 +102,7 @@ this.sendMessage(m.chat, { audio: { url: vn2 },
     });
 
 if (media === 'boton')
+  let text = `🚩 _Adios_ *@${m.messageStubParameters[0].split`@`[0]}*`
 conn.sendMessage(m.chat, {
     image: im,
     caption: text,
@@ -125,7 +125,7 @@ conn.sendMessage(m.chat, {
     ],
     viewOnce: true,
     headerType: 4,
-    mentions: [m.sender],
+    mentionedJid: [m.messageStubParameters[0]],
   }, { quoted: fkontak}).then(async (message) => {
         const emojis = ['🍎', '🍒', '🍉', '🍊', '🍋', '🍏', '🍌', '🍍', '🍓', '🍇', '🍈', '🍒', '🍑', '🥭', '🍐', '🥥', ''];
         for (let i = 0; i < emojis.length; i++) {

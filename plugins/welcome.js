@@ -98,7 +98,7 @@ conn.sendMessage(m.chat, {
     ],
     viewOnce: true,
     headerType: 4,
-    mentions: [m.messageStubParameters[0]],
+    mentions: [m.sender],
   }, { quoted: fkontak}).then(async (message) => {
         const emojis = ['🎉', '🫱🏻', '🫲🏻', '💚', ''];
         for (let i = 0; i < emojis.length; i++) {

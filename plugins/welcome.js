@@ -161,6 +161,7 @@ if (media === 'texto')
             }
         }
     }, { quoted: fkontak });
+  }
   // arriba
   }
       }

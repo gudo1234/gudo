@@ -374,8 +374,8 @@ conn.ev.off('connection.update', conn.connectionUpdate);
 conn.ev.off('creds.update', conn.credsUpdate);
 }
 
-conn.welcome = 'HOLAA!! @user ¿COMO ESTAS?😃\n\n『Bienvenido A *@subject*』\n\nUn gusto conocerte amig@ 🤗\n\n_Recuerda leer las reglas del grupo para no tener ningun problema 🧐_\n\n*Solo disfrutar de este grupo y divertite 🥳*`'
-/*conn.bye = 'Bueno, se fue @user 👋\n\nQue dios lo bendiga 😎`'
+/*conn.welcome = 'HOLAA!! @user ¿COMO ESTAS?😃\n\n『Bienvenido A *@subject*』\n\nUn gusto conocerte amig@ 🤗\n\n_Recuerda leer las reglas del grupo para no tener ningun problema 🧐_\n\n*Solo disfrutar de este grupo y divertite 🥳*`'
+conn.bye = 'Bueno, se fue @user 👋\n\nQue dios lo bendiga 😎`'
 conn.spromote = 'Hey @user ya forma parte de staff 👑'
 conn.sdemote = 'jajaja @user ya no eres admins'
 conn.sDesc = 'La descripción ha sido cambiada a \n@desc'

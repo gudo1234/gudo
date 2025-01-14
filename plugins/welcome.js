@@ -25,7 +25,7 @@ let pp = await conn.profilePictureUrl(m.messageStubParameters[0], 'image').catch
   if (chat.welcome && m.messageStubType == 27) {
     //let wel = `_*𝗕𝗶𝗲𝗻𝘃𝗲𝗻𝗶𝗱𝗼*_ @${m.messageStubParameters[0].split`@`[0]}`;
     this.sendMessage(m.chat, { 
-        text: conn.bye, 
+        text: conn.welcome, 
         contextInfo: {
             mentionedJid: [m.sender], // Asegúrate de incluir al nuevo usuario aquí
             groupMentions: [],

@@ -19,14 +19,14 @@ let pp = await conn.profilePictureUrl(m.messageStubParameters[0], 'image').catch
   let or = ['stiker', 'audio', 'boton'];
   let media = or[Math.floor(Math.random() * 3)]
   let stiker = await sticker(imagen7, false, global.packname, global.author)
+  
+// welcome de usuario
+if (chat.welcome && m.messageStubType == 27) {
   let wel `°    /)🎩/)
     (｡•ㅅ•｡)𖹭︩︪𝚆꯭᪶۫۫͝𝙴꯭᪶͡𝙻᪶۫۫͝𝙲꯭᪶֟፟፝͡𝙾᪶۫۫͝𝙼꯭᪶͡𝙴᪶𖹭︩︪*
     ╭∪─∪─────────❤︎₊᪲
-¡Hola!🍷 *@${m.messageStubParameters[0].split`@`[0]}* buenos días/tardes/noches.\n🎉¡Bienvenido a **!\n\n> 🐢Disfruta del grupo, diviértete, no olvides en leer las reglas...
+¡Hola!🍷 *@${m.messageStubParameters[0].split`@`[0]}* buenos días/tardes/noches.\n🎉¡Bienvenido a *${groupMetadata.subject}*!\n\n> 🐢Disfruta del grupo, diviértete, no olvides en leer las reglas...
     ╰────────────❤︎₊᪲`
-  let text = `🚩 *Adios* @${m.messageStubParameters[0].split`@`[0]}`
-// welcome de usuario
-if (chat.welcome && m.messageStubType == 27) {
   this.sendMessage(m.chat, { 
         text: wel, 
         contextInfo: {
@@ -101,6 +101,7 @@ this.sendMessage(m.chat, { audio: { url: vn2 },
     });
 
 if (media === 'boton') 
+let text = `🚩 *Adios* @${m.messageStubParameters[0].split`@`[0]}`
 conn.sendMessage(m.chat, {
     image: im,
     caption: text,

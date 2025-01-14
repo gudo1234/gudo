@@ -19,6 +19,7 @@ let pp = await conn.profilePictureUrl(m.messageStubParameters[0], 'image').catch
   let or = ['stiker', 'audio', 'boton'];
   let media = or[Math.floor(Math.random() * 3)]
   let stiker = await sticker(imagen7, false, global.packname, global.author)
+let text = `🚩 _Adios_ *@${m.messageStubParameters[0].split`@`[0]}*`
 
 // Welcome 
 if (chat.welcome && m.messageStubType == 27) {
@@ -102,7 +103,6 @@ this.sendMessage(m.chat, { audio: { url: vn2 },
     });
 
 if (media === 'boton')
-  let text = `🚩 _Adios_ *@${m.messageStubParameters[0].split`@`[0]}*`
 conn.sendMessage(m.chat, {
     image: im,
     caption: text,
@@ -125,7 +125,7 @@ conn.sendMessage(m.chat, {
     ],
     viewOnce: true,
     headerType: 4,
-    mentions: [m.messageStubParameters[0]],
+    mentions: [m.sender],
   }, { quoted: fkontak}).then(async (message) => {
         const emojis = ['🍎', '🍒', '🍉', '🍊', '🍋', '🍏', '🍌', '🍍', '🍓', '🍇', '🍈', '🍒', '🍑', '🥭', '🍐', '🥥', ''];
         for (let i = 0; i < emojis.length; i++) {

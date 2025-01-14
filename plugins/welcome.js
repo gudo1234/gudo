@@ -13,8 +13,10 @@ let vn2 = './media/bien.mp3'
 
   let chat = global.db.data.chats[m.chat];
   const user = `@${m.sender.split`@`[0]}`;
-  let text = `🚩 *Adios* +${m.messageStubParameters[0].split`@`[0]}`
   const getMentionedJid = () => {
+    return m.messageStubParameters.map(param => `${param}@s.whatsapp.net`);
+  };
+  const mentions = () => {
     return m.messageStubParameters.map(param => `${param}@s.whatsapp.net`);
   };
   let who = m.messageStubParameters[0] + '@s.whatsapp.net';
@@ -104,6 +106,7 @@ this.sendMessage(m.chat, { audio: { url: vn3 },
     });
 
 if (media === 'boton')
+let text = `🚩 *Adios* @${m.messageStubParameters[0].split`@`[0]}`
 conn.sendMessage(m.chat, {
     image: im,
     caption: text,

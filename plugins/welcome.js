@@ -76,31 +76,38 @@ this.sendMessage(m.chat, { audio: { url: [vn, vn2, vn4].getRandom() },
     })};
 
 if (media === 'boton') {
-let a = `🌴 _*¡Hola!*_ +${m.messageStubParameters[0].split`@`[0]} Bienvenido🎉`;
-  conn.sendMessage(m.chat, {
-    image: im,
-    caption: a,
-    footer: 'Izumi te da la bienvenida',
-    buttons: [
-      {
-        buttonId: "Hola",
-        buttonText: {
-          displayText: "Hola",
-        },
-        type: 1,
+const message = generateWAMessageFromContent(jid, {
+  viewOnceMessage: {
+    message: {
+      messageContextInfo: {
+        deviceListMetadata: {},
+        deviceListMetadataVersion: 2
       },
-      {
-        buttonId: "Xd",
-        buttonText: {
-          displayText: "xD'",
-        },
-        type: 1,
+      buttonsMessage: {
+        contentText: `🌴 _*¡Hola!*_ @${m.messageStubParameters[0].split`@`[0]} Bienvenido🎉`,
+        footerText: 'Izumi te da la bienvenida',
+        buttons: [
+          {
+            buttonId: "Hola",
+            buttonText: {
+              displayText: "Hola",
+            },
+            type: 1,
+          },
+          {
+            buttonId: "Xd",
+            buttonText: {
+              displayText: "xD'",
+            },
+            type: 1,
+          },
+        ],
+        headerType: 4,
+        mentions: [m.sender],
       },
-    ],
-    viewOnce: true,
-    headerType: 4,
-    mentions: [m.sender],
-  }, { quoted: fkontak }).then(async (message) => {
+    },
+  },
+}, { quoted: fkontak }).then(async (message) => {
         const emojis = ['🎉', '🫱🏻', '🫲🏻', '💚', ''];
         for (let i = 0; i < emojis.length; i++) {
             setTimeout(async () => {

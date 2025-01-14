@@ -77,7 +77,7 @@ this.sendMessage(m.chat, { audio: { url: [vn, vn2, vn4].getRandom() },
 if (media === 'boton') {
 conn.sendMessage(m.chat, {
     image: im,
-    caption: `🌱 _¡Hola!_ *@${m.messageStubParameters[0].split`@`[0]}* Bienvenido🎉`,
+    caption: `🌱 _¡Hola!_ +${m.messageStubParameters[0].split`@`[0]} Bienvenido🎉`,
     footer: 'Izumi te da la bienvenida',
     buttons: [
       {
@@ -150,6 +150,7 @@ if (media === 'texto') {
 if (media === 'stiker') {
     this.sendFile(m.chat, stiker, 'sticker.webp', '', null, true, {
         contextInfo: {
+            'mentionedJid': [m.messageStubParameters[0]],
             'forwardingScore': 200,
             'isForwarded': false,
             externalAdReply: {
@@ -176,7 +177,7 @@ this.sendMessage(m.chat, { audio: { url: vn3 },
     contextInfo: { forwardedNewsletterMessageInfo: { 
     newsletterJid: id_canal, 
     serverMessageId: '', 
-    newsletterName: wm }, forwardingScore: 9999999, isForwarded: true, mentionedJid: getMentionedJid(), "externalAdReply": { 
+    newsletterName: wm }, forwardingScore: 9999999, isForwarded: true, mentionedJid: [m.messageStubParameters[0]], "externalAdReply": { 
     "title": `👋🏻 ADIOS +${m.messageStubParameters[0].split`@`[0]}`, 
     "body": 'Esperemos que no vuelva -_-', 
     "previewType": "PHOTO", 
@@ -196,7 +197,7 @@ this.sendMessage(m.chat, { audio: { url: vn3 },
 if (media === 'boton')
 conn.sendMessage(m.chat, {
     image: im,
-    caption: `🖐🏻 _Adios_ *@${m.messageStubParameters[0].split`@`[0]}*`,
+    caption: `🖐🏻 _*Adios*_ +${m.messageStubParameters[0].split`@`[0]}`,
     footer: 'Esperemos que no vuelva -_-',
     buttons: [
       {
@@ -216,7 +217,7 @@ conn.sendMessage(m.chat, {
     ],
     viewOnce: true,
     headerType: 4,
-    mentions: [m.sender],
+    mentions: [m.messageStubParameters[0]],
   }, { quoted: fkontak}).then(async (message) => {
         const emojis = ['🙂‍↔️', '🫱🏻', '🫲🏻', '🛫', ''];
         for (let i = 0; i < emojis.length; i++) {

@@ -22,12 +22,12 @@ let pp = await conn.profilePictureUrl(m.messageStubParameters[0], 'image').catch
   let stiker = await sticker(imagen7, false, global.packname, global.author)
   
 // welcome de usuario
-  if (chat.welcome && (m.messageStubType == 27 || m.messageStubType == 28)) { // 27 para unirse por enlace, 28 para ser añadido
-    let wel = `_*𝗕𝗶𝗲𝗻𝘃𝗲𝗻𝗶𝗱𝗼*_ @${m.sender.split('@')[0]} 🎉`; // Mención al usuario
+  if (chat.welcome && m.messageStubType == 27) {
+    let wel = `_*𝗕𝗶𝗲𝗻𝘃𝗲𝗻𝗶𝗱𝗼*_ @${m.messageStubParameters[0].split`@`[0]}`;
     this.sendMessage(m.chat, { 
         text: wel, 
         contextInfo: {
-            mentionedJid: [m.sender], // Asegúrate de incluir al nuevo usuario aquí
+            mentionedJid: getMentionedJid(), // Asegúrate de incluir al nuevo usuario aquí
             groupMentions: [],
             isForwarded: true,
             forwardedNewsletterMessageInfo: {

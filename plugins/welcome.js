@@ -27,7 +27,7 @@ let pp = await conn.profilePictureUrl(m.messageStubParameters[0], 'image').catch
     this.sendMessage(m.chat, { 
         text: wel, 
         contextInfo: {
-            mentionedJid: getMentionedJid(), // Asegúrate de incluir al nuevo usuario aquí
+            mentionedJid: [m.sender], // Asegúrate de incluir al nuevo usuario aquí
             groupMentions: [],
             isForwarded: true,
             forwardedNewsletterMessageInfo: {

@@ -77,7 +77,7 @@ if (media === 'boton')
 conn.sendMessage(m.chat, {
     image: im,
     caption: `🌱 _¡Hola!_ *@${m.messageStubParameters[0].split`@`[0]}* Bienvenido🎉`,
-    footer: `Izumi te da la bienvenida al grupo: ${groupMetadata.subject}`,
+    footer: 'Izumi te da la bienvenida',
     buttons: [
       {
         buttonId: "Hola",
@@ -113,7 +113,7 @@ if (media === 'texto')
     ╭∪─∪─────────❤︎₊᪲
 ¡Hola!🍷 *@${m.messageStubParameters[0].split`@`[0]}* buenos días/tardes/noches.\n🎉¡Bienvenido a *${groupMetadata.subject}*!\n\n> 🐢Disfruta del grupo, diviértete, no olvides en leer las reglas...
     ╰────────────❤︎₊᪲`
-  this.sendMessage(m.chat, { 
+  this.sendMessage(m.chat, {
         text: wel, 
         contextInfo: {
             mentionedJid: [m.messageStubParameters[0]], // Asegúrate de incluir al nuevo usuario aquí

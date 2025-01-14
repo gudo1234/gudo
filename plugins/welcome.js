@@ -23,7 +23,7 @@ let pp = await conn.profilePictureUrl(m.messageStubParameters[0], 'image').catch
 
 // Welcome 
 if (chat.welcome && m.messageStubType == 27) {
-  let wel = `°    /)🎩/)
+  let wel = `    /)🎩/)
     (｡•ㅅ•｡)𖹭︩︪𝚆꯭᪶۫۫͝𝙴꯭᪶͡𝙻᪶۫۫͝𝙲꯭᪶֟፟፝͡𝙾᪶۫۫͝𝙼꯭᪶͡𝙴᪶𖹭︩︪*
     ╭∪─∪─────────❤︎₊᪲
 ¡Hola!🍷 *@${m.messageStubParameters[0].split`@`[0]}* buenos días/tardes/noches.\n🎉¡Bienvenido a *${groupMetadata.subject}*!\n\n> 🐢Disfruta del grupo, diviértete, no olvides en leer las reglas...

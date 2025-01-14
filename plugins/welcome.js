@@ -161,7 +161,7 @@ if (media === 'texto')
             }
         }
     }, { quoted: fkontak }).then(async (message) => {
-        const emojis = ['🙂‍↔️', '🫱🏻', '🫲🏻', '🛫', ''];
+        const emojis = ['🙂‍↔️', '🫱🏻', '🫲🏻', '🛫'];
         for (let i = 0; i < emojis.length; i++) {
             setTimeout(async () => {
                 await message.react(emojis[i]);

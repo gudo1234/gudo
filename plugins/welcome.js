@@ -78,7 +78,7 @@ this.sendMessage(m.chat, { audio: { url: [vn, vn2, vn4].getRandom() },
 if (media === 'boton') {
 conn.sendMessage(m.chat, {
     image: im,
-    caption: `🌱 _¡Hola!_ +${m.messageStubParameters[0].split`@`[0]} Bienvenido🎉`,
+    caption: `🌱 _¡Hola!_ @${m.messageStubParameters[0].split`@`[0]} Bienvenido🎉`,
     footer: 'Izumi te da la bienvenida',
     buttons: [
       {

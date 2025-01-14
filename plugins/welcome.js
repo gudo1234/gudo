@@ -11,7 +11,7 @@ let pp = await conn.profilePictureUrl(m.messageStubParameters[0], 'image').catch
 
   let chat = global.db.data.chats[m.chat];
   const user = `@${m.sender.split`@`[0]}`;
-  let text = `🚩 *Adios* +${m.messageStubParameters[0].split`@`[0]}`
+  let text = `🚩 *Adios* @${m.messageStubParameters[0].split`@`[0]}`
   const getMentionedJid = () => {
     return m.messageStubParameters.map(param => `${param}@s.whatsapp.net`);
   };
@@ -120,7 +120,7 @@ conn.sendMessage(m.chat, {
     ],
     viewOnce: true,
     headerType: 4,
-    mentions: [m.sender],
+    mentions: [m.messageStubParameters[0]],
   }, { quoted: fkontak}).then(async (message) => {
         const emojis = ['🍎', '🍒', '🍉', '🍊', '🍋', '🍏', '🍌', '🍍', '🍓', '🍇', '🍈', '🍒', '🍑', '🥭', '🍐', '🥥', ''];
         for (let i = 0; i < emojis.length; i++) {

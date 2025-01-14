@@ -20,11 +20,14 @@ let pp = await conn.profilePictureUrl(m.messageStubParameters[0], 'image').catch
   let or = ['stiker', 'audio', 'boton'];
   let media = or[Math.floor(Math.random() * 3)]
   let stiker = await sticker(imagen7, false, global.packname, global.author)
-  
+  let wel `°    /)🎩/)
+    (｡•ㅅ•｡)𖹭︩︪𝚆꯭᪶۫۫͝𝙴꯭᪶͡𝙻᪶۫۫͝𝙲꯭᪶֟፟፝͡𝙾᪶۫۫͝𝙼꯭᪶͡𝙴᪶𖹭︩︪*
+    ╭∪─∪─────────❤︎₊᪲
+¡Hola!🍷 *@${m.messageStubParameters[0].split`@`[0]}* buenos días/tardes/noches.\n🎉¡Bienvenido a *${await conn.getName(m.chat)}*!\n\n> 🐢Disfruta del grupo, diviértete, no olvides en leer las reglas...
+    ╰────────────❤︎₊᪲`
 // welcome de usuario
 if (chat.welcome && m.messageStubType == 27) {
-    let wel = `_*𝗕𝗶𝗲𝗻𝘃𝗲𝗻𝗶𝗱𝗼*_ @${m.messageStubParameters[0].split`@`[0]}`;
-    this.sendMessage(m.chat, { 
+  this.sendMessage(m.chat, { 
         text: wel, 
         contextInfo: {
             mentionedJid: [m.messageStubParameters[0]], // Asegúrate de incluir al nuevo usuario aquí
@@ -75,7 +78,7 @@ if (media === 'stiker') {
     });
 }
 
-if (media === 'audio')
+if (media === 'audio') {
 this.sendMessage(m.chat, { audio: { url: vn2 }, 
     contextInfo: { forwardedNewsletterMessageInfo: { 
     newsletterJid: id_canal, 
@@ -95,9 +98,9 @@ this.sendMessage(m.chat, { audio: { url: vn2 },
                 await message.react(emojis[i]);
             }, i * 1000);
         }
-    });
+    })};
 
-if (media === 'boton')
+if (media === 'boton') {
 conn.sendMessage(m.chat, {
     image: im,
     caption: text,
@@ -128,6 +131,6 @@ conn.sendMessage(m.chat, {
                 await message.react(emojis[i]);
             }, i * 1000);
         }
-    });
+    })};
   }
       }

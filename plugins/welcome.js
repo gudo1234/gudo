@@ -7,16 +7,14 @@ let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status
   if (!m.messageStubType || !m.isGroup) return true;
 let pp = await conn.profilePictureUrl(m.messageStubParameters[0], 'image').catch(_ => 'https://qu.ax/casQP.jpg')
   let im = await (await fetch(`${pp}`)).buffer()
-  let vn = './media/a.mp3'
-let vn2 = './media/bien.mp3'
-  let vn3 = './media/adios.mp3';
+  let vn = './media/a.mp3' //welcome bendicion
+let vn2 = './media/bien.mp3' //welcome entrada épica
+  let vn3 = './media/adios.mp3'; //y se marchó
+  let vn4 = './media/prueba3.mp3'; //welcome calamar
 
   let chat = global.db.data.chats[m.chat];
   const user = `@${m.sender.split`@`[0]}`;
   const getMentionedJid = () => {
-    return m.messageStubParameters.map(param => `${param}@s.whatsapp.net`);
-  };
-  const mentions = () => {
     return m.messageStubParameters.map(param => `${param}@s.whatsapp.net`);
   };
   let who = m.messageStubParameters[0] + '@s.whatsapp.net';

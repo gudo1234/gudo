@@ -24,7 +24,7 @@ let vn2 = './media/bien.mp3'
   let or = ['stiker', 'audio', 'boton', 'texto'];
   let media = or[Math.floor(Math.random() * 4)]
   let stiker = await sticker(imagen7, false, global.packname, global.author)
-
+  let b = `🖐🏻 _Adios_ *@${m.messageStubParameters[0].split`@`[0]}*`
 // Welcome 
 if (chat.welcome && m.messageStubType == 27) {
   let wel = `°   /)🎩/)
@@ -106,10 +106,9 @@ this.sendMessage(m.chat, { audio: { url: vn3 },
     });
 
 if (media === 'boton')
-let text = `🚩 *Adios* @${m.messageStubParameters[0].split`@`[0]}`
 conn.sendMessage(m.chat, {
     image: im,
-    caption: text,
+    caption: b,
     footer: 'Esperemos que no vuelva -_-',
     buttons: [
       {
@@ -129,7 +128,7 @@ conn.sendMessage(m.chat, {
     ],
     viewOnce: true,
     headerType: 4,
-    mentions: [m.sender],
+    mentions: [m.messageStubParameters[0]],
   }, { quoted: fkontak}).then(async (message) => {
         const emojis = ['🙂‍↔️', '🫱🏻', '🫲🏻', '🛫', ''];
         for (let i = 0; i < emojis.length; i++) {
@@ -140,8 +139,6 @@ conn.sendMessage(m.chat, {
     });
 
 if (media === 'texto')
-  if (chat.welcome && m.messageStubType == 27) {
-  let b = `🖐🏻 _Adios_ *@${m.messageStubParameters[0].split`@`[0]}*`
   this.sendMessage(m.chat, { 
         text: b, 
         contextInfo: {
@@ -171,7 +168,6 @@ if (media === 'texto')
             }, i * 2000);
         }
     });
-  }
   // arriba
   }
       }

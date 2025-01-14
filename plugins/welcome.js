@@ -27,6 +27,7 @@ let vn2 = './media/bien.mp3' //welcome entrada épica
 
 // Welcome 
 if (chat.welcome && m.messageStubType == 27) {
+
 if (media === 'stiker') {
     this.sendFile(m.chat, stiker2, 'sticker.webp', '', null, true, {
         contextInfo: {
@@ -96,8 +97,7 @@ conn.sendMessage(m.chat, {
     ],
     viewOnce: true,
     headerType: 4,
-    mentions: [m.messageStubParameters[0]],
-    groupMentions: [],
+    mentions: [m.sender],
   }, { quoted: fkontak}).then(async (message) => {
         const emojis = ['🎉', '🫱🏻', '🫲🏻', '💚', ''];
         for (let i = 0; i < emojis.length; i++) {
@@ -216,8 +216,7 @@ conn.sendMessage(m.chat, {
     ],
     viewOnce: true,
     headerType: 4,
-    mentions: [m.messageStubParameters[0]],
-    groupMentions: [],
+    mentions: [m.sender],
   }, { quoted: fkontak}).then(async (message) => {
         const emojis = ['🙂‍↔️', '🫱🏻', '🫲🏻', '🛫', ''];
         for (let i = 0; i < emojis.length; i++) {

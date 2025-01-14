@@ -20,7 +20,15 @@ let pp = await conn.profilePictureUrl(m.messageStubParameters[0], 'image').catch
   let or = ['stiker', 'audio', 'boton'];
   let media = or[Math.floor(Math.random() * 3)]
   let stiker = await sticker(imagen7, false, global.packname, global.author)
-  if (chat.welcome && (m.messageStubType === 28 || m.messageStubType === 32)) {
+  
+// welcome de usuario
+  if (chat.welcome && m.messageStubType == 27) {
+    let wel = `_*𝗕𝗶𝗲𝗻𝘃𝗲𝗻𝗶𝗱𝗼*_ @${m.messageStubParameters[0].split`@`[0]}\n𝗕𝗶𝗲𝗻𝘃𝗲𝗻𝗶𝗱𝗼/𝗮\n${groupMetadata.subject}\n   └───────────────┈ ⳹`
+await conn.sendFile(m.chat, packname, wm, wel, im, im, canal, fkontak)
+  }
+
+// Despedida
+if (chat.welcome && (m.messageStubType === 28 || m.messageStubType === 32)) {
 
 if (media === 'stiker') {
     this.sendFile(m.chat, stiker, 'sticker.webp', '', null, true, {

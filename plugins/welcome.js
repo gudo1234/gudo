@@ -52,7 +52,7 @@ if (media === 'stiker') {
     });
 }
 
-if (media === 'audio')
+if (media === 'audio') {
 this.sendMessage(m.chat, { audio: { url: [vn, vn2, vn4].getRandom() }, 
     contextInfo: { forwardedNewsletterMessageInfo: { 
     newsletterJid: id_canal, 
@@ -72,9 +72,9 @@ this.sendMessage(m.chat, { audio: { url: [vn, vn2, vn4].getRandom() },
                 await message.react(emojis[i]);
             }, i * 2000);
         }
-    });
+    })};
 
-if (media === 'boton')
+if (media === 'boton') {
 conn.sendMessage(m.chat, {
     image: im,
     caption: `🌱 _¡Hola!_ *@${m.messageStubParameters[0].split`@`[0]}* Bienvenido🎉`,
@@ -105,9 +105,9 @@ conn.sendMessage(m.chat, {
                 await message.react(emojis[i]);
             }, i * 2000);
         }
-    });
+    })};
 
-if (media === 'texto')
+if (media === 'texto') {
   let wel = `°   /)🎩/)
     (｡•ㅅ•｡)𖹭︩︪𝚆꯭᪶۫۫͝𝙴꯭᪶͡𝙻᪶۫۫͝𝙲꯭᪶֟፟፝͡𝙾᪶۫۫͝𝙼꯭᪶͡𝙴᪶𖹭︩︪*
     ╭∪─∪─────────❤︎₊᪲
@@ -141,7 +141,7 @@ if (media === 'texto')
                 await message.react(emojis[i]);
             }, i * 2000);
         }
-    });;
+    })};
 }
 
 // bye 

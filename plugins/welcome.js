@@ -22,12 +22,12 @@ let pp = await conn.profilePictureUrl(m.messageStubParameters[0], 'image').catch
   let stiker = await sticker(imagen7, false, global.packname, global.author)
   
 // welcome de usuario
-  if (chat.welcome && m.messageStubType == 27) {
-    //let wel = `_*𝗕𝗶𝗲𝗻𝘃𝗲𝗻𝗶𝗱𝗼*_ @${m.messageStubParameters[0].split`@`[0]}`;
+if (chat.welcome && m.messageStubType == 27) {
+    let wel = `_*𝗕𝗶𝗲𝗻𝘃𝗲𝗻𝗶𝗱𝗼*_ @${m.messageStubParameters[0].split`@`[0]}`;
     this.sendMessage(m.chat, { 
-        text: conn.welcome, 
+        text: wel, 
         contextInfo: {
-            mentionedJid: [m.sender], // Asegúrate de incluir al nuevo usuario aquí
+            mentionedJid: [m.messageStubParameters[0]], // Asegúrate de incluir al nuevo usuario aquí
             groupMentions: [],
             isForwarded: true,
             forwardedNewsletterMessageInfo: {
@@ -46,7 +46,7 @@ let pp = await conn.profilePictureUrl(m.messageStubParameters[0], 'image').catch
             }
         }
     }, { quoted: fkontak });
-  }
+}
 
 // Despedida
 if (chat.welcome && (m.messageStubType === 28 || m.messageStubType === 32)) {

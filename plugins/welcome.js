@@ -24,14 +24,9 @@ let pp = await conn.profilePictureUrl(m.messageStubParameters[0], 'image').catch
 // welcome de usuario
   if (chat.welcome && m.messageStubType == 27) {
     let wel = `_*𝗕𝗶𝗲𝗻𝘃𝗲𝗻𝗶𝗱𝗼*_ @${m.messageStubParameters[0].split`@`[0]}\n𝗕𝗶𝗲𝗻𝘃𝗲𝗻𝗶𝗱𝗼/𝗮\n${groupMetadata.subject}\n   └───────────────┈ ⳹`
-//await conn.sendFile(m.chat, packname, wm, wel, im, im, canal, fkontak)
-this.reply(m.chat, `@${m.messageStubParameters[0].split`@`[0]}`, null)
+await this.sendFile(m.chat, packname, wm, wel, im, im, canal, fkontak)
+//this.reply(m.chat, `@${m.messageStubParameters[0].split`@`[0]}`, null)
 }
-
-handler.command = ['play']
-handler.group = true
-export default handler
-  }
 
 // Despedida
 if (chat.welcome && (m.messageStubType === 28 || m.messageStubType === 32)) {

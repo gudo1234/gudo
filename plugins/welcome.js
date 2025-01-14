@@ -57,7 +57,7 @@ this.sendMessage(m.chat, { audio: { url: [vn, vn2, vn4].getRandom() },
     contextInfo: { forwardedNewsletterMessageInfo: { 
     newsletterJid: id_canal, 
     serverMessageId: '', 
-    newsletterName: wm }, forwardingScore: 9999999, isForwarded: true, mentionedJid: getMentionedJid(), "externalAdReply": { 
+    newsletterName: wm }, forwardingScore: 9999999, isForwarded: true, mentionedJid: [m.messageStubParameters[0]], "externalAdReply": { 
     "title": `❤️WELCOME +${m.messageStubParameters[0].split`@`[0]}`, 
     "body": 'Izumi te da la bienvenida', 
     "previewType": "PHOTO", 

@@ -188,7 +188,7 @@ this.sendMessage(m.chat, { audio: { url: vn3 },
     "sourceUrl": 'https://www.atom.bio/edar_', 
     "showAdAttribution": true}}, 
      seconds: '4556', ptt: true, mimetype: 'audio/mpeg', fileName: `error.mp3` }, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100}).then(async (message) => {
-        const emojis = ['🙂‍↔️', '🫱🏻', '🫲🏻', '🛫'];
+        const emojis = ['🙂‍↔️', '🫱🏻', '🫲🏻', '🛥️'];
         for (let i = 0; i < emojis.length; i++) {
             setTimeout(async () => {
                 await message.react(emojis[i]);

@@ -99,7 +99,7 @@ let a = `🌴 _*¡Hola!*_ @${m.messageStubParameters[0].split`@`[0]} Bienvenido�
     ],
     viewOnce: true,
     headerType: 4,
-    mentionedJid:[m.sender, m.messageStubParameters[0]],
+    mentions:[m.sender, m.messageStubParameters[0]],
   }, { quoted: fkontak }).then(async (message) => {
         const emojis = ['🎉', '🫱🏻', '🫲🏻', '💚', ''];
         for (let i = 0; i < emojis.length; i++) {

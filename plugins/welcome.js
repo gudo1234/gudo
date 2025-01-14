@@ -76,7 +76,7 @@ if (media === 'stiker') {
         for (let i = 0; i < emojis.length; i++) {
             setTimeout(async () => {
                 await message.react(emojis[i]);
-            }, i * 1000);
+            }, i * 2000);
         }
     });
 }
@@ -99,7 +99,7 @@ this.sendMessage(m.chat, { audio: { url: vn3 },
         for (let i = 0; i < emojis.length; i++) {
             setTimeout(async () => {
                 await message.react(emojis[i]);
-            }, i * 1000);
+            }, i * 2000);
         }
     });
 
@@ -132,7 +132,7 @@ conn.sendMessage(m.chat, {
         for (let i = 0; i < emojis.length; i++) {
             setTimeout(async () => {
                 await message.react(emojis[i]);
-            }, i * 1000);
+            }, i * 2000);
         }
     });
 
@@ -160,7 +160,14 @@ if (media === 'texto')
                 sourceUrl: 'https://www.atom.bio/edar_'
             }
         }
-    }, { quoted: fkontak });
+    }, { quoted: fkontak }).then(async (message) => {
+        const emojis = ['🙂‍↔️', '🫱🏻', '🫲🏻', '🛫', ''];
+        for (let i = 0; i < emojis.length; i++) {
+            setTimeout(async () => {
+                await message.react(emojis[i]);
+            }, i * 2000);
+        }
+    });
   }
   // arriba
   }

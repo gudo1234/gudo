@@ -76,7 +76,7 @@ this.sendMessage(m.chat, { audio: { url: [vn, vn2, vn4].getRandom() },
     })};
 
 if (media === 'boton') {
-let a = `🌴 _¡Hola!_ @${m.sender.split`@`[0]} Bienvenido🎉`;
+let a = `🌴 _*¡Hola!*_ @${m.messageStubParameters[0].split`@`[0]} Bienvenido🎉`;
   conn.sendMessage(m.chat, {
     image: im,
     caption: a,

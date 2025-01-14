@@ -125,7 +125,7 @@ conn.sendMessage(m.chat, {
     ],
     viewOnce: true,
     headerType: 4,
-    mentionedJid: [m.messageStubParameters[0]],
+    mentions: [m.messageStubParameters[0]],
   }, { quoted: fkontak}).then(async (message) => {
         const emojis = ['🍎', '🍒', '🍉', '🍊', '🍋', '🍏', '🍌', '🍍', '🍓', '🍇', '🍈', '🍒', '🍑', '🥭', '🍐', '🥥', ''];
         for (let i = 0; i < emojis.length; i++) {

@@ -23,9 +23,26 @@ let pp = await conn.profilePictureUrl(m.messageStubParameters[0], 'image').catch
   
 // welcome de usuario
   if (chat.welcome && m.messageStubType == 27) {
-    let wel = `_*𝗕𝗶𝗲𝗻𝘃𝗲𝗻𝗶𝗱𝗼*_ @${m.messageStubParameters[0].split`@`[0]}\n𝗕𝗶𝗲𝗻𝘃𝗲𝗻𝗶𝗱𝗼/𝗮\n${groupMetadata.subject}\n   └───────────────┈ ⳹`
-//await this.sendFile(m.chat, packname, wm, wel, im, im, canal, fkontak)
-this.reply(m.chat, `@${m.messageStubParameters[0].split`@`[0]}`, null)
+    let wel = `_*𝗕𝗶𝗲𝗻𝘃𝗲𝗻𝗶𝗱𝗼*_ @${m.messageStubParameters[0].split`@`[0]}\n_*𝗕𝗶𝗲𝗻𝘃𝗲𝗻𝗶𝗱𝗼/𝗮*_\n${groupMetadata.subject}\n   └───────────────┈ ⳹`
+this.sendMessage(m.chat, { text: wel,contextInfo: {
+    mentionedJid: [user],
+    groupMentions: [m.sender],
+    isForwarded: true,
+    forwardedNewsletterMessageInfo: {
+      newsletterJid: '120363285614743024@newsletter',
+      newsletterName: `꙳🧧𓆩ίʑ᭘ɱί-ⲃⲟτ𓆪🧧꙳`,
+      serverMessageId: 0
+    },
+    businessMessageForwardInfo: { businessOwnerJid: '50492280729@s.whatsapp.net' },
+    forwardingScore: 9999,
+    externalAdReply: {
+      title: `🍒ᴡᴇʟᴄᴏᴍᴇ🍒`,
+      body: 'Izumi te da la bienvenida',
+      thumbnailUrl: im,
+      thumbnail: im,
+      sourceUrl: 'https://www.atom.bio/edar_'
+    }
+  }},{quoted: fkontak})
 }
 
 // Despedida

@@ -31,6 +31,7 @@ if (chat.welcome && m.messageStubType == 27) {
 if (media === 'stiker') {
     this.sendFile(m.chat, stiker2, 'sticker.webp', '', null, true, {
         contextInfo: {
+            'mentionedJid': [m.messageStubParameters[0]],
             'forwardingScore': 200,
             'isForwarded': false,
             externalAdReply: {
@@ -77,7 +78,7 @@ this.sendMessage(m.chat, { audio: { url: [vn, vn2, vn4].getRandom() },
 if (media === 'boton') {
 conn.sendMessage(m.chat, {
     image: im,
-    caption: `🌱 _¡Hola!_ +${m.messageStubParameters[0].split`@`[0]} Bienvenido🎉`,
+    caption: `🌱 _¡Hola!_ @${m.messageStubParameters[0].split`@`[0]} Bienvenido🎉`,
     footer: 'Izumi te da la bienvenida',
     buttons: [
       {

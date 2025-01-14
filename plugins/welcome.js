@@ -83,16 +83,16 @@ let a = `🌱 _¡Hola!_ @${m.messageStubParameters[0].split`@`[0]} Bienvenido�
     footer: 'Izumi te da la bienvenida',
     buttons: [
       {
-        buttonId: \"Hola\",
+        buttonId: "Hola",
         buttonText: {
-          displayText: \"Hola\",
+          displayText: "Hola",
         },
         type: 1,
       },
       {
-        buttonId: \"Xd\",
+        buttonId: "Xd",
         buttonText: {
-          displayText: \"xD'\",
+          displayText: "xD'",
         },
         type: 1,
       },

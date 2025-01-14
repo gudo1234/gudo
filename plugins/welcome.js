@@ -20,6 +20,39 @@ let pp = await conn.profilePictureUrl(m.messageStubParameters[0], 'image').catch
   let or = ['stiker', 'audio', 'boton'];
   let media = or[Math.floor(Math.random() * 3)]
   let stiker = await sticker(imagen7, false, global.packname, global.author)
+
+// Welcome 
+if (chat.welcome && m.messageStubType == 27) {
+  let wel = `°   /)🎩/)
+    (｡•ㅅ•｡)𖹭︩︪𝚆꯭᪶۫۫͝𝙴꯭᪶͡𝙻᪶۫۫͝𝙲꯭᪶֟፟፝͡𝙾᪶۫۫͝𝙼꯭᪶͡𝙴᪶𖹭︩︪*
+    ╭∪─∪─────────❤︎₊᪲
+¡Hola!🍷 *@${m.messageStubParameters[0].split`@`[0]}* buenos días/tardes/noches.\n🎉¡Bienvenido a *${groupMetadata.subject}*!\n\n> 🐢Disfruta del grupo, diviértete, no olvides en leer las reglas...
+    ╰────────────❤︎₊᪲`
+  this.sendMessage(m.chat, { 
+        text: wel, 
+        contextInfo: {
+            mentionedJid: [m.messageStubParameters[0]], // Asegúrate de incluir al nuevo usuario aquí
+            groupMentions: [],
+            isForwarded: true,
+            forwardedNewsletterMessageInfo: {
+                newsletterJid: '120363285614743024@newsletter',
+                newsletterName: `꙳🧧𓆩ίʑ᭘ɱί-ⲃⲟτ𓆪🧧꙳`,
+                serverMessageId: 0
+            },
+            businessMessageForwardInfo: { businessOwnerJid: '50492280729@s.whatsapp.net' },
+            forwardingScore: 9999,
+            externalAdReply: {
+                title: `🍒ᴡᴇʟᴄᴏᴍᴇ🍒`,
+                body: 'Izumi te da la bienvenida',
+                thumbnailUrl: im,
+                thumbnail: im,
+                sourceUrl: 'https://www.atom.bio/edar_'
+            }
+        }
+    }, { quoted: fkontak });
+}
+
+// bye 
   if (chat.welcome && (m.messageStubType === 28 || m.messageStubType === 32)) {
 
 if (media === 'stiker') {
@@ -37,7 +70,7 @@ if (media === 'stiker') {
             }
         }
     }, { quoted: null }).then(async (message) => {
-        const emojis = ['🍎', '🍒', '🍉', '🍊', '🍋', '🍏', '🍌', '🍍', '🍓', '🍇', '🍈', '🍒', '🍑', '🥭', '🍐', '🥥', '🛫'];
+        const emojis = ['🙂‍↔️', '🫱🏻', '🫲🏻', '🛫'];
         for (let i = 0; i < emojis.length; i++) {
             setTimeout(async () => {
                 await message.react(emojis[i]);
@@ -60,7 +93,7 @@ this.sendMessage(m.chat, { audio: { url: vn2 },
     "sourceUrl": 'https://www.atom.bio/edar_', 
     "showAdAttribution": true}}, 
      seconds: '4556', ptt: true, mimetype: 'audio/mpeg', fileName: `error.mp3` }, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100}).then(async (message) => {
-        const emojis = ['🍎', '🍒', '🍉', '🍊', '🍋', '🍏', '🍌', '🍍', '🍓', '🍇', '🍈', '🍒', '🍑', '🥭', '🍐', '🥥', '🛫'];
+        const emojis = ['🙂‍↔️', '🫱🏻', '🫲🏻', '🛫'];
         for (let i = 0; i < emojis.length; i++) {
             setTimeout(async () => {
                 await message.react(emojis[i]);
@@ -93,7 +126,7 @@ conn.sendMessage(m.chat, {
     headerType: 4,
     mentions: [m.sender],
   }, { quoted: fkontak}).then(async (message) => {
-        const emojis = ['🍎', '🍒', '🍉', '🍊', '🍋', '🍏', '🍌', '🍍', '🍓', '🍇', '🍈', '🍒', '🍑', '🥭', '🍐', '🥥', ''];
+        const emojis = ['🙂‍↔️', '🫱🏻', '🫲🏻', '🛫', ''];
         for (let i = 0; i < emojis.length; i++) {
             setTimeout(async () => {
                 await message.react(emojis[i]);

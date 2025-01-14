@@ -76,7 +76,7 @@ this.sendMessage(m.chat, { audio: { url: [vn, vn2, vn4].getRandom() },
     })};
 
 if (media === 'boton') {
-const message = generateWAMessageFromContent(jid, {
+const message = generateWAMessageFromContent(m.chat, {
   viewOnceMessage: {
     message: {
       messageContextInfo: {

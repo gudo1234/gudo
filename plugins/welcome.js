@@ -7,7 +7,9 @@ let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status
   if (!m.messageStubType || !m.isGroup) return true;
 let pp = await conn.profilePictureUrl(m.messageStubParameters[0], 'image').catch(_ => 'https://qu.ax/casQP.jpg')
   let im = await (await fetch(`${pp}`)).buffer()
-  let vn2 = './media/adios.mp3';
+  let vn = './media/a.mp3'
+let vn2 = './media/bien.mp3'
+  let vn3 = './media/adios.mp3';
 
   let chat = global.db.data.chats[m.chat];
   const user = `@${m.sender.split`@`[0]}`;
@@ -17,8 +19,8 @@ let pp = await conn.profilePictureUrl(m.messageStubParameters[0], 'image').catch
   };
   let who = m.messageStubParameters[0] + '@s.whatsapp.net';
   let userName = user ? user.name : await conn.getName(who);
-  let or = ['stiker', 'audio', 'boton'];
-  let media = or[Math.floor(Math.random() * 3)]
+  let or = ['stiker', 'audio', 'boton', 'texto'];
+  let media = or[Math.floor(Math.random() * 4)]
   let stiker = await sticker(imagen7, false, global.packname, global.author)
 
 // Welcome 
@@ -80,7 +82,7 @@ if (media === 'stiker') {
 }
 
 if (media === 'audio')
-this.sendMessage(m.chat, { audio: { url: vn2 }, 
+this.sendMessage(m.chat, { audio: { url: vn3 }, 
     contextInfo: { forwardedNewsletterMessageInfo: { 
     newsletterJid: id_canal, 
     serverMessageId: '', 
@@ -133,5 +135,32 @@ conn.sendMessage(m.chat, {
             }, i * 1000);
         }
     });
+
+if (media === 'texto')
+  if (chat.welcome && m.messageStubType == 27) {
+  let b = `🖐🏻 _Adios_ *@${m.messageStubParameters[0].split`@`[0]}*`
+  this.sendMessage(m.chat, { 
+        text: b, 
+        contextInfo: {
+            mentionedJid: [m.messageStubParameters[0]], // Asegúrate de incluir al nuevo usuario aquí
+            groupMentions: [],
+            isForwarded: true,
+            forwardedNewsletterMessageInfo: {
+                newsletterJid: '120363285614743024@newsletter',
+                newsletterName: `꙳🧧𓆩ίʑ᭘ɱί-ⲃⲟτ𓆪🧧꙳`,
+                serverMessageId: 0
+            },
+            businessMessageForwardInfo: { businessOwnerJid: '50492280729@s.whatsapp.net' },
+            forwardingScore: 9999,
+            externalAdReply: {
+                title: `🍒ᴡᴇʟᴄᴏᴍᴇ🍒`,
+                body: 'Izumi te da la bienvenida',
+                thumbnailUrl: im,
+                thumbnail: im,
+                sourceUrl: 'https://www.atom.bio/edar_'
+            }
+        }
+    }, { quoted: fkontak });
+  // arriba
   }
       }

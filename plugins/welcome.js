@@ -26,7 +26,7 @@ let pp = await conn.profilePictureUrl(m.messageStubParameters[0], 'image').catch
     let wel = `_*𝗕𝗶𝗲𝗻𝘃𝗲𝗻𝗶𝗱𝗼*_ @${m.messageStubParameters[0].split`@`[0]}\n_*𝗕𝗶𝗲𝗻𝘃𝗲𝗻𝗶𝗱𝗼/𝗮*_\n${groupMetadata.subject}\n   └───────────────┈ ⳹`
 this.sendMessage(m.chat, { text: wel,contextInfo: {
     mentionedJid: [user],
-    groupMentions: [m.sender],
+    groupMentions: [],
     isForwarded: true,
     forwardedNewsletterMessageInfo: {
       newsletterJid: '120363285614743024@newsletter',

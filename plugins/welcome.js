@@ -244,8 +244,8 @@ if (media === 'texto')
             businessMessageForwardInfo: { businessOwnerJid: '50492280729@s.whatsapp.net' },
             forwardingScore: 9999,
             externalAdReply: {
-                title: `🍒ᴡᴇʟᴄᴏᴍᴇ🍒`,
-                body: 'Izumi te da la bienvenida',
+                title: `${await conn.getName(m.chat)}`,
+                body: 'Esperemos que no vuelva -_-',
                 thumbnailUrl: im,
                 thumbnail: im,
                 sourceUrl: 'https://www.atom.bio/edar_'

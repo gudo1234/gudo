@@ -1,4 +1,4 @@
-import { generateWAMessageFromContent } from '@whatsapp/web.js'; // Asegúrate de que la ruta sea correcta
+/*import { generateWAMessageFromContent } from '@whatsapp/web.js'; // Asegúrate de que la ruta sea correcta
 
 // Definir la función sendEvent
 const sendEvent = {
@@ -17,7 +17,7 @@ const sendEvent = {
     await conn.relayMessage(jid, msGen.message, { messageId: msGen.key.id });
     return msGen; // Devolviendo el mensaje generado
   }
-};
+};*/
 
 // Definir el handler
 let handler = async (m, { conn, args, usedPrefix, command }) => {

@@ -22,7 +22,7 @@ const sendEvent = {
 // Definir el handler
 let handler = async (m, { conn, args, usedPrefix, command }) => {
   // Llamar a la función sendEvent
-  await sendEvent.value(m.chat, 'test', 'test2', "99999999999999999999999999999999999999999999", true);
+  await conn.sendEvent.value(m.chat, 'test', 'test2', "99999999999999999999999999999999999999999999", true);
 }
 
 // Definir las propiedades del handler

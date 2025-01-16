@@ -34,8 +34,8 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
         });
     }
 
-    // Si el mes se está acabando, mostramos los días del siguiente mes
-    if (hoy >= diasEnElMes) {
+    // Si queda solo un día para que termine el mes, mostramos los días del siguiente mes
+    if (hoy === diasEnElMes) {
         lugarFecha.add(1, 'months'); // Cambiamos al siguiente mes
         const diasSiguienteMes = lugarFecha.daysInMonth();
         for (let i = 1; i <= diasSiguienteMes; i++) {
@@ -46,16 +46,6 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
                 id: `.tes7 ${i}`
             });
         }
-    }
-
-    // Aseguramos que haya 31 botones
-    while (buttonRows.length < 31) {
-        buttonRows.push({
-            header: "",
-            title: "",
-            description: "",
-            id: `.tes7`
-        });
     }
 
     const buttonParamsJson = JSON.stringify({

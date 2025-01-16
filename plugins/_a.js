@@ -34,9 +34,9 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
         });
     }
 
-    // Si ya pasó un día del mes actual, mostramos los días del siguiente mes
-    if (hoy >= diasEnElMes) {
-        const siguienteMes = lugarFecha.add(1, 'months');
+    // Si ya pasó al menos un día del mes actual, mostramos los días del siguiente mes
+    if (hoy > 0) {
+        const siguienteMes = lugarFecha.clone().add(1, 'months');
         const diasSiguienteMes = siguienteMes.daysInMonth();
         for (let i = 1; i <= diasSiguienteMes; i++) {
             buttonRows.push({
@@ -70,5 +70,5 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     await conn.relayMessage(m.chat, { viewOnceMessage: { message } }, {});
 }
 
-handler.command = ['i']
+handler.command = ['y']
 export default handler

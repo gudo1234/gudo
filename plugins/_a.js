@@ -36,16 +36,26 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 
     // Si el mes se está acabando, mostramos los días del siguiente mes
     if (hoy >= diasEnElMes) {
-        const siguienteMes = lugarFecha.add(1, 'months');
-        const diasSiguienteMes = siguienteMes.daysInMonth();
+        lugarFecha.add(1, 'months'); // Cambiamos al siguiente mes
+        const diasSiguienteMes = lugarFecha.daysInMonth();
         for (let i = 1; i <= diasSiguienteMes; i++) {
             buttonRows.push({
                 header: "",
-                title: `${i} de ${siguienteMes.format('MMMM [del] YYYY')}`,
+                title: `${i} de ${lugarFecha.format('MMMM [del] YYYY')}`,
                 description: "",
                 id: `.tes7 ${i}`
             });
         }
+    }
+
+    // Aseguramos que haya 31 botones
+    while (buttonRows.length < 31) {
+        buttonRows.push({
+            header: "",
+            title: "",
+            description: "",
+            id: `.tes7`
+        });
     }
 
     const buttonParamsJson = JSON.stringify({
@@ -57,8 +67,8 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     });
 
     const interactiveMessage = {
-        body: { text: '🔆 *¡Seleccione un dia del mes actual para su visita!*' },
-        footer: { text: 'Asegúrese de poner un dia equivalente a la fecha actual en: *OPCIONES*' },
+        body: { text: '🔆 *¡Seleccione un día del mes actual para su visita!*' },
+        footer: { text: 'Asegúrese de poner un día equivalente a la fecha actual en: *OPCIONES*' },
         header: { hasMediaAttachment: false },
         nativeFlowMessage: { buttons: [{ 
             name: "single_select",

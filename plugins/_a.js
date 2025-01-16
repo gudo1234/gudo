@@ -34,14 +34,14 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
         });
     }
 
-    // Si queda solo un día para que termine el mes, mostramos los días del siguiente mes
-    if (hoy === diasEnElMes) {
-        lugarFecha.add(1, 'months'); // Cambiamos al siguiente mes
-        const diasSiguienteMes = lugarFecha.daysInMonth();
+    // Si ya pasó un día del mes actual, mostramos los días del siguiente mes
+    if (hoy >= diasEnElMes) {
+        const siguienteMes = lugarFecha.add(1, 'months');
+        const diasSiguienteMes = siguienteMes.daysInMonth();
         for (let i = 1; i <= diasSiguienteMes; i++) {
             buttonRows.push({
                 header: "",
-                title: `${i} de ${lugarFecha.format('MMMM [del] YYYY')}`,
+                title: `${i} de ${siguienteMes.format('MMMM [del] YYYY')}`,
                 description: "",
                 id: `.tes7 ${i}`
             });
@@ -70,5 +70,5 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     await conn.relayMessage(m.chat, { viewOnceMessage: { message } }, {});
 }
 
-handler.command = ['y']
+handler.command = ['i']
 export default handler

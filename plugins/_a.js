@@ -10,6 +10,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     }
     lugarFecha.locale('es', formatoFecha)
     const hoy = lugarFecha.date()
+    const diaDeLaSemana = lugarFecha.format('dddd'); // Aquí obtenemos el día de la semana
     const mesActual = lugarFecha.month()
     const anioActual = lugarFecha.year()
     const diasEnElMes = lugarFecha.daysInMonth()
@@ -19,16 +20,17 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     // Agregamos el botón de la fecha actual
     buttonRows.push({
         header: "",
-        title: `Hoy: ${hoy} de ${lugarFecha.format('MMMM [del] YYYY')}`,
+        title: `Hoy: ${hoy} de ${lugarFecha.format('MMMM [del] YYYY')} (${diaDeLaSemana})`, // Mostramos el día de la semana
         description: "",
         id: `.tes7 ${hoy}`
     });
 
     // Agregamos los siguientes días del mes actual
     for (let i = hoy + 1; i <= diasEnElMes; i++) {
+        const diaSemana = lugarFecha.clone().date(i).format('dddd'); // Obtenemos el día de la semana para cada día
         buttonRows.push({
             header: "",
-            title: `${i} de ${lugarFecha.format('MMMM [del] YYYY')}`,
+            title: `${i} de ${lugarFecha.format('MMMM [del] YYYY')} (${diaSemana})`, // Mostramos el día de la semana
             description: "",
             id: `.tes7 ${i}`
         });
@@ -44,9 +46,10 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
         const diasMostrar = diasSiguienteMes - diasPasados; // Días que se deben mostrar del siguiente mes
         
         for (let i = 1; i <= diasMostrar; i++) {
+            const diaSemana = siguienteMes.clone().date(i).format('dddd'); // Obtenemos el día de la semana
             buttonRows.push({
                 header: "",
-                title: `${i} de ${siguienteMes.format('MMMM [del] YYYY')}`,
+                title: `${i} de ${siguienteMes.format('MMMM [del] YYYY')} (${diaSemana})`, // Mostramos el día de la semana
                 description: "",
                 id: `.tes7 ${i}`
             });
@@ -57,7 +60,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
         title: 'OPCIONES',
         description: "Seleccione una opción",
         sections: [
-            { title: `Fecha actual: ${lugarFecha.format('DD [de] MMMM [del] YYYY')}`, rows: buttonRows }
+            { title: `Fecha actual: ${lugarFecha.format('DD [de] MMMM [del] YYYY')} (${diaDeLaSemana})`, rows: buttonRows }
         ]
     });
 

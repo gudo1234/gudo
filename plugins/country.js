@@ -2376,7 +2376,6 @@ export async function before(m, { conn, args, usedPrefix, command }) {
         setTimeout(async () => {
             try {
                 await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, id: userMessageCount[m.chat].questionMessage.id, fromMe: true } });
-                //await conn.reply(m.chat, `⏰ *Se acabó el tiempo para responder a la pregunta.*`, m);
             } catch (error) {
                 console.error("Error al eliminar el mensaje:", error);
             }

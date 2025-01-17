@@ -2391,9 +2391,15 @@ export async function before(m, { conn, args, usedPrefix, command }) {
 
     if (m.quoted && m.quoted.id === userMessageCount[m.chat].questionMessage.id) {
         if (m.text.toLowerCase() === userMessageCount[m.chat].currentFlag.toLowerCase()) {
+            // Respuesta correcta
             m.react('🎉');
             await conn.reply(m.chat, `*¡Correcto, ${m.pushName}!* 🎉 La bandera es de *${userMessageCount[m.chat].currentFlag}* y su código es: *${userMessageCount[m.chat].currentFlag3}*.`, m);
+            // Limpiar datos
+            userMessageCount[m.chat].currentFlag = null; 
+            userMessageCount[m.chat].questionMessage = null; 
+            userMessageCount[m.chat].timestamp = null; 
         } else {
+            // Respuesta incorrecta
             const timeRemaining = Math.max(0, 180000 - timeElapsed); // Tiempo restante en milisegundos
             const minutesRemaining = Math.floor(timeRemaining / 60000); // Convertir a minutos
             const secondsRemaining = Math.floor((timeRemaining % 60000) / 1000); // Convertir a segundos

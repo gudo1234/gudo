@@ -2369,14 +2369,7 @@ export async function before(m, { conn, args, usedPrefix, command }) {
         userMessageCount[m.chat].currentFlag3 = randomFlag.dialCodes || "DESCONOCIDO"; // para dialCodes, mostrando "DESCONOCIDO" si no hay
       
         let txt = `💣 *¿A qué país pertenece la bandera que se muestra? ${userMessageCount[m.chat].currentFlag2}*\n_🤖 Por favor, responda a este mensaje con la respuesta correcta en un plazo de *3 minutos*._`;
-        userMessageCount[m.chat].questionMessage = await conn.sendFile(m.chat, randomFlag.image, "Thumbnail.jpg", txt, null, null, rcanal).then(async (message) => {
-    const emojis = ['🔟', '9️⃣', '8️⃣', '7️⃣', '6️⃣', '5️⃣', '4️⃣', '3️⃣', '2️⃣', '1️⃣', '0️⃣'];
-    for (let i = 0; i < emojis.length; i++) {
-        setTimeout(async () => {
-            await message.react(emojis[i]);
-        }, i * 18000); // 18000 milisegundos = 18 segundos
-    }
-});
+        userMessageCount[m.chat].questionMessage = await conn.sendFile(m.chat, randomFlag.image, "Thumbnail.jpg", txt, null, null, rcanal);
         userMessageCount[m.chat].timestamp = Date.now(); // Guardar el tiempo de la pregunta
 
         // Configurar un temporizador para eliminar la pregunta después de 3 minutos

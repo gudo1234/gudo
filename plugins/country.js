@@ -2389,22 +2389,25 @@ export async function before(m, { conn, args, usedPrefix, command }) {
         return; 
     }
 
-    if (m.quoted && m.quoted.id === userMessageCount[m.chat].questionMessage.id) {
-        // Verificar si la respuesta es incorrecta
-        if (m.text.toLowerCase() !== userMessageCount[m.chat].currentFlag.toLowerCase()) {
-            const timeRemaining = Math.max(0, 180000 - timeElapsed); // Tiempo restante en milisegundos
-            const minutesRemaining = Math.floor(timeRemaining / 60000); // Convertir a minutos
-            const secondsRemaining = Math.floor((timeRemaining % 60000) / 1000); // Convertir a segundos
-
-            m.react('✖️');
-            await conn.reply(m.chat, `*¡Respuesta Incorrecta!*\n> vuelve a intentar\n🧩 _*Pista:* Su código de área es *${userMessageCount[m.chat].currentFlag3}* ${userMessageCount[m.chat].currentFlag2}_ \n⏳ *Tiempo restante:* _${minutesRemaining} minutos y ${secondsRemaining} segundos._`, m);
-            
-            // Aquí podrías permitir que el usuario intente nuevamente
-            // Por ejemplo, podrías agregar una lógica para permitir una segunda respuesta
-        } else {
-            // Respuesta correcta
-            m.react('🎉');
-            await conn.reply(m.chat, `*¡Correcto, ${m.pushName}!* 🎉 La bandera es de *${userMessageCount[m.chat].currentFlag}* y su código es: *${userMessageCount[m.chat].currentFlag3}*.`, m);
+    if (m.quoted && m.quoted.id === userMessageCount[m.chat].questionMessage.id && m.text.toLowerCase() === userMessageCount[m.chat].currentFlag.toLowerCase()) {
+        m.react('🎉');
+        await conn.reply(m.chat, `*¡Correcto, ${m.pushName}!* 🎉 La bandera es de *${userMessageCount[m.chat].currentFlag}* ${userMessageCount[m.chat].currentFlag2} y su código es: *${userMessageCount[m.chat].currentFlag3}*.`, m);
+        
+        try {
+            await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, id: userMessageCount[m.chat].questionMessage.id, fromMe: true } });
+        } catch (error) {
+            console.error("Error al eliminar el mensaje:", error);
         }
+        
+        userMessageCount[m.chat].currentFlag = null; 
+        userMessageCount[m.chat].questionMessage = null; 
+        userMessageCount[m.chat].timestamp = null; 
+    } else if (m.quoted && m.quoted.id === userMessageCount[m.chat].questionMessage.id) {
+        const timeRemaining = Math.max(0, 180000 - timeElapsed); // Tiempo restante en milisegundos
+        const minutesRemaining = Math.floor(timeRemaining / 60000); // Convertir a minutos
+        const secondsRemaining = Math.floor((timeRemaining % 60000) / 1000); // Convertir a segundos
+
+        m.react('✖️');
+        await conn.reply(m.chat, `*¡Respuesta Incorrecta!*\n> vuelve a intentar\n🧩 _*Pista:* Su código de área es *${userMessageCount[m.chat].currentFlag3}* ${userMessageCount[m.chat].currentFlag2}_ \n⏳ *Tiempo restante:* _${minutesRemaining} minutos y ${secondsRemaining} segundos._`, m);
     }
 }

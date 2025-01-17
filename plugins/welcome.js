@@ -1,9 +1,8 @@
-/*import { WAMessageStubType } from '@whiskeysockets/baileys';
+import { WAMessageStubType } from '@whiskeysockets/baileys';
 import { sticker } from '../lib/sticker.js'
 import fetch from 'node-fetch';
 export async function before(m, { conn, participants, groupMetadata }) {
 
-let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
   if (!m.messageStubType || !m.isGroup) return true;
 let pp = await conn.profilePictureUrl(m.messageStubParameters[0], 'image').catch(_ => 'https://qu.ax/casQP.jpg')
   let im = await (await fetch(`${pp}`)).buffer()
@@ -261,36 +260,4 @@ if (media === 'texto')
     });
   // arriba
   }
-      }*/
-
-import { WAMessageStubType } from '@whiskeysockets/baileys';
-import { sticker } from '../lib/sticker.js'
-import fetch from 'node-fetch';
-export async function before(m, { conn, participants, groupMetadata }) {
-
-  if (!m.messageStubType || !m.isGroup) return true;
-let pp = await conn.profilePictureUrl(m.messageStubParameters[0], 'image').catch(_ => 'https://qu.ax/casQP.jpg')
-  let im = await (await fetch(`${pp}`)).buffer()
-  
-  let chat = global.db.data.chats[m.chat];
-  const user = `@${m.sender.split`@`[0]}`;
-  const getMentionedJid = () => {
-    return m.messageStubParameters.map(param => `${param}@s.whatsapp.net`);
-  };
-  let who = m.messageStubParameters[0] + '@s.whatsapp.net';
-  let userName = user ? user.name : await conn.getName(who);
-  let tilo = { key: {  fromMe: false, participant: `0@s.whatsapp.net`, ...(false ? { remoteJid: "5219992095479-1625305606@g.us" } : {}) }, message: { orderMessage: { itemCount : -999999, status: 1, surface : 1, message: wm, orderTitle: 'Bang', thumbnail: im, sellerJid: '0@s.whatsapp.net'}}}
-  let a = `🎉 _Welcome_ *@${m.messageStubParameters[0].split`@`[0]}*`
-  let b = `🖐🏻 _Adios_ *@${m.messageStubParameters[0].split`@`[0]}*`
-
-// Welcome 
-if (chat.welcome && m.messageStubType == 27) {
-await conn.sendMessage(m.chat, { video: { url: 'https://qu.ax/AEkDA.mp4' }, gifPlayback: true, caption: `${a}`, mentions: [m.messageStubParameters[0]]}, { quoted: tilo})
 }
-
-// bye 
-  if (chat.welcome && (m.messageStubType === 28 || m.messageStubType === 32)) {
-m.reply(`${b}`)
-  }
-}
-

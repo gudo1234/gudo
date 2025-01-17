@@ -62,7 +62,7 @@ global.faketick = { key: { participant: "0@s.whatsapp.net", "remoteJid": "628783
 
 global.fakeimg = { key: {participant: "0@s.whatsapp.net", ...(false ? { remoteJid: "6289643739077-1613049930@g.us" } : {})}, message: { imageMessage: { title: wm, "h": `Hmm`, 'seconds': '99999', 'imagePlayback': 'true', 'caption': `${wm}\n          hola`, jpegThumbnail: imagen4 }}}
 
-global.fakemsg = { key: { fromMe: false, participant: "0@s.whatsapp.net", ...(false ? { remoteJid: "17608914335-1625305606@g.us" } : {}) }, message: { extendedTextMessage: { text: `${wm}\n${gatanina}`, title: `${wm}`, jpegThumbnail: imagen1}}}
+global.fakemsg = { key: { fromMe: false, participant: "0@s.whatsapp.net", ...(false ? { remoteJid: "17608914335-1625305606@g.us" } : {}) }, message: { extendedTextMessage: { text: `${wm}`, title: `${wm}`, jpegThumbnail: imagen1}}}
 
 global.flocation = {key : {participant : "0@s.whatsapp.net" },message: {locationMessage: {name: `${wm}\n   ${gatanina}`,jpegThumbnail: imagen1}}}
 

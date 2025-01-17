@@ -2403,11 +2403,16 @@ export async function before(m, { conn, args, usedPrefix, command }) {
         userMessageCount[m.chat].questionMessage = null; 
         userMessageCount[m.chat].timestamp = null; 
     } else if (m.quoted && m.quoted.id === userMessageCount[m.chat].questionMessage.id) {
-        const timeRemaining = Math.max(0, 180000 - timeElapsed); // Tiempo restante en milisegundos
-        const minutesRemaining = Math.floor(timeRemaining / 60000); // Convertir a minutos
-        const secondsRemaining = Math.floor((timeRemaining % 60000) / 1000); // Convertir a segundos
+    const timeRemaining = Math.max(0, 180000 - timeElapsed); // Tiempo restante en milisegundos
+    const secondsRemaining = Math.floor((timeRemaining % 60000) / 1000); // Convertir a segundos
 
-        m.react('✖️');
+    m.react('✖️');
+    
+    if (timeRemaining > 0) {
+        const minutesRemaining = Math.floor(timeRemaining / 60000); // Convertir a minutos
         await conn.reply(m.chat, `*¡Respuesta Incorrecta!*\n> vuelve a intentar\n🧩 _*Pista:* Su código de área es *${userMessageCount[m.chat].currentFlag3}*_ \n⏳ _Te quedan ${minutesRemaining} minutos y ${secondsRemaining} segundos._`, m);
+    } else {
+        // Si el tiempo se ha agotado, solo muestra los segundos restantes
+        await conn.reply(m.chat, `*¡Respuesta Incorrecta!*\n> El tiempo se ha agotado.\n🧩 _*Pista:* Su código de área es *${userMessageCount[m.chat].currentFlag3}*_ \n⏳ _Te quedan ${secondsRemaining} segundos._`, m);
     }
-      }
+}

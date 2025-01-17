@@ -2408,6 +2408,6 @@ export async function before(m, { conn, args, usedPrefix, command }) {
         const secondsRemaining = Math.floor((timeRemaining % 60000) / 1000); // Convertir a segundos
 
         m.react('✖️');
-        await conn.reply(m.chat, `*¡Respuesta Incorrecta!*\n> vuelve a intentar\n🧩 _*Pista:* Su código de área es *${userMessageCount[m.chat].currentFlag3}* ${userMessageCount[m.chat].currentFlag2}_ \n⏳ *Tiempo restante:* ${minutesRemaining} minutos y ${secondsRemaining} segundos._`, m);
+        await conn.reply(m.chat, `*¡Respuesta Incorrecta!*\n> vuelve a intentar\n🧩 _*Pista:* Su código de área es *${userMessageCount[m.chat].currentFlag3}* ${userMessageCount[m.chat].currentFlag2}_ \n⏳ *Tiempo restante:* _${minutesRemaining} minutos y ${secondsRemaining} segundos._`, m);
     }
 }

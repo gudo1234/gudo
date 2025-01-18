@@ -163,7 +163,7 @@ await conn.sendMessage(m.chat, {
         forwardingScore: 9999,
         externalAdReply: {
             title: 'Izumi te da la bienvenidaI',
-            body: '${await conn.getName(m.chat)}',
+            body: `${await conn.getName(m.chat)}`,
             sourceUrl: 'https://www.atom.bio/edar_',
             thumbnail: im
         }
@@ -310,7 +310,7 @@ await conn.sendMessage(m.chat, {
         forwardingScore: 9999,
         externalAdReply: {
             title: 'Esperemos que no vuelva -_-',
-            body: '${await conn.getName(m.chat)}',
+            body: `${await conn.getName(m.chat)}`,
             sourceUrl: 'https://www.atom.bio/edar_',
             thumbnail: im
         }

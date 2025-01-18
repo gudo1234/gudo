@@ -7,7 +7,8 @@ let handler = async (m, { conn }) => {
     const day = now.date();
     const hour = now.format('hh:mm A'); // Cambiado a formato 12 horas
 
-    let txt = `Calendario - ${month}/${year}\n\n`;
+    // Modificado para mostrar el formato deseado
+    let txt = `Calendario - ${day} de ${now.format('MMMM')} del ${year} || hora ${hour}\n\n`;
     txt += 'Dom Lun Mar Mié Jue Vie Sáb\n';
 
     const firstDay = moment(`${year}-${month}-01`).day();

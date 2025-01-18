@@ -147,7 +147,7 @@ if (media === 'texto') {
 
 if (media === 'gifPlayback') {
 await conn.sendMessage(m.chat, {
-    video: { url: 'https://qu.ax/BNZTs.mp4' },
+    video: { url: 'https://qu.ax/WzGXm.mp4' },
     gifPlayback: true,
     caption: a,
     contextInfo: {

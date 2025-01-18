@@ -162,7 +162,7 @@ await conn.sendMessage(m.chat, {
         businessMessageForwardInfo: { businessOwnerJid: '50492280729@s.whatsapp.net' },
         forwardingScore: 9999,
         externalAdReply: {
-            title: 'Izumi te da la bienvenidaI',
+            title: 'Izumi te da la bienvenida',
             body: `${await conn.getName(m.chat)}`,
             sourceUrl: 'https://www.atom.bio/edar_',
             thumbnail: im

@@ -18,10 +18,11 @@ let vn2 = './media/bien.mp3' //welcome entrada épica
   };
   let who = m.messageStubParameters[0] + '@s.whatsapp.net';
   let userName = user ? user.name : await conn.getName(who);
-  let or = ['stiker', 'audio', 'boton', 'texto'];
-  let media = or[Math.floor(Math.random() * 4)]
+  let or = ['stiker', 'audio', 'boton', 'texto', 'gifPlayback'];
+  let media = or[Math.floor(Math.random() * 5)]
   let stiker = await sticker(imagen7, false, global.packname, global.author) //despedida
   let stiker2 = await sticker(imagen8, false, global.packname, global.author) //welcome
+  let a = `🎉 _Welcome_ *@${m.messageStubParameters[0].split`@`[0]}*`
   let b = `🖐🏻 _Adios_ *@${m.messageStubParameters[0].split`@`[0]}*`
 
 // Welcome 
@@ -143,6 +144,38 @@ if (media === 'texto') {
             }, i * 2000);
         }
     })};
+
+if (media === 'gifPlayback') {
+await conn.sendMessage(m.chat, {
+    video: { url: 'https://qu.ax/AEkDA.mp4' },
+    gifPlayback: true,
+    caption: a,
+    contextInfo: {
+        mentionedJid: [m.messageStubParameters[0]],
+        groupMentions: [],
+        isForwarded: true,
+        forwardedNewsletterMessageInfo: {
+            newsletterJid: '120363285614743024@newsletter',
+            newsletterName: `꙳🧧𓆩ίʑ᭘ɱί-ⲃⲟτ𓆪🧧꙳`,
+            serverMessageId: 0
+        },
+        businessMessageForwardInfo: { businessOwnerJid: '50492280729@s.whatsapp.net' },
+        forwardingScore: 9999,
+        externalAdReply: {
+            title: 'Izumi te da la bienvenidaI',
+            body: '${await conn.getName(m.chat)}',
+            sourceUrl: 'https://www.atom.bio/edar_',
+            thumbnail: im
+        }
+    }
+}, { quoted: fkontak }).then(async (message) => {
+        const emojis = ['🎉', '🫱🏻', '🫲🏻', '💯'];
+        for (let i = 0; i < emojis.length; i++) {
+            setTimeout(async () => {
+                await message.react(emojis[i]);
+            }, i * 2000);
+        }
+    })};
 }
 
 // bye 
@@ -173,7 +206,7 @@ if (media === 'stiker') {
     });
 }
 
-if (media === 'audio')
+if (media === 'audio') {
 this.sendMessage(m.chat, { audio: { url: vn3 }, 
     contextInfo: { forwardedNewsletterMessageInfo: { 
     newsletterJid: id_canal, 
@@ -193,9 +226,9 @@ this.sendMessage(m.chat, { audio: { url: vn3 },
                 await message.react(emojis[i]);
             }, i * 2000);
         }
-    });
+    })};
 
-if (media === 'boton')
+if (media === 'boton') {
 conn.sendMessage(m.chat, {
     image: im,
     caption: `🖐🏻 _*Adios*_ +${m.messageStubParameters[0].split`@`[0]}`,
@@ -226,9 +259,9 @@ conn.sendMessage(m.chat, {
                 await message.react(emojis[i]);
             }, i * 2000);
         }
-    });
+    })};
 
-if (media === 'texto')
+if (media === 'texto') {
   this.sendMessage(m.chat, { 
         text: b, 
         contextInfo: {
@@ -257,7 +290,38 @@ if (media === 'texto')
                 await message.react(emojis[i]);
             }, i * 2000);
         }
-    });
-  // arriba
+    })};
+
+if (media === 'gifPlayback') {
+await conn.sendMessage(m.chat, {
+    video: { url: 'https://qu.ax/AEkDA.mp4' },
+    gifPlayback: true,
+    caption: b,
+    contextInfo: {
+        mentionedJid: [m.messageStubParameters[0]],
+        groupMentions: [],
+        isForwarded: true,
+        forwardedNewsletterMessageInfo: {
+            newsletterJid: '120363285614743024@newsletter',
+            newsletterName: `꙳🧧𓆩ίʑ᭘ɱί-ⲃⲟτ𓆪🧧꙳`,
+            serverMessageId: 0
+        },
+        businessMessageForwardInfo: { businessOwnerJid: '50492280729@s.whatsapp.net' },
+        forwardingScore: 9999,
+        externalAdReply: {
+            title: 'Esperemos que no vuelva -_-',
+            body: '${await conn.getName(m.chat)}',
+            sourceUrl: 'https://www.atom.bio/edar_',
+            thumbnail: im
+        }
+    }
+}, { quoted: fkontak }).then(async (message) => {
+        const emojis = ['🎉', '🫱🏻', '🫲🏻', '💯'];
+        for (let i = 0; i < emojis.length; i++) {
+            setTimeout(async () => {
+                await message.react(emojis[i]);
+            }, i * 2000);
+        }
+    })};
   }
 }

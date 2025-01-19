@@ -107,9 +107,10 @@ global.imagen5 = 'https://qu.ax/rULv.jpg'
 global.imagen6 = 'https://qu.ax/CySs.jpg'
 global.imagen7 = fs.readFileSync('./media/ad.png')
 global.imagen8 = fs.readFileSync('./media/byenavidad.jpg')
+global.imagen9 = fs.readFileSync('./media/Menu5.jpg')
 global.menu18 = 'https://qu.ax/MOgO.jpg'
 global.vid1 = 'https://qu.ax/dcAc.mp4'
-global.img = [imagen, imagen1, imagen2, imagen3, imagen4]
+global.img = [imagen, imagen1, imagen2, imagen3, imagen4, imagen9]
 //------------------------[ Info | Datos ]---------------------------
 global.edar = 'https://wa.me/50492280729?text=Hola+me+gustaria+donar+en+tu+proyecto...'
 global.ig = 'https://www.instagram.com/edar504__?'

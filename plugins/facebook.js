@@ -14,7 +14,7 @@ const handler = async (m, { text, conn, args, usedPrefix, command }) => {
 
   let result = res.data;
   if (!result || result.length === 0) {
-    return conn.reply(m.chat, '${e} No se encontraron resultados.', m);
+    return conn.reply(m.chat, `${e} No se encontraron resultados.`, m);
   }
 
   let data;

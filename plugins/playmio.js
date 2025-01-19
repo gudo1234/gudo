@@ -94,7 +94,7 @@ image: { url: yt_play[0].thumbnail }, caption: texto1, contextInfo: {
     },
     businessMessageForwardInfo: { businessOwnerJid: '50492280729@s.whatsapp.net' },
     forwardingScore: 9999,
-    externalAdReply: { title: 'Espere un momento', body: wm, sourceUrl: 'https://www.atom.bio/edar_', thumbnail: imagen4}}}, { quoted: m });
+    externalAdReply: { title: 'Espere un momento', body: wm, sourceUrl: 'https://www.atom.bio/edar_', thumbnail: img.getRandom()}}}, { quoted: m });
 try {
 const apiUrl = `https://deliriussapi-oficial.vercel.app/download/ytmp4?url=${encodeURIComponent(yt_play[0].url)}`;
 const apiResponse = await fetch(apiUrl);
@@ -171,7 +171,7 @@ image: { url: yt_play[0].thumbnail }, caption: texto1, contextInfo: {
     },
     businessMessageForwardInfo: { businessOwnerJid: '50492280729@s.whatsapp.net' },
     forwardingScore: 9999,
-    externalAdReply: { title: 'Espere un momento', body: wm, sourceUrl: 'https://www.atom.bio/edar_', thumbnail: imagen4}}}, { quoted: m });
+    externalAdReply: { title: 'Espere un momento', body: wm, sourceUrl: 'https://www.atom.bio/edar_', thumbnail: img.getRandom()}}}, { quoted: m });
 try {
 const apiUrl = `https://deliriussapi-oficial.vercel.app/download/ytmp4?url=${encodeURIComponent(yt_play[0].url)}`;
 const apiResponse = await fetch(apiUrl);
@@ -235,9 +235,9 @@ image: { url: yt_play[0].thumbnail }, caption: texto1, contextInfo: {
     },
     businessMessageForwardInfo: { businessOwnerJid: '50492280729@s.whatsapp.net' },
     forwardingScore: 9999,
-    externalAdReply: { title: 'Espere un momento', body: wm, sourceUrl: 'https://www.atom.bio/edar_', thumbnail: imagen4}}}, { quoted: m });
+    externalAdReply: { title: 'Espere un momento', body: wm, sourceUrl: 'https://www.atom.bio/edar_', thumbnail: img.getRandom()}}}, { quoted: m });
 try {
-const apiUrl = `https://deliriussapi-oficial.vercel.app/download/ytmp4?url=${encodeURIComponent(yt_play[0].url)}`;
+const apiUrl = `https://delirius-apiofc.vercel.app/download/ytmp4?url=${encodeURIComponent(yt_play[0].url)}`;
 const apiResponse = await fetch(apiUrl);
 const delius = await apiResponse.json();
 if (!delius.status) return m.react(error);

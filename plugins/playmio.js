@@ -1,7 +1,7 @@
 import fetch from "node-fetch";
 import yts from "yt-search";
 
-let handler = async (m, { conn, command, text, usedPrefix}) => {
+let handler = async (m, { conn, command, text, args, usedPrefix}) => {
 
 if (!text) {
 return m.reply(`${e} *Ejemplo:* ${usedPrefix + command} diles`)

@@ -18,12 +18,13 @@ let { title, thumbnail, timestamp, views, ago, url } = video
 
 let vistas = parseInt(views).toLocaleString("es-ES") + " vistas"
 m.react('🕒')
-let HS = `_*⚡YouTube-Play⚡*_\n\n*Duración:* ${timestamp}
+let HS = `_*⚡YouTube-Play⚡*_\n\n*Titulo:* ${title}
+*Duración:* ${timestamp}
 *Vistas*: ${vistas}
 *Uploaded:* ${ago}
 *Url:* ${url}
 
-${e} Espere un momento...`
+${e} *Espere un momento...*`
 let thumb = (await conn.getFile(thumbnail))?.data;
 
 let JT = {
@@ -52,13 +53,28 @@ console.error(error)
 
 if (command == 'play3') {
 try {
-await conn.sendMessage(m.chat, { document: { url: download.url }, mimetype: 'audio/mpeg',fileName: `${title}`, caption: `${m.pushName}` }, { quoted: m });
+await conn.sendMessage(m.chat, { document: { url: download.url }, mimetype: 'audio/mpeg',fileName: `${title}.mp3`, caption: `${m.pushName}` }, { quoted: m });
+} catch (error) {
+m.reply(`${error}`)
+console.error(error)    
+}}
 
+if (command == 'play2') {
+try {
+await conn.sendMessage(m.chat, { video: { url: download.url }, caption: `${m.pushName}`, mimetype: 'video/mp4', fileName: `${title}` }, { quoted: m });
+} catch (error) {
+m.reply(`${error}`)
+console.error(error)    
+}}
+
+if (command == 'play4') {
+try {
+await conn.sendMessage(m.chat, { document: { url: download.url }, mimetype: 'video/mp4',fileName: `${title}`,caption: `${m.pushName}` }, { quoted: m });
 } catch (error) {
 m.reply(`${error}`)
 console.error(error)    
 }}
 
 }
-handler.command = ['play', 'play3']
+handler.command = ['play', 'play3', 'play2', 'play4']
 export default handler

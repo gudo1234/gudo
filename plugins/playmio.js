@@ -1,34 +1,29 @@
-// *[ ❀ PLAY ]*
 import fetch from "node-fetch";
 import yts from "yt-search";
 
-let handler = async (m, { conn, text }) => {
+let handler = async (m, { conn, command, text, usedPrefix}) => {
+
 if (!text) {
-return m.reply("❀ Ingresa el texto de lo que quieres buscar")
+return m.reply(`${e} *Ejemplo:* ${usedPrefix + command} diles`)
 }
 
 let ytres = await yts(text)
 let video = ytres.videos[0]
   
 if (!video) {
-return m.reply("❀ Video no encontrado")
+return m.reply("x")
 }
 
 let { title, thumbnail, timestamp, views, ago, url } = video
 
 let vistas = parseInt(views).toLocaleString("es-ES") + " vistas"
+m.react('🕒')
+let HS = `_*⚡YouTube-Play⚡*_\n\n*Duración:* ${timestamp}
+*Vistas*: ${vistas}
+*Uploaded:* ${ago}
+*Url:* ${url}
 
-let HS = `𔓕꯭  ꯭ 𓏲꯭֟፝੭ ꯭⌑(꯭𝐄).꯭SUMI-BOT⌑꯭ 𓏲꯭֟፝੭ ꯭  ꯭𔓕
- ▭͞▬͞▭͞▬͞▭͞▬͞▭͞▬͞▭͞▬͞▭͞▬͞▭͞▬͞
-꒷꒦꒷꒦꒷꒦꒷꒦꒷꒦꒷꒦꒷꒦꒷꒦꒷꒦꒷꒦꒷꒦꒷꒦꒷꒦
-❥⊰⏤͟͟͞͞Duración:⊱ ${timestamp}
-❥⊰⏤͟͟͞͞Vistas:⊱ ${vistas}
-❥⊰⏤͟͟͞͞Subido:⊱ ${ago}
-❥⊰⏤͟͟͞͞Enlace:⊱ ${url}
-꒷꒦꒷꒦꒷꒦꒷꒦꒷꒦꒷꒦꒷꒦꒷꒦꒷꒦꒷꒦꒷꒦꒷꒦꒷꒦
-
-🌸➥𝙀𝙨𝙥𝙚𝙧𝙚 𝙙𝙚𝙨𝙘𝙖𝙧𝙜𝙖𝙣𝙙𝙤 𝙨𝙪 𝙖𝙪𝙙𝙞𝙤...`
-
+${e} Espere un momento...`
 let thumb = (await conn.getFile(thumbnail))?.data;
 
 let JT = {
@@ -42,16 +37,28 @@ thumbnail: thumb, renderLargerThumbnail: true,
 
 await conn.reply(m.chat, HS, m, JT)
 
-try {
+
 let api = await fetch(`https://api.vreden.web.id/api/ytplaymp3?query=${url}`);
 let json = await api.json()
 let { download } = json.result
 
+if (command == 'play') {
+try {
 await conn.sendMessage(m.chat, { audio: { url: download.url }, caption: ``, mimetype: "audio/mpeg", }, { quoted: m })
 } catch (error) {
+m.reply(`${error}`)
 console.error(error)    
 }}
 
-handler.command = /^(play)$/i
+if (command == 'play3') {
+try {
+await conn.sendMessage(m.chat, { document: { url: download.url }, mimetype: 'audio/mpeg',fileName: `${title}`, caption: `${m.pushName}` }, { quoted: m });
 
+} catch (error) {
+m.reply(`${error}`)
+console.error(error)    
+}}
+
+}
+handler.command = ['play', 'play3']
 export default handler

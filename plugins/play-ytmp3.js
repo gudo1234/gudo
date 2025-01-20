@@ -23,8 +23,7 @@ throw `vjj2`;
 throw `vjj3`;
 }}}
 m.react('🕒')
-let name = await conn.getName(m.sender)
-await conn.sendMessage(m.chat, { text: global.espere + `*${name}*`, contextInfo: { externalAdReply: {title: `${wm}`, body: `${await conn.getName(m.chat)}`, thumbnailUrl: imagen4, thumbnail: imagen4, showAdAttribution: true, sourceUrl: canal}}} , { quoted: fkontak })
+conn.sendMessage(m.chat, { text: global.espere + `*${m.pushName}*`, contextInfo: { externalAdReply: {title: `${wm}`, body: `${await conn.getName(m.chat)}`, thumbnailUrl: img.getRandom(), thumbnail: img.getRandom(), showAdAttribution: true, sourceUrl: canal}}} , { quoted: fkontak })
 try {
 let searchh = await yts(youtubeLink)
 let __res = searchh.all.map(v => v).filter(v => v.type == "video")
@@ -33,7 +32,7 @@ let ress = await ytdl.chooseFormat(infoo.formats, { filter: 'audioonly' })
 await conn.sendMessage(m.chat, { audio: { url: ress.url}, mimetype: 'audio/mpeg' }, { quoted: m})
 } catch {
 try {
-const res = await fetch(`https://api.zenkey.my.id/api/download/ytmp3?apikey=zenkey&url=${encodeURIComponent(args)}`)
+const res = await fetch(`https://api.dorratz.com/v2/yt-mp3?url=${encodeURIComponent(args)}`)
 let { result } = await res.json()
 await conn.sendMessage(m.chat, { audio: { url: await result.download.url }, mimetype: 'audio/mpeg' }, { quoted: m })
 } catch {

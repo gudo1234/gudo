@@ -1,17 +1,14 @@
 import jimp from "jimp";
 import { S_WHATSAPP_NET } from '@whiskeysockets/baileys';
 
-let handler = async (m, { conn, usedPrefix, command, args, isOwner }) => {
+let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isROwner }) => {
   try {
-    // Verifica que el mensaje no sea de un grupo
-    if (m.isGroup) return m.reply(`${e} *Este comando solo puede ser usado en mensajes directos al bot.*`);
-
+    let groupId = m.chat;
     let quotedMsg = m.quoted ? m.quoted : m;
-    if (!m.quoted) return m.reply(`${e} *Responde a una Imagen.*`);
+    if (!m.quoted) return m.reply('Responde a una Imagen');
 
-    let mediaType = (quotedMsg.type || quotedMsg).mimetype || '';
-    var media = await quotedMsg.download();
-
+    let media = await quotedMsg.download();
+    
     async function processImage(media) {
       const image = await jimp.read(media);
       const resizedImage = image.getWidth() > image.getHeight() ? image.resize(720, jimp.AUTO) : image.resize(jimp.AUTO, 720);
@@ -22,30 +19,31 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner }) => {
 
     var { img: processedImage } = await processImage(media);
     
-    // Cambia el target al ID del bot
-    conn.query({
+    await conn.query({
       tag: 'iq',
       attrs: {
-        to: conn.user.jid, // Aquí usas el JID del bot
+        to: S_WHATSAPP_NET,
         type: 'set',
-        xmlns: 'w:profile:picture'
+        xmlns: 'w:profile:picture',
       },
       content: [
         {
           tag: 'picture',
           attrs: { type: 'image' },
-          content: processedImage
-        }
-      ]
+          content: processedImage,
+        },
+      ],
     });
 
-    m.reply(`${e} *Imagen actualizada.*`);
+    m.reply('¡Icono actualizado exitosamente! 🎉');
   } catch (error) {
-    console.error(error); // Agrega un log para ver el error en la consola
+    console.error(error); // Para depuración
     return m.react('❌');
   }
 };
 
 handler.command = ['setppbot', 'icon'];
+handler.
 handler.rowner = true;
+
 export default handler;

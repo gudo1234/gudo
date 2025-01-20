@@ -41,12 +41,12 @@ await conn.reply(m.chat, HS, m, JT)
 
 let api = await fetch(`https://api.vreden.web.id/api/ytplaymp3?query=${url}`);
 let json = await api.json()
-try {
+//try {
 let { download } = json.result
-} catch (error) {
+/*} catch (error) {
 m.reply(`${error}`)
 console.error(error)    
-}
+}*/
 
 if (command == 'play') {
 try {

@@ -1,35 +1,49 @@
-let handler = async (m, { conn, args, usedPrefix, command }) => {
-  
-                /*if (!m.isGroup) return
-                if (!isAdmins) return reply(mess.admin)
-                if (!isBotAdmins) return*/
-                if (m.quoted) return
-                if (!/image/.test(null)) 
-		m.reply(`Send/Reply Image Caption Caption ${usedPrefix + command}`)
-                if (/webp/.test(null))
-		m.reply(`Send/Reply Image With Caption ${usedPrefix + command}`)
-                var medis = await conn.downloadAndSaveMediaMessage('ppbot.jpeg')
-                var {
-                        img
-                    } = await generateProfilePicture(medis)
-                    await conn.reply({
-                        tag: 'iq',
-                        attrs: {
-			    target: m.chat,
-                            to: S_WHATSAPP_NET,
-                            type: 'set',
-                            xmlns: 'w:profile:picture'
-                        },
-                        content: [{
-                            tag: 'picture',
-                            attrs: {
-                                type: 'image'
-                            },
-                            content: img
-                        }]
-                    })
-                    fs.unlinkSync(medis)
-                    m.reply(`listo`)
-}
-handler.command = ['setppbot']
-export default handler
+import jimp from "jimp"
+import { S_WHATSAPP_NET } from '@whiskeysockets/baileys'
+
+let handler = async (m, { conn, usedPrefix, command, args, isOwner }) => {
+  try {
+    // Verifica que el mensaje no sea de un grupo
+    if (m.isGroup) return m.reply(`${e} *Este comando solo puede ser usado en mensajes directos al bot.*`);
+
+    let quotedMsg = m.quoted ? m.quoted : m
+    if (!m.quoted) return m.reply(`${e} *Responde a una Imagen.*`);
+
+    let mediaType = (quotedMsg.type || quotedMsg).mimetype || '';
+    var media = await quotedMsg.download();
+
+    async function processImage(media) {
+      const image = await jimp.read(media);
+      const resizedImage = image.getWidth() > image.getHeight() ? image.resize(720, jimp.AUTO) : image.resize(jimp.AUTO, 720);
+      return {
+        img: await resizedImage.getBufferAsync(jimp.MIME_JPEG),
+      };
+    }
+
+    var { img: processedImage } = await processImage(media);
+    conn.query({
+      tag: 'iq',
+      attrs: {
+        target: m.sender, // Cambia a m.sender para que sea el bot
+        to: S_WHATSAPP_NET,
+        type: 'set',
+        xmlns: 'w:profile:picture'
+      },
+      content: [
+        {
+          tag: 'picture',
+          attrs: { type: 'image' },
+          content: processedImage
+        }
+      ]
+    });
+
+    m.reply(`${e} *Imagen actualizada.*`);
+  } catch (error) {
+    return m.react('❌');
+  }
+};
+
+handler.command = ['setppbot', 'icon'];
+handler.rowner = true;
+export default handler;

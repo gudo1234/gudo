@@ -11,7 +11,7 @@ let ytres = await yts(text)
 let video = ytres.videos[0]
   
 if (!video) {
-return m.reply(`${e} *No es una url válida de YouTube*`)
+return m.reply(`${e} *No es una opción válida para YouTube*`)
 }
 
 let { title, thumbnail, timestamp, views, ago, url } = video
@@ -67,7 +67,7 @@ console.error(error)
 if (command == 'play2') {
 let ytres = await search(args.join(" "));
   if (ytres.length === 0) {
-    return m.reply(`${e} *No es una url válida de YouTube*`);
+    return m.reply(`${e} *No es una opción válida para YouTube*`);
   }
   try {
     let apiResponse = await fetch(`https://api.vreden.web.id/api/ytplaymp4?query=${ytres[0].url}&apikey=0a2cc90e`);

@@ -1,7 +1,7 @@
 import axios from "axios"
 
 let handler = async (m, { conn, text, usedPrefix, command, args }) => {
-if (!args[0]) return m.reply("Ingresa el enlace del vídeo de YouTube")
+if (!args[0]) return m.reply(`${e} *Ingresa el enlace del vídeo de YouTube*`)
 let name = await conn.getName(m.sender)
 await m.react('⌛')
 conn.sendMessage(m.chat, { text: global.espere + `*${m.pushName}*`, contextInfo: { externalAdReply: {title: `${wm}`, body: `${await conn.getName(m.chat)}`, thumbnailUrl: img.getRandom(), thumbnail: img.getRandom(), showAdAttribution: true, sourceUrl: canal}}} , { quoted: fkontak })

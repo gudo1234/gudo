@@ -64,17 +64,6 @@ let ytres = await search(args.join(" "));
   if (ytres.length === 0) {
     return m.reply("xx");
   }
-
-  let txt = `_*⚡YouTube-Play⚡*_\n\n*Título:* ${ytres[0].title}
-*Duración:* ${ytres[0].timestamp}
-*Publicado:* ${ytres[0].ago}
-*Canal:* ${ytres[0].author.name || 'Desconocido'}
-*Url:* https://youtu.be/${ytres[0].videoId}
-
-${e} *Espere un momento...*`;
-
-  await conn.sendFile(m.chat, ytres[0].image, 'thumbnail.jpg', txt, m);
-
   try {
     let apiResponse = await fetch(`https://api.vreden.web.id/api/ytplaymp4?query=${ytres[0].url}&apikey=0a2cc90e`);
     let json = await apiResponse.json();

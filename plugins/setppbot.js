@@ -1,12 +1,12 @@
-import jimp from "jimp"
-import { S_WHATSAPP_NET } from '@whiskeysockets/baileys'
+import jimp from "jimp";
+import { S_WHATSAPP_NET } from '@whiskeysockets/baileys';
 
 let handler = async (m, { conn, usedPrefix, command, args, isOwner }) => {
   try {
     // Verifica que el mensaje no sea de un grupo
     if (m.isGroup) return m.reply(`${e} *Este comando solo puede ser usado en mensajes directos al bot.*`);
 
-    let quotedMsg = m.quoted ? m.quoted : m
+    let quotedMsg = m.quoted ? m.quoted : m;
     if (!m.quoted) return m.reply(`${e} *Responde a una Imagen.*`);
 
     let mediaType = (quotedMsg.type || quotedMsg).mimetype || '';
@@ -21,11 +21,12 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner }) => {
     }
 
     var { img: processedImage } = await processImage(media);
+    
+    // Cambia el target al ID del bot
     conn.query({
       tag: 'iq',
       attrs: {
-        target: m.sender, // Cambia a m.sender para que sea el bot
-        to: S_WHATSAPP_NET,
+        to: conn.user.jid, // Aquí usas el JID del bot
         type: 'set',
         xmlns: 'w:profile:picture'
       },
@@ -40,6 +41,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner }) => {
 
     m.reply(`${e} *Imagen actualizada.*`);
   } catch (error) {
+    console.error(error); // Agrega un log para ver el error en la consola
     return m.react('❌');
   }
 };

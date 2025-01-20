@@ -41,7 +41,12 @@ await conn.reply(m.chat, HS, m, JT)
 
 let api = await fetch(`https://api.vreden.web.id/api/ytplaymp3?query=${url}`);
 let json = await api.json()
+try {
 let { download } = json.result
+} catch (error) {
+m.reply(`${error}`)
+console.error(error)    
+}
 
 if (command == 'play') {
 try {
@@ -92,6 +97,7 @@ console.error(error)
 
 }
 handler.command = ['play', 'play3', 'play2', 'play4']
+handler.group = true;
 export default handler;
 
 async function search(query, options = {}) {

@@ -8,7 +8,7 @@ await m.react('⌛')
 if (command == 'pla') { // yta audio
     try {
 await
-    await conn.sendMessage(m.chat, { audio: { url: `https://delirius-apiofc.vercel.app/download/ytmp4?url==${text}` }, mimetype: 'audio/mpeg'}, { quoted: m });
+    await conn.sendMessage(m.chat, { audio: { url: `https://delirius-apiofc.vercel.app/download/ytmp4?url=${text}` }, mimetype: 'audio/mpeg'}, { quoted: m });
 }catch(e) {
         await m.react('❌')
         m.reply(`Error, ${e}`)

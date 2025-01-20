@@ -40,7 +40,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
 };
 handler.help = ['setppgc'];
 handler.tags = ['group'];
-handler.command = ['setppgc'];
+handler.command = ['setppgc', 'setppgroup', 'icongc'];
 handler.admin = true;
 handler.botAdmin = true;
 

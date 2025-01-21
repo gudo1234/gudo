@@ -7,7 +7,7 @@ await m.react('⌛')
 conn.sendMessage(m.chat, { text: global.espere + `*${m.pushName}*`, contextInfo: { externalAdReply: {title: `${wm}`, body: `${await conn.getName(m.chat)}`, thumbnailUrl: img.getRandom(), thumbnail: img.getRandom(), showAdAttribution: true, sourceUrl: canal}}} , { quoted: fkontak })
 if (command == 'ytmp3' || command == 'yta') { // yta audio
     try {
-    await conn.sendMessage(m.chat, { audio: { url: `https://api.dorratz.com/v2/yt-mp3?url=${text}` }, mimetype: 'audio/mpeg'}, { quoted: m });
+    await conn.sendMessage(m.chat, { audio: { url: `https://api.siputzx.my.id/api/d/ytmp3?url=${text}` }, mimetype: 'audio/mpeg'}, { quoted: m });
 }catch(e) {
         await m.react('❌')
         m.reply(`Error, ${e}`)
@@ -16,7 +16,7 @@ if (command == 'ytmp3' || command == 'yta') { // yta audio
 
 if (command == 'ytmp4' || command == 'ytv') { // mp4 video
     try {
-    await conn.sendMessage(m.chat, { video: { url: `https://api.dorratz.com/v2/yt-mp3?url=${text}` }, caption: `${name}` }, { quoted: m });
+    await conn.sendMessage(m.chat, { video: { url: `https://api.siputzx.my.id/api/d/ytmp4?url=${text}` }, caption: `${name}` }, { quoted: m });
 }catch(e) {
         await m.react('❌')
         m.reply(`Error, ${e}`)

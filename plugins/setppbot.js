@@ -43,7 +43,6 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
 };
 
 handler.command = ['setppbot', 'icon'];
-handler.
 handler.owner = true;
 
 export default handler;

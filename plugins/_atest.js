@@ -23,7 +23,8 @@ const messages = [
 [],
 [[], ['🤝Donar', `${edar}`], ['🔆Socializar', `${social}`]],
 []
-]]
+]
+
 conn.sendCarousel(m.chat, null, null, null, messages)
 }
 

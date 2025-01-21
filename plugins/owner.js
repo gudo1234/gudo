@@ -18,7 +18,7 @@ conn.sendMessage(m.chat, {
 "mediaType": 1,
 "title": 'No molestar, xD -_-',
 "body": wm,
-"thumbnail": img.getRandom(),
+"thumbnail": imagen4,
 sourceUrl: canal
 }
 }

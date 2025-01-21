@@ -6,11 +6,12 @@ export async function before(m, { conn, participants, groupMetadata }) {
   if (!m.messageStubType || !m.isGroup) return true;
 let pp = await conn.profilePictureUrl(m.messageStubParameters[0], 'image').catch(_ => 'https://qu.ax/casQP.jpg')
   let im = await (await fetch(`${pp}`)).buffer()
-  let vn = './media/a.mp3' //welcome bendicion
-let vn2 = './media/bien.mp3' //welcome entrada épica
-  let vn3 = './media/adios.mp3'; //y se marchó
+  let vn = './media/a.mp3'; //welcome bendicion
+let vn2 = './media/bien.mp3'; //welcome entrada épica
+  let vn3 = './media/adios.mp3'; //bye y se marchó
   let vn4 = './media/prueba3.mp3'; //welcome calamar
-
+  let vn5 = './media/prueba4.mp3'; //welcome mortals
+  
   let chat = global.db.data.chats[m.chat];
   const user = `@${m.sender.split`@`[0]}`;
   const getMentionedJid = () => {
@@ -54,7 +55,7 @@ if (media === 'stiker') {
 }
 
 if (media === 'audio') {
-this.sendMessage(m.chat, { audio: { url: [vn, vn2, vn4].getRandom() }, 
+this.sendMessage(m.chat, { audio: { url: [vn, vn2, vn4, vn5].getRandom() }, 
     contextInfo: { forwardedNewsletterMessageInfo: { 
     newsletterJid: id_canal, 
     serverMessageId: '', 
@@ -76,7 +77,7 @@ this.sendMessage(m.chat, { audio: { url: [vn, vn2, vn4].getRandom() },
     })};
 
 if (media === 'boton') {
-let a = `🌴 _*¡Hola!*_ +${m.messageStubParameters[0].split`@`[0]} Bienvenido🎉`;
+let a = `${e} _*¡Hola!*_ +${m.messageStubParameters[0].split`@`[0]} Bienvenido🎉`;
   conn.sendMessage(m.chat, {
     image: im,
     caption: a,

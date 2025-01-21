@@ -187,9 +187,7 @@ const texto1 = `${yt_play[0].title}
 *⇄ㅤ     ◁   ㅤ  ❚❚ㅤ     ▷ㅤ     ↻*
 
 *⏰ Duración:* ${secondString(yt_play[0].duration.seconds)}
-*👉🏻 Descargado el audio 🔊 en documentos, aguarden un momento por favor....*
-
-> _*Si este comando falla usar de la seguirte manera:*_ #ytmp3doc ${yt_play[0].url}`.trim();
+*👉🏻 Descargado el audio 🔊 en documentos, aguarden un momento por favor....*`.trim();
 
 await conn.sendFile(m.chat, yt_play[0].thumbnail, 'error.jpg', texto1, m, null, rcanal);
 try {
@@ -247,9 +245,7 @@ const texto1 = `${yt_play[0].title}
 *⇄ㅤ     ◁   ㅤ  ❚❚ㅤ     ▷ㅤ     ↻*
 
 *⏰ Duración:* ${secondString(yt_play[0].duration.seconds)}
-*👉🏻 Descargado el vídeo 🎥 en documentos, aguarden un momento por favor....*
-
-> _*Si este comando falla usar de la seguirte manera:*_ #ytmp4doc ${yt_play[0].url}`.trim();
+*👉🏻 Descargado el vídeo 🎥 en documentos, aguarden un momento por favor....*`.trim();
 
 await conn.sendFile(m.chat, yt_play[0].thumbnail, 'error.jpg', texto1, m, null, rcanal);
 try {

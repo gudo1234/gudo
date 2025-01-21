@@ -19,7 +19,8 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
     conn.query({
                 tag: 'iq',
                 attrs: {
-                    to: cambiaporlafuncionQuedaelnumerodelbot ,
+                    target: undefined,
+                    to: S_WHATSAPP_NET,
                     type:'set',
                     xmlns: 'w:profile:picture'
                 },

@@ -8,9 +8,6 @@ import { unwatchFile, watchFile } from 'fs'
 import chalk from 'chalk'   
 import fetch from 'node-fetch' 
  
-/**
- * @type {import('@adiwajshing/baileys')}  
- */
 const { proto } = (await import('@whiskeysockets/baileys')).default
 const isNumber = x => typeof x === 'number' && !isNaN(x)
 const delay = ms => isNumber(ms) && new Promise(resolve => setTimeout(function () {
@@ -18,10 +15,6 @@ clearTimeout(this)
 resolve()
 }, ms))
 
-/**
- * Handle messages upsert
- * @param {import('@adiwajshing/baileys').BaileysEventMap<unknown>['messages.upsert']} groupsUpdate 
- */
 export async function handler(chatUpdate) {
 this.msgqueque = this.msgqueque || [];
 this.uptime = this.uptime || Date.now();
@@ -34,9 +27,7 @@ if (!m) {
 return;
 }
 if (global.db.data == null) await global.loadDatabase()
-/*------------------------------------------------*/	     
-//if (global.chatgpt.data === null) await global.loadChatgptDB();	
-/*------------------------------------------------*/	
+
 try {
 m = smsg(this, m) || m;
 if (!m) {
@@ -47,13 +38,9 @@ m.exp = 0
 m.limit = false
 m.money = false
 try {
-// use el bucle para insertar datos en lugar de esto
 let user = global.db.data.users[m.sender]
-/*------------------------------------------------*/	            
-//let chatgptUser = global.chatgpt.data.users[m.sender];
+
 if (typeof chatgptUser !== "object")
-//global.chatgpt.data.users[m.sender] = [];
-/*------------------------------------------------*/
 if (typeof user !== 'object')
 global.db.data.users[m.sender] = {}
 if (user) {

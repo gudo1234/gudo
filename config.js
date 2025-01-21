@@ -114,7 +114,7 @@ global.img = [imagen, imagen1, imagen2, imagen3, imagen4, imagen9]
 //------------------------[ Info | Datos ]---------------------------
 global.edar = 'https://wa.me/50492280729?text=Hola+me+gustaria+donar+en+tu+proyecto...'
 global.ig = 'https://www.instagram.com/edar504__?'
-global.social = 'https://chat.whatsapp.com/FfT4JaRyKHcGj0G1SovgUn'
+global.social = 'https://chat.whatsapp.com/DrhDlBWkWaV5sLOeS9kOBb'
 global.org = 'https://www.atom.bio/edar_'
 global.wait = 'Descargar'
 global.waitt = '*⌛ _Cargando..._ ▬▬▭▭▭*'

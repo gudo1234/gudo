@@ -11,10 +11,6 @@ let rpt = "🌠¡Recuerda descansar bien esta noche!🌙😴\n\nToque aquí💥"
       if (nktm >= 11) rpt = "🌇¡Buenas tardes!🍁\n\nToque aquí💥"
       if (nktm >= 18) rpt = "🌠¡Buenas noches!🌙\n\nToque aquí💥"
 let name = await conn.getName(m.sender)
-//pais
-
-//let pp = await conn.profilePictureUrl(m.sender, 'image').catch(_ => './src/avatar_contact.png')
-//const pp = await conn.profilePictureUrl(m.chat, 'image').catch((_) => null) || `${global.imagen4}`;
 
 let delirius = await axios.get(`https://delirius-apiofc.vercel.app/tools/country?text=${PhoneNumber('+' + m.sender.replace('@s.whatsapp.net', '')).getNumber('international')}`)
   let paisdata = delirius.data.result
@@ -218,7 +214,7 @@ conn.sendMessage(m.chat, {
 if (media === 'botons')
 conn.sendButtonMessages(m.chat, [
 [`${tx}\n\n${txt}`, '𝗉𝗈𝗐𝖾𝗋𝖾𝖽 ⓒ 𝖨𝗓𝗎𝗆𝗂-𝖻𝗈𝗍 𝟤𝟢𝟤𝟢-𝟤𝟢𝟤5.', 'https://qu.ax/KCesv.mp4', [
-['🚩ᴀᴛᴏᴍ', `.grupos`]
+[`${e}ᴀᴛᴏᴍ`, `.grupos`]
 ], null, [
 ['🌐ᴄᴀɴᴀʟ', canal]],
 []

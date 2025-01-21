@@ -82,7 +82,6 @@ if (!isNumber(user.semangka)) user.semangka = 0
 if (!isNumber(user.stroberi)) user.stroberi = 0
 }
 if (!isNumber(user.afk)) user.afk = -1
-//if (!('autolevelup' in user))  user.autolevelup = true
 if (!isNumber(user.counterPrivate)) user.counterPrivate = 0
 if (!isNumber(user.reporte)) user.reporte = 0
 if (!('role' in user)) user.role = '*NOVATO(A)* 🪤'
@@ -927,8 +926,7 @@ soal: null
 let chat = global.db.data.chats[m.chat] //guarda datos del chat
 if (typeof chat !== 'object')
 global.db.data.chats[m.chat] = {}
-//false = off (apagado)
-//true = on (activado) 				
+	
 if (chat) {
 if (!('isBanned' in chat)) chat.isBanned = false      
 if (!('welcome' in chat)) chat.welcome = true            
@@ -963,7 +961,7 @@ if (!('antiTraba' in chat)) chat.antiTraba = true
 if (!('autolevelup' in chat))  chat.autolevelup = false
 if (!isNumber(chat.expired)) chat.expired = 0
 } else
-//🟢 SI QUIERE CAMBIA ALGUNAS DE ESTA FUNCIÓNE DE (false a true) o (true a false), LOS PUEDE HACER. PERO DEJARLO IGUAL COMO ESTA PARA EVITAR ERRORES
+//🟢 (true a false)
 global.db.data.chats[m.chat] = {
 isBanned: false,
 welcome: true,
@@ -1034,7 +1032,6 @@ console.error(e)
 const isROwner = [conn.decodeJid(global.conn.user.id), ...global.owner.map(([number]) => number)].map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
 const isOwner = isROwner || m.fromMe
 const isMods = isOwner || global.mods.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
-//const isPrems = isROwner || global.prems.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
 const isPrems = isROwner || global.db.data.users[m.sender].premiumTime > 0
 if (opts['queque'] && m.text && !(isMods || isPrems)) {
 let queque = this.msgqueque, time = 1000 * 5
@@ -1083,32 +1080,29 @@ __dirname: ___dirname,
 __filename
 })
 } catch (e) {
-// if (typeof e === 'string') continue
 console.error(e)
 for (let [jid] of global.owner.filter(([number, _, isDeveloper]) => isDeveloper && number)) {
 let data = (await conn.onWhatsApp(jid))[0] || {}
-//❌COMANDO FALLAS
 if (data.exists) 
 delay(2 * 2000)
 m.reply(`Reporte de comando con fallo\n\n> Plugins\n*_${name}_*\n\n> Usuario\n*_${m.sender}_*\n\n> Comando\n*_${m.text}_*\n\n> Error\n\`\`\`${format(e)}\`\`\`\n\n> Reporte al propietario con .reporte`.trim(), data.jid)
 }}}
 if (!opts['restrict'])
 if (plugin.tags && plugin.tags.includes('admin')) {
-// global.dfail('restrict', m, this)
 continue
 }
 const str2Regex = str => str.replace(/[|\\{}()[\]^$+*?.]/g, '\\$&')
 let _prefix = plugin.customPrefix ? plugin.customPrefix : conn.prefix ? conn.prefix : global.prefix
-let match = (_prefix instanceof RegExp ? // RegExp Mode?
+let match = (_prefix instanceof RegExp ?
 [[_prefix.exec(m.text), _prefix]] :
-Array.isArray(_prefix) ? // Array?
+Array.isArray(_prefix) ?
 _prefix.map(p => {
-let re = p instanceof RegExp ? // RegExp in Array?
+let re = p instanceof RegExp ?
 p :
 new RegExp(str2Regex(p))
 return [re.exec(m.text), re]
 }) :
-typeof _prefix === 'string' ? // String?
+typeof _prefix === 'string' ?
 [[new RegExp(str2Regex(_prefix)).exec(m.text), new RegExp(str2Regex(_prefix))]] :
 [[[], new RegExp]]
 ).find(p => p[1])
@@ -1141,15 +1135,15 @@ args = args || []
 let _args = noPrefix.trim().split` `.slice(1)
 let text = _args.join` `
 command = (command || '').toLowerCase()
-let fail = plugin.fail || global.dfail // When failed
-let isAccept = plugin.command instanceof RegExp ? // RegExp Mode?
+let fail = plugin.fail || global.dfail
+let isAccept = plugin.command instanceof RegExp ?
 plugin.command.test(command) :
-Array.isArray(plugin.command) ? // Array?
-plugin.command.some(cmd => cmd instanceof RegExp ? // RegExp in Array?
+Array.isArray(plugin.command) ?
+plugin.command.some(cmd => cmd instanceof RegExp ?
 cmd.test(command) :
 cmd === command
 ) :
-typeof plugin.command === 'string' ? // String?
+typeof plugin.command === 'string' ?
 plugin.command === command :
 false
 
@@ -1160,7 +1154,7 @@ if (m.chat in global.db.data.chats || m.sender in global.db.data.users) {
 const chat = global.db.data.chats[m.chat];
 const user = global.db.data.users[m.sender];
 const botSpam = global.db.data.settings[this.user.jid];
-if (!['owner-unbanchat.js', 'gc-link.js', 'gc-hidetag.js', 'info-creator.js'].includes(name) && chat && chat.isBanned && !isROwner) return; // Excepto esto
+if (!['owner-unbanchat.js', 'gc-link.js', 'gc-hidetag.js', 'info-creator.js'].includes(name) && chat && chat.isBanned && !isROwner) return;
 if (name != 'owner-unbanchat.js' && name != 'owner-exec.js' && name != 'owner-exec2.js' && name != 'tool-delete.js' && chat?.isBanned && !isROwner) return;
 if (m.text && user.banned && !isROwner) {
 if (typeof user.bannedMessageCount === 'undefined') {
@@ -1176,8 +1170,6 @@ return;
 }
 return;
 }
-		
-//Antispam		
 if (user.antispam2 && isROwner) return
 let time = global.db.data.users[m.sender].spam + 5000
 if (new Date - global.db.data.users[m.sender].spam < 5000) throw console.log(`[ SPAM ]`) 
@@ -1192,59 +1184,59 @@ if (plugin.rowner && plugin.owner && !(isROwner || isOwner)) { //número bot own
 fail('owner', m, this)
 continue
 }
-if (plugin.rowner && !isROwner) { //Owner
+if (plugin.rowner && !isROwner) {
 fail('rowner', m, this)
 continue
 }
-if (plugin.owner && !isOwner) { //Propietario/Owner
+if (plugin.owner && !isOwner) {
 fail('owner', m, this)
 continue
 }
-if (plugin.mods && !isMods) { // Moderator
+if (plugin.mods && !isMods) {
 fail('mods', m, this)
 continue
 }
-if (plugin.premium && !isPrems) { // Premium
+if (plugin.premium && !isPrems) {
 fail('premium', m, this)
 continue
 }
-if (plugin.group && !m.isGroup) { //Solo el grupo
+if (plugin.group && !m.isGroup) {
 fail('group', m, this)
 continue
-} else if (plugin.botAdmin && !isBotAdmin) { //Detecta si el bot es admins
+} else if (plugin.botAdmin && !isBotAdmin) {
 fail('botAdmin', m, this)
 continue
-} else if (plugin.admin && !isAdmin) { //admins
+} else if (plugin.admin && !isAdmin) {
 fail('admin', m, this)
 continue
 }
-if (plugin.private && m.isGroup) { //Solo chat privado
+if (plugin.private && m.isGroup) {
 fail('private', m, this)
 continue
 }
-if (plugin.register == true && _user.registered == false) { // user registrado? 
+if (plugin.register == true && _user.registered == false) {
 fail('unreg', m, this)
 continue
 }
 
 m.isCommand = true
-let xp = 'exp' in plugin ? parseInt(plugin.exp) : 10 // Ganancia de XP por comando
+let xp = 'exp' in plugin ? parseInt(plugin.exp) : 10
 if (xp > 2000)
-m.reply('Exp limit') // Hehehe
+m.reply('Exp limit')
 else               
 if (!isPrems && plugin.money && global.db.data.users[m.sender].money < plugin.money * 1) {
-conn.sendMessage(m.chat, {text: `No tiene coins`, contextInfo: {externalAdReply : {mediaUrl: null, mediaType: 1, description: null, "title": `꙳🧧𓆩ίʑ᭘ɱί-ⲃⲟτ𓆪🧧꙳`, body: '🔥รน℘εг-๖σt🔥', previewType: 0, "thumbnail": img.getRandom(), sourceUrl: yt}}}, { quoted: m })       
+conn.sendMessage(m.chat, {text: `No tiene coins`, contextInfo: {externalAdReply : {mediaUrl: null, mediaType: 1, description: null, "title": wm, body: '🔥รน℘εг-๖σt🔥', previewType: 0, "thumbnail": img.getRandom(), sourceUrl: canal}}}, { quoted: m })       
 continue     
 }
 			
 m.exp += xp
 if (!isPrems && plugin.limit && global.db.data.users[m.sender].limit < plugin.limit * 1) {
-conn.sendMessage(m.chat, {text: `Se agotaron tus diamantes, compre con *${usedPrefix}buy*`,  contextInfo: {externalAdReply : {mediaUrl: null, mediaType: 1, description: null, "title": `꙳🧧𓆩ίʑ᭘ɱί-ⲃⲟτ𓆪🧧꙳`, body: '🔥รน℘εг-๖σt🔥', previewType: 0, "thumbnail": img.getRandom(), sourceUrl: yt}}}, { quoted: m })
-continue //Sin límite
+conn.sendMessage(m.chat, {text: `Se agotaron tus diamantes, compre con *${usedPrefix}buy*`,  contextInfo: {externalAdReply : {mediaUrl: null, mediaType: 1, description: null, "title": wm, body: '🔥รน℘εг-๖σt🔥', previewType: 0, "thumbnail": img.getRandom(), sourceUrl: canal}}}, { quoted: m })
+continue
 }
 if (plugin.level > _user.level) {
-conn.sendMessage(m.chat, {text: `Nesecitas el nivel *${plugin.level}* para poder usar este comando, tu nivel es *${_user.level}* actualizar su nivel con comando *${usedPrefix}nivel*`,  contextInfo: {externalAdReply : {mediaUrl: null, mediaType: 1, description: null, "title": `꙳🧧𓆩ίʑ᭘ɱί-ⲃⲟτ𓆪🧧꙳`, body: '🔥รน℘εг-๖σt🔥', previewType: 0, "thumbnail": img.getRandom(), sourceUrl: yt}}}, { quoted: m })
-continue // Si no se ha alcanzado el nivel
+conn.sendMessage(m.chat, {text: `Nesecitas el nivel *${plugin.level}* para poder usar este comando, tu nivel es *${_user.level}* actualizar su nivel con comando *${usedPrefix}nivel*`,  contextInfo: {externalAdReply : {mediaUrl: null, mediaType: 1, description: null, "title": wm, body: '🔥รน℘εг-๖σt🔥', previewType: 0, "thumbnail": img.getRandom(), sourceUrl: canal}}}, { quoted: m })
+continue
 }
 let extra = {
 match,
@@ -1275,7 +1267,6 @@ if (!isPrems)
 m.limit = m.limit || plugin.limit || false
 m.money = m.money || plugin.money || false
 } catch (e) {
-// Error occured
 m.error = e
 console.error(e)
 if (e) {
@@ -1291,7 +1282,6 @@ m.reply(`🚩 *Reporte de comando con falla*\n\n> Plugin\n*_${name}_*\n\n> Usuar
 }
 m.reply(text)
 }} finally {
-// m.reply(util.format(_user))
 if (typeof plugin.after === 'function') {
 try {
 await plugin.after.call(this, m, extra)
@@ -1312,7 +1302,6 @@ const quequeIndex = this.msgqueque.indexOf(m.id || m.key.id)
 if (quequeIndex !== -1)
 this.msgqueque.splice(quequeIndex, 1)
 }
-//console.log(global.db.data.users[m.sender])
 let user, stats = global.db.data.stats
 if (m) {
 if (m.sender && (user = global.db.data.users[m.sender])) {
@@ -1354,22 +1343,16 @@ if (!opts['noprint']) await (await import(`./lib/print.js`)).default(m, this)
 console.log(m, m.quoted, e)}
 let settingsREAD = global.db.data.settings[this.user.jid] || {}  
 if (opts['autoread']) await this.readMessages([m.key])
-if (settingsREAD.autoread2) await this.readMessages([m.key])  
-//if (settingsREAD.autoread2 == 'true') await this.readMessages([m.key])    
+if (settingsREAD.autoread2) await this.readMessages([m.key]) 
 	    
 if (!m.fromMem && m.text.match(/(@50492280729|edar)/gi)) {
 let emot = pickRandom(["🍉"])
 this.sendMessage(m.chat, { react: { text: emot, key: m.key }})}
 function pickRandom(list) { return list[Math.floor(Math.random() * list.length)]}}}
 
-/**
- * Handle groups participants update
- * @param {import('@adiwajshing/baileys').BaileysEventMap<unknown>['group-participants.update']} groupsUpdate 
- */
 export async function participantsUpdate({ id, participants, action }) {
 if (opts['self'])
 return
-// if (id in conn.chats) return // First login will spam
 if (this.isInit)
 return
 if (global.db.data == null)
@@ -1432,8 +1415,6 @@ this.sendMessage(id, { text: text,contextInfo: {
       thumbnailUrl: apii.data,
       thumbnail: apii.data,
       sourceUrl: 'https://www.atom.bio/edar_',
-      //mediaType: 1,
-      //renderLargerThumbnail: true
     }
   }},{quoted: fkontak2})
 
@@ -1465,15 +1446,9 @@ if (!text)
 text = (chat.sDemote || this.sdemote || conn.sdemote || '@user ```is no longer Admin```')
 text = text.replace('@user', '@' + participants[0].split('@')[0])
 if (chat.detect)
-//this.sendMessage(id, { text, mentions: this.parseMention(text) })
 break
 }}
 
-/** 
- * Actualización de grupos de control
- * Handle groups update
- * @param {import('@adiwajshing/baileys').BaileysEventMap<unknown>['groups.update']} groupsUpdate 
- */
 export async function groupsUpdate(groupsUpdate) {
 if (opts['self'])
 return
@@ -1482,9 +1457,6 @@ const id = groupUpdate.id
 if (!id) continue
 let chats = global.db.data.chats[id], text = ''
 if (!chats?.detect) continue
-// if (groupUpdate.desc) text = (chats.sDesc || this.sDesc || conn.sDesc || '```Description has been changed to```\n@desc').replace('@desc', groupUpdate.desc)
-//if (groupUpdate.subject) text = (chats.sSubject || this.sSubject || conn.sSubject || '```Subject has been changed to```\n@subject').replace('@subject', groupUpdate.subject)
-//if (groupUpdate.icon) text = (chats.sIcon || this.sIcon || conn.sIcon || '```Icon has been changed to```').replace('@icon', groupUpdate.icon)
 if (groupUpdate.revoke) text = (chats.sRevoke || this.sRevoke || conn.sRevoke || '```Group link has been changed to```\n@revoke').replace('@revoke', groupUpdate.revoke)
 if (!text) continue
 await this.sendMessage(id, { text, mentions: this.parseMention(text) })
@@ -1496,8 +1468,7 @@ if (!isAnticall) return
 for (let nk of callUpdate) { 
 if (nk.isGroup == false) {
 if (nk.status == "offer") {
-//let callmsg = await this.reply(nk.from, `${lenguajeGB['smsCont15']()} *@${nk.from.split('@')[0]}*, ${nk.isVideo ? lenguajeGB.smsCont16() : lenguajeGB.smsCont17()} ${lenguajeGB['smsCont18']()}`, false, { mentions: [nk.from] })
- const ocupado = './media/ocupado.mp3'
+const ocupado = './media/ocupado.mp3'
 let img = await (await fetch(`https://i.ibb.co/W3hmLwX/file.jpg`)).buffer()
 let txt = `\`🔐SISTEMA de BlOCK📱\`\n\nHola *@${nk.from.split('@')[0]}*\n\n🚩 _las llamadas no están permitidas para este usuario..._\n\n*Si está interesado en mis servicios contacte a mi desarrollador*\nwa.me/50492280729\n> Síguenos en nuestro canal para futuras actualizaciones...`
 this.sendMessage(nk.from, { text: txt, contextInfo: {
@@ -1505,18 +1476,18 @@ this.sendMessage(nk.from, { text: txt, contextInfo: {
     groupMentions: [],
     isForwarded: true,
     forwardedNewsletterMessageInfo: {
-      newsletterJid: '120363285614743024@newsletter',
-      newsletterName: `꙳🧧𓆩ίʑ᭘ɱί-ⲃⲟτ𓆪🧧꙳`,
+      newsletterJid: id_canal,
+      newsletterName: wm,
       serverMessageId: 0
     },
     businessMessageForwardInfo: { businessOwnerJid: '50492280729@s.whatsapp.net' },
     forwardingScore: 9999,
     externalAdReply: {
       title: `Cuenta Privada`,
-      body: '©️ Powered By 𓆩᮫࣭݊͜?☃️࣭݊ျ֘▹ⲉ꯭𝖽α꯭૨‹࣭݊⸸࣭݊͜𓆪',
-      thumbnailUrl: img,
-thumbnail: img,
-      sourceUrl: 'https://www.atom.bio/edar_',
+      body: `©️ Powered By ${author}`,
+      thumbnailUrl: img.getRandom(),
+thumbnail: img.getRandom(),
+      sourceUrl: nn,
       mediaType: 1,
       renderLargerThumbnail: true
     }
@@ -1544,18 +1515,18 @@ console.error(e)
 
 global.dfail = (type, m, conn, usedPrefix) => {
     let msg = {
-        rowner: '🧧 _Este comando es solo para mi propietario._',
-        owner: '🧧 _Este comando es solo para mi propietario._',
-        mods: '🧧 _Este comando solo lo puedo usar yo._',
-        premium: '🧧 _Este comando es solo para usuarios Premium (VIP)._',
-        group: '🧧 _Este comando es solo para grupos._\n\nhttps://chat.whatsapp.com/DrhDlBWkWaV5sLOeS9kOBb',
-        private: '🧧 _Este comando solo funciona en el privado del bot._',
-        admin: '🧧 _Solo los admins pueden usar este comando._',
-        botAdmin: '🧧 _Haz admin al Bot "YO" para poder usar este comando._',
-        unreg: '「NO ESTAS REGISTRADO」\n\nNO APARECE EN MI BASE DE DATOS🤖\n\nPara poder usarme escribe el siguente comando\n\nComando: #reg nombre.edad\nEjemplo: #reg edar.17',
-        restrict: '[ 🔐 ] _Este comando esta desactivado por mi jefe_'
+        rowner: `${e} _Este comando es solo para mi propietario._`,
+        owner: `${e} _Este comando es solo para mi propietario._`,
+        mods: `${e} _Este comando solo lo puedo usar yo._`,
+        premium: `${e} _Este comando es solo para usuarios Premium (VIP)._`,
+        group: `${e} _Este comando es solo para grupos._\n\n${social}`,
+        private: `${e} _Este comando solo funciona en el privado del bot._`,
+        admin: `${e} _Solo los admins pueden usar este comando._`,
+        botAdmin: `${e} _Haz admin al Bot "YO" para poder usar este comando._`,
+        unreg: `${e} NO APARECE EN MI BASE DE DATOS🤖\n\nPara poder usarme escribe el siguente comando\n\nComando: #reg nombre.edad\nEjemplo: #reg edar.17`,
+        restrict: `${e} _Este comando esta desactivado por mi jefe_`
     }[type]
-    if (msg) return conn.sendMessage(m.chat, {text: msg, contextInfo: { mentionedJid: null, forwardingScore: 1, isForwarded: true, forwardedNewsletterMessageInfo: { newsletterJid: '120363285614743024@newsletter', serverMessageId: '', newsletterName: '꙳🧧𓆩ίʑ᭘ɱί-ⲃⲟτ𓆪🧧꙳' }, externalAdReply : {mediaUrl: null, mediaType: 1, description: null, "title": `🔥รน℘εг-๖σt🔥`, body: 'Acceso denegado', previewType: 0, "thumbnail": img.getRandom(), sourceUrl: fb}}}, { quoted: m })
+    if (msg) return conn.sendMessage(m.chat, {text: msg, contextInfo: { mentionedJid: null, forwardingScore: 1, isForwarded: true, forwardedNewsletterMessageInfo: { newsletterJid: id_canal, serverMessageId: '', newsletterName: wm }, externalAdReply : {mediaUrl: null, mediaType: 1, description: null, "title": `🔥รน℘εг-๖σt🔥`, body: 'Acceso denegado', previewType: 0, "thumbnail": img.getRandom(), sourceUrl: fb}}}, { quoted: m })
 }
 
 const file = global.__filename(import.meta.url, true);

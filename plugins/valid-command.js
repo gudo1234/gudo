@@ -23,11 +23,8 @@ export async function before(m) {
       user.commands = 0;
     }
     user.commands += 1;
-   // await conn.sendPresenceUpdate('composing', m.chat);
   } else {
    const comando = m.text.trim().split(' ')[0];
-await conn.sendMessage(m.chat, { text: `${e} El comando *${comando}* no existe.
-Para ver la lista de comandos usa:
-» *${usedPrefix}menu*`, contextInfo: { externalAdReply: {title: `${wm}`, body: `${await conn.getName(m.chat)}`, thumbnailUrl: img.getRandom(), thumbnail: img.getRandom(), showAdAttribution: true, sourceUrl: canal}}} , { quoted: m })
+await conn.sendMessage(m.chat, { text: `${e} El comando *${comando}* no existe.\n> Para ver la lista de comandos usa: *${usedPrefix}menu*`, contextInfo: { externalAdReply: {title: `${wm}`, body: `${await conn.getName(m.chat)}`, thumbnailUrl: img.getRandom(), thumbnail: img.getRandom(), showAdAttribution: true, sourceUrl: canal}}} , { quoted: m })
   }
 }

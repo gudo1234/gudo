@@ -3,7 +3,7 @@ const handler = async (m, {conn, args, usedPrefix, command}) => {
 
 let contact = 'https://wa.me/50492280729?text='
 const messages = [
-`hola`, 
+[`hola`, 
 '', 'https://qu.ax/MjTwX.jpg',
 [],
 [],
@@ -18,12 +18,12 @@ const messages = [
 []
 ], [ 
 `hola3`, 
-'', 'https://qu.ax/huPVz.jpg',
+'', imagen3,
 [],
 [],
 [[], ['🤝Donar', `${edar}`], ['🔆Socializar', `${social}`]],
 []
-]
+]]
 
 conn.sendCarousel(m.chat, null, null, null, messages)
 }

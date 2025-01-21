@@ -13,20 +13,16 @@ const { name, author } = require(join(__dirname, './package.json'))
 const { say } = cfonts
 const rl = createInterface(process.stdin, process.stdout)
  
-say('LoliBot-MD', {
+say('Izumi-Bot', {
 font: 'chrome',
 align: 'center',
 gradient: ['red', 'magenta']})
-say(`by: elrebelde21`, {
+say(`by: edar`, {
 font: 'console',
 align: 'center',
 gradient: ['red', 'magenta']});
 
 let isRunning = false
-/**
-* Start a js file
-* @param {String} file `path/to/file`
-*/
 function start(file) {
 if (isRunning) return
 isRunning = true
@@ -37,7 +33,6 @@ exec: args[0],
 args: args.slice(1)})
 const p = fork()
 p.on('message', (data) => {
-//console.log('╭--------- - - - ✓\n┆ ✅ TIEMPO DE ACTIVIDAD ACTUALIZADA\n╰-------------------- - - -', data)
 switch (data) {
 case 'reset':
 p.process.kill()

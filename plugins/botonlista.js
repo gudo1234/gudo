@@ -12,6 +12,7 @@ if (m.isBaileys && m.fromMe)
        return !0
 let vn = './media/bien.mp3'
 let vn2 = './media/prueba3.mp3'
+let vn3 = './media/prueba4.mp3'
 let name = await conn.getName(m.sender)
 let user = global.db.data.users[m.sender]
 if (new Date() - user.pc < 21600000) return //6 horas
@@ -89,7 +90,7 @@ await m.reply(`🖐🏻 ¡Hola! *${name}* mi nombre es *Izumi* y fui desarrollad
 *y mantente informado....*
 ╰︶︶︶︶︶🎉︶︶︶︶︶╯`)
 await conn.relayMessage(m.chat, { viewOnceMessage: { message} }, {});
-conn.sendFile(m.chat, [vn, vn2].getRandom(), 'prueba3.mp3', null, null, true, { 
+conn.sendFile(m.chat, [vn, vn2, vn3].getRandom(), 'prueba3.mp3', null, null, true, { 
 type: 'audioMessage', 
 ptt: true 
 })

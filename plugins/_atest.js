@@ -1,4 +1,4 @@
-//import {googleImage} from '@bochilteam/scraper';
+import {googleImage} from '@bochilteam/scraper';
 const handler = async (m, {conn, args, usedPrefix, command}) => {
 
 let contact = 'https://wa.me/50492280729?text='

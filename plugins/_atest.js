@@ -4,14 +4,14 @@ const handler = async (m, {conn, args, usedPrefix, command}) => {
 let contact = 'https://wa.me/50492280729?text='
 const messages = [
 [`hola`, 
-'', 'https://qu.ax/MjTwX.jpg',
+'', imagen,
 [],
 [],
 [[], ['🌎Canal', `${canal}`], ['🌱Intagram', `${ig}`]],
 []
 ], [ 
 `hola2`, 
-'', 'https://qu.ax/EioUB.jpg',
+'', imagen2,
 [],
 [],
 [[], ['🗿Owner', `${contact}Hola`], ['👥Atom', `${nn}`]],

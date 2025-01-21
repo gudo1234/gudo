@@ -14,7 +14,7 @@ const messages = [
 '', 'https://qu.ax/EioUB.jpg',
 [],
 [],
-[[], ['🗿Owner', `${contacto}Hola`], ['👥Atom', `${nn}`]],
+[[], ['🗿Owner', `${contact}Hola`], ['👥Atom', `${nn}`]],
 []
 ], [ 
 `hola3`, 

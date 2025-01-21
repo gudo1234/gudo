@@ -18,7 +18,7 @@ conn.sendMessage(m.chat, {
 "mediaType": 1,
 "title": 'No molestar, xD -_-',
 "body": wm,
-"thumbnail": imagen4,
+"thumbnail": img.getRandom(),
 sourceUrl: canal
 }
 }
@@ -27,7 +27,6 @@ sourceUrl: canal
 });
 }
 handler.customPrefix = /^(Edar|edar|@50492280729|.owner|owner|.dueño|dueño|.creador|creador)$/i
-//handler.customPrefix = ['Edar', 'edar', '@50492280729', 'owner', 'dueño', 'creador']
 handler.command = new RegExp 
 
 export default handler

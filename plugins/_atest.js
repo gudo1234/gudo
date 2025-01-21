@@ -1,22 +1,24 @@
+//import {googleImage} from '@bochilteam/scraper';
 const handler = async (m, {conn, args, usedPrefix, command}) => {
 
+let contact = 'https://wa.me/50492280729?text='
 const messages = [
 `hola`, 
-'', imagen,
+'', 'https://qu.ax/MjTwX.jpg',
 [],
 [],
 [[], ['🌎Canal', `${canal}`], ['🌱Intagram', `${ig}`]],
 []
 ], [ 
 `hola2`, 
-'', imagen2,
+'', 'https://qu.ax/EioUB.jpg',
 [],
 [],
-[[], ['🗿Owner', `wa.me/50492280729`], ['👥Atom', `${nn}`]],
+[[], ['🗿Owner', `${contacto}Hola`], ['👥Atom', `${nn}`]],
 []
 ], [ 
 `hola3`, 
-'', imagen3,
+'', 'https://qu.ax/huPVz.jpg',
 [],
 [],
 [[], ['🤝Donar', `${edar}`], ['🔆Socializar', `${social}`]],

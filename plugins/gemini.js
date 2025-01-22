@@ -115,13 +115,13 @@ await m.reply(res.gpt)
 }
 
 if (command == 'gemini'|| command == 'bot') {
-let gpt = await fetch(`https://deliriussapi-oficial.vercel.app/ia/gemini?query=${text}`)
+let gpt = await fetch(`https://delirius-apiofc.vercel.app/ia/gemini?query=${text}`)
 let res = await gpt.json()
 await m.reply(res.message)
 }
 
 if (command == 'copilot' || command == 'bing') {
-let gpt = await fetch(`https://deliriussapi-oficial.vercel.app/ia/gemini?query=${text}`)
+let gpt = await fetch(`https://delirius-apiofc.vercel.app/ia/gemini?query=${text}`)
 let res = await gpt.json()
 await m.reply(res.message)
 }}

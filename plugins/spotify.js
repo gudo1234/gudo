@@ -18,7 +18,7 @@ let handler = async (m, { conn,text, args, usedPrefix, command }) => {
         𝐓í𝐭𝐮𝐥𝐨:${downTrack.title}\n
         𝐃𝐮𝐫𝐚𝐜𝐢ó𝐧:${downTrack.duration}\n
 ★━━━━━━━━━━━━━━━━━━━━★`
-            await conn.sendMessage(m.chat, {image: {url: downTrack.imageUrl}, caption: `${caption2}`}, {quoted: m});
+            //await conn.sendMessage(m.chat, {image: {url: downTrack.imageUrl}, caption: `${caption2}`}, {quoted: m});
             //await conn.sendMessage(m.chat, {audio: downTrack.audioBuffer, fileName: `${downTrack.title}.mp3`, mimetype: 'audio/mpeg'}, {quoted: m});
             conn.sendMessage(m.chat, { audio: { url: downTrack.audioBuffer }, fileName: `${downTrack.title}.mp3`, mimetype: 'audio/mpeg' }, { quoted: m })
   //break;

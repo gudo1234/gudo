@@ -20,12 +20,10 @@ let handler = async (m, { conn,text, args, usedPrefix, command }) => {
 ★━━━━━━━━━━━━━━━━━━━━★`
             await conn.sendMessage(m.chat, {image: {url: downTrack.imageUrl}, caption: `${caption2}`}, {quoted: m});
             await conn.sendMessage(m.chat, {audio: downTrack.audioBuffer, fileName: `${downTrack.title}.mp3`, mimetype: 'audio/mpeg'}, {quoted: m});
-            break;
+            //break;
 
-            m.reply("No soportado")      
+           // m.reply("No soportado")      
     }
-   
-
 
 handler.command = ['spotify', 'spotifypro', 'spotifydl']
 export default handler

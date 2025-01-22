@@ -21,7 +21,7 @@ case 'video': return `🍟 *Título:*
 » ${v.ago}
 
 👀 *Vistas:* 
-» ${v.views}`}}).filter(v => v).join('\n\n••••••••••••••••••••••••••••••••••••\n\n')
+» ${v.views}`}}).filter(v => v).join('\n_______________________\n')
 
 conn.sendFile(m.chat, tes[0].thumbnail, 'yts.jpeg', teks, m, null, rcanal)
 

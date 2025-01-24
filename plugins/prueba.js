@@ -12,31 +12,11 @@ let rpt = "🌠¡Recuerda descansar bien esta noche!🌙😴\n\nToque aquí💥"
       if (nktm >= 18) rpt = "🌠¡Buenas noches!🌙\n\nToque aquí💥"
 let name = await conn.getName(m.sender)
 
-/*let delirius = await axios.get(`https://api.dorratz.com/v2/pais/${PhoneNumber('+' + m.sender.replace('@s.whatsapp.net', '')).getNumber('international')}`)
+let delirius = await axios.get(`https://api.dorratz.com/v2/pais/${PhoneNumber('+' + m.sender.replace('@s.whatsapp.net', '')).getNumber('international')}`)
   let paisdata = delirius.data.result
-  let mundo = paisdata ? `${paisdata.nombre} ${paisdata.bandera}` : 'Desconocido'*/
-async function detectarPais() {
-    try {
-        const response = await axios.get('https://api.dorratz.com/v2/pais/');
-        const data = response.data;
-
-        // Asegúrate de que la respuesta tenga la información necesaria
-        if (data && data.pais) {
-            const pais = data.pais.nombre; // Nombre del país
-            const bandera = data.pais.bandera; // URL de la bandera
-
-            //console.log(`País: ${pais}`);
-            //console.log(`Bandera: ${bandera}`);
-        } else {
-            console.log('No se pudo obtener la información del país.');
-        }
-    } catch (error) {
-        console.error('Error al obtener el país:', error);
-    }
-}
-
-// Llama a la función
-detectarPais();
+  let mundo = paisdata ? `${paisdata.nombre} ${paisdata.bandera}` : 'Desconocido'
+/*let api = await axios.get(`https://api.dorratz.com/v2/pais/${PhoneNumber('+' + m.sender.replace('@s.whatsapp.net', '')).getNumber('international')}`)
+  m.reply(api.bandera)*/
 m.react('🚦')
 let or = ['evento', 'anuncio', 'boton', 'botons'];
   let media = or[Math.floor(Math.random() * 4)]
@@ -47,7 +27,7 @@ let txt = `${e} *Prefijo* (#.!/)
 •🪪 INFO-USUARIO.li
 ╭───╯
 *🚩]▸Nombre:* ${name}
-🌎 *Pais:* ${pais} ${bandera}
+🌎 *Pais:* ${mundo}
 (${getDevice(m.key.id)})
 *🗓]▸Fecha:* ${moment.tz('America/Bogota').format('DD/MM/YY')}
 ╰───╮╭───╯

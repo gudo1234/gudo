@@ -70,8 +70,8 @@ global.moment = moment
 
 global.packname = '꙳🧧𓆩ίʑ᭘ɱί-ⲃⲟτ𓆪🧧꙳'
 global.author = 'ᯓ᮫݃͜ᮨ🍁ܾ݉ᢥ౽꯭ⲉυ꯭᥉′🦦ꪃꒉܻᵃₚͬ៰⍳'
-global.espere = 'ᯓ〽️ _Espere un momento..._'
-global.e = '🌙᪶⃛▹'
+global.espere = '🌱 _Espere un momento..._'
+global.e = '🌱'
 //------------[ Versión | Nombre | cuentas ]------------
 
 global.wm = '꙳🧧𓆩ίʑ᭘ɱί-ⲃⲟτ𓆪🧧꙳'

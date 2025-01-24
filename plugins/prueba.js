@@ -14,7 +14,7 @@ let name = await conn.getName(m.sender)
 
 let delirius = await axios.get(`https://delirius-apiofc.vercel.app/tools/country?text={PhoneNumber('+' + m.sender.replace('@s.whatsapp.net', '')).getNumber('international')}`)
   let paisdata = delirius.data.result
-  let mundo = paisdata ? `${paisdata.nombre} ${paisdata.bandera}` : 'Desconocido'
+  let mundo = paisdata ? `${paisdata.name} ${paisdata.emoji}` : 'Desconocido'
 /*let api = await axios.get(`https://api.dorratz.com/v2/pais/${PhoneNumber('+' + m.sender.replace('@s.whatsapp.net', '')).getNumber('international')}`)
   m.reply(api.bandera)*/
 m.react('🚦')

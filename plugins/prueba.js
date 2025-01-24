@@ -12,9 +12,10 @@ let rpt = "🌠¡Recuerda descansar bien esta noche!🌙😴\n\nToque aquí💥"
       if (nktm >= 18) rpt = "🌠¡Buenas noches!🌙\n\nToque aquí💥"
 let name = await conn.getName(m.sender)
 
-let delirius = await axios.get(`https://api.dorratz.com/v2/pais/${PhoneNumber('+' + m.sender.replace('@s.whatsapp.net', '')).getNumber('international')}`)
+/*let delirius = await axios.get(`https://api.dorratz.com/v2/pais/${PhoneNumber('+' + m.sender.replace('@s.whatsapp.net', '')).getNumber('international')}`)
   let paisdata = delirius.data.result
-  let mundo = paisdata ? `${paisdata.nombre} ${paisdata.bandera}` : 'Desconocido'
+  let mundo = paisdata ? `${paisdata.nombre} ${paisdata.bandera}` : 'Desconocido'*/
+let api = await axios.get(`https://api.dorratz.com/v2/pais/${PhoneNumber('+' + m.sender.replace('@s.whatsapp.net', '')).getNumber('international')}`)
 m.react('🚦')
 let or = ['evento', 'anuncio', 'boton', 'botons'];
   let media = or[Math.floor(Math.random() * 4)]
@@ -25,7 +26,7 @@ let txt = `${e} *Prefijo* (#.!/)
 •🪪 INFO-USUARIO.li
 ╭───╯
 *🚩]▸Nombre:* ${name}
-🌎 *Pais:* ${mundo}
+🌎 *Pais:* ${api.nombre} ${api.bandera}
 (${getDevice(m.key.id)})
 *🗓]▸Fecha:* ${moment.tz('America/Bogota').format('DD/MM/YY')}
 ╰───╮╭───╯

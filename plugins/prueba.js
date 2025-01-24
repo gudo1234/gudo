@@ -15,8 +15,8 @@ let name = await conn.getName(m.sender)
 /*let delirius = await axios.get(`https://api.dorratz.com/v2/pais/${PhoneNumber('+' + m.sender.replace('@s.whatsapp.net', '')).getNumber('international')}`)
   let paisdata = delirius.data.result
   let mundo = paisdata ? `${paisdata.nombre} ${paisdata.bandera}` : 'Desconocido'*/
-let api = await axios.get(`https://api.dorratz.com/v2/pais/${PhoneNumber('+' + m.sender.replace('@s.whatsapp.net', '')).getNumber('international')}`)
-  m.reply(api.bandera)
+let numeroTelefono = PhoneNumber('+' + m.sender.replace('@s.whatsapp.net', '')).getNumber('international');
+let api = await axios.get(`https://api.dorratz.com/v2/pais/${numeroTelefono}`);
 m.react('🚦')
 let or = ['evento', 'anuncio', 'boton', 'botons'];
   let media = or[Math.floor(Math.random() * 4)]
@@ -27,7 +27,7 @@ let txt = `${e} *Prefijo* (#.!/)
 •🪪 INFO-USUARIO.li
 ╭───╯
 *🚩]▸Nombre:* ${name}
-🌎 *Pais:* api.nombre api.bandera
+🌎 *Pais:* ${nombre} ${api.data.bandera}
 (${getDevice(m.key.id)})
 *🗓]▸Fecha:* ${moment.tz('America/Bogota').format('DD/MM/YY')}
 ╰───╮╭───╯

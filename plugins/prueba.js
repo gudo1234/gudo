@@ -26,7 +26,7 @@ let txt = `${e} *Prefijo* (#.!/)
 •🪪 INFO-USUARIO.li
 ╭───╯
 *🚩]▸Nombre:* ${name}
-🌎 *Pais:* ${api.nombre} ${api.bandera}
+🌎 *Pais:* api.nombre api.bandera
 (${getDevice(m.key.id)})
 *🗓]▸Fecha:* ${moment.tz('America/Bogota').format('DD/MM/YY')}
 ╰───╮╭───╯

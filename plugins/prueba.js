@@ -16,6 +16,7 @@ let name = await conn.getName(m.sender)
   let paisdata = delirius.data.result
   let mundo = paisdata ? `${paisdata.nombre} ${paisdata.bandera}` : 'Desconocido'*/
 let api = await axios.get(`https://api.dorratz.com/v2/pais/${PhoneNumber('+' + m.sender.replace('@s.whatsapp.net', '')).getNumber('international')}`)
+  m.reply(api.bandera)
 m.react('🚦')
 let or = ['evento', 'anuncio', 'boton', 'botons'];
   let media = or[Math.floor(Math.random() * 4)]

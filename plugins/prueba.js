@@ -224,5 +224,5 @@ conn.sendButtonMessages(m.chat, [
 }
 
 handler.command = ['menu', 'menú', 'memu', 'memú', 'help', 'comandos', 'ayuda', 'commands', 'commandos']
-//handler.group = true;
+handler.group = true;
 export default handler

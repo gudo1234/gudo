@@ -1,5 +1,6 @@
 import moment from 'moment-timezone';
 let userMessageCount = {};
+if (!db.data.chats[m.chat].game) throw `${e} Los juegos estan desactivados en este chat, activar con: #on juegos`
 let flags = [
   {
     "name": "Afganistán",

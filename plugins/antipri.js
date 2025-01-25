@@ -10,7 +10,7 @@ export async function before(m, { isAdmin, isBotAdmin, isOwner }) {
        return !0
     let chat = global.db.data.chats[m.chat]
     let bot = global.db.data.settings[this.user.jid] || {}
-    
+if (m.chat === '120363395205399025@newsletter') return !0
     if (bot.antiPrivate && !isOwner) {
 let vn = './media/ocupado.mp3'
 let txt = `,    /)🎩/)

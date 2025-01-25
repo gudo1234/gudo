@@ -135,7 +135,6 @@ let txt = `${e} *Prefijo* (#.!/)
 ☯️]▸ off welcome
 ☯️]▸ on antifake
 ☯️]▸ off modohorny
-☯️]▸ setwelcome
 ☯️]▸ promote
 ☯️]▸ demote
 ☯️]▸ addcmd

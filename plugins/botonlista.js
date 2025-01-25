@@ -1,4 +1,4 @@
-import { prepareWAMessageMedia, generateWAMessageFromContent } from '@whiskeysockets/baileys';
+/*import { prepareWAMessageMedia, generateWAMessageFromContent } from '@whiskeysockets/baileys';
 import { randomBytes } from 'crypto';
 
 import moment from 'moment-timezone'
@@ -10,6 +10,7 @@ if (m.isBaileys && m.fromMe)
        return !1
     if (!m.message)
        return !0
+if (m.chat === '120363395205399025@newsletter') return !0
 let vn = './media/bien.mp3'
 let vn2 = './media/prueba3.mp3'
 let vn3 = './media/prueba4.mp3'
@@ -95,4 +96,4 @@ type: 'audioMessage',
 ptt: true 
 })
 user.pc = new Date * 1
-}
+}*/

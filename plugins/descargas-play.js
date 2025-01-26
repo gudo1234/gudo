@@ -86,8 +86,8 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     const JT = {
       contextInfo: {
         externalAdReply: {
-          title: packname,
-          body: dev,
+          title: wm,
+          body: author,
           mediaType: 1,
           previewType: 0,
           mediaUrl: url,

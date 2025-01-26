@@ -77,8 +77,8 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     const JT = {
       contextInfo: {
         externalAdReply: {
-          title: packname,
-          body: dev,
+          title: wm,
+          body: author,
           mediaType: 1,
           previewType: 0,
           mediaUrl: url,
@@ -91,7 +91,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
 
     await conn.reply(m.chat, infoMessage, m, JT);
 
-    if (command === 'playdoc' || command === 'ytmp3doc') {
+    if (command === 'playdoc' || command === 'ytmp3doc' || command == 'play3') {
       const downloadUrl = await ddownr.download(url, 'mp3');
       await conn.sendMessage(m.chat, {
         document: { url: downloadUrl },
@@ -99,7 +99,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
         mimetype: "audio/mpeg"
       }, { quoted: m });
 
-    } else if (command === 'playdoc2' || command === 'ytmp4doc') {
+    } else if (command === 'playdoc2' || command === 'ytmp4doc' || command == 'play4') {
       const sources = [
         `https://api.siputzx.my.id/api/d/ytmp4?url=${url}`,
         `https://delirius-apiofc.vercel.app/download/ytmp4?url=${url}`
@@ -145,7 +145,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
   }
 };
 
-handler.command = handler.help = ['playdoc', 'playdoc2', 'ytmp4doc', 'ytmp3doc'];
+handler.command = handler.help = ['playdoc', 'playdoc2', 'ytmp4doc', 'ytmp3doc', 'play3', 'play4'];
 handler.tags = ['downloader'];
 handler.group = true
 

@@ -1,4 +1,4 @@
-import axios from "axios"
+/*import axios from "axios"
 
 let handler = async (m, { conn, text, usedPrefix, command, args }) => {
 if (!args[0]) return m.reply(`${e} *Ingresa el enlace del vídeo de YouTube*`)
@@ -43,4 +43,4 @@ if (command == 'ytmp4doc' || command == 'ytvdoc') { // mp4doc video
 }
 
 handler.command = ['ytmp3', 'yta', 'ytmp4', 'ytv', 'ytmp3doc', 'ytadoc', 'ytmp4doc', 'ytvdoc'];
-export default handler;
+export default handler;*/

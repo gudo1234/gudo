@@ -482,6 +482,7 @@ await m.reply(`${e} ʟᴀ ᴏᴘᴄɪᴏɴ ${type} ᴘᴀʀᴀ ${isAll ? 'ᴇs�
 handler.help = ['en', 'dis'].map(v => v + 'able <option>')
 handler.tags = ['nable']
 handler.command = /^((tru|fals)e|(turn)?[01])$/i
+handler.rowner = true;
 export default handler;
 
 const more = String.fromCharCode(8206)

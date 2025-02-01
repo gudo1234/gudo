@@ -38,7 +38,7 @@ rows: [{ header: `🎉 BIENVENIDA ${m.isGroup ? chat.welcome ? '✅' : '❌' : `
 { header: `✅ LECTURA AUTOMÁTICA ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}`, title: "", id: `${usedPrefix + command} autoread`, description: `Dejar los mensajes o chats como Leídos.\n` }, 
 { header: `🌐 MODO PÚBLICO ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}`, title: "", id: `${usedPrefix + command} public`, description: `Habilitar función para que todos puedan usar LoliBot.\n` }]
 });
-let textoo = `*\`『 PARA EL OWNER』\`"
+let textoo = `*\`『 PARA EL OWNER』\`*
 
 🔰 ANTI PRIVADO ${m.isGroup ? chat.antilink ? '✅' : '❌' : `⚠️`}
 > Bloquea a las personas que usen el bot en privado.
@@ -64,7 +64,10 @@ ${usedPrefix + command} autoread
 > Habilitar función para que todos puedan usar el bot.
 ${usedPrefix + command} public
 
-> ${wm}`        
+🔆 ${usedPrefix}setppbot *reply(img)*
+> Cambia la foto de perfil del bot
+
+> ${wm}`
 let isEnable = /true|enable|(turn)?on|1/i.test(command)
 let type = (args[0] || '').toLowerCase()
 let isAll = false, isUser = false
@@ -472,17 +475,9 @@ global.opts['swonly'] = isEnable
 break
 default:
 if (!/[01]/.test(command)) return await m.reply(textoo) 
-//conn.sendList(m.chat, texto, wm, `AJUSTES`, null, listSections, m)
 throw false
 }
-await m.reply(`🗂️ ʟᴀ ᴏᴘᴄɪᴏɴ ${type} ᴘᴀʀᴀ ${isAll ? 'ᴇsᴛᴇ ʙᴏᴛ' : isUser ? '' : 'ᴇsᴛᴇ ᴄʜᴀᴛ'} ғᴜᴇ ${isEnable ? 'ᴀᴄᴛɪᴠᴀᴅᴏ' : 'ᴅᴇsᴀᴄᴛɪᴠᴀᴅᴏ'} `) 
-/*conn.sendButton(m.chat, `╭┄〔 *${wm}* 〕┄⊱
-┆🗂️ ᴏᴘᴄɪᴏɴ: ${type} 
-┆——————«•»——————
-┆🎚️ ᴇsᴛᴀᴅᴏ: ${isEnable ? 'ᴀᴄᴛɪᴠᴀᴅᴏ' : 'ᴅᴇsᴀᴄᴛɪᴠᴀᴅᴏ'}
-┆——————«•»——————
-┆📣 ᴘᴀʀᴀ: ${isAll ? 'ᴇsᴛᴇ ʙᴏᴛ' : isUser ? '' : 'ᴇsᴛᴇ ᴄʜᴀᴛ'} 
-╰━━━⊰ 𓃠 ${vs} ⊱━━━━დ`, wm, null, [[`${isEnable ? `Desactivar` : `Activar`}`, `${isEnable ? `.off ${type}` : `.on ${type}`}`]], null, null, m)*/
+await m.reply(`${e} ʟᴀ ᴏᴘᴄɪᴏɴ ${type} ᴘᴀʀᴀ ${isAll ? 'ᴇsᴛᴇ ʙᴏᴛ' : isUser ? '' : 'ᴇsᴛᴇ ᴄʜᴀᴛ'} ғᴜᴇ ${isEnable ? 'ᴀᴄᴛɪᴠᴀᴅᴏ' : 'ᴅᴇsᴀᴄᴛɪᴠᴀᴅᴏ'} `)
 }; 
 handler.help = ['en', 'dis'].map(v => v + 'able <option>')
 handler.tags = ['nable']

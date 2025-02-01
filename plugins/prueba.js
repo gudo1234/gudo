@@ -10,8 +10,6 @@ let rpt = "🌠¡Recuerda descansar bien esta noche!🌙😴\n\nToque aquí💥"
       if (nktm > 6) rpt = "☀️¡Buenos días!🌻\n\nToque aquí💥"
       if (nktm >= 11) rpt = "🌇¡Buenas tardes!🍁\n\nToque aquí💥"
       if (nktm >= 18) rpt = "🌠¡Buenas noches!🌙\n\nToque aquí💥"
-let name = await conn.getName(m.sender)
-
 let delirius = await axios.get(`https://delirius-apiofc.vercel.app/tools/country?text=${PhoneNumber('+' + m.sender.replace('@s.whatsapp.net', '')).getNumber('international')}`)
   let paisdata = delirius.data.result
   let mundo = paisdata ? `${paisdata.name} ${paisdata.emoji}` : 'Desconocido'
@@ -20,13 +18,11 @@ let delirius = await axios.get(`https://delirius-apiofc.vercel.app/tools/country
 m.react('🚦')
 let or = ['evento', 'anuncio', 'boton', 'botons'];
   let media = or[Math.floor(Math.random() * 4)]
-let tx = `°∧,,,∧
-(  ̳• · • ̳)
-/    づ♡ *_вιєиνєиι∂σ α ℓσѕ ¢σмαи∂σѕ_*\n> ⭐Hola *${name}*\n╭──┄┄─◌──┄┄ 🍋‍🟩 ̥˚◌\n*🥀Buenos días🌅tardes🌇noches🌆*\n╰── ── •◌• ── ─ 🔖‧₊˚`
-let txt = `${e} *Prefijo* (#.!/)
+let tx = `${e} _вιєиνєиι∂σ α ℓσѕ ¢σмαи∂σѕ *${m.pushName}*_\n╭──┄┄─◌──┄┄ 🍋‍🟩 ̥˚◌\n*🥀Buenos días🌅tardes🌇noches🌆*\n╰── ── •◌• ── ─ 🔖‧₊˚`
+let txt = `🕹️ *Prefijo* (#.!/)
 •🪪 INFO-USUARIO.li
 ╭───╯
-*🚩]▸Nombre:* ${name}
+*🚩]▸Nombre:* ${m.pushName}
 🌎 *Pais:* ${mundo}
 (${getDevice(m.key.id)})
 *🗓]▸Fecha:* ${moment.tz('America/Bogota').format('DD/MM/YY')}

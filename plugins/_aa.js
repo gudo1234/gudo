@@ -11,7 +11,7 @@ let name = await conn.getName(who)
 
   await sendContactArray(conn, m.chat, [
      ['hola', `👑 Propietario`, `${author}`, canal, nn, `Honduras`, 'xd', bio],
-['50488723207', `Es Un Bot`, `${packname}`, `📵 No Hacer Spam`, correo, 'Honduras', wm, 'jaja']
+['50488723207', `Es Un Bot`, 'puta', `📵 No Hacer Spam`, 'man🙂', 'Honduras', wm, 'jaja']
 ], m)
   }
 

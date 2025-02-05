@@ -17,7 +17,7 @@ let name = await conn.getName(who)
 
 handler.help = ["creador","owner"]
 handler.tags = ["info"]
-handler.command = ['.put']
+handler.command = ['put']
 export default handler
 
 async function sendContactArray(conn, jid, data, quoted, options) {

@@ -2,7 +2,7 @@ import PhoneNumber from 'awesome-phonenumber'
 
 let handler = async (m, { conn, usedPrefix, text, args, command }) => {
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
-let pp = await conn.profilePictureUrl(who).catch(_ => 'https://qu.ax/csvrl.jpg')
+let pp = await conn.profilePictureUrl(who).catch(_ => 'https://telegra.ph/file/24fa902ead26340f3df2c.png')
 let biografia = await conn.fetchStatus('50492280729' +'@s.whatsapp.net').catch(_ => 'Sin Biografía')
 let biografiaBot = await conn.fetchStatus(`${conn.user.jid.split('@')[0]}` +'@s.whatsapp.net').catch(_ => 'Sin Biografía')
 let bio = biografia.status?.toString() || 'Sin Biografía'
@@ -10,14 +10,14 @@ let biobot = biografiaBot.status?.toString() || 'Sin Biografía'
 let name = await conn.getName(who)
 
   await sendContactArray(conn, m.chat, [
-     [biografia, `👑 Propietario`, `${author}`, canal, nn, `Honduras`, 'xd', bio],
-[`${conn.user.jid.split('@')[0]}`, `Es Un Bot`, 'puta', `📵 No Hacer Spam`, `man`, 'Honduras', wm, `si`]
+     [`${nomorown}`, `👑 Propietario`, `ᯓ᮫݃͜ᮨ🍁ܾ݉ᢥ౽꯭ⲉυ꯭᥉′🦦ꪃꒉܻᵃₚͬ៰⍳`, `super`, `izumilitee@gmail.com`, `Honduras`, canal, bio],
+[`${conn.user.jid.split('@')[0]}`, `Es Una Bot 🍟`, `${packname}`, `📵 No Hacer Spam`, correo, `Hondu`, md, biobot]
 ], m)
-  }
+  } 
 
 handler.help = ["creador","owner"]
 handler.tags = ["info"]
-handler.command = ['put']
+handler.command = ['owner','creador']
 export default handler
 
 async function sendContactArray(conn, jid, data, quoted, options) {
@@ -57,4 +57,4 @@ END:VCARD`.trim()
             quoted,
             ...options
         })
-}
+        }

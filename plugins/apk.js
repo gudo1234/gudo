@@ -20,7 +20,7 @@ await conn.sendMessage(m.chat, {document: {url: data5.dllink}, mimetype: 'applic
 } catch {
 
 conn.sendMessage(m.chat, {
-    //image: imagen4,
+    image: img.getRandom(),
     caption: `${e} Ocurrió un errro temporal, toque el botón reintentar...`,
     footer: wm,
     buttons: [

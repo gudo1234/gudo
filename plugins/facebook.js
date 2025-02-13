@@ -25,7 +25,8 @@ const handler = async (m, { text, conn, args, usedPrefix, command }) => {
   }
 
   if (!data) {
-    return conn.reply(m.chat, `${e} No se encontró una resolución adecuada.`, m);
+    conn.sendButton(m.chat, `${e} Ocurrió un error temporal, toque el botón reintentar...`, wm, null, [['Reintentar', `.fb2 ${text}`]], null, null, m)
+    //return conn.reply(m.chat, `${e} No se encontró una resolución adecuada.`, m);
   }
 
   let video = data.url;
@@ -33,7 +34,8 @@ const handler = async (m, { text, conn, args, usedPrefix, command }) => {
 conn.sendMessage(m.chat, { text: global.espere + `*${m.pushName}*`, contextInfo: { externalAdReply: {title: `${wm}`, body: `${await conn.getName(m.chat)}`, thumbnailUrl: img.getRandom(), thumbnail: img.getRandom(), showAdAttribution: true, sourceUrl: canal}}} , { quoted: fkontak })
     await conn.sendMessage(m.chat, { video: { url: video }, caption: null, fileName: 'fb.mp4', mimetype: 'video/mp4' }, { quoted: m });
   } catch (error) {
-    return conn.reply(m.chat, `${e} Error al enviar el video.`, m);
+conn.sendButton(m.chat, `${e} Ocurrió un error temporal, toque el botón reintentar...`, wm, null, [['Reintentar', `.fb2 ${text}`]], null, null, m)
+    //return conn.reply(m.chat, `${e} Error al enviar el video.`, m);
   }
 };
 

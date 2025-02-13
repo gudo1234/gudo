@@ -18,31 +18,7 @@ if (data5.size.includes('GB') || data5.size.replace(' MB', '') > 999) {
 return await conn.reply(m.chat, `${e} *El archivo es demaciado pesado.*`, m)}
 await conn.sendMessage(m.chat, {document: {url: data5.dllink}, mimetype: 'application/vnd.android.package-archive', fileName: data5.name + '.apk', caption: null}, {quoted: m})
 } catch {
-
-conn.sendMessage(m.chat, {
-    image: img.getRandom(),
-    caption: `${e} Ocurrió un errro temporal, toque el botón reintentar...`,
-    footer: wm,
-    buttons: [
-      {
-        buttonId: `.apk2 ${text}`,
-        buttonText: {
-          displayText: "Reintentar",
-        },
-        type: 1,
-      }/*,
-      {
-        buttonId: ".consejo",
-        buttonText: {
-          displayText: "Dime algo",
-        },
-        type: 1,
-      }*/,
-    ],
-    viewOnce: true,
-    headerType: 4,
-    mentions: [m.sender],
-  }, { quoted: m});
+conn.sendButton(m.chat, `${e} Ocurrió un error temporal, toque el botón reintentar...`, wm, m, [['Reintentar', `.apk2 ${text}`]], null, null, m)
   
 //return conn.reply(m.chat, '✖️ *Ocurrió un fallo*', m, rcanal )}}
 

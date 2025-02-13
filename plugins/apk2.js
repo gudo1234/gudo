@@ -16,7 +16,7 @@ let handler = async (m, { conn, args, usedPrefix, command, isOwner }) => {
     
 Su aplicación se enviará en un momento...`;
 
-    await conn.sendFile(m.chat, icon, name + '.jpg', texto, m);
+    await conn.sendFile(m.chat, icon, name + '.jpg', texto, m, null, rcanal);
 
     await conn.sendMessage(m.chat, { 
         document: { url: URL }, 

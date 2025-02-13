@@ -49,7 +49,6 @@ let txt = `🕹️ *Prefijo* (#.!/)
 ╭───╯
 ☯️]▸ tiktokvid txt
 ☯️]▸ spotify
-☯️]▸ spotifydl
 ☯️]▸ audio
 ☯️]▸ video
 ☯️]▸ play

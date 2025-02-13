@@ -7,7 +7,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 
     try {
         let songInfo = await spotifyxv(text);
-        if (!songInfo.length) throw `✧ No se encontró la canción.`;
+        if (!songInfo.length) throw `${e} No se encontró la canción.`;
         let song = songInfo[0];
         const res = await fetch(`https://apis-starlights-team.koyeb.app/starlight/spotifydl?url=${song.url}`);
         const data = await res.json();

@@ -19,8 +19,8 @@ let vn2 = './media/bien.mp3'; //welcome entrada épica
   };
   let who = m.messageStubParameters[0] + '@s.whatsapp.net';
   let userName = user ? user.name : await conn.getName(who);
-  let or = ['stiker', 'audio', 'boton', 'texto', 'gifPlayback'];
-  let media = or[Math.floor(Math.random() * 5)]
+  let or = ['stiker', 'audio', 'boton', 'texto', 'gifPlayback', 'botons'];
+  let media = or[Math.floor(Math.random() * 6)]
   let stiker = await sticker(imagen7, false, global.packname, global.author) //despedida
   let stiker2 = await sticker(imagen8, false, global.packname, global.author) //welcome
   let a = `🎉 _Welcome_ *@${m.messageStubParameters[0].split`@`[0]}*`
@@ -177,6 +177,82 @@ await conn.sendMessage(m.chat, {
             }, i * 2000);
         }
     })};
+    
+if (media === 'botons') {
+conn.sendMessage(m.chat, {
+ image: img.getRandom(),
+ caption: a,
+footer: 'Izumi te da la bienvenida',
+ contextInfo: {
+mentionedJid: [m.messageStubParameters[0]],
+forwardingScore: 999,
+isForwarded: true,
+externalAdReply: {
+  showAdAttribution: true, 
+  title: `${await conn.getName(m.chat)}`,
+  body: wm,
+  thumbnailUrl: im,
+  thumbnail: im,
+  sourceUrl: canal,
+  mediaType: 1,
+  renderLargerThumbnail: false
+}}, 
+  buttons: [
+  {
+ buttonId: '.trizte',
+ buttonText: {
+displayText: '✨ Bienvenido/ a'
+ },
+ type: 1,
+  },
+  {
+ buttonId: '.consejo',
+ buttonText: {
+displayText: 'Dime algo'
+ },
+ type: 1,
+  },
+  {
+ type: 4,
+ nativeFlowInfo: {
+name: 'single_select',
+paramsJson: JSON.stringify({
+  title: 'Dont click',
+  sections: [
+ {
+title: `${e} Librería random`,
+highlight_label: '',
+rows: [
+  {
+ header: '',
+ title: '🥵 Menu Nsfw',
+ description: ``, 
+ id: '.menunsfw',
+  },
+  {
+ header: '',
+ title: 'Ping⚡',
+ description: ``, 
+ id: '.ping',
+  },
+  {
+ header: '',
+ title: '🖼️ Menu Random',
+ description: ``, 
+ id: '.menurandom',
+  },
+],
+ },
+  ],
+}),
+ },
+  },
+  ],
+  headerType: 1,
+  viewOnce: true
+})
+}
+ 
 }
 
 // bye 
@@ -324,5 +400,81 @@ await conn.sendMessage(m.chat, {
             }, i * 2000);
         }
     })};
+    
+if (media === 'botons') {
+conn.sendMessage(m.chat, {
+ image: img.getRandom(),
+ caption: b,
+footer: 'Esperemos que no vuelva -_-',
+ contextInfo: {
+mentionedJid: [m.messageStubParameters[0]],
+forwardingScore: 999,
+isForwarded: true,
+externalAdReply: {
+  showAdAttribution: true, 
+  title: `👋🏻ADIOS +${m.messageStubParameters[0].split`@`[0]}`,
+  body: wm,
+  thumbnailUrl: im,
+  thumbnail: im,
+  sourceUrl: canal,
+  mediaType: 1,
+  renderLargerThumbnail: false
+}}, 
+  buttons: [
+  {
+ buttonId: '.trizte',
+ buttonText: {
+displayText: 'Adios 🙂'
+ },
+ type: 1,
+  },
+  {
+ buttonId: '.consejo',
+ buttonText: {
+displayText: 'Dime algo'
+ },
+ type: 1,
+  },
+  {
+ type: 4,
+ nativeFlowInfo: {
+name: 'single_select',
+paramsJson: JSON.stringify({
+  title: 'Dont click',
+  sections: [
+ {
+title: `${e} Librería random`,
+highlight_label: '',
+rows: [
+  {
+ header: '',
+ title: '🥵 Menu Nsfw',
+ description: ``, 
+ id: '.menunsfw',
+  },
+  {
+ header: '',
+ title: 'Ping⚡',
+ description: ``, 
+ id: '.ping',
+  },
+  {
+ header: '',
+ title: '🖼️ Menu Random',
+ description: ``, 
+ id: '.menurandom',
+  },
+],
+ },
+  ],
+}),
+ },
+  },
+  ],
+  headerType: 1,
+  viewOnce: true
+})
+}
+ 
   }
 }

@@ -10,14 +10,16 @@ let rpt = "🌠¡Recuerda descansar bien esta noche!🌙😴\n\nToque aquí💥"
       if (nktm > 6) rpt = "☀️¡Buenos días!🌻\n\nToque aquí💥"
       if (nktm >= 11) rpt = "🌇¡Buenas tardes!🍁\n\nToque aquí💥"
       if (nktm >= 18) rpt = "🌠¡Buenas noches!🌙\n\nToque aquí💥"
+let pp = await conn.profilePictureUrl(m.messageStubParameters[0], 'image').catch(_ => 'https://qu.ax/casQP.jpg')
+  let im = await (await fetch(`${pp}`)).buffer()
 let delirius = await axios.get(`https://delirius-apiofc.vercel.app/tools/country?text=${PhoneNumber('+' + m.sender.replace('@s.whatsapp.net', '')).getNumber('international')}`)
   let paisdata = delirius.data.result
   let mundo = paisdata ? `${paisdata.name} ${paisdata.emoji}` : 'Desconocido'
 /*let api = await axios.get(`https://api.dorratz.com/v2/pais/${PhoneNumber('+' + m.sender.replace('@s.whatsapp.net', '')).getNumber('international')}`)
   m.reply(api.bandera)*/
 m.react('🚦')
-let or = ['evento', 'anuncio', 'boton', 'botons'];
-  let media = or[Math.floor(Math.random() * 4)]
+let or = ['evento', 'anuncio', 'boton', 'botons', 'bot'];
+  let media = or[Math.floor(Math.random() * 5)]
 let tx = `${e} _вιєиνєиι∂σ α ℓσѕ ¢σмαи∂σѕ *${m.pushName}*_\n╭──┄┄─◌──┄┄ 🍋‍🟩 ̥˚◌\n*🥀Buenos días🌅tardes🌇noches🌆*\n╰── ── •◌• ── ─ 🔖‧₊˚`
 let txt = `🕹️ *Prefijo* (#.!/)
 •🪪 INFO-USUARIO.li
@@ -49,6 +51,7 @@ let txt = `🕹️ *Prefijo* (#.!/)
 ╭───╯
 ☯️]▸ tiktokvid txt
 ☯️]▸ spotify
+☯️]▸ spotifydl
 ☯️]▸ audio
 ☯️]▸ video
 ☯️]▸ play
@@ -179,7 +182,7 @@ if (media === 'evento')
 conn.sendEvent(m.chat, `${rpt}`, `${txt}`, "99999999999999999999999999999999999999999999", true)
 
 if (media === 'anuncio')
-conn.sendMessage(m.chat, { text: `${tx}\n\n${txt}`, contextInfo: { externalAdReply: {title: `${wm}`, body: `${await conn.getName(m.chat)}`, thumbnailUrl: imagen4, thumbnail: img.getRandom(), showAdAttribution: true, sourceUrl: canal, mediaType: 1, renderLargerThumbnail: true}}} , { quoted: m })
+conn.sendMessage(m.chat, { text: `${tx}\n\n${txt}`, contextInfo: { externalAdReply: {title: `${wm}`, body: `${await conn.getName(m.chat)}`, thumbnailUrl: imagen4, thumbnail: imagen4.getRandom(), showAdAttribution: true, sourceUrl: canal, mediaType: 1, renderLargerThumbnail: true}}} , { quoted: m })
 
 if (media === 'boton')
 conn.sendMessage(m.chat, {
@@ -214,7 +217,82 @@ conn.sendButtonMessages(m.chat, [
 ], null, [
 ['🌐ᴄᴀɴᴀʟ', canal]],
 []
-]], fkontak)
+]], fkontak);
+
+if (media === 'bot')
+conn.sendMessage(m.chat, {
+ image: img.getRandom(),
+ caption: `${tx}\n\n${txt}`,
+footer: '𝗉𝗈𝗐𝖾𝗋𝖾𝖽 ⓒ 𝖨𝗓𝗎𝗆𝗂-𝖻𝗈𝗍 𝟤𝟢𝟤𝟢-𝟤𝟢𝟤5.',
+ contextInfo: {
+mentionedJid: [m.sender],
+forwardingScore: 999,
+isForwarded: true,
+externalAdReply: {
+  showAdAttribution: true, 
+  title: wm,
+  body: `${await conn.getName(m.chat)}`,
+  thumbnailUrl: im,
+  thumbnail: im,
+  sourceUrl: canal,
+  mediaType: 1,
+  renderLargerThumbnail: false
+}}, 
+  buttons: [
+  {
+ buttonId: '.owner',
+ buttonText: {
+displayText: `${e} ᴏᴡɴᴇʀ`
+ },
+ type: 1,
+  },
+  {
+ buttonId: '.trizte',
+ buttonText: {
+displayText: '🎉ᴛᴇsᴛ'
+ },
+ type: 1,
+  },
+  {
+ type: 4,
+ nativeFlowInfo: {
+name: 'single_select',
+paramsJson: JSON.stringify({
+  title: 'Dont click',
+  sections: [
+ {
+title: `${e} Librería random`,
+highlight_label: '',
+rows: [
+  {
+ header: '',
+ title: '🥵 Menu Nsfw',
+ description: ``, 
+ id: '.menunsfw',
+  },
+  {
+ header: '',
+ title: 'Ping⚡',
+ description: ``, 
+ id: '.ping',
+  },
+  {
+ header: '',
+ title: '🖼️ Menu Random',
+ description: ``, 
+ id: '.menurandom',
+  },
+],
+ },
+  ],
+}),
+ },
+  },
+  ],
+  headerType: 1,
+  viewOnce: true
+})
+
 }
 
 handler.command = ['menu', 'menú', 'memu', 'memú', 'help', 'comandos', 'ayuda', 'commands', 'commandos']

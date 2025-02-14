@@ -1,7 +1,7 @@
 let handler = async (m, { conn, args, usedPrefix, command }) => {
 
 conn.sendMessage(m.chat, {
- image: { url: 'https://files.catbox.moe/iejoer.jpg'},
+ image: img.getRandom(),
  caption: `${e} que pasa hermosa`,
 footer: wm,
  contextInfo: {

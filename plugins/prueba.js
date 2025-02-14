@@ -232,8 +232,8 @@ externalAdReply: {
   showAdAttribution: true, 
   title: wm,
   body: `${await conn.getName(m.chat)}`,
-  thumbnailUrl: im,
-  thumbnail: im,
+  thumbnailUrl: imagen4,
+  thumbnail: imagen4,
   sourceUrl: canal,
   mediaType: 1,
   renderLargerThumbnail: false

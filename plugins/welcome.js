@@ -201,7 +201,7 @@ externalAdReply: {
   {
  buttonId: '.trizte',
  buttonText: {
-displayText: '✨ Bienvenido/ a'
+displayText: '✨welcom'
  },
  type: 1,
   },

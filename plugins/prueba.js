@@ -217,7 +217,7 @@ conn.sendButtonMessages(m.chat, [
 ], null, [
 ['🌐ᴄᴀɴᴀʟ', canal]],
 []
-]], fkontak);
+]], fkontak)
 
 if (media === 'bot')
 conn.sendMessage(m.chat, {
@@ -296,5 +296,5 @@ rows: [
 }
 
 handler.command = ['menu', 'menú', 'memu', 'memú', 'help', 'comandos', 'ayuda', 'commands', 'commandos']
-handler.group = true;
+//handler.group = true;
 export default handler

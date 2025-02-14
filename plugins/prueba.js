@@ -180,7 +180,7 @@ if (media === 'evento')
 conn.sendEvent(m.chat, `${rpt}`, `${txt}`, "99999999999999999999999999999999999999999999", true)
 
 if (media === 'anuncio')
-conn.sendMessage(m.chat, { text: `${tx}\n\n${txt}`, contextInfo: { externalAdReply: {title: `${wm}`, body: `${await conn.getName(m.chat)}`, thumbnailUrl: img.getRandom(), thumbnail: img.getRandom(), showAdAttribution: true, sourceUrl: canal, mediaType: 1, renderLargerThumbnail: true}}} , { quoted: m })
+conn.sendMessage(m.chat, { text: `${tx}\n\n${txt}`, contextInfo: { externalAdReply: {title: `${wm}`, body: `${await conn.getName(m.chat)}`, thumbnailUrl: img.getRandom(), thumbnail: img.getRandom(), showAdAttribution: true, sourceUrl: canal}}} , { quoted: m})
 
 if (media === 'boton')
 conn.sendMessage(m.chat, {

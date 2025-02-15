@@ -15,6 +15,7 @@ let dataVid = await apiVid.json()
 
 
 let txt = `*_YOUTUBE 📀 PLAY_*
+
 *Titulo:* ${res[0].title}
 *Duracion:* ${res[0].timestamp}
 *Visitas:* ${res[0].views}

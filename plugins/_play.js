@@ -33,10 +33,10 @@ let RM = upsertedMessage.messages[0];
 if (!RM.message) return
 
 const UR = RM.message.conversation || RM.message.extendedTextMessage?.text
-m.react('🕒')
 let UC = RM.key.remoteJid
 
 if (RM.message.extendedTextMessage?.contextInfo?.stanzaId === SM.key.id) {
+m.react('🕒')
 if (UR === '1' || UR === 'Audio') {
   await conn.sendMessage(UC, { audio: { url: dataAud.result.downloadUrl }, mimetype: "audio/mpeg", caption: null }, { quoted: RM })
 } else if (UR === '2' || UR === 'Video') {

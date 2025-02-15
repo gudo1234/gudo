@@ -12,7 +12,7 @@ Contenido adaptado por:
 - elrebelde21 >> https://github.com/elrebelde21
 */
 
-const { useMultiFileAuthState, DisconnectReason, makeCacheableSignalKeyStore, fetchLatestBaileysVersion} = (await import(global.baileys));
+/*const { useMultiFileAuthState, DisconnectReason, makeCacheableSignalKeyStore, fetchLatestBaileysVersion} = (await import(global.baileys));
 import qrcode from "qrcode"
 import NodeCache from "node-cache"
 import fs from "fs"
@@ -316,4 +316,4 @@ return new Promise(resolve => setTimeout(resolve, ms));}
 async function joinChannels(conn) {
 for (const channelId of Object.values(global.id_canal)) {
 await conn.newsletterFollow(channelId).catch(() => {})
-}}
+}}*/

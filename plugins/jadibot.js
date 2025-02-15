@@ -1,3 +1,11 @@
+let handler = async (m, { conn, args, usedPrefix, command }) => {
+
+  conn.reply(m.chat, `${e} Comando en mantenimiento`, m,rcanal)
+}
+
+handler.command = ['jadibot', 'jadibot --code', 'code', 'serbot --code', 'serbot']
+handler.group = true
+export default handler
 /*⚠ PROHIBIDO EDITAR ⚠
 
 El codigo de este archivo esta totalmente hecho por:

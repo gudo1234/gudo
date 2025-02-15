@@ -105,7 +105,7 @@ if (UR === '1' || UR === 'Audio') {
 } else if (UR === '3' || UR === 'Doc audio') {
 await conn.sendMessage(m.chat, { document: { url: dataAud.result.downloadUrl }, fileName: `${res[0].title}`, mimetype: "audio/mpeg" }, { quoted: m });
 } else if (UR === '4' || UR === 'Doc video') {
-await conn.sendMessage(m.chat, { document: { url: dataVid.result.downloadUrl }, fileName: `${res[0].title}`, mimetype: 'video/mp4', caption: `${e} Aqui tienes ฅ^•ﻌ•^ฅ.`, thumbnail: thumb }, { quoted: m });
+await conn.sendMessage(m.chat, { document: { url: dataVid.result.downloadUrl }, fileName: `${res[0].title}`, mimetype: 'video/mp4', }, { quoted: m });
 } else {
 await conn.sendMessage(UC, { text: "Opcion invalida, responde con 1 *(audio)* o 2 *(video)*." }, { quoted: RM })
 }}})

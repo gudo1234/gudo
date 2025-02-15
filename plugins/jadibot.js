@@ -1,26 +1,4 @@
-let handler = async (m, { conn, args, usedPrefix, command }) => {
-
-  conn.reply(m.chat, `${e} Comando en mantenimiento`, m)
-}
-
-handler.command = ['jadibot', 'jadibot --code', 'code', 'serbot --code', 'serbot']
-handler.group = true
-export default handler
-/*⚠ PROHIBIDO EDITAR ⚠
-
-El codigo de este archivo esta totalmente hecho por:
-- Aiden_NotLogic >> https://github.com/ferhacks
-
-El codigo de este archivo fue parchado por:
-- ReyEndymion >> https://github.com/ReyEndymion
-- BrunoSobrino >> https://github.com/BrunoSobrino
-
-Contenido adaptado por:
-- GataNina-Li >> https://github.com/GataNina-Li
-- elrebelde21 >> https://github.com/elrebelde21
-*/
-
-/*const { useMultiFileAuthState, DisconnectReason, makeCacheableSignalKeyStore, fetchLatestBaileysVersion} = (await import(global.baileys));
+const { useMultiFileAuthState, DisconnectReason, makeCacheableSignalKeyStore, fetchLatestBaileysVersion} = (await import(global.baileys));
 import qrcode from "qrcode"
 import NodeCache from "node-cache"
 import fs from "fs"
@@ -70,7 +48,8 @@ gataJBOptions.usedPrefix = usedPrefix
 gataJBOptions.command = command
 gataJadiBot(gataJBOptions)
 } 
-handler.command = ['jadibot', 'serbot', 'rentbot']
+//handler.command = ['jadibot', 'serbot', 'rentbot']
+handler.command = ['jad']
 export default handler 
 
 export async function gataJadiBot(options) {
@@ -324,4 +303,4 @@ return new Promise(resolve => setTimeout(resolve, ms));}
 async function joinChannels(conn) {
 for (const channelId of Object.values(global.id_canal)) {
 await conn.newsletterFollow(channelId).catch(() => {})
-}}*/
+}}

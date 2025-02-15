@@ -15,12 +15,12 @@ let dataVid = await apiVid.json()
 
 
 let txt = `*_YOUTUBE 📀 PLAY_*
-
+_____________
 *Titulo:* ${res[0].title}
 *Duracion:* ${res[0].timestamp}
 *Visitas:* ${res[0].views}
 *Subido:* ${res[0].ago}
-
+_____________
 > Responde a este mensaje con el número asignado a cada formato:
 
 1 : Audio
@@ -37,7 +37,6 @@ const UR = RM.message.conversation || RM.message.extendedTextMessage?.text
 let UC = RM.key.remoteJid
 
 if (RM.message.extendedTextMessage?.contextInfo?.stanzaId === SM.key.id) {
-m.react('🕒')
 if (UR === '1' || UR === 'Audio') {
   await conn.sendMessage(UC, { audio: { url: dataAud.result.downloadUrl }, mimetype: "audio/mpeg", caption: null }, { quoted: RM })
 } else if (UR === '2' || UR === 'Video') {
@@ -55,7 +54,7 @@ console.error(error)
 }}
 
 handler.command = ['play', 'play2']
-//handler.group = true;
+handler.group = true;
 
 export default handler
 

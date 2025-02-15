@@ -38,10 +38,10 @@ let UC = RM.key.remoteJid
 if (RM.message.extendedTextMessage?.contextInfo?.stanzaId === SM.key.id) {
 if (UR === '1' || UR === 'Audio') {
   await conn.sendMessage(UC, { audio: { url: dataAud.result.downloadUrl }, mimetype: "audio/mpeg", caption: null }, { quoted: RM })
- m.react('🕒')
+ m.react('✅')
 } else if (UR === '2' || UR === 'Video') {
   await conn.sendMessage(m.chat, { video: { url: dataVid.result.downloadUrl }, caption: ``, mimetype: 'video/mp4', fileName: `${res[0].title}` + `.mp4`}, {quoted: m })
- m.react('🕒')
+ m.react('✅')
 } else if (UR === '3' || UR === 'Doc audio') {
   await conn.sendMessage(m.chat, { document: { url: dataAud.result.downloadUrl }, fileName: `${res[0].title}`, mimetype: "audio/mpeg" }, { quoted: m });
 } else if (UR === '4' || UR === 'Doc video') {

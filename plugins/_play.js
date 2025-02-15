@@ -12,8 +12,7 @@ let apiAud = await fetch(`https://api.agungny.my.id/api/youtube-audio?url=${'htt
 let dataAud = await apiAud.json()
 let apiVid = await fetch(`https://api.agungny.my.id/api/youtube-video?url=${'https://youtu.be/' + res[0].videoId}`)
 let dataVid = await apiVid.json()
-
-m.react('✅')
+  
 let txt = `*_YOUTUBE 📀 PLAY_*
 _____________
 *Titulo:* ${res[0].title}
@@ -34,7 +33,6 @@ let RM = upsertedMessage.messages[0];
 if (!RM.message) return
 
 const UR = RM.message.conversation || RM.message.extendedTextMessage?.text
-m.react('🕒')
 let UC = RM.key.remoteJid
 
 if (RM.message.extendedTextMessage?.contextInfo?.stanzaId === SM.key.id) {

@@ -33,6 +33,7 @@ let RM = upsertedMessage.messages[0];
 if (!RM.message) return
 
 const UR = RM.message.conversation || RM.message.extendedTextMessage?.text
+m.react('🕒')
 let UC = RM.key.remoteJid
 
 if (RM.message.extendedTextMessage?.contextInfo?.stanzaId === SM.key.id) {

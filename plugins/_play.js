@@ -12,7 +12,7 @@ let apiAud = await fetch(`https://api.agungny.my.id/api/youtube-audio?url=${'htt
 let dataAud = await apiAud.json()
 let apiVid = await fetch(`https://api.agungny.my.id/api/youtube-video?url=${'https://youtu.be/' + res[0].videoId}`)
 let dataVid = await apiVid.json()
-  
+m.react('🕒')
 let txt = `*_YOUTUBE 📀 PLAY_*
 _____________
 *Titulo:* ${res[0].title}

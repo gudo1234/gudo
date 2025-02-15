@@ -55,7 +55,7 @@ console.error(error)
 }}
 
 handler.command = ['play', 'play2']
-handler.group = true;
+//handler.group = true;
 
 export default handler
 

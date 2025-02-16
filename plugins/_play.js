@@ -26,8 +26,7 @@ _____________
 2 : Video
 3 : Doc audio
 4 : Doc video`
-m.reply(`${txt}`)
-//let SM = await conn.sendFile(m.chat, res[0].thumbnail, 'HasumiBotFreeCodes.jpg', txt, m, null, rcanal)
+let SM = await conn.sendFile(m.chat, res[0].thumbnail, 'HasumiBotFreeCodes.jpg', txt, m, null, rcanal)
 conn.ev.on("messages.upsert", async (upsertedMessage) => {
 let RM = upsertedMessage.messages[0];
 if (!RM.message) return

@@ -60,7 +60,7 @@ paramsJson: JSON.stringify({
   title: 'Clip Download',
   sections: [
  {
-title: `Descarga ${m.pushNsme}`,
+title: `Descarga ${m.pushName}`,
 highlight_label: '',
 rows: [
   {

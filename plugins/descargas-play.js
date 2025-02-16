@@ -49,9 +49,9 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
       const response = await fetch(`https://api.alyachan.dev/api/yta?url=${videoInfo.url}&apikey=Gata-Dios`)
       const json = await response.json()
       await conn.sendMessage(m.chat, { audio: { url: json.data.url }, mimetype: 'audio/mpeg', fileName: json.data.filename }, { quoted: m })
-    m.react(done)
+    m.react('✅')
     } else if (command === 'ytv' || command === 'ytmp4') {
-    m.react(rwait)
+    m.react('🕒')
       //let video = await (await fetch(`https://api.botcahx.eu.org/api/download/get-YoutubeResult?url=${videoInfo.url}&type=video&xky=sxadCfpz`)).buffer()
     const response = await fetch(`https://api.alyachan.dev/api/ytv?url=${videoInfo.url}&apikey=Gata-Dios`)
     const json = await response.json()

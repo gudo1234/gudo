@@ -7,7 +7,7 @@ await m.react('⌛')
 conn.sendMessage(m.chat, { text: global.espere + `*${m.pushName}*`, contextInfo: { externalAdReply: {title: `${wm}`, body: `${await conn.getName(m.chat)}`, thumbnailUrl: img.getRandom(), thumbnail: img.getRandom(), showAdAttribution: true, sourceUrl: canal}}} , { quoted: fkontak })
 if (command == 'pla' || command == 'yta') { // yta audio
     try {
-    await conn.sendMessage(m.chat, { audio: { url: `https://api.agungny.my.id/api/youtube-audio?url=${'https://youtu.be/' + res[0].videoId}` }, mimetype: 'audio/mpeg'}, { quoted: m });
+    await conn.sendMessage(m.chat, { audio: { url: `https://api.agungny.my.id/api/youtube-audio?url=${text}` }, mimetype: 'audio/mpeg'}, { quoted: m });
 }catch(e) {
         await m.react('❌')
         m.reply(`Error, ${e}`)

@@ -19,7 +19,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
 *Link:* ${videoInfo.url}`;
 
     if (command === 'play' || command === 'play2' || command === 'playvid') {
-  await conn.sendMessage(m.chat, {
+  /*await conn.sendMessage(m.chat, {
       image: { url: videoInfo.thumbnail },
       caption: body,
       footer: wm,
@@ -39,7 +39,73 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
       ],
       viewOnce: true,
       headerType: 4,
-    }, { quoted: m });
+    }, { quoted: m });*/
+    conn.sendMessage(m.chat, {
+ image: { url: videoInfo.thumbnail },
+ caption: doby,
+footer: 'Seleccione el Documento en Clip download',
+ contextInfo: {
+mentionedJid: [m.sender],
+forwardingScore: 999,
+isForwarded: true,
+externalAdReply: {
+  showAdAttribution: true, 
+  title: `Descargas📀Play`,
+  body: "like your pussycat",
+  thumbnailUrl: img.getRandom(),
+  thumbnail: img.getRandom(),
+  sourceUrl: canal,
+  mediaType: 1,
+  renderLargerThumbnail: false
+}}, 
+  buttons: [
+  {
+ buttonId: `.ytmp3 ${videoInfo.url}`,
+ buttonText: {
+displayText: 'Audio'
+ },
+ type: 1,
+  },
+  {
+ buttonId: `.ytmp4 ${videoInfo.url}`,
+ buttonText: {
+displayText: 'Video'
+ },
+ type: 1,
+  },
+  {
+ type: 4,
+ nativeFlowInfo: {
+name: 'single_select',
+paramsJson: JSON.stringify({
+  title: 'Clip Download',
+  sections: [
+ {
+title: `Descarga ${m.pushNsme}`,
+highlight_label: '',
+rows: [
+  {
+ header: '',
+ title: 'Doc Audio',
+ description: ``, 
+ id: '.s',
+  },
+  {
+ header: '',
+ title: 'Doc Video',
+ description: ``, 
+ id: '.s',
+  },
+],
+ },
+  ],
+}),
+ },
+  },
+  ],
+  headerType: 1,
+  viewOnce: true
+})
     m.react('🕒');
     
     } else if (command === 'yta' || command === 'ytmp3') {

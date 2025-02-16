@@ -83,7 +83,7 @@ rows: [
   },
   ],
   headerType: 1,
-  viewOnce: true
+  viewOnce: true,
 }, { quoted: m })
     m.react('🕒');
     

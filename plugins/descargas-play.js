@@ -19,27 +19,6 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
 *Link:* ${videoInfo.url}`;
 
     if (command === 'play' || command === 'play2' || command === 'playvid') {
-  /*await conn.sendMessage(m.chat, {
-      image: { url: videoInfo.thumbnail },
-      caption: body,
-      footer: wm,
-      buttons: [
-        {
-          buttonId: `.ytmp3 ${videoInfo.url}`,
-          buttonText: {
-            displayText: 'Audio',
-          },
-        },
-        {
-          buttonId: `.ytmp4 ${videoInfo.url}`,
-          buttonText: {
-            displayText: 'Video',
-          },
-        },
-      ],
-      viewOnce: true,
-      headerType: 4,
-    }, { quoted: m });*/
     conn.sendMessage(m.chat, {
  image: { url: videoInfo.thumbnail },
  caption: body,
@@ -105,7 +84,7 @@ rows: [
   ],
   headerType: 1,
   viewOnce: true
-})
+}, { quoted: m })
     m.react('🕒');
     
     } else if (command === 'yta' || command === 'ytmp3') {

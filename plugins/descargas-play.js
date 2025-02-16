@@ -21,25 +21,25 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     if (command === 'play' || command === 'play2' || command === 'playvid') {
   await conn.sendMessage(m.chat, {
       image: { url: videoInfo.thumbnail },
-      caption: body,
-      footer: dev,
+      caption: 'Descargas📀Play',
+      footer: wm,
       buttons: [
         {
           buttonId: `.ytmp3 ${videoInfo.url}`,
           buttonText: {
-            displayText: 'ᯓᡣ𐭩 ᥲᥙძі᥆',
+            displayText: 'Audio',
           },
         },
         {
           buttonId: `.ytmp4 ${videoInfo.url}`,
           buttonText: {
-            displayText: 'ᯓᡣ𐭩 ᥎іძᥱ᥆',
+            displayText: 'Video',
           },
         },
       ],
       viewOnce: true,
       headerType: 4,
-    }, { quoted: fkontak });
+    }, { quoted: m });
     m.react('🕒');
     
     } else if (command === 'yta' || command === 'ytmp3') {

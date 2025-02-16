@@ -1,7 +1,7 @@
 import yts from 'yt-search';
 
 const handler = async (m, { conn, text, usedPrefix, command }) => {
-  if (!text) throw `${e} Por favor ingresa la música que deseás descargar.`;
+  if (!text) throw `${e} Ingrese una petición para realizar una descarga en Youtube.`;
 
   const isVideo = /vid|2|mp4|v$/.test(command);
   const search = await yts(text);
@@ -67,13 +67,13 @@ rows: [
  header: '',
  title: 'Doc Audio',
  description: ``, 
- id: '.s',
+ id: `.play3 ${videoInfo.url}`,
   },
   {
  header: '',
  title: 'Doc Video',
  description: ``, 
- id: '.s',
+ id: `.play4 ${videoInfo.url}`,
   },
 ],
  },
@@ -93,18 +93,33 @@ rows: [
       const json = await response.json()
       await conn.sendMessage(m.chat, { audio: { url: json.data.url }, mimetype: 'audio/mpeg', fileName: json.data.filename }, { quoted: m })
     m.react('✅')
+    
+ } else if (command === 'ytadoc' || command === 'ytmp3doc' || command === 'play3') {
+    m.react('🕒')
+      const response = await fetch(`https://api.alyachan.dev/api/yta?url=${videoInfo.url}&apikey=Gata-Dios`)
+      const json = await response.json()
+      await conn.sendMessage(m.chat, { document: { url: json.data.url }, mimetype: 'audio/mpeg',fileName: `${videoInfo.title}`,caption: `${m.pushName}` }, { quoted: m });
+    m.react('✅')
+    
     } else if (command === 'ytv' || command === 'ytmp4') {
     m.react('🕒')
     const response = await fetch(`https://api.alyachan.dev/api/ytv?url=${videoInfo.url}&apikey=Gata-Dios`)
     const json = await response.json()
     await conn.sendMessage(m.chat, { video: { url: json.data.url }, mimetype: 'video/mp4', fileName: json.data.filename }, { quoted: m })
     m.react('✅')
+    
+    } else if (command === 'ytvdoc' || command === 'ytmp4doc' || command === 'play4') {
+    m.react('🕒')
+    const response = await fetch(`https://api.alyachan.dev/api/ytv?url=${videoInfo.url}&apikey=Gata-Dios`)
+    const json = await response.json()
+    await conn.sendMessage(m.chat, { document: { url: json.data.url }, mimetype: 'video/mp4' ,fileName: `${videoInfo.title}`,caption: `${m.pushName}` }, { quoted: m });
+    m.react('✅')
     } else {
       throw "Comando no reconocido.";
     }
 };
 
-handler.command = ['play', 'playvid', 'ytv', 'ytmp4', 'yta', 'play2', 'ytmp3'];
+handler.command = ['play', 'playvid', 'ytv', 'ytmp4', 'yta', 'ytadoc', 'play2', 'ytmp3', 'ytmp3doc', 'play3', 'ytvdoc', 'ytmp4doc', 'play4'];
 handler.group = true;
 
 export default handler;

@@ -42,7 +42,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     }, { quoted: m });*/
     conn.sendMessage(m.chat, {
  image: { url: videoInfo.thumbnail },
- caption: doby,
+ caption: body,
 footer: 'Seleccione el Documento en Clip download',
  contextInfo: {
 mentionedJid: [m.sender],

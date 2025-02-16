@@ -30,7 +30,7 @@ isForwarded: true,
 externalAdReply: {
   showAdAttribution: true, 
   title: `Descargas📀Play`,
-  body: "like your pussycat",
+  body: wm,
   thumbnailUrl: img.getRandom(),
   thumbnail: img.getRandom(),
   sourceUrl: canal,

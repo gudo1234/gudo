@@ -82,9 +82,10 @@ rows: [
  },
   },
   ],
-  headerType: 1,
-  viewOnce: true
-})
+  viewOnce: true,
+    headerType: 4,
+    mentions: [m.sender],
+  }, { quoted: m});
     m.react('🕒');
     
     } else if (command === 'yta' || command === 'ytmp3') {

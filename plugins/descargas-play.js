@@ -114,8 +114,8 @@ rows: [
     const json = await response.json()
     await conn.sendMessage(m.chat, { document: { url: json.data.url }, mimetype: 'video/mp4' ,fileName: `${videoInfo.title}`,caption: `${m.pushName}` }, { quoted: m });
     m.react('✅')
-    } catch {
-      return conn.reply(m.chat`Error`, m)
+    } else {
+      throw "Comando no reconocido.";
     }
 };
 

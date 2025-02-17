@@ -84,7 +84,6 @@ rows: [
   ],
   viewOnce: true,
     headerType: 4,
-    mentions: [m.sender],
   }, { quoted: m});
     m.react('🕒');
     

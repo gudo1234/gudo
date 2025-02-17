@@ -7,7 +7,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
   const search = await yts(text);
 
   if (!search.all || search.all.length === 0) {
-    throw "No se encontraron resultados para tu búsqueda.";
+    throw `${e} No se encontraron resultados para tu búsqueda.`;
   }
 
   const videoInfo = search.all[0];

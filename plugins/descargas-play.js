@@ -1,4 +1,4 @@
-import yts from 'yt-search';
+/*import yts from 'yt-search';
 
 const handler = async (m, { conn, text, usedPrefix, command }) => {
   if (!text) throw `${e} Ingrese una petición para realizar una descarga en Youtube.`;
@@ -125,10 +125,66 @@ handler.group = true;
 export default handler;
 
 const getVideoId = (url) => {
-  const regex = /(?:v=|\/)([0-9A-Za-z_-]{11}).*/;
-  const match = url.match(regex);
+  const regex = /(?:v=|\/)([0-9A-Za-z_-]{11}).*/
+ /* const match = url.match(regex);
   if (match) {
     return match[1];
   }
   throw new Error("Invalid YouTube URL");
-};
+};*/
+
+import axios from 'axios'
+
+let HS = async (m, { conn, text }) => {
+if (!text) return conn.reply(m.chat, `❀ Ingresa un link de YouTube`, m)
+  
+try {
+let api = await axios.get(`https://mahiru-shiina.vercel.app/download/ytmp3?url=${text}`)
+let json = api.data
+
+let { title, description, uploaded, duration, views, type, url, thumbnail, author, download } = json.data
+let { name, url: authorUrl } = author
+
+
+let HS = `- *Titulo:* ${title}
+- *Autor:* ${name} - ${authorUrl}
+- *Descripción:* ${description}
+- *Subido:* ${uploaded}
+- *Duración:* ${duration}
+- *Vistas:* ${views}`
+
+await conn.sendMessage(m.chat, { image: { url: thumbnail }, caption: HS }, { quoted: m })
+await conn.sendMessage(m.chat, { audio: { url: download }, mimetype: 'audio/mpeg' }, { quoted: m })
+
+//Para audio 
+if (command === 'play' || command === 'yta' || command === 'ytmp3') {
+await conn.sendMessage(m.chat, { audio: { url: download }, mimetype: 'audio/mpeg' }, { quoted: m })}
+m.react('✅')
+  
+//Para video
+if (command === 'play2' || command === 'ytv' || command === 'ytmp4' || command === 'playvid') {
+    await conn.sendMessage(m.chat, {
+      video: { url: download },
+      fileName: `${title}.mp4`,
+      mimetype: 'video/mp4',
+      caption: `${title}`
+    }, { quoted: m })}
+    m.react('✅')
+
+//Para DocVideo
+if (command === 'play4' || command === 'ytvdoc' || command === 'ytmp4doc') {
+await conn.sendMessage(m.chat, { document: { url: download }, mimetype: 'video/mp4' ,fileName: `${title}`,caption: `${m.pushName}` }, { quoted: m })};
+    m.react('✅')
+
+//Para DocAudio
+if (command === 'play3' || command === 'ytadoc' || command === 'ytmp3doc') {
+await conn.sendMessage(m.chat, { document: { url: download }, mimetype: 'audio/mpeg',fileName: `${title}`,caption: `${m.pushName}` }, { quoted: m })};
+    m.react('✅')
+    
+} catch (error) {
+console.error(error)
+m.reply(`Error`)
+}}
+
+HS.command = ['play', 'yta', 'ytmp3', 'play2', 'playvid', 'ytv', 'ytmp4', 'play4', 'ytvdoc', 'ytmp4doc', 'play3', 'ytadoc', 'ytmp3doc']
+export default HS

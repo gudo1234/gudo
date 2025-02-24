@@ -12,7 +12,7 @@ let HS = async (m, { conn, text }) => {
     let { type, size, duration } = api.data.info
 //Para audio 
 if (command === 'play' || command === 'yta' || command === 'ytmp3') {
-await conn.sendMessage(m.chat, { audio: { url: file_url }, mimetype: 'audio/mpeg', fileName: json.data.filename }, { quoted: m })
+await conn.sendMessage(m.chat, { audio: { url: file_url }, mimetype: 'audio/mpeg', fileName: json.data.filename }, { quoted: m })}
 m.react('✅')
 } catch (error) {
     console.error(error)

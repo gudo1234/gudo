@@ -122,11 +122,11 @@ rows: [
 handler.command = ['play', 'playvid', 'ytv', 'ytmp4', 'yta', 'ytadoc', 'play2', 'ytmp3', 'ytmp3doc', 'play3', 'ytvdoc', 'ytmp4doc', 'play4'];
 handler.group = true;
 
-export default handler;
+export default handler;*/
 
-const getVideoId = (url) => {
-  const regex = /(?:v=|\/)([0-9A-Za-z_-]{11}).*/;
-  const match = url.match(regex);
+/*const getVideoId = (url) => {
+  const regex = /(?:v=|\/)([0-9A-Za-z_-]{11}).*/;*/
+ /* const match = url.match(regex);
   if (match) {
     return match[1];
   }

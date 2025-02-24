@@ -38,7 +38,7 @@ await conn.sendMessage(m.chat, { document: { url: file_url }, mimetype: 'audio/m
     console.error(error)
     conn.reply(m.chat, "❀ Hubo un error al obtener el DocAudio, intenta nuevamente.", m)
   }
-}}
+}
 
 HS.command = ['play', 'yta', 'ytmp3', 'play2', 'playvid', 'ytv', 'ytmp4', 'play4', 'ytvdoc', 'ytmp4doc', 'play3', 'ytadoc', 'ytmp3doc']
 export default HS

@@ -12,12 +12,8 @@ let HS = async (m, { conn, text }) => {
     let { type, size, duration } = api.data.info
 //Para audio 
 if (command === 'play' || command === 'yta' || command === 'ytmp3') {
-await conn.sendMessage(m.chat, { audio: { url: file_url }, mimetype: 'audio/mpeg', fileName: json.data.filename }, { quoted: m })}
+await conn.sendMessage(m.chat, { audio: { url: file_url }, mimetype: 'audio/mpeg', fileName: json.data.filename }, { quoted: m })};
 m.react('✅')
-} catch (error) {
-    console.error(error)
-    conn.reply(m.chat, "❀ Hubo un error al obtener el audio, intenta nuevamente.", m)
-  }
   
 //Para video
 if (command === 'play2' || command === 'ytv' || command === 'ytmp4' || command === 'playvid') {
@@ -26,25 +22,17 @@ if (command === 'play2' || command === 'ytv' || command === 'ytmp4' || command =
       fileName: `${title}.mp4`,
       mimetype: 'video/mp4',
       caption: `🌿 Titulo: ${title}\n🌲 Duración: ${duration}\n🌴 Peso: ${size}\n🌾 Tipo: ${type}`
-    }, { quoted: m })
+    }, { quoted: m })}
     m.react('✅')
-  } catch (error) {
-    console.error(error)
-    conn.reply(m.chat, "❀ Hubo un error al obtener el video, intenta nuevamente.", m)
-  }
 
 //Para DocVideo
 if (command === 'play4' || command === 'ytvdoc' || command === 'ytmp4doc') {
-await conn.sendMessage(m.chat, { document: { url: file_url }, mimetype: 'video/mp4' ,fileName: `${title}`,caption: `${m.pushName}` }, { quoted: m });
+await conn.sendMessage(m.chat, { document: { url: file_url }, mimetype: 'video/mp4' ,fileName: `${title}`,caption: `${m.pushName}` }, { quoted: m })};
     m.react('✅')
-} catch (error) {
-    console.error(error)
-    conn.reply(m.chat, "❀ Hubo un error al obtener el DocVideo, intenta nuevamente.", m)
-  }
 
 //Para DocAudio
 if (command === 'play3' || command === 'ytadoc' || command === 'ytmp3doc') {
-await conn.sendMessage(m.chat, { document: { url: file_url }, mimetype: 'audio/mpeg',fileName: `${title}`,caption: `${m.pushName}` }, { quoted: m });
+await conn.sendMessage(m.chat, { document: { url: file_url }, mimetype: 'audio/mpeg',fileName: `${title}`,caption: `${m.pushName}` }, { quoted: m })};
     m.react('✅')
 } catch (error) {
     console.error(error)

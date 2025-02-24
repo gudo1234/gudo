@@ -133,6 +133,7 @@ const getVideoId = (url) => {
   throw new Error("Invalid YouTube URL");
 };*/
 
+// *𓍯𓂃𓏧♡ YTMP3*
 import axios from 'axios'
 
 let HS = async (m, { conn, text }) => {
@@ -155,36 +156,11 @@ let HS = `- *Titulo:* ${title}
 
 await conn.sendMessage(m.chat, { image: { url: thumbnail }, caption: HS }, { quoted: m })
 await conn.sendMessage(m.chat, { audio: { url: download }, mimetype: 'audio/mpeg' }, { quoted: m })
-
-//Para audio 
-if (command === 'play' || command === 'yta' || command === 'ytmp3') {
-await conn.sendMessage(m.chat, { audio: { url: download }, mimetype: 'audio/mpeg' }, { quoted: m })}
-m.react('✅')
-  
-//Para video
-if (command === 'play2' || command === 'ytv' || command === 'ytmp4' || command === 'playvid') {
-    await conn.sendMessage(m.chat, {
-      video: { url: download },
-      fileName: `${title}.mp4`,
-      mimetype: 'video/mp4',
-      caption: `${title}`
-    }, { quoted: m })}
-    m.react('✅')
-
-//Para DocVideo
-if (command === 'play4' || command === 'ytvdoc' || command === 'ytmp4doc') {
-await conn.sendMessage(m.chat, { document: { url: download }, mimetype: 'video/mp4' ,fileName: `${title}`,caption: `${m.pushName}` }, { quoted: m })};
-    m.react('✅')
-
-//Para DocAudio
-if (command === 'play3' || command === 'ytadoc' || command === 'ytmp3doc') {
-await conn.sendMessage(m.chat, { document: { url: download }, mimetype: 'audio/mpeg',fileName: `${title}`,caption: `${m.pushName}` }, { quoted: m })};
-    m.react('✅')
     
 } catch (error) {
 console.error(error)
-m.reply(`Error`)
 }}
 
-HS.command = ['play', 'yta', 'ytmp3', 'play2', 'playvid', 'ytv', 'ytmp4', 'play4', 'ytvdoc', 'ytmp4doc', 'play3', 'ytadoc', 'ytmp3doc']
+HS.command = ['ytmp3']
+
 export default HS

@@ -1,4 +1,4 @@
-/*import yts from 'yt-search';
+import yts from 'yt-search';
 
 const handler = async (m, { conn, text, usedPrefix, command }) => {
   if (!text) throw `${e} Ingrese una petición para realizar una descarga en Youtube.`;
@@ -125,15 +125,15 @@ handler.group = true;
 export default handler;
 
 const getVideoId = (url) => {
-  const regex = /(?:v=|\/)([0-9A-Za-z_-]{11}).*/
- /* const match = url.match(regex);
+  const regex = /(?:v=|\/)([0-9A-Za-z_-]{11}).*/;
+  const match = url.match(regex);
   if (match) {
     return match[1];
   }
   throw new Error("Invalid YouTube URL");
-};*/
+};
 
-// *𓍯𓂃𓏧♡ YTMP3*
+/*// *𓍯𓂃𓏧♡ YTMP3*
 import axios from 'axios'
 
 let HS = async (m, { conn, text }) => {
@@ -163,4 +163,4 @@ console.error(error)
 
 HS.command = ['ytmp3']
 
-export default HS
+export default HS*/

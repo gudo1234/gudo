@@ -4,7 +4,7 @@ let HS = async (m, { conn, text }) => {
   if (!text) return conn.reply(m.chat, `❀ Ingresa un link de YouTube`, m)
 
   let isUrl = isYouTubeUrl(text)
-  if (!isUrl) return conn.reply(m.chat, "❀ Ingresa una URL válida de YouTube.", m)
+  if (!isUrl) return conn.reply(m.chat, "❀ Ingresa una URL válida de YouTube..", m)
 
   try {
     let api = await (await fetch(`https://api.lyrax.net/api/dl/ytdl?url=${text}&apikey=0a2cc90e`)).json()

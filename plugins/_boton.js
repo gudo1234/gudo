@@ -13,6 +13,7 @@ externalAdReply: {
   title: `Holaa`,
   body: "like your pussycat",
   thumbnailUrl: 'https://cdn.arifzyn.site/f/sy6tjbzk.jpg',
+  thumbnail: img.getRandom(),
   sourceUrl: canal,
   mediaType: 1,
   renderLargerThumbnail: false

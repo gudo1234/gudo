@@ -105,13 +105,13 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
         await conn.sendMessage(m.chat, { audio: { url: result }, mimetype: "audio/mpeg" }, { quoted: m });
  
 // para docAudio📃
-if (command === 'play3' || command === 'ytadoc' || command === 'playdoc' || command === 'ytmp3doc') {
+} else if (command === 'play3' || command === 'ytadoc' || command === 'playdoc' || command === 'ytmp3doc') {
         const api = await ddownr.download(url, 'mp3');
         const result = api.downloadUrl;
         await conn.sendMessage(m.chat, { document: { url: result }, mimetype: "audio/mpeg", fileName: `audio.mp3`, caption: `${title}` }, { quoted: m });
  
 // para Docvideo🤨
-if (command === 'play4' || command === 'ytvdoc' || command === 'play2doc' || command === 'ytmp4doc') {
+} else if (command === 'play4' || command === 'ytvdoc' || command === 'play2doc' || command === 'ytmp4doc') {
         const api = await ddownr.download(url, 'mp3');
         const result = api.downloadUrl;
         await conn.sendMessage(m.chat, { document: { url: result }, mimetype: "video/mp4", fileName: `video.mp4`, caption: `${title}` }, { quoted: m });

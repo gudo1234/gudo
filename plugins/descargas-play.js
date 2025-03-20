@@ -8,7 +8,7 @@ const formatVideo = ['360', '480', '720', '1080', '1440', '4k'];
 const ddownr = {
   download: async (url, format) => {
     if (!formatAudio.includes(format) && !formatVideo.includes(format)) {
-      throw new Error('Formato no soportado, verifica la lista de formatos disponibles.');
+      throw new Error(`${e} Formato no soportado, verifica la lista de formatos disponibles.`);
     }
 
     const config = {

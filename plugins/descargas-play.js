@@ -97,14 +97,27 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
         },
       },
     };
-
+m.react('🕒')
       await conn.reply(m.chat, infoMessage, m, JT);
-
+// para audio🗿
     if (command === 'play' || command === 'yta' || command === 'mp3') {
         const api = await ddownr.download(url, 'mp3');
         const result = api.downloadUrl;
         await conn.sendMessage(m.chat, { audio: { url: result }, mimetype: "audio/mpeg" }, { quoted: m });
+ 
+// para docAudio📃
+if (command === 'play3' || command === 'ytadoc' || command === 'playdoc' || command === 'ytmp3doc') {
+        const api = await ddownr.download(url, 'mp3');
+        const result = api.downloadUrl;
+        await conn.sendMessage(m.chat, { document: { url: result }, mimetype: "audio/mpeg", fileName: `audio.mp3`, caption: `${title}` }, { quoted: m });
+ 
+// para Docvideo🤨
+if (command === 'play4' || command === 'ytvdoc' || command === 'play2doc' || command === 'ytmp4doc') {
+        const api = await ddownr.download(url, 'mp3');
+        const result = api.downloadUrl;
+        await conn.sendMessage(m.chat, { document: { url: result }, mimetype: "video/mp4", fileName: `video.mp4`, caption: `${title}` }, { quoted: m });
 
+// Para video🗿
     } else if (command === 'play2' || command === 'ytv' || command === 'mp4') {
       let sources = [
         `https://api.siputzx.my.id/api/d/ytmp4?url=${url}`,
@@ -147,7 +160,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
   }
 };
 
-handler.command = handler.help = ['play', 'play2', 'mp3', 'yta', 'mp4', 'ytv']; 
+handler.command = handler.help = ['play', 'play2', 'mp3', 'yta', 'mp4', 'ytv', 'play3', 'ytadoc', 'playdoc', 'ytmp3doc', 'play4', 'ytvdoc', 'play2doc', 'ytmp4doc]; 
 handler.tags = ['downloader'];
 
 export default handler;
@@ -158,4 +171,4 @@ function formatViews(views) {
   } else {
     return views.toString();
   }
-}
+    }

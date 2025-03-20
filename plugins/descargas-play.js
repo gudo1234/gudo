@@ -97,7 +97,6 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
         },
       },
     };
-m.react('🕒')
       await conn.reply(m.chat, infoMessage, m, JT);
 // para audio🗿
     if (command === 'play' || command === 'yta' || command === 'mp3') {

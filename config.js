@@ -8,7 +8,7 @@ import axios from 'axios'
 import moment from 'moment-timezone'
 //import flags from './flags.json'
 //---------[ Añada los numeros a ser Propietario/a ]---------
-global.owner = [['50492280729', 'ᯓ᮫݃͜ᮨ🍁ܾ݉ᢥ౽꯭ⲉυ꯭᥉′🦦ꪃꒉܻᵃₚͬ៰⍳', true]]
+global.owner = [['50492280729', 'ᯓ᮫݃͜ᮨ🍁ܾ݉ᢥ౽꯭ⲉυ꯭᥉′🦦ꪃꒉܻᵃₚͬ៰⍳', true, '524444444404', 'xd']]
 global.mods = [] 
 global.prems = [50492280729]
 

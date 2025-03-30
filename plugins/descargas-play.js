@@ -135,7 +135,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
           if (downloadUrl) {
             success = true;
             await conn.sendMessage(m.chat, {
-              document: { url: downloadUrl },
+              video: { url: downloadUrl },
               fileName: `${title}.mp4`,
               mimetype: 'video/mp4',
               caption: `✎﹏Aqui tienes tu video`,

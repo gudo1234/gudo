@@ -108,7 +108,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
 } else if (command === 'play3' || command === 'ytadoc' || command === 'playdoc' || command === 'ytmp3doc') {
         const api = await ddownr.download(url, 'mp3');
         const result = api.downloadUrl;
-        await conn.sendMessage(m.chat, { document: { url: result }, mimetype: "audio/mpeg", fileName: `audio.mp3`, caption: `${title}` }, { quoted: m });
+        await conn.sendMessage(m.chat, { document: { url: result }, mimetype: "audio/mpeg", fileName: `${title}`, caption: `${e} Aqui tienes tu audio` }, { quoted: m });
         
 // Para video🗿
     } else if (command === 'play2' || command === 'ytv' || command === 'mp4') {
@@ -132,7 +132,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
               video: { url: downloadUrl },
               fileName: `${title}.mp4`,
               mimetype: 'video/mp4',
-              caption: `✎﹏Aqui tienes tu video`,
+              caption: `${e} Aqui tienes tu video`,
               thumbnail: thumb
             }, { quoted: m });
             break;
@@ -166,7 +166,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
               document: { url: downloadUrl },
               fileName: `${title}.mp4`,
               mimetype: 'video/mp4',
-              caption: `✎﹏Aqui tienes tu video`,
+              caption: `${e} Aqui tienes tu docVideo`,
               thumbnail: thumb
             }, { quoted: m });
             break;

@@ -111,13 +111,13 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
         await conn.sendMessage(m.chat, { document: { url: result }, mimetype: "audio/mpeg", fileName: `audio.mp3`, caption: `${title}` }, { quoted: m });
  
 // para Docvideo🤨
-} else if (command === 'play4' || command === 'ytvdoc' || command === 'play2doc' || command === 'ytmp4doc') {
+} /*else if (command === 'play4' || command === 'ytvdoc' || command === 'play2doc' || command === 'ytmp4doc') {
         const api = await ddownr.download(url, 'mp3');
         const result = api.downloadUrl;
         await conn.sendMessage(m.chat, { document: { url: result }, mimetype: "video/mp4", fileName: `video.mp4`, caption: `${title}` }, { quoted: m });
 
 // Para video🗿
-    } else if (command === 'play2' || command === 'ytv' || command === 'mp4') {
+    }*/ else if (command === 'play2' || command === 'ytv' || command === 'mp4') {
       let sources = [
         `https://api.siputzx.my.id/api/d/ytmp4?url=${url}`,
         `https://api.zenkey.my.id/api/download/ytmp4?apikey=zenkey&url=${url}`,

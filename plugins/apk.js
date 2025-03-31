@@ -1,27 +1,19 @@
-import { search, download } from 'aptoide-scraper'
+import {search, download} from 'aptoide-scraper';
+const handler = async (m, {conn, usedPrefix: prefix, command, text}) => {
+ if (!text) throw `Este comando es solo para descargar aplicaciones gratuitas y de pago. Escribe de esta manera, por ejemplo: \n*.apk facebook lite*`;
+  try {    
+    const searchA = await search(text);
+    const data5 = await download(searchA[0].id);
+    let response = `📲 Descargar aplicaciones 📲\n\n📌 *Nombre de la aplicación:* ${data5.name}\n📦 *Paquete:* ${data5.package}\n🕒 *Número de actualización:* ${data5.lastup}\n📥 *Tamaño de la aplicación:* ${data5.size}\n\n¿Por qué no sigues al dueño del bot, querido? 😄 amin le gusta que usen sus bots, así que síguelo en sus redes/ninstagram.com/amin1_tech1igsh=YzljYTk1ODg3Zg==‎‏`
+    await conn.sendMessage(m.chat, {image: {url: data5.icon}, caption: response}, {quoted: m});
+ if (data5.size.includes('GB') || data5.size.replace(' MB', '') > 999) {
+      return await conn.sendMessage(m.chat, {text: '*[ 😁 ]El archivo es demasiado grande, por lo que no se enviará.'}, {quoted: m});
+    }
+    await conn.sendMessage(m.chat, {document: {url: data5.dllink}, mimetype: 'application/vnd.android.package-archive', fileName: data5.name + '.apk', caption: null}, {quoted: m});
+  } catch {
+    throw `${e} *Error, no se encontraron resultados para tu búsqueda.*`;
+  }    
+};
+handler.command = ["apk","aplicación"] 
 
-var handler = async (m, {conn, usedPrefix, command, text}) => {
-if (!text) return conn.reply(m.chat, `${e} *Ingrese el nombre de la apk para descargarlo.*`, m)
-try {
-await m.react('🕒')
-conn.sendMessage(m.chat, { text: global.espere + `*${m.pushName}*`, contextInfo: { externalAdReply: {title: `${wm}`, body: `${await conn.getName(m.chat)}`, thumbnailUrl: img.getRandom(), thumbnail: img.getRandom(), showAdAttribution: true, sourceUrl: canal}}} , { quoted: fkontak })
-let searchA = await search(text)
-let data5 = await download(searchA[0].id)
-let txt = `*乂  APTOIDE - DESCARGAS* 乂\n\n`
-txt += `💥 *Nombre* : ${data5.name}\n`
-txt += `🗃 *Package* : ${data5.package}\n`
-txt += `🪴 *Update* : ${data5.lastup}\n`
-txt += `⚖ *Peso* :  ${data5.size}`
-await conn.sendFile(m.chat, data5.icon, 'thumbnail.jpg', txt, m, null, rcanal)
-await m.react('✅')  
-if (data5.size.includes('GB') || data5.size.replace(' MB', '') > 999) {
-return await conn.reply(m.chat, `${e} *El archivo es demaciado pesado.*`, m)}
-await conn.sendMessage(m.chat, {document: {url: data5.dllink}, mimetype: 'application/vnd.android.package-archive', fileName: data5.name + '.apk', caption: null}, {quoted: m})
-} catch {
-conn.sendButton(m.chat, `${e} Ocurrió un error temporal, toque el botón reintentar...`, wm, null, [['Reintentar', `.apk2 ${text}`]], null, null, m)
-  
-//return conn.reply(m.chat, '✖️ *Ocurrió un fallo*', m, rcanal )}}
-
-handler.command = ['apk', 'modapk', 'aptoide']
-handler.group = true;
 export default handler;

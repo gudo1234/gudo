@@ -24,5 +24,4 @@ conn.sendButton(m.chat, `${e} Ocurrió un error temporal, toque el botón reinte
 
 handler.command = ['apk', 'modapk', 'aptoide']
 handler.group = true;
-
-export default handler
+export default handler;

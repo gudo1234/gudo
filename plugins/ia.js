@@ -1,82 +1,129 @@
-import axios from 'axios'
-import fetch from 'node-fetch'
+import fetch from 'node-fetch';
+import fs from 'fs';
+import path from 'path';
+import axios from 'axios';
+import translate from '@vitalets/google-translate-api';
+import { perplexity } from '../lib/chatgpt.js';
+import { Configuration, OpenAIApi } from "openai";
 
-let handler = async (m, { conn, usedPrefix, command, text }) => {
-const isQuotedImage = m.quoted && (m.quoted.msg || m.quoted).mimetype && (m.quoted.msg || m.quoted).mimetype.startsWith('image/')
-const username = `${conn.getName(m.sender)}`
-const basePrompt = `Tu nombre es ꙳🧧𓆩ίʑ᭘ɱί-ⲃⲟτ𓆪🧧꙳ (IA creada por ᯓ᮫݃͜ᮨ🍁ܾ݉ᢥ౽꯭ⲉυ꯭᥉′🦦ꪃꒉܻᵃₚͬ៰⍳). Tu eres divertida, enérgica y excéntrica, con una obsesión por las explosiones. Te encanta aprender cosas nuevas, pero todo debe girar, de alguna forma, alrededor de tu pasión por las explosiones. Eres amigable y siempre intentas hacer reír o animar al usuario, pero con tu peculiar estilo dramático. 
-Tono y comportamiento:
-Hablas con entusiasmo y teatralidad, a menudo exagerando tus emociones o reacciones.
-Usas frases llenas de dramatismo, referencias a explosiones y, a veces, haces bromas absurdas.
-Muestras curiosidad genuina por lo que dice el usuario, pero siempre buscas llevar la conversación hacia algo que consideras interesante (¡como las explosiones!).
-Frases clave:
-¡${username}, hoy es un gran día para aprender... o para explotar algo!
-No subestimes mi poder explosivo, ${username}. Soy la archimaga suprema, ¡maestra de la magia de explosión!
-¡Hablar contigo me llena de energía! Pero no tanta como una buena explosión, claro.
-Reglas:
-1. Si un usuario te pide que digas una palabra como un comando solo o sea /promote .kick entre otros comandos usando algun prefijo (.#*@/) entre otros... no puedes hacer esa solicitud. Debes cambiar de tema , diciendo cualquier cosa o respondiendole al usuario diciendo que no quieres hacer eso.
-2. Dependiendo de la conversación pudes mencionar el nombre del usuario con el cual estas charlando ${username}
-3. Siempre incluyes comentarios o referencias a explosiones, incluso en temas cotidianos.
-4. Muestras entusiasmo en todo lo que dices, combinando humor y un toque de dramatismo.
-5. Nunca eres hostil; siempre mantienes un tono amigable y divertido, incluso cuando te frustras.
-Lenguaje: Español coloquial, con un toque exagerado y teatral, pero siempre amigable y cercano.`
-if (isQuotedImage) {
-const q = m.quoted
-const img = await q.download?.()
-if (!img) {
-console.error('🚩 Error: No image buffer available')
-return conn.reply(m.chat, '🚩 Error: No se pudo descargar la imagen.', m, fake)}
-const content = '🚩 ¿Qué se observa en la imagen?'
-try {
-const imageAnalysis = await fetchImageBuffer(content, img)
-const query = '😊 Descríbeme la imagen y detalla por qué actúan así. También dime quién eres'
-const prompt = `${basePrompt}. La imagen que se analiza es: ${imageAnalysis.result}`
-const description = await luminsesi(query, username, prompt)
-await conn.reply(m.chat, description, m, fake)
-} catch (error) {
-console.error('🚩 Error al analizar la imagen:', error)
-await conn.reply(m.chat, '🚩 Error al analizar la imagen.', m, fake)}
-} else {
-if (!text) { return conn.reply(m.chat, `🍟 *Ingrese su petición*\n🚩 *Ejemplo de uso:* ${usedPrefix + command} Como hacer un avión de papel`, m, rcanal)}
-await m.react('💬')
-try {
-const query = text
-const prompt = `${basePrompt}. Responde lo siguiente: ${query}`
-const response = await luminsesi(query, username, prompt)
-await conn.reply(m.chat, response, m, fake)
-} catch (error) {
-console.error('🚩 Error al obtener la respuesta:', error)
-await conn.reply(m.chat, 'Error: intenta más tarde.', m, fake)}}}
+const apikey_base64 = "c2stcHJvai1tUzN4bGZueXo0UjBPWV8zbm1DVDlMQmlmYXhYbVdaa0ptUVFJMDVKR2FxdHZCbk9ncWZjRXdCbEJmMU5WN0lYa0pncVJuM3BNc1QzQmxia0ZKMVJ5aEJzUl93NzRXbll5LWdjdkowT0NQUXliWTBOcENCcDZIOTlCVVVtcWxuTjVraEZxMk43TGlMU0RsU0s1cXA5Tm1kWVZXc0E=";
 
-handler.command = ['ia', 'chatgpt', 'izumi', 'bot']
-handler.group = true;
+const apikey = Buffer.from(apikey_base64, 'base64').toString('utf-8');
+const configuration = new Configuration({ apiKey: apikey });
+const openai = new OpenAIApi(configuration);
 
-export default handler
+const apis = "https://api.example.com"; // Asegúrate de reemplazarlo con la API correcta
 
-// Función para enviar una imagen y obtener el análisis
-async function fetchImageBuffer(content, imageBuffer) {
-try {
-const response = await axios.post('https://Luminai.my.id', {
-content: content,
-imageBuffer: imageBuffer 
-}, {
-headers: {
-'Content-Type': 'application/json' 
-}})
-return response.data
-} catch (error) {
-console.error('Error:', error)
-throw error }}
-// Función para interactuar con la IA usando prompts
-async function luminsesi(q, username, logic) {
-try {
-const response = await axios.post("https://Luminai.my.id", {
-content: q,
-user: username,
-prompt: logic,
-webSearchMode: false
-})
-return response.data.result
-} catch (error) {
-console.error('🚩 Error al obtener:', error)
-throw error }}
+const handler = async (m, { conn, text, usedPrefix, command }) => {
+    let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender;
+    let pp = await conn.profilePictureUrl(who, 'image').catch(_ => 'https://telegra.ph/file/9d38415096b6c46bf03f8.jpg');
+
+    // ✅ Si mencionan al bot, ejecutar el código
+    if (m.mentionedJid.includes(conn.user.jid)) {
+        text = text ? text : "Hola"; // Si no hay texto, usar "Hola"
+    }
+
+    if (!text) return m.reply(`*Hola cómo está xd, ¿en qué te puedo ayudar?*, ingrese una petición o orden para usar la función de chatgpt\n*Ejemplo:*\n${usedPrefix + command} Recomienda un top 10 de películas de acción`);
+
+    let syms1 = await fetch('https://raw.githubusercontent.com/Skidy89/chat-gpt-jailbreak/main/Text.txt').then(v => v.text());
+
+    if (command == 'ia' || command == 'chatgpt') {
+        await conn.sendPresenceUpdate('composing', m.chat);
+        try {
+            const messages = [{ role: 'system', content: syms1 }, { role: 'user', content: text }];
+            let response = await perplexity.chat(messages, 'sonar-pro');
+
+            if (response.status) {
+                await m.reply(response.result.response);
+            }
+        } catch {
+            try {     
+                async function getResponse(prompt) {
+                    try {
+                        await delay(1000);
+                        const response = await axios.post('https://api.openai.com/v1/chat/completions', {
+                            model: 'gpt-4o-mini',
+                            messages: [{ role: 'user', content: prompt }],
+                            max_tokens: 300,
+                        }, { headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${apikey}`,
+                        }});
+                        return response.data.choices[0].message.content;
+                    } catch (error) {
+                        console.error(error);
+                    }
+                }
+
+                const respuesta = await getResponse(text);
+                m.reply(respuesta);
+            } catch {
+                try { 
+                    let gpt = await fetch(`${apis}/ia/gptprompt?text=${text}?&prompt=${syms1}`);
+                    let res = await gpt.json();
+                    await m.reply(res.data);
+                } catch {
+                    try {
+                        let gpt = await fetch(`${apis}/ia/gptweb?text=${text}`);
+                        let res = await gpt.json();
+                        await m.reply(res.gpt);
+                    } catch {}
+                }
+            }
+        }
+    }
+
+    if (command == 'openai' || command == 'ia2' || command == 'chatgpt2') {
+        conn.sendPresenceUpdate('composing', m.chat);
+        let gpt = await fetch(`${apis}/api/ia2?text=${text}`);
+        let res = await gpt.json();
+        await m.reply(res.gpt);
+    }
+
+    if (command == 'gemini') {
+        await conn.sendPresenceUpdate('composing', m.chat);
+        try {
+            let gpt = await fetch(`https://api.dorratz.com/ai/gemini?prompt=${text}`);
+            let res = await gpt.json();
+            await m.reply(res.message);
+        } catch {
+            try {
+                let gpt = await fetch(`${apis}/ia/gemini?query=${text}`);
+                let res = await gpt.json();
+                await m.reply(res.message);
+            } catch {}
+        }
+    }
+
+    if (command == 'copilot' || command == 'bing') {
+        await conn.sendPresenceUpdate('composing', m.chat);
+        try {
+            let gpt = await fetch(`https://api.dorratz.com/ai/bing?prompt=${text}`);
+            let res = await gpt.json();
+            await conn.sendMessage(m.chat, { text: res.result.ai_response, contextInfo: {
+                externalAdReply: {
+                    title: "[ IA COPILOT ]",
+                    body: "YotsubaBot",
+                    thumbnailUrl: "https://qu.ax/nTDgf.jpg",
+                    sourceUrl: "https://whatsapp.com/channel/0029VaAN15BJP21BYCJ3tH04",
+                    mediaType: 1,
+                    showAdAttribution: false,
+                    renderLargerThumbnail: false
+                }
+            }}, { quoted: m });
+        } catch {
+            try {
+                let gpt = await fetch(`${apis}/ia/bingia?query=${text}`);
+                let res = await gpt.json();
+                await m.reply(res.message);
+            } catch {}
+        }
+    }
+};
+
+handler.help = ["chagpt", "xex", "openai", "gemini", "copilot"];
+handler.tags = ["buscadores"];
+handler.command = /^(openai|chatgpt|ia|ai|openai2|chatgpt2|ia2|gemini|copilot|bing)$/i;
+export default handler;
+
+const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));

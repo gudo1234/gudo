@@ -19,7 +19,8 @@ conn.sendMessage(m.chat, { text: global.espere + `*${m.pushName}*`, contextInfo:
           txt += `> ${wm}`
 
       await conn.sendFile(m.chat, dl_url, `thumbnail.mp4`, txt, m, null, rcanal)
-      await m.react('✅')
+      await conn.sendFile(m.chat, dl_url, `thumbnail.mp4`, null, m, null, rcanal)
+    await m.react('✅')
 
   } catch {
     await m.react('✖️')

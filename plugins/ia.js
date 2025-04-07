@@ -1,129 +1,74 @@
-import fetch from 'node-fetch';
-import fs from 'fs';
-import path from 'path';
-import axios from 'axios';
-import translate from '@vitalets/google-translate-api';
-import { perplexity } from '../lib/chatgpt.js';
-import { Configuration, OpenAIApi } from "openai";
+import axios from 'axios'
+import fetch from 'node-fetch'
 
-const apikey_base64 = "c2stcHJvai1tUzN4bGZueXo0UjBPWV8zbm1DVDlMQmlmYXhYbVdaa0ptUVFJMDVKR2FxdHZCbk9ncWZjRXdCbEJmMU5WN0lYa0pncVJuM3BNc1QzQmxia0ZKMVJ5aEJzUl93NzRXbll5LWdjdkowT0NQUXliWTBOcENCcDZIOTlCVVVtcWxuTjVraEZxMk43TGlMU0RsU0s1cXA5Tm1kWVZXc0E=";
+let handler = async (m, { conn, usedPrefix, command, text }) => {
+const isQuotedImage = m.quoted && (m.quoted.msg || m.quoted).mimetype && (m.quoted.msg || m.quoted).mimetype.startsWith('image/')
+const username = `${conn.getName(m.sender)}`
+const basePrompt = `Tu nombre es ${wm} y parece haber sido creado por ${author}. Tú usas el idioma Español. Llamarás a las personas por su nombre ${username}, te gusta hacer bromas a la gente y odias estar sentada sin hacer nada. Lo más importante es que debes ser amigable con la persona con la que estás hablando. ${username}`
+if (isQuotedImage) {
+const q = m.quoted
+const img = await q.download?.()
+if (!img) {
+console.error('🔥Error: No image buffer available')
+return conn.reply(m.chat, '❤️‍🔥 Error: No se pudo descargar la imagen.', m, fake)}
+const content = '¿Qué se observa en la imagen?'
+try {
+const imageAnalysis = await fetchImageBuffer(content, img)
+const query = '❤️‍🔥Descríbeme la imagen y detalla por qué actúan así. También dime quién eres'
+const prompt = `${basePrompt}. La imagen que se analiza es: ${imageAnalysis.result}`
+const description = await luminsesi(query, username, prompt)
+await conn.reply(m.chat, description, m, fake)
+} catch (error) {
+console.error('🔥 Error al analizar la imagen:', error)
+await conn.reply(m.chat, '🦋 Error al analizar la imagen.', m, fake)}
+} else {
+if (!text) { return conn.reply(m.chat, `${e} *Ejemplo:* ${usedPrefix + command} que es un bot`, m, rcanal)}
+await m.react('💬')
+try {
+const query = text
+const prompt = `${basePrompt}. Responde lo siguiente: ${query}`
+const response = await luminsesi(query, username, prompt)
 
-const apikey = Buffer.from(apikey_base64, 'base64').toString('utf-8');
-const configuration = new Configuration({ apiKey: apikey });
-const openai = new OpenAIApi(configuration);
+await conn.reply(m.chat, response, m, fake)
+} catch (error) {
+console.error('Error al obtener la respuesta:', error)
+await conn.reply(m.chat, 'Error: intenta más tarde.', m, fake)}}}
 
-const apis = "https://api.example.com"; // Asegúrate de reemplazarlo con la API correcta
+handler.help = ['chatgpt <texto>', 'ia <texto>']
+handler.tags = ['ai']
+//handler.group = true;
+handler.register = false
 
-const handler = async (m, { conn, text, usedPrefix, command }) => {
-    let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender;
-    let pp = await conn.profilePictureUrl(who, 'image').catch(_ => 'https://telegra.ph/file/9d38415096b6c46bf03f8.jpg');
+// handler.estrellas = 1
+handler.command = ['ia', 'chatgpt', 'izumi']
 
-    // ✅ Si mencionan al bot, ejecutar el código
-    if (m.mentionedJid.includes(conn.user.jid)) {
-        text = text ? text : "Hola"; // Si no hay texto, usar "Hola"
-    }
+export default handler
 
-    if (!text) return m.reply(`*Hola cómo está xd, ¿en qué te puedo ayudar?*, ingrese una petición o orden para usar la función de chatgpt\n*Ejemplo:*\n${usedPrefix + command} Recomienda un top 10 de películas de acción`);
+// Función para enviar una imagen y obtener el análisis
+async function fetchImageBuffer(content, imageBuffer) {
+try {
+const response = await axios.post('https://Luminai.my.id', {
+content: content,
+imageBuffer: imageBuffer 
+}, {
+headers: {
+'Content-Type': 'application/json' 
+}})
+return response.data
+} catch (error) {
+console.error('Error:', error)
+throw error }}
+// Función para interactuar con la IA usando prompts
+async function luminsesi(q, username, logic) {
+try {
 
-    let syms1 = await fetch('https://raw.githubusercontent.com/Skidy89/chat-gpt-jailbreak/main/Text.txt').then(v => v.text());
-
-    if (command == 'ia' || command == 'chatgpt') {
-        await conn.sendPresenceUpdate('composing', m.chat);
-        try {
-            const messages = [{ role: 'system', content: syms1 }, { role: 'user', content: text }];
-            let response = await perplexity.chat(messages, 'sonar-pro');
-
-            if (response.status) {
-                await m.reply(response.result.response);
-            }
-        } catch {
-            try {     
-                async function getResponse(prompt) {
-                    try {
-                        await delay(1000);
-                        const response = await axios.post('https://api.openai.com/v1/chat/completions', {
-                            model: 'gpt-4o-mini',
-                            messages: [{ role: 'user', content: prompt }],
-                            max_tokens: 300,
-                        }, { headers: {
-                            'Content-Type': 'application/json',
-                            'Authorization': `Bearer ${apikey}`,
-                        }});
-                        return response.data.choices[0].message.content;
-                    } catch (error) {
-                        console.error(error);
-                    }
-                }
-
-                const respuesta = await getResponse(text);
-                m.reply(respuesta);
-            } catch {
-                try { 
-                    let gpt = await fetch(`${apis}/ia/gptprompt?text=${text}?&prompt=${syms1}`);
-                    let res = await gpt.json();
-                    await m.reply(res.data);
-                } catch {
-                    try {
-                        let gpt = await fetch(`${apis}/ia/gptweb?text=${text}`);
-                        let res = await gpt.json();
-                        await m.reply(res.gpt);
-                    } catch {}
-                }
-            }
-        }
-    }
-
-    if (command == 'openai' || command == 'ia2' || command == 'chatgpt2') {
-        conn.sendPresenceUpdate('composing', m.chat);
-        let gpt = await fetch(`${apis}/api/ia2?text=${text}`);
-        let res = await gpt.json();
-        await m.reply(res.gpt);
-    }
-
-    if (command == 'gemini') {
-        await conn.sendPresenceUpdate('composing', m.chat);
-        try {
-            let gpt = await fetch(`https://api.dorratz.com/ai/gemini?prompt=${text}`);
-            let res = await gpt.json();
-            await m.reply(res.message);
-        } catch {
-            try {
-                let gpt = await fetch(`${apis}/ia/gemini?query=${text}`);
-                let res = await gpt.json();
-                await m.reply(res.message);
-            } catch {}
-        }
-    }
-
-    if (command == 'copilot' || command == 'bing') {
-        await conn.sendPresenceUpdate('composing', m.chat);
-        try {
-            let gpt = await fetch(`https://api.dorratz.com/ai/bing?prompt=${text}`);
-            let res = await gpt.json();
-            await conn.sendMessage(m.chat, { text: res.result.ai_response, contextInfo: {
-                externalAdReply: {
-                    title: "[ IA COPILOT ]",
-                    body: "YotsubaBot",
-                    thumbnailUrl: "https://qu.ax/nTDgf.jpg",
-                    sourceUrl: "https://whatsapp.com/channel/0029VaAN15BJP21BYCJ3tH04",
-                    mediaType: 1,
-                    showAdAttribution: false,
-                    renderLargerThumbnail: false
-                }
-            }}, { quoted: m });
-        } catch {
-            try {
-                let gpt = await fetch(`${apis}/ia/bingia?query=${text}`);
-                let res = await gpt.json();
-                await m.reply(res.message);
-            } catch {}
-        }
-    }
-};
-
-handler.help = ["chagpt", "xex", "openai", "gemini", "copilot"];
-handler.tags = ["buscadores"];
-handler.command = /^(openai|chatgpt|ia|ai|openai2|chatgpt2|ia2|gemini|copilot|bing)$/i;
-export default handler;
-
-const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+const response = await axios.post("https://Luminai.my.id", {
+content: q,
+user: username,
+prompt: logic,
+webSearchMode: false
+})
+return response.data.result
+} catch (error) {
+console.error('🚩 Error al obtener:', error)
+throw error }}

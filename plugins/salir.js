@@ -8,7 +8,7 @@ let MessageType =  (await import(global.baileys)).default
 let handler = async (m, { conn, text, command }) => {
 const fechahon = moment().tz('America/Tegucigalpa').format('DD/MM HH:mm')
 let id = text ? text : m.chat
-let txt = `${e} _Los recurson se an agotado para este grupo, comuniquese con mi propietario para reactivar._\n\n*Fecha de Salida:* ${fechahon}\n*ID*: ${await conn.getName(m.chat)}`
+let txt = `${e} _Los recursos se an agotado para este grupo, comuniquese con mi propietario para reactivar._\n\n*Fecha de Salida:* ${fechahon}\n*ID*: ${await conn.getName(m.chat)}`
 await conn.sendButtonMessages(m.chat, [
 [txt, '𝗉𝗈𝗐𝖾𝗋𝖾𝖽 ⓒ 𝖨𝗓𝗎𝗆𝗂-𝖻𝗈𝗍 𝟤𝟢𝟤𝟢-𝟤𝟢𝟤5.', img.getRandom(), [
 ['Atom', `atom`]

@@ -1,4 +1,4 @@
-export async function before(m) {
+/*export async function before(m) {
   if (!m.text || !global.prefix.test(m.text)) {
     return;
   }
@@ -27,4 +27,4 @@ export async function before(m) {
    const comando = m.text.trim().split(' ')[0];
 await conn.sendMessage(m.chat, { text: `${e} El comando *${comando}* no existe.\n> Para ver la lista de comandos usa: *${usedPrefix}menu*`, contextInfo: { externalAdReply: {title: `${wm}`, body: `${await conn.getName(m.chat)}`, thumbnailUrl: img.getRandom(), thumbnail: img.getRandom(), showAdAttribution: true, sourceUrl: canal}}} , { quoted: m })
   }
-}
+}*/

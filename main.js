@@ -472,14 +472,14 @@ conn.ev.off('creds.update', conn.credsUpdate);
 }
 
 async function setWelcomeMessage() {
-conn.welcome = `${await tr("Hola!!")} @user ${await tr("¿COMO ESTAS?")}😃\n\n『${await tr("Bienvenido A")} *@subject*』\n\n${await tr("Un gusto conocerte amig@")} 🤗\n\n_${await tr("Recuerda leer las reglas del grupo para no tener ningun problema")} 🧐_\n\n*${await tr("Solo disfrutar de este grupo y divertite")} 🥳*`
+/*conn.welcome = `${await tr("Hola!!")} @user ${await tr("¿COMO ESTAS?")}😃\n\n『${await tr("Bienvenido A")} *@subject*』\n\n${await tr("Un gusto conocerte amig@")} 🤗\n\n_${await tr("Recuerda leer las reglas del grupo para no tener ningun problema")} 🧐_\n\n*${await tr("Solo disfrutar de este grupo y divertite")} 🥳*`
 conn.bye = `${await tr("Bueno, se fue")} @user 👋\n\n${await tr("Que dios lo bendiga")} 😎`
 conn.spromote = 'Hey @user ya forma parte de staff 👑'
 conn.sdemote = 'jajaja @user ya no eres admins'
 conn.sDesc = 'La descripción ha sido cambiada a \n@desc'
 conn.sSubject = 'El nombre del grupo ha sido cambiado a \n@group'
 conn.sIcon = 'El icono del grupo ha sido cambiado'
-conn.sRevoke = 'El enlace del grupo ha sido cambiado a \n@revoke'
+conn.sRevoke = 'El enlace del grupo ha sido cambiado a \n@revoke'*/
 }
 
 setWelcomeMessage().catch(console.error);
@@ -725,6 +725,6 @@ return false
 }}
 
 async function joinChannels(conn) {
-for (const channelId of Object.values(global.ch)) {
+for (const channelId of Object.values(global.id_canal)) {
 await conn.newsletterFollow(channelId).catch(() => {})
 }}

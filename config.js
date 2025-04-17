@@ -19,6 +19,7 @@ global.confirmCode = ""
 
 //cambia a false Desactivar en "auto-reconexion" de sub-bots
 global.gataJadibts = true 
+global.tr = tr
 //---------[ APIS GLOBAL ]---------
 
 global.openai_key = 'sk-...OzYy' /* Consigue tu ApiKey en este enlace: https://platform.openai.com/account/api-keys */

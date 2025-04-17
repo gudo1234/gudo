@@ -6,6 +6,7 @@ import cheerio from 'cheerio'
 import fetch from 'node-fetch'
 import axios from 'axios' 
 import moment from 'moment-timezone'
+import { tr, translateText } from './lib/_checkLang.js';
 //import flags from './flags.json'
 //---------[ Añada los numeros a ser Propietario/a ]---------
 global.owner = [['50492280729', 'ᯓ᮫݃͜ᮨ🍁ܾ݉ᢥ౽꯭ⲉυ꯭᥉′🦦ꪃꒉܻᵃₚͬ៰⍳', true, '524444444404', 'xd']]
